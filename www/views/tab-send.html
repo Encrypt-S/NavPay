@@ -1,16 +1,31 @@
-<ion-view id="tab-send">
+<ion-view id="tab-send" show-tabs>
   <ion-nav-bar class="bar-royal">
     <ion-nav-title>{{'Send' | translate}}</ion-nav-title>
   </ion-nav-bar>
   <ion-content>
 
     <div ng-if="hasFunds">
-      <div class="item item-heading send-heading" translate>Recipient</div>
-      <div class="item item-icon-left item-icon-right input">
-        <i class="icon icon-svg left"><img src="img/icon-bitcoin-symbol.svg"></i>
-        <input type="text" placeholder="{{'Search or enter bitcoin address' | translate}}" ng-model="formData.search" ng-change="findContact(formData.search)" ng-model-onblur>
-        <i class="icon icon-svg qr" on-tap="openScanner()"><img src="img/scan-ico.svg"/></i>
+      <div class="send-header-wrapper card">
+        <div class="item item-heading send-heading"><span translate>Recipient</span></div>
+        <div class="item input search-wrapper" ng-class="{'focus': searchFocus}">
+          <i class="icon icon-svg abs-v-center"><img class="svg" src="img/icon-bitcoin-symbol.svg"></i>
+          <div class="item-icon-right">
+            <input type="text" class="search-input" id="tab-send-address" placeholder="{{'Search or enter Nav Coin address' | translate}}" ng-model="formData.search" ng-change="findContact(formData.search)" ng-model-onblur ng-focus="searchInFocus()" ng-blur="searchBlurred()">
+            <i class="icon icon-svg qr abs-v-center separator-left" on-tap="openScanner()"><img src="img/scan-ico.svg"></i>
+          </div>
+        </div>
+        <div class="send-private-toggle">
+          <ion-toggle ng-model="formData.privatePayment" toggle-class="toggle-balanced">
+            <span class="toggle-label" translate>Private Payment</span>
+          </ion-toggle>
+        </div>
+        <div class="send-next-button">
+          <button ng-disabled="nextDisabled" class="button button-standard button-primary" ng-class="{disable: nextDisabled}" ng-click="nextClicked(formData.search)">
+            <span class="button-label" translate>Next</span>
+          </button>
+        </div>
       </div>
+
     </div>
 
     <div ng-if="!checkingBalance && (!hasFunds || !hasWallets)">
@@ -22,15 +37,15 @@
           </i>
         </div>
         <div class="title" translate>
-          Start sending bitcoin
+          Start sending Nav Coin
         </div>
         <div class="subtitle">
-          <span ng-show="hasWallets" translate>To get started, buy bitcoin or share your address. You can receive bitcoin from any wallet or service.</span>
-          <span ng-show="!hasWallets" translate>To get started, you'll need to create a bitcoin wallet and get some bitcoin.</span>
+          <span ng-show="hasWallets" translate>To get started, buy Nav Coin or share your address. You can receive Nav Coin from any wallet or service.</span>
+          <span ng-show="!hasWallets" translate>To get started, you'll need to create a Nav Coin wallet and get some Nav Coin.</span>
           <div class="padding">
-            <button class="button button-standard button-primary" ng-click="buyBitcoin()" ng-show="hasWallets" translate>Buy Bitcoin</button>
-            <button class="button button-standard button-primary" ng-click="createWallet()" ng-show="!hasWallets" translate>Create bitcoin wallet</button>
-            <button class="button button-standard button-secondary" ui-sref="tabs.receive" ng-show="hasWallets" translate>Show bitcoin address</button>
+            <a class="button button-standard button-primary" ng-show="hasWallets" ng-click="openBuyLink()" translate>Buy Nav Coin</a>
+            <button class="button button-standard button-primary" ng-click="createWallet()" ng-show="!hasWallets" translate>Create Nav Coin wallet</button>
+            <button class="button button-standard button-secondary" ui-sref="tabs.receive" ng-show="hasWallets" translate>Show Nav Coin address</button>
           </div>
         </div>
       </div>

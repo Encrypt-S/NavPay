@@ -29,18 +29,18 @@ angular.module('copayApp.directives')
         };
         scope.sendPaymentToAddress = function(bitcoinAddress) {
           scope.showMenu = false;
-          $state.go('tabs.send').then(function() {
-            $timeout(function() {
-              $state.transitionTo('tabs.send.amount', {
-                toAddress: bitcoinAddress
-              });
-            }, 50);
+          $state.go('tabs.send', { address: bitcoinAddress }).then(function() {
+            // $timeout(function() {
+            //   $state.transitionTo('tabs.send.amount', {
+            //     toAddress: bitcoinAddress
+            //   });
+            // }, 50);
           });
         };
         scope.addToAddressBook = function(bitcoinAddress) {
           scope.showMenu = false;
           $timeout(function() {
-            $state.go('tabs.send').then(function() {
+            $state.go('tabs.send', { address: undefined }).then(function() {
               $timeout(function() {
                 $state.transitionTo('tabs.send.addressbook', {
                   addressbookEntry: bitcoinAddress

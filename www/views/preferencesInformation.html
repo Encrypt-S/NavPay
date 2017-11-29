@@ -1,4 +1,4 @@
-<ion-view class="settings">
+<ion-view class="settings" show-tabs>
   <ion-nav-bar class="bar-royal">
     <ion-nav-title>{{'Wallet Information' | translate}}</ion-nav-title>
     <ion-nav-back-button>
@@ -99,7 +99,7 @@
         <div class="item" ng-repeat="a in wallet.balanceByAddress" copy-to-clipboard="a.address">
           <span>{{a.address}}</span>
           <span class="item-note">
-            {{(a.amount/1e8).toFixed(8)}} BTC
+            {{(a.amount/1e8).toFixed(8)}} NAV
           </span>
         </div>
       </div>

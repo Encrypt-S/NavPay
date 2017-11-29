@@ -105,7 +105,7 @@
           background-clip: padding-box;
           background-size: 103%;
           &.green {
-            background: rgb(1, 209, 162);
+            background: $wallets-and-icons-color
           }
         }
       }
@@ -114,6 +114,9 @@
 }
 
 #address-book-view {
+  .has-click {
+    cursor: pointer;
+  }
   .bar.bar-royal {
     border: 0 transparent;
   }
@@ -145,7 +148,7 @@
       background-clip: padding-box;
       background-size: 103%;
       &.green {
-        background: rgb(1, 209, 162);
+        background: $wallets-and-icons-color;
       }
     }
   }

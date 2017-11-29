@@ -2,7 +2,7 @@
   <ion-nav-bar class="bar-royal">
     <ion-nav-back-button>
     </ion-nav-back-button>
-    <ion-nav-title>Buy bitcoin</ion-nav-title>
+    <ion-nav-title>Buy Nav Coin</ion-nav-title>
   </ion-nav-bar>
 
   <ion-content class="add-bottom-for-cta">
@@ -11,14 +11,14 @@
 
       <div class="item head">
         <div class="sending-label">
-          <img src="img/buy-bitcoin.svg" alt="buy bitcoin" width="35" class="item-img-buy">
+          <img src="img/buy-bitcoin.svg" alt="buy Nav Coin" width="35" class="item-img-buy">
           <span>Buying</span>
         </div>
         <div class="amount-label">
           <div class="amount">{{amountUnitStr}}</div>
           <div class="alternative" ng-if="buyPrice">
-            <span ng-show="isFiat">{{buyRequestInfo.amount.amount}} {{buyRequestInfo.amount.currency}}</span> 
-            @ ${{buyPrice.amount}} per BTC
+            <span ng-show="isFiat">{{buyRequestInfo.amount.amount}} {{buyRequestInfo.amount.currency}}</span>
+            @ ${{buyPrice.amount}} per NAV
           </div>
         </div>
       </div>
@@ -59,7 +59,7 @@
             {{fee.type}} fee
           </span>
           <span class="item-note">
-            {{fee.amount.amount}} {{fee.amount.currency}} 
+            {{fee.amount.amount}} {{fee.amount.currency}}
           </span>
         </div>
         <div class="item">
@@ -74,23 +74,17 @@
   </ion-content>
 
   <click-to-accept
-    ng-disabled="!selectedPaymentMethodId.value || !buyRequestInfo || !wallet"
     ng-click="buyConfirm()"
     ng-if="!isCordova && buyRequestInfo"
     click-send-status="sendStatus"
-    has-wallet-chosen="wallet"
-    insufficient-funds="!selectedPaymentMethodId.value"
-    no-matching-wallet="!buyRequestInfo">
+    is-disabled="!selectedPaymentMethodId.value || !buyRequestInfo || !wallet">
     Confirm purchase
   </click-to-accept>
   <slide-to-accept
-    ng-disabled="!selectedPaymentMethodId.value || !buyRequestInfo || !wallet"
     ng-if="isCordova && buyRequestInfo"
     slide-on-confirm="buyConfirm()"
     slide-send-status="sendStatus"
-    has-wallet-chosen="wallet"
-    insufficient-funds="!selectedPaymentMethodId.value"
-    no-matching-wallet="!buyRequestInfo">
+    is-disabled="!selectedPaymentMethodId.value || !buyRequestInfo || !wallet">
     Slide to buy
   </slide-to-accept>
   <slide-to-accept-success
@@ -99,7 +93,7 @@
     slide-success-hide-on-confirm="true">
     <span>Bought</span>
     <div class="m10 size-14">
-      Bitcoin purchase completed. Coinbase has queued the transfer to your selected wallet
+      Nav Coin purchase completed. Coinbase has queued the transfer to your selected wallet
     </div>
   </slide-to-accept-success>
 

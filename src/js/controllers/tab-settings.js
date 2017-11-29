@@ -40,7 +40,7 @@ angular.module('copayApp.controllers').controller('tabSettingsController', funct
 
   $scope.openExternalLink = function() {
     var appName = appConfigService.name;
-    var url = appName == 'copay' ? 'https://github.com/bitpay/copay/issues' : 'https://help.bitpay.com/bitpay-app';
+    var url = 'https://github.com/NAVCoin/NavPay/issues';
     var optIn = true;
     var title = null;
     var message = gettextCatalog.getString('Help and support information is available at the website.');
@@ -51,6 +51,7 @@ angular.module('copayApp.controllers').controller('tabSettingsController', funct
 
   $scope.$on("$ionicView.beforeEnter", function(event, data) {
     $scope.isCordova = platformInfo.isCordova;
+    $scope.isWindowsPhoneApp = platformInfo.isCordova && platformInfo.isWP;
     $scope.isDevel = platformInfo.isDevel;
     $scope.appName = appConfigService.nameCase;
     configService.whenAvailable(function(config) {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('sellGlideraController', function($scope, $log, $state, $timeout, $ionicHistory, lodash, glideraService, popupService, profileService, ongoingProcess, walletService, configService, platformInfo, txFormatService) {
+angular.module('copayApp.controllers').controller('sellGlideraController', function($scope, $log, $state, $timeout, $ionicHistory, $ionicConfig, lodash, glideraService, popupService, profileService, ongoingProcess, walletService, configService, platformInfo, txFormatService) {
 
   var amount;
   var currency;
@@ -35,10 +35,18 @@ angular.module('copayApp.controllers').controller('sellGlideraController', funct
     }
   };
 
+  $scope.$on("$ionicView.beforeLeave", function(event, data) {
+    $ionicConfig.views.swipeBackEnabled(true);
+  });
+
+  $scope.$on("$ionicView.enter", function(event, data) {
+    $ionicConfig.views.swipeBackEnabled(false);
+  });
+
   $scope.$on("$ionicView.beforeEnter", function(event, data) {
-    $scope.isFiat = data.stateParams.currency != 'bits' && data.stateParams.currency != 'BTC' ? true : false;
+    $scope.isFiat = data.stateParams.currency != 'μNAV' && data.stateParams.currency != 'NAV' ? true : false;
     var parsedAmount = txFormatService.parseAmount(
-      data.stateParams.amount, 
+      data.stateParams.amount,
       data.stateParams.currency);
 
     amount = parsedAmount.amount;
@@ -100,18 +108,18 @@ angular.module('copayApp.controllers').controller('sellGlideraController', funct
       popupService.showPrompt(title, message, null, function(twoFaCode) {
         if (typeof twoFaCode == 'undefined') return cb();
         return cb(twoFaCode);
-      });   
+      });
     } else {
       return cb();
     }
   };
 
   $scope.sellConfirm = function() {
-    var message = 'Sell bitcoin for ' + amount + ' ' + currency;
+    var message = 'Sell Nav Coin for ' + amount + ' ' + currency;
     var okText = 'Confirm';
     var cancelText = 'Cancel';
     popupService.showConfirm(null, message, okText, cancelText, function(ok) {
-      if (!ok) return; 
+      if (!ok) return;
       ongoingProcess.set('sellingBitcoin', true, statusChangeHandler);
       glideraService.get2faCode($scope.token, function(err, tfa) {
         if (err) {

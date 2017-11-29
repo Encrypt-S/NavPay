@@ -1,6 +1,6 @@
-<ion-view id="tab-home">
+<ion-view id="tab-home" show-tabs>
   <ion-nav-bar class="bar-royal">
-    <ion-nav-title><img class="tab-home__logo" src="img/app/logo-negative.svg"></ion-nav-title>
+    <ion-nav-title><img class="tab-home__logo" src="img/app/logo-simple.svg"></ion-nav-title>
   </ion-nav-bar>
 
   <ion-content>
@@ -10,19 +10,23 @@
      spinner="ios-small"
      on-refresh="onRefresh()">
    </ion-refresher>
-    <div class="list card release ng-hide" ng-show="newRelease">
-      <i class="item icon big-icon-svg">
-        <img src="img/icon-update.svg" class="bg"/>
-      </i>
 
-      <div class="item title">{{updateText}}</div>
-
-      <div class="button" ng-click="openExternalLink()">
-        <span translate>Download</span>
+    <!-- <div class="ng-hide" ng-show="showRateCard.value" ng-include="'views/feedback/rateCard.html'"></div> -->
+    <div>
+      <div class="list card homeTip" id="home-changelly">
+        <div class="title" translate>
+          Purchase Nav Coin
+        </div>
+        <div class="subtitle">
+          <span ng-show="wallets[0]" translate>To get started, you can buy Nav Coin through our exchange partner Changelly.</span>
+          <span ng-show="!wallets[0]" translate>To get started, you'll need to create a Nav Coin wallet and get some Nav Coin.</span>
+          <div class="padding">
+            <a class="button button-standard button-primary" ng-show="wallets[0]" ng-click="openChangelly()" translate>Buy Nav Coin</a>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="ng-hide" ng-show="showRateCard.value" ng-include="'views/feedback/rateCard.html'"></div>
     <div class="list card homeTip" ng-if="homeTip">
       <div class="item item-icon-right item-heading">
         <a ng-click="hideHomeTip()"><i class="icon ion-ios-close-empty close-home-tip"></i></a>
@@ -33,7 +37,7 @@
         </i>
       </div>
       <div class="title" translate>
-        Your bitcoin wallet is ready!
+        Your Nav Coin wallet is ready!
       </div>
       <div class="subtitle" translate>
         On this screen you can see all your wallets, accounts, and assets.
@@ -54,7 +58,7 @@
 
     <div class="list card" ng-if="notifications[0] && recentTransactionsEnabled">
       <a class="item item-icon-right item-heading" ui-sref="tabs.activity">
-        <span translate>Recent Transactions</span>
+        <span translate>Recent Notifications</span>
         <i class="icon bp-arrow-right"></i>
         <span class="badge badge-assertive m5t m10r" ng-show="notificationsN>3"> {{notificationsN}}</span>
       </a>
@@ -73,7 +77,7 @@
          <i class="icon big-icon-svg">
            <img src="img/icon-wallet.svg" class="bg wallet icon-create-wallet"/>
          </i>
-          <span translate>Create bitcoin wallet</span>
+          <span translate>Create Nav Coin wallet</span>
           <i class="icon bp-arrow-right"></i>
         </a>
         <a ng-repeat="wallet in wallets track by $index"
@@ -105,10 +109,10 @@
         </a>
       </div>
     </div>
-    <div class="ng-hide" ng-show="wallets[0] && bitpayCardItems.length>0" ng-include="'views/includes/bitpayCardsCard.html'"></div>
-    <div class="ng-hide" ng-show="wallets[0] && buyAndSellItems.length>0" ng-include="'views/includes/buyAndSellCard.html'"></div>
-    <div class="ng-hide" ng-show="homeIntegrations.length>0" ng-include="'views/includes/homeIntegrations.html'"></div>
-    <div class="ng-hide" ng-show="nextStepsItems.length>0" ng-include="'views/includes/nextSteps.html'"></div>
+    <div class="ng-hide list card" ng-show="wallets[0] && bitpayCardItems.length>0" ng-include="'views/includes/bitpayCardsCard.html'"></div>
+    <div class="ng-hide list card" ng-show="wallets[0] && buyAndSellItems.length>0" ng-include="'views/includes/buyAndSellCard.html'"></div>
+    <div class="ng-hide list card" ng-show="homeIntegrations.length>0" ng-include="'views/includes/homeIntegrations.html'"></div>
+    <!-- <div class="ng-hide list card" ng-show="nextStepsItems.length>0 && !isWindowsPhoneApp" ng-include="'views/includes/nextSteps.html'"></div> -->
 
   </ion-content>
 </ion-view>

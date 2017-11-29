@@ -2,7 +2,7 @@
   <ion-nav-bar class="bar-royal">
     <ion-nav-back-button>
     </ion-nav-back-button>
-    <ion-nav-title>Sell bitcoin</ion-nav-title>
+    <ion-nav-title>Sell Nav Coin</ion-nav-title>
   </ion-nav-bar>
 
   <ion-content class="add-bottom-for-cta">
@@ -11,17 +11,17 @@
 
       <div class="item head">
         <div class="sending-label">
-          <img src="img/sell-bitcoin.svg" alt="sell bitcoin" width="35" class="item-img-sell">
+          <img src="img/sell-bitcoin.svg" alt="sell Nav Coin" width="35" class="item-img-sell">
           <span>Selling</span>
         </div>
         <div class="amount-label">
           <div class="amount">{{amountUnitStr}}</div>
           <div class="alternative" ng-if="sellPrice">
-            <span ng-show="isFiat">{{sellRequestInfo.amount.amount}} {{sellRequestInfo.amount.currency}}</span> 
-            @ ${{sellPrice.amount}} per BTC
+            <span ng-show="isFiat">{{sellRequestInfo.amount.amount}} {{sellRequestInfo.amount.currency}}</span>
+            @ ${{sellPrice.amount}} per NAV
           </div>
         </div>
-      </div> 
+      </div>
 
       <div class="info">
 
@@ -58,20 +58,20 @@
         </label>
         <div class="item size-12" ng-if="selectedPriceSensitivity">
           <div class="m10b">
-            Coinbase has not yet implemented an immediate method to sell bitcoin from a wallet. To make this sale, funds
+            Coinbase has not yet implemented an immediate method to sell Nav Coin from a wallet. To make this sale, funds
             will be sent to your Coinbase account, and sold when Coinbase accepts the transaction (usually one
             hour).
           </div>
-          <div class="label" ng-if="sellRequestInfo">Estimated sale value: 
+          <div class="label" ng-if="sellRequestInfo">Estimated sale value:
             <strong>
-            {{sellRequestInfo.total.amount | currency : '' : 2}} 
+            {{sellRequestInfo.total.amount | currency : '' : 2}}
             {{sellRequestInfo.total.currency}}
             </strong>
           </div>
-          <div class="label" ng-if="sellRequestInfo">Still sell if price fall until: 
+          <div class="label" ng-if="sellRequestInfo">Still sell if price fall until:
             <strong>
-            {{(sellRequestInfo.total.amount - 
-            (selectedPriceSensitivity.data.value / 100) * sellRequestInfo.total.amount) | currency : '' : 2}} 
+            {{(sellRequestInfo.total.amount -
+            (selectedPriceSensitivity.data.value / 100) * sellRequestInfo.total.amount) | currency : '' : 2}}
             {{sellRequestInfo.total.currency}}
             </strong>
           </div>
@@ -107,23 +107,17 @@
   </ion-content>
 
   <click-to-accept
-    ng-disabled="!selectedPaymentMethodId.value || !sellRequestInfo || !wallet"
     ng-click="sellConfirm()"
     ng-if="!isCordova && sellRequestInfo"
     click-send-status="sendStatus"
-    has-wallet-chosen="wallet"
-    insufficient-funds="!selectedPaymentMethodId.value"
-    no-matching-wallet="!sellRequestInfo">
+    is-disabled="!selectedPaymentMethodId.value || !sellRequestInfo || !wallet">
     Confirm sale
   </click-to-accept>
   <slide-to-accept
-    ng-disabled="!selectedPaymentMethodId.value || !sellRequestInfo || !wallet"
     ng-if="isCordova && sellRequestInfo"
     slide-on-confirm="sellConfirm()"
     slide-send-status="sendStatus"
-    has-wallet-chosen="wallet"
-    insufficient-funds="!selectedPaymentMethodId.value"
-    no-matching-wallet="!sellRequestInfo">
+    is-disabled="!selectedPaymentMethodId.value || !sellRequestInfo || !wallet">
     Slide to sell
   </slide-to-accept>
   <slide-to-accept-success
@@ -132,7 +126,7 @@
     slide-success-hide-on-confirm="true">
     <span>Funds sent to Coinbase Account</span>
     <div class="m10 size-14">
-      The transaction is not yet confirmed, and will show as "Pending" in your Activity. The bitcoin sale will be completed automatically once it is confirmed by Coinbase.
+      The transaction is not yet confirmed, and will show as "Pending" in your Activity. The Nav Coin sale will be completed automatically once it is confirmed by Coinbase.
     </div>
   </slide-to-accept-success>
 

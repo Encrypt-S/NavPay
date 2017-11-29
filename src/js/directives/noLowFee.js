@@ -12,9 +12,9 @@ angular.module('copayApp.directives')
 
         elem.bind('click', function() {
           configService.whenAvailable(function(config) {
-            if (config.wallet.settings.feeLevel.match(/conomy/)) {
+            if (config.wallet.settings.feeLevel && config.wallet.settings.feeLevel.match(/conomy/)) {
               $log.debug('Economy Fee setting... disabling link:' + elem.text());
-              popupService.showAlert('Low Fee Error', 'Please change your Bitcoin Network Fee Policy setting to Normal or higher to use this service', function() {
+              popupService.showAlert('Low Fee Error', 'Please change your Nav Coin Network Fee Policy setting to Normal or higher to use this service', function() {
                 $ionicHistory.goBack();
               });
             }
