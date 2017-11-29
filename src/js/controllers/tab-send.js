@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('tabSendController', function($scope, $rootScope, $log, $timeout, $ionicScrollDelegate, addressbookService, profileService, lodash, $state, walletService, incomingData, popupService, platformInfo, bwcError, gettextCatalog, scannerService, $window, externalLinkService) {
+angular.module('copayApp.controllers').controller('tabSendController', function($scope, $rootScope, $log, $timeout, $ionicScrollDelegate, addressbookService, profileService, lodash, $state, walletService, incomingData, popupService, platformInfo, bwcError, gettextCatalog) {
 
   var originalList;
   var CONTACTS_SHOW_LIMIT;
@@ -19,7 +19,6 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
   // does not has any other function.
 
   var updateHasFunds = function() {
-    $scope.nextDisabled = true;
 
     if ($rootScope.everHasFunds) {
       $scope.hasFunds = true;
@@ -120,27 +119,8 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
     }, 10);
   };
 
-  $scope.openBuyLink = function() {
-    var url = 'https://navcoin.org/buy-nav';
-    var optIn = false;
-    externalLinkService.open(url, optIn);
-  };
-
   $scope.openScanner = function() {
-    var isWindowsPhoneApp = platformInfo.isCordova && platformInfo.isWP;
-
-    if (!isWindowsPhoneApp) {
-      $state.go('tabs.scan', { returnRoute: 'tabs.send' });
-      return;
-    }
-
-    scannerService.useOldScanner(function(err, contents) {
-      if (err) {
-        popupService.showAlert(gettextCatalog.getString('Error'), err);
-        return;
-      }
-      incomingData.redir(contents);
-    });
+    $state.go('tabs.scan');
   };
 
   $scope.showMore = function() {
@@ -148,41 +128,9 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
     updateWalletsList();
   };
 
-  $scope.searchInFocus = function() {
-    $scope.searchFocus = true;
-  };
-
-  $scope.searchBlurred = function() {
-    if ($scope.formData.search == null || $scope.formData.search.length == 0) {
-      $scope.searchFocus = false;
-    }
-    var privatePayment = $scope.formData.privatePayment || false;
-    if (incomingData.redir($scope.formData.search, privatePayment, true)) {
-      $scope.nextDisabled = false;
-      return;
-    } else {
-      $scope.nextDisabled = true;
-      return;
-    }
-  };
-
-  $scope.nextClicked = function(search) {
-    var privatePayment = $scope.formData.privatePayment || false;
-    if (incomingData.redir(search, privatePayment, false)) {
-      return;
-    } else if (search) {
-      $scope.nextDisabled = true;
-      return;
-    }
-  }
-
   $scope.findContact = function(search) {
-    var privatePayment = $scope.formData.privatePayment || false;
-    if (incomingData.redir(search, privatePayment, true)) {
-      $scope.nextDisabled = false;
-      return;
-    } else if (search) {
-      $scope.nextDisabled = true;
+
+    if (incomingData.redir(search)) {
       return;
     }
 
@@ -193,6 +141,7 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
       });
       return;
     }
+
     var result = lodash.filter(originalList, function(item) {
       var val = item.name;
       return lodash.includes(val.toLowerCase(), search.toLowerCase());
@@ -202,7 +151,6 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
   };
 
   $scope.goToAmount = function(item) {
-    console.log('goToAmount');
     $timeout(function() {
       item.getAddress(function(err, addr) {
         if (err || !addr) {
@@ -235,12 +183,10 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
   };
 
   $scope.$on("$ionicView.beforeEnter", function(event, data) {
-
     $scope.checkingBalance = true;
     $scope.formData = {
       search: null
     };
-
     originalList = [];
     CONTACTS_SHOW_LIMIT = 10;
     currentContactsPage = 0;
@@ -252,19 +198,7 @@ angular.module('copayApp.controllers').controller('tabSendController', function(
       $scope.checkingBalance = false;
       return;
     }
-
     updateHasFunds();
-
-    if (data.stateParams.address) {
-      $scope.formData.search = data.stateParams.address;
-      $timeout(function() {
-        $scope.searchFocus = true;
-        var element = $window.document.getElementById('tab-send-address');
-        if(element) element.focus();
-        $scope.searchBlurred();
-      });
-    }
-
     updateWalletsList();
     updateContactsList(function() {
       updateList();

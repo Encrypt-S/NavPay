@@ -55,19 +55,6 @@ angular.module('copayApp.controllers').controller('tabScanController', function(
     _refreshScanView();
   });
 
-
-  $scope.$on("$ionicView.beforeEnter", function(event, data) {
-    console.log('tab-scan $ionicView.beforeEnter');
-    console.log('data', data.stateParams.returnRoute);
-    _handleCapabilities();
-    $timeout(() => {
-      _refreshScanView()
-      $scope.cameraIssue = true
-      },
-    5000);
-    $scope.returnRoute = data.stateParams.returnRoute || false;
-  });
-
   $scope.$on("$ionicView.afterEnter", function() {
     // try initializing and refreshing status any time the view is entered
     if(!scannerService.isInitialized()){
@@ -114,13 +101,7 @@ angular.module('copayApp.controllers').controller('tabScanController', function(
   function handleSuccessfulScan(contents){
     $log.debug('Scan returned: "' + contents + '"');
     scannerService.pausePreview();
-    var trimmedContents = contents.replace('navcoin:', '');
-    console.log('trimmedContents', trimmedContents);
-    if ($scope.returnRoute) {
-      $state.go($scope.returnRoute, { address: trimmedContents });
-    } else {
-      incomingData.redir(trimmedContents);
-    }
+    incomingData.redir(contents);
   }
 
   $rootScope.$on('incomingDataMenu.menuHidden', function() {

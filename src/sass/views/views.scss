@@ -5,9 +5,6 @@
 @import "copayers";
 @import "starting";
 @import "tab-home";
-
-@import "changelly";
-
 @import "tab-receive";
 @import "tab-scan";
 @import "tab-send";
@@ -49,4 +46,5 @@
 @import "includes/accountSelector";
 @import "integrations/integrations";
 @import "custom-amount";
-@import "includes/pin";
+@import "pin";
+@import "lockedView";

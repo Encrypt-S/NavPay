@@ -51,8 +51,8 @@ angular.module('copayApp.controllers').controller('amazonCardsController',
                     remove: true
                   }, function(err) {
                     updateGiftCards();
+                    return;
                   });
-                  return;
                 }
 
                 amazonService.savePendingGiftCard(newData, null, function(err) {
@@ -85,11 +85,11 @@ angular.module('copayApp.controllers').controller('amazonCardsController',
     };
 
     $scope.$on("$ionicView.beforeEnter", function(event, data) {
-      $scope.invoiceId = data.stateParams.invoiceId;
+      $scope.cardClaimCode = data.stateParams.cardClaimCode;
       updateGiftCards(function() {
-        if ($scope.invoiceId) {
+        if ($scope.cardClaimCode) {
           var card = lodash.find($scope.giftCards, {
-            invoiceId: $scope.invoiceId
+            claimCode: $scope.cardClaimCode
           });
           if (lodash.isEmpty(card)) {
             popupService.showAlert(null, 'Card not found');

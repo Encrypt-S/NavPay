@@ -1,9 +1,14 @@
 'use strict';
 
 angular.module('copayApp.controllers').controller('preferencesController',
-  function($scope, $rootScope, $timeout, $log, $ionicHistory, configService, profileService, fingerprintService, walletService, platformInfo) {
-    var wallet;
-    var walletId;
+  function($scope, $rootScope, $timeout, $log, $stateParams, $ionicHistory, configService, profileService, fingerprintService, walletService) {
+    var wallet = profileService.getWallet($stateParams.walletId);
+    var walletId = wallet.credentials.walletId;
+    $scope.wallet = wallet;
+
+    $scope.encryptEnabled = {
+      value: walletService.isEncrypted(wallet)
+    };
 
     $scope.hiddenBalanceChange = function() {
       var opts = {
@@ -73,10 +78,6 @@ angular.module('copayApp.controllers').controller('preferencesController',
     };
 
     $scope.$on("$ionicView.beforeEnter", function(event, data) {
-      wallet = profileService.getWallet(data.stateParams.walletId);
-      walletId = wallet.credentials.walletId;
-      $scope.wallet = wallet;
-      $scope.isWindowsPhoneApp = platformInfo.isCordova && platformInfo.isWP;
       $scope.externalSource = null;
 
       if (!wallet)
@@ -86,10 +87,6 @@ angular.module('copayApp.controllers').controller('preferencesController',
 
       $scope.hiddenBalance = {
         value: $scope.wallet.balanceHidden
-      };
-
-      $scope.encryptEnabled = {
-        value: walletService.isEncrypted(wallet)
       };
 
       $scope.touchIdAvailable = fingerprintService.isAvailable();

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('copayApp.controllers').controller('tabHomeController',
-  function($rootScope, $timeout, $scope, $state, $stateParams, $ionicModal, $ionicScrollDelegate, $window, gettextCatalog, lodash, popupService, ongoingProcess, externalLinkService, latestReleaseService, profileService, walletService, configService, $log, platformInfo, storageService, txpModalService, appConfigService, startupService, addressbookService, feedbackService, bwcError, nextStepsService, buyAndSellService, homeIntegrationsService, bitpayCardService, pushNotificationsService, timeService) {
+  function($rootScope, $timeout, $scope, $state, $stateParams, $ionicModal, $ionicScrollDelegate, $window, gettextCatalog, lodash, popupService, ongoingProcess, externalLinkService, latestReleaseService, profileService, walletService, configService, $log, platformInfo, storageService, txpModalService, appConfigService, startupService, addressbookService, feedbackService, bwcError, nextStepsService, buyAndSellService, homeIntegrationsService, bitpayCardService, pushNotificationsService) {
     var wallet;
     var listeners = [];
     var notifications = [];
@@ -12,7 +12,6 @@ angular.module('copayApp.controllers').controller('tabHomeController',
     $scope.homeTip = $stateParams.fromOnboarding;
     $scope.isCordova = platformInfo.isCordova;
     $scope.isAndroid = platformInfo.isAndroid;
-    $scope.isWindowsPhoneApp = platformInfo.isCordova && platformInfo.isWP;
     $scope.isNW = platformInfo.isNW;
     $scope.showRateCard = {};
 
@@ -27,27 +26,22 @@ angular.module('copayApp.controllers').controller('tabHomeController',
         });
       }
 
-      // if ($scope.isNW) {
-      //   latestReleaseService.checkLatestRelease(function(err, newRelease) {
-      //     if (err) {
-      //       $log.warn(err);
-      //       return;
-      //     }
-      //     if (newRelease) {
-      //       $scope.newRelease = true;
-      //       $scope.updateText = gettextCatalog.getString('There is a new version of {{appName}} available', {
-      //         appName: $scope.name
-      //       });
-      //     }
-      //   });
-      // }
+      if ($scope.isNW) {
+        latestReleaseService.checkLatestRelease(function(err, newRelease) {
+          if (err) {
+            $log.warn(err);
+            return;
+          }
+          if (newRelease) {
+            $scope.newRelease = true;
+            $scope.updateText = gettextCatalog.getString('There is a new version of {{appName}} available', {
+              appName: $scope.name
+            });
+          }
+        });
+      }
 
       storageService.getFeedbackInfo(function(error, info) {
-
-        if ($scope.isWindowsPhoneApp) {
-          $scope.showRateCard.value = false;
-          return;
-        }
         if (!info) {
           initFeedBackInfo();
         } else {
@@ -137,7 +131,9 @@ angular.module('copayApp.controllers').controller('tabHomeController',
     });
 
     $scope.createdWithinPastDay = function(time) {
-      return timeService.withinPastDay(time);
+      var now = new Date();
+      var date = new Date(time * 1000);
+      return (now.getTime() - date.getTime()) < (1000 * 60 * 60 * 24);
     };
 
     $scope.openExternalLink = function() {
@@ -178,10 +174,6 @@ angular.module('copayApp.controllers').controller('tabHomeController',
         }
       }
     };
-
-    $scope.openChangelly = function() {
-      $state.go('tabs.changelly');
-    }
 
     $scope.openWallet = function(wallet) {
       if (!wallet.isComplete()) {

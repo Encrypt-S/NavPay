@@ -21,18 +21,19 @@ angular.module('copayApp.directives')
           if (!data) return;
 
           if (isCordova) {
-            cordova.plugins.clipboard.copy(data);
+            window.cordova.plugins.clipboard.copy(data);
+            window.plugins.toast.showShortCenter(msg);
           } else if (isNW) {
             nodeWebkitService.writeToClipboard(data);
+            scope.$apply(function() {
+              ionicToast.show(msg, 'bottom', false, 1000);
+            });
           } else if (clipboard.supported) {
             clipboard.copyText(data);
-          } else {
-            // No supported
-            return;
+            scope.$apply(function() {
+              ionicToast.show(msg, 'bottom', false, 1000);
+            });
           }
-          scope.$apply(function() {
-            ionicToast.show(msg, 'bottom', false, 1000);
-          });
         });
       }
     }

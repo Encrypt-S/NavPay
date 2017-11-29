@@ -1,9 +1,7 @@
 'use strict';
 
-angular.module('copayApp.services').factory('configService', function(storageService, lodash, $log, $timeout, $rootScope, platformInfo) {
+angular.module('copayApp.services').factory('configService', function(storageService, lodash, $log, $timeout, $rootScope) {
   var root = {};
-
-  var isWindowsPhoneApp = platformInfo.isCordova && platformInfo.isWP;
 
   var defaultConfig = {
     // wallet limits
@@ -14,15 +12,15 @@ angular.module('copayApp.services').factory('configService', function(storageSer
 
     // Bitcore wallet service URL
     bws: {
-      url: 'http://navpay.navcoin.org',
+      url: 'http://95.183.50.44:3232/bws/api',
     },
 
     download: {
       bitpay: {
-        url: 'https://github.com/NAVCoin/NavPay'
+        url: 'https://bitpay.com/wallet'
       },
       copay: {
-        url: 'https://github.com/NAVCoin/NavPay'
+        url: 'https://copay.io/#download'
       }
     },
 
@@ -46,10 +44,10 @@ angular.module('copayApp.services').factory('configService', function(storageSer
       reconnectDelay: 5000,
       idleDurationMin: 4,
       settings: {
-        unitName: 'NAV',
+        unitName: 'BTC',
         unitToSatoshi: 100000000,
         unitDecimals: 8,
-        unitCode: 'nav',
+        unitCode: 'btc',
         alternativeName: 'US Dollar',
         alternativeIsoCode: 'USD',
       }
@@ -67,7 +65,7 @@ angular.module('copayApp.services').factory('configService', function(storageSer
     },
 
     hideNextSteps: {
-      enabled: isWindowsPhoneApp ? true : false,
+      enabled: false,
     },
 
     rates: {

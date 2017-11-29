@@ -28,6 +28,10 @@
         height: 35px;
         width: 35px;
       }
+
+      span {
+        text-transform: capitalize;
+      }
     }
     .amount-label{
       line-height: 30px;

@@ -1,16 +1,6 @@
 #view-confirm {
   background-color: #ffffff;
   @extend .deflash-blue;
-  .item-note {
-    float: none;
-    .fee-rate {
-      display: inline-block;
-      .warn {
-        color: red;
-      }
-
-    }
-  }
   .icon-amazon {
     background-image: url("../img/icon-amazon.svg");
   }
@@ -29,8 +19,5 @@
   }
   .toggle {
     cursor: pointer;
-  }
-  .confirm-icon-small {
-    width: 28px;
   }
 }

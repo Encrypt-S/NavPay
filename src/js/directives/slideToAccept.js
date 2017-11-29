@@ -9,7 +9,7 @@ angular.module('copayApp.directives')
       scope: {
         sendStatus: '=slideSendStatus',
         onConfirm: '&slideOnConfirm',
-        isDisabled: '=isDisabled'
+        wallet: '=hasWalletChosen'
       },
       link: function(scope, element, attrs) {
 

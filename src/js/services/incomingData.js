@@ -8,7 +8,7 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
     $rootScope.$broadcast('incomingDataMenu.showMenu', data);
   };
 
-  root.redir = function(data, privatePayment, stopRedirect) {
+  root.redir = function(data) {
     $log.debug('Processing incoming data: ' + data);
 
     function sanitizeUri(data) {
@@ -47,7 +47,7 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
     }
 
     function goSend(addr, amount, message) {
-      $state.go('tabs.send', { address: undefined }, {
+      $state.go('tabs.send', {}, {
         'reload': true,
         'notify': $state.current.name == 'tabs.send' ? false : true
       });
@@ -61,8 +61,7 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
           });
         } else {
           $state.transitionTo('tabs.send.amount', {
-            toAddress: addr,
-            privatePayment: privatePayment,
+            toAddress: addr
           });
         }
       }, 100);
@@ -70,7 +69,7 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
     // data extensions for Payment Protocol with non-backwards-compatible request
     if ((/^bitcoin:\?r=[\w+]/).exec(data)) {
       data = decodeURIComponent(data.replace('bitcoin:?r=', ''));
-      $state.go('tabs.send', { address: undefined }, {
+      $state.go('tabs.send', {}, {
         'reload': true,
         'notify': $state.current.name == 'tabs.send' ? false : true
       }).then(function() {
@@ -126,12 +125,7 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
           type: 'bitcoinAddress'
         });
       } else {
-        if (!stopRedirect) {
-          goToAmountPage(data, privatePayment);
-          return false;
-        } else {
-          return true;
-        }
+        goToAmountPage(data);
       }
     } else if (data && data.indexOf(appConfigService.name + '://glidera') === 0) {
       var code = getParameterByName('code', data);
@@ -247,16 +241,14 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
 
   };
 
-  function goToAmountPage(toAddress, privatePayment) {
-    $state.go('tabs.send', { address: undefined }, {
+  function goToAmountPage(toAddress) {
+    $state.go('tabs.send', {}, {
       'reload': true,
       'notify': $state.current.name == 'tabs.send' ? false : true
     });
     $timeout(function() {
-      console.log('incomingData goToAmountPage', privatePayment);
       $state.transitionTo('tabs.send.amount', {
-        toAddress: toAddress,
-        privatePayment: privatePayment,
+        toAddress: toAddress
       });
     }, 100);
   }
@@ -269,7 +261,7 @@ angular.module('copayApp.services').factory('incomingData', function($log, $stat
       paypro: payProDetails
     };
     scannerService.pausePreview();
-    $state.go('tabs.send', { address: undefined }, {
+    $state.go('tabs.send', {}, {
       'reload': true,
       'notify': $state.current.name == 'tabs.send' ? false : true
     }).then(function() {

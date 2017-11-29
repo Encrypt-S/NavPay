@@ -44,39 +44,25 @@ RateService.prototype._fetchCurrencies = function() {
 
   var backoffSeconds = 5;
   var updateFrequencySeconds = 5 * 60;
-  var btcRate
   var rateServiceUrl = 'https://bitpay.com/api/rates';
-  var navRateServiceUrl = 'https://api.coinmarketcap.com/v1/ticker/nav-coin/'
 
   var retrieve = function() {
     //log.info('Fetching exchange rates');
-    self.httprequest.get(navRateServiceUrl).success(function(res){
-      btcRate = res[0].price_btc;
-      self.httprequest.get(rateServiceUrl).success(function(res) {
-        self.lodash.each(res, function(currency) {
-          if(currency.name === 'Pound Sterling' && currency.code === 'GBP'){
-            currency.name = 'Great British Pound'
-          }
-          self._rates[currency.code] = parseFloat(currency.rate) * parseFloat(btcRate);
-          self._alternatives.push({
-            name: currency.name,
-            isoCode: currency.code,
-            rate: parseFloat(currency.rate) * parseFloat(btcRate)
-          });
+    self.httprequest.get(rateServiceUrl).success(function(res) {
+      self.lodash.each(res, function(currency) {
+        self._rates[currency.code] = currency.rate;
+        self._alternatives.push({
+          name: currency.name,
+          isoCode: currency.code,
+          rate: currency.rate
         });
-        self._isAvailable = true;
-        self.lodash.each(self._queued, function(callback) {
-          setTimeout(callback, 1);
-        });
-        setTimeout(retrieve, updateFrequencySeconds * 1000);
-      }).error(function(err) {
-        //log.debug('Error fetching exchange rates', err);
-        setTimeout(function() {
-          backoffSeconds *= 1.5;
-          retrieve();
-        }, backoffSeconds * 1000);
-        return;
-      })}).error(function(err) {
+      });
+      self._isAvailable = true;
+      self.lodash.each(self._queued, function(callback) {
+        setTimeout(callback, 1);
+      });
+      setTimeout(retrieve, updateFrequencySeconds * 1000);
+    }).error(function(err) {
       //log.debug('Error fetching exchange rates', err);
       setTimeout(function() {
         backoffSeconds *= 1.5;

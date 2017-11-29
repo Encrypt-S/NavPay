@@ -4,7 +4,6 @@
     font-size: 14px;
     padding-bottom: 0;
     color: $v-mid-gray;
-
   }
   .item-no-bottom-border + .item {
       border-top: 0;
@@ -33,13 +32,6 @@
       padding-left: 48px;
     }
   }
-  @media(max-width: 320px) {
-    .bitcoin-address {
-      & > span:last-child {
-        margin-left: -2px;
-      }
-    }
-  }
   .send-gravatar {
     left: 11px;
     position: absolute;
@@ -57,9 +49,6 @@
       padding: 24px 0;
       font-size: 18px;
       @media(max-height: 480px) {
-        padding: 0px;
-      }
-      @media(max-width: 320px) {
         padding: 0px;
       }
       .title {
@@ -88,16 +77,6 @@
       }
       @media(max-height: 480px) {
         top: 45px;
-      }
-      @media(max-width: 320px) {
-        bottom: 276px;
-        top: 60px;
-        & > div {
-          display: inline-block;
-        }
-        & > div:first-child {
-          display: inherit;
-        }
       }
     }
   }
@@ -159,9 +138,8 @@
       color: $v-dark-gray;
     }
     &__currency-toggle {
-      color: #FFF;
-      background-color: $nav-purple;
-      opacity: 1;
+      border: 1px solid $v-subtle-gray;
+      color: $v-dark-gray;
       border-radius: 3px;
       padding: 0 10px;
       cursor: pointer;
@@ -169,14 +147,6 @@
       position: relative;
       top: -3px;
       line-height: 1;
-      // box-shadow: $v-mid-gray 0px 0px 1px 2px;
-      @media(max-width: 320px) {
-        line-height: 30px;
-        height: 30px;
-      }
-      &.active {
-        opacity: 0.3;
-      }
     }
     &__results {
       &--minimize {

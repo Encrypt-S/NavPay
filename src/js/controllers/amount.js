@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('copayApp.controllers').controller('amountController', function($scope, $filter, $timeout, $ionicScrollDelegate, $ionicHistory, gettextCatalog, platformInfo, lodash, configService, rateService, $stateParams, $window, $state, $log, txFormatService, ongoingProcess, popupService, bwcError, payproService, profileService, bitcore, amazonService, nodeWebkitService) {
-  var _id;
+  var _cardId;
   var unitToSatoshi;
   var satToUnit;
   var unitDecimals;
@@ -16,14 +16,13 @@ angular.module('copayApp.controllers').controller('amountController', function($
   });
 
   $scope.$on("$ionicView.beforeEnter", function(event, data) {
-    console.log('amountController beforeEnter', data);
     // Go to...
-    _id = data.stateParams.id; // Optional (BitPay Card ID or Wallet ID)
+    _cardId = data.stateParams.id; // Optional (BitPay Card ID)
     $scope.nextStep = data.stateParams.nextStep;
     $scope.currency = data.stateParams.currency;
     $scope.forceCurrency = data.stateParams.forceCurrency;
 
-    $scope.showMenu = $ionicHistory.backView() && ($ionicHistory.backView().stateName == 'tabs.send' ||
+    $scope.showMenu = $ionicHistory.backView() && ($ionicHistory.backView().stateName == 'tabs.send' || 
       $ionicHistory.backView().stateName == 'tabs.bitpayCard');
     $scope.recipientType = data.stateParams.recipientType || null;
     $scope.toAddress = data.stateParams.toAddress;
@@ -32,7 +31,8 @@ angular.module('copayApp.controllers').controller('amountController', function($
     $scope.showAlternativeAmount = !!$scope.nextStep;
     $scope.toColor = data.stateParams.toColor;
     $scope.showSendMax = false;
-    $scope.privatePayment = data.stateParams.privatePayment || false;
+
+    $scope.customAmount = data.stateParams.customAmount;
 
     if (!$scope.nextStep && !data.stateParams.toAddress) {
       $log.error('Bad params at amount')
@@ -227,24 +227,29 @@ angular.module('copayApp.controllers').controller('amountController', function($
 
     if ($scope.nextStep) {
       $state.transitionTo($scope.nextStep, {
-        id: _id,
+        id: _cardId,
         amount: $scope.useSendMax ? null : _amount,
         currency: $scope.showAlternativeAmount ? $scope.alternativeIsoCode : $scope.unitName,
         useSendMax: $scope.useSendMax
       });
     } else {
       var amount = $scope.showAlternativeAmount ? fromFiat(_amount) : _amount;
-      var confirmState = $scope.privatePayment === 'true' ? 'tabs.send.confirm-private' : 'tabs.send.confirm';
-      $state.transitionTo(confirmState, {
-        recipientType: $scope.recipientType,
-        toAmount: $scope.useSendMax ? null : (amount * unitToSatoshi).toFixed(0),
-        toAddress: $scope.toAddress,
-        toName: $scope.toName,
-        toEmail: $scope.toEmail,
-        toColor: $scope.toColor,
-        useSendMax: $scope.useSendMax,
-        privatePayment: $scope.privatePayment
-      });
+      if ($scope.customAmount) {
+        $state.transitionTo('tabs.receive.customAmount', {
+          toAmount: (amount * unitToSatoshi).toFixed(0),
+          toAddress: $scope.toAddress
+        });
+      } else {
+        $state.transitionTo('tabs.send.confirm', {
+          recipientType: $scope.recipientType,
+          toAmount: $scope.useSendMax ? null : (amount * unitToSatoshi).toFixed(0),
+          toAddress: $scope.toAddress,
+          toName: $scope.toName,
+          toEmail: $scope.toEmail,
+          toColor: $scope.toColor,
+          useSendMax: $scope.useSendMax
+        });
+      }
     }
     $scope.useSendMax = null;
   };

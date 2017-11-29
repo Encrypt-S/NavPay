@@ -3,8 +3,6 @@ angular.module('copayApp.services').factory('amazonService', function($http, $lo
   var root = {};
   var credentials = {};
 
-  root.limitPerDay = 1000;
-
   /*
    * Development: 'testnet'
    * Production: 'livenet'

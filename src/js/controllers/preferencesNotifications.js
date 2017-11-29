@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('preferencesNotificationsController', function($scope, $log, $timeout, appConfigService, lodash, configService, platformInfo, pushNotificationsService, emailService) {
+angular.module('copayApp.controllers').controller('preferencesNotificationsController', function($scope, $log, $timeout, appConfigService, lodash, configService, platformInfo, pushNotificationsService, profileService, emailService) {
   var updateConfig = function() {
     var config = configService.getSync();
     $scope.appName = appConfigService.nameCase;
@@ -13,7 +13,7 @@ angular.module('copayApp.controllers').controller('preferencesNotificationsContr
     };
 
     $scope.latestEmail = {
-      value: emailService.getEmailIfEnabled()
+      value: getLatestEmailConfig()
     };
 
     $scope.newEmail = lodash.clone($scope.latestEmail);
@@ -44,19 +44,33 @@ angular.module('copayApp.controllers').controller('preferencesNotificationsContr
 
   $scope.emailNotificationsChange = function() {
     var opts = {
-      enabled: $scope.emailNotifications.value,
-      email: $scope.newEmail.value
+      emailNotifications: {
+        enabled: $scope.emailNotifications.value
+      }
     };
+    configService.set(opts, function(err) {
+      if (err) $log.debug(err);
+    });
 
     $scope.latestEmail = {
-      value: emailService.getEmailIfEnabled()
+      value: getLatestEmailConfig()
     };
 
-    emailService.updateEmail(opts);
+    $scope.newEmail = lodash.clone($scope.latestEmail);
+
+    if (!$scope.emailNotifications.value) {
+      emailService.enableEmailNotifications({
+        enabled: $scope.emailNotifications.value,
+        email: null
+      });
+    }
+    $timeout(function() {
+      $scope.$apply();
+    });
   };
 
   $scope.save = function() {
-    emailService.updateEmail({
+    emailService.enableEmailNotifications({
       enabled: $scope.emailNotifications.value,
       email: $scope.newEmail.value
     });
@@ -68,6 +82,11 @@ angular.module('copayApp.controllers').controller('preferencesNotificationsContr
     $timeout(function() {
       $scope.$apply();
     });
+  };
+
+  function getLatestEmailConfig() {
+    var config = configService.getSync();
+    return config.emailFor ? lodash.values(config.emailFor)[0] : null;
   };
 
   $scope.$on("$ionicView.enter", function(event, data) {

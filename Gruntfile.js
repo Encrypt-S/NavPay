@@ -61,13 +61,10 @@ module.exports = function(grunt) {
         stdin: true,
       },
       desktopsign: {
-        cmd: 'gpg -u 1112CFA1 --output webkitbuilds/<%= pkg.title %>-linux.zip.sig --detach-sig webkitbuilds/<%= pkg.title %>-linux.zip ; gpg -u 1112CFA1 --output webkitbuilds/<%= pkg.title %>.exe.sig --detach-sig webkitbuilds/<%= pkg.title %>.exe'
+        cmd: 'gpg -u 1112CFA1 --output webkitbuilds/<%= pkg.title %>-linux.zip.sig --detach-sig webkitbuilds/<%= pkg.title %>-linux.zip && gpg -u 1112CFA1 --output webkitbuilds/<%= pkg.title %>.dmg.sig --detach-sig webkitbuilds/<%= pkg.title %>.dmg ; gpg -u 1112CFA1 --output webkitbuilds/<%= pkg.title %>.exe.sig --detach-sig webkitbuilds/<%= pkg.title %>.exe'
       },
       desktopverify: {
-        cmd: 'gpg --verify webkitbuilds/<%= pkg.title %>-linux.zip.sig webkitbuilds/<%= pkg.title %>-linux.zip; gpg --verify webkitbuilds/<%= pkg.title %>.exe.sig webkitbuilds/<%= pkg.title %>.exe'
-      },
-      osxsign: {
-        cmd: 'gpg -u 1112CFA1 --output webkitbuilds/<%= pkg.title %>.dmg.sig --detach-sig webkitbuilds/<%= pkg.title %>.dmg'
+        cmd: 'gpg --verify webkitbuilds/<%= pkg.title %>-linux.zip.sig webkitbuilds/<%= pkg.title %>-linux.zip && gpg --verify webkitbuilds/<%= pkg.title %>.dmg.sig webkitbuilds/<%= pkg.title %>.dmg ; gpg --verify webkitbuilds/<%= pkg.title %>.exe.sig webkitbuilds/<%= pkg.title %>.exe'
       },
     },
     watch: {
@@ -93,14 +90,7 @@ module.exports = function(grunt) {
           'src/js/controllers/**/*.js'
         ],
         tasks: ['concat:js']
-      },
-      gettext: {
-        files: [
-          'i18n/po/*.po',
-          'i18n/po/*.pot'
-        ],
-        tasks: ['nggettext_compile','concat']
-      },
+      }
     },
     sass: {
       dist: {
@@ -137,7 +127,6 @@ module.exports = function(grunt) {
           'bower_components/angular-md5/angular-md5.js',
           'bower_components/angular-mocks/angular-mocks.js',
           'bower_components/ngtouch/src/ngTouch.js',
-          'bower_components/jsencrypt/bin/jsencrypt.js',
           'angular-bitauth/angular-bitauth.js',
           'angular-bitcore-wallet-client/angular-bitcore-wallet-client.js'
         ],
@@ -266,8 +255,8 @@ module.exports = function(grunt) {
   grunt.registerTask('prod', ['default', 'uglify']);
   grunt.registerTask('translate', ['nggettext_extract']);
   grunt.registerTask('desktop', ['prod', 'nwjs', 'copy:linux', 'compress:linux']);
-  grunt.registerTask('osx', ['prod', 'nwjs', 'exec:macos', 'exec:osxsign']);
-  grunt.registerTask('osx-debug', ['default', 'nwjs']);
+  grunt.registerTask('macos', ['prod', 'nwjs', 'exec:macos']);
+  grunt.registerTask('macos-debug', ['default', 'nwjs']);
   grunt.registerTask('chrome', ['exec:chrome']);
   grunt.registerTask('wp', ['prod', 'exec:wp']);
   grunt.registerTask('wp-copy', ['default', 'exec:wpcopy']);

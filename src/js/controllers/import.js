@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('copayApp.controllers').controller('importController',
-  function($scope, $timeout, $log, $state, $stateParams, $ionicHistory, $ionicScrollDelegate, profileService, configService, sjcl, ledger, trezor, derivationPathHelper, platformInfo, bwcService, ongoingProcess, walletService, popupService, gettextCatalog, appConfigService, hwWallet) {
+  function($scope, $timeout, $log, $state, $stateParams, $ionicHistory, $ionicScrollDelegate, profileService, configService, sjcl, ledger, trezor, derivationPathHelper, platformInfo, bwcService, ongoingProcess, walletService, popupService, gettextCatalog, appConfigService) {
 
     var reader = new FileReader();
     var defaults = configService.getDefaults();
@@ -17,7 +17,6 @@ angular.module('copayApp.controllers').controller('importController',
       $scope.formData.account = 1;
       $scope.importErr = false;
       $scope.isCopay = appConfigService.name == 'copay';
-      $scope.fromHardwareWallet = { value: false };
 
       if ($stateParams.code)
         $scope.processWalletInfo($stateParams.code);
@@ -38,21 +37,6 @@ angular.module('copayApp.controllers').controller('importController',
         });
         $scope.formData.seedSource = $scope.seedOptions[0];
       }
-
-
-      $scope.seedOptionsAll = [];
-
-      $scope.seedOptionsAll.push({
-        id: walletService.externalSource.ledger.id,
-        label: walletService.externalSource.ledger.longName,
-      });
-
-      $scope.seedOptionsAll.push({
-        id: walletService.externalSource.trezor.id,
-        label: walletService.externalSource.trezor.longName,
-      });
-      $scope.formData.seedSourceAll = $scope.seedOptionsAll[0];
-
 
       $timeout(function() {
         $scope.$apply();
@@ -175,7 +159,6 @@ angular.module('copayApp.controllers').controller('importController',
 
       $timeout(function() {
         profileService.importMnemonic(words, opts, function(err, client) {
-
           ongoingProcess.set('importingWallet', false);
 
           if (err) {
@@ -273,17 +256,6 @@ angular.module('copayApp.controllers').controller('importController',
       }
 
       opts.passphrase = $scope.formData.passphrase || null;
-
-      if ($scope.fromHardwareWallet.value) {
-        $log.debug('Importing seed from hardware wallet');
-        $log.warn('This wont work for Intel TEE wallets');
-
-        var id = $scope.formData.seedSourceAll.id;
-        var isMultisig = opts.derivationStrategy =='BIP48';
-        var account = opts.account;
-        opts.entropySourcePath = 'm/' + hwWallet.getEntropyPath(id, isMultisig, account);
-      }
-
       _importMnemonic(words, opts);
     };
 
@@ -297,7 +269,6 @@ angular.module('copayApp.controllers').controller('importController',
 
         lopts.externalSource = walletService.externalSource.trezor.id;
         lopts.bwsurl = $scope.formData.bwsurl;
-        lopts.account = account;
         ongoingProcess.set('importingWallet', true);
         $log.debug('Import opts', lopts);
 
@@ -354,7 +325,6 @@ angular.module('copayApp.controllers').controller('importController',
 
         lopts.externalSource = lopts.externalSource = walletService.externalSource.ledger.id;
         lopts.bwsurl = $scope.formData.bwsurl;
-        lopts.account = account;
         ongoingProcess.set('importingWallet', true);
         $log.debug('Import opts', lopts);
 

@@ -17,12 +17,11 @@ angular.module('copayApp.controllers').controller('backupWarningController', fun
     });
 
     $scope.close = function() {
+      $scope.warningModal.hide();
       $scope.warningModal.remove();
-      $timeout(function() {
-        $state.go($scope.toState, {
-          walletId: $scope.walletId
-        });
-      }, 200);
+      $state.go($scope.toState, {
+        walletId: $scope.walletId
+      });
     };
   }
 

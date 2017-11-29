@@ -5,12 +5,12 @@ angular.module('copayApp.services')
 
     var isChromeApp = platformInfo.isChromeApp;
     var isCordova = platformInfo.isCordova;
-    var isWindowsPhoneApp = platformInfo.isCordova && platformInfo.isWP;
+    var isWP = platformInfo.isWP;
     var isIOS = platformInfo.isIOS;
 
     var root = {};
     var errors = bwcService.getErrors();
-    var usePushNotifications = isCordova && !isWindowsPhoneApp;
+    var usePushNotifications = isCordova && !isWP;
 
     var UPDATE_PERIOD = 15;
 
@@ -208,7 +208,7 @@ angular.module('copayApp.services')
     };
 
     var shouldSkipValidation = function(walletId) {
-      return root.profile.isChecked(platformInfo.ua, walletId) || isIOS || isWindowsPhoneApp;
+      return root.profile.isChecked(platformInfo.ua, walletId) || isIOS || isWP;
     }
     // Used when reading wallets from the profile
     root.bindWallet = function(credentials, cb) {
@@ -618,8 +618,6 @@ angular.module('copayApp.services')
       walletClient.importFromMnemonic(words, {
         network: opts.networkName,
         passphrase: opts.passphrase,
-        entropySourcePath: opts.entropySourcePath,
-        derivationStrategy: opts.derivationStrategy || 'BIP44',
         account: opts.account || 0,
       }, function(err) {
         if (err) {

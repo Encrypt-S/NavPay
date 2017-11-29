@@ -60,7 +60,7 @@ angular.module('copayApp.controllers').controller('paperWalletController',
         $scope.wallet.buildTxFromPrivateKey($scope.privateKey, destinationAddress, null, function(err, testTx) {
           if (err) return cb(err);
           var rawTxLength = testTx.serialize().length;
-          feeService.getCurrentFeeRate('livenet', function(err, feePerKB) {
+          feeService.getCurrentFeeValue('livenet', function(err, feePerKB) {
             var opts = {};
             opts.fee = Math.round((feePerKB * rawTxLength) / 2000);
             $scope.wallet.buildTxFromPrivateKey($scope.privateKey, destinationAddress, opts, function(err, tx) {
@@ -101,15 +101,21 @@ angular.module('copayApp.controllers').controller('paperWalletController',
       $state.go('tabs.home');
     };
 
-    $scope.onWalletSelect = function(wallet) {
+    $scope.$on('Wallet/Changed', function(event, wallet) {
+      if (!wallet) {
+        $log.debug('No wallet provided');
+        return;
+      }
+      if (wallet == $scope.wallet) {
+        $log.debug('No change in wallet');
+        return;
+      }
       $scope.wallet = wallet;
-    };
-
-    $scope.showWalletSelector = function() {
-      if ($scope.singleWallet) return;
-      $scope.walletSelectorTitle = gettextCatalog.getString('Transfer to');
-      $scope.showWallets = true;
-    };
+      $log.debug('Wallet changed: ' + wallet.name);
+      $timeout(function() {
+        $scope.$apply();
+      });
+    });
 
     $scope.$on("$ionicView.beforeEnter", function(event, data) {
       $scope.scannedKey = (data.stateParams && data.stateParams.privateKey) ? data.stateParams.privateKey : null;
@@ -121,7 +127,6 @@ angular.module('copayApp.controllers').controller('paperWalletController',
         onlyComplete: true,
         network: 'livenet',
       });
-      $scope.singleWallet = $scope.wallets.length == 1;
 
       if (!$scope.wallets || !$scope.wallets.length) {
         $scope.noMatchingWallet = true;
