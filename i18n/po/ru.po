@@ -3298,3 +3298,94 @@ msgstr "Загрузка Биржи Changelly..."
 #: tab-send.html:24
 msgid "Next"
 msgstr "Следующая"
+
+
+msgid "NavTech / Private Payment Servers"
+msgstr ""
+
+msgid "Encryption required"
+msgstr ""
+
+msgid "Backup required"
+msgstr ""
+
+msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Show QR Code"
+msgstr ""
+
+msgid "Anyone with your backup phrase can access or spend your NavCoin."
+msgstr ""
+
+msgid "Buy NAV"
+msgstr ""
+
+msgid "Wallet not encrypted. Set spending password to encrypt."
+msgstr ""
+
+msgid "Please enter a password to encrypt your wallet"
+msgstr ""
+
+msgid "This password can never be recovered or reset!"
+msgstr ""
+
+msgid "Are you sure?"
+msgstr ""
+
+msgid "Your wallet keys will be stored in plain text and you will be vulnerable to having you coins stolen. We highly recommend pressing no and choosing a password."
+msgstr ""
+
+msgid "Create password"
+msgstr ""
+
+msgid "No password"
+msgstr ""
+
+msgid "NavCoin is different &ndash; it cannot be safely held with a bank or web service."
+msgstr ""
+
+msgid "No NavTech servers found. Please add a NavTech server to make private payments."
+msgstr ""
+
+msgid "Invalid server"
+msgstr ""
+
+msgid "NavTech Server successfully added"
+msgstr ""
+
+msgid "Please enter a NavTech URL. e.g. https://SomeNavTechServer.com:3000"
+msgstr ""
+
+msgid "Add a NavTech server to create private payments."
+msgstr ""
+
+msgid "No NavTech servers found. Please add a server to make private payments"
+msgstr ""
+
+msgid "Invalid NavTech Server"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+
+msgid "You have disallowed camera use. It must be enabled to scan QR codes."
+msgstr ""
+
+msgid "Please see the NavCoin guide for more information."
+msgstr ""
+
+msgid "Purchase NavCoin"
+msgstr ""
+
+msgid "To get started, you can buy NavCoin through our exchange partner Changelly."
+msgstr ""
+
+msgid "Buy NavCoin with:"
+msgstr ""
+
+msgid "Credit Card"
+msgstr ""
+
+msgid "Cryptocurrency"
+msgstr ""
