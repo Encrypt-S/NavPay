@@ -79,7 +79,6 @@
     "grunt-exec": "^1.0.0",
     "grunt-nw-builder": "^2.0.3",
     "grunt-sass": "^1.2.0",
-    "load-grunt-tasks": "^3.5.0",
     "shelljs": "^0.3.0"
   },
   "scripts": {
@@ -128,6 +127,7 @@
     "grunt": "^1.0.1",
     "grunt-asset-hash": "^0.1.9",
     "ionic": "^2.1.0",
+    "load-grunt-tasks": "^3.5.2",
     "lodash": "^4.3.0",
     "plist": "^2.1.0",
     "pre-commit": "^1.1.3",
