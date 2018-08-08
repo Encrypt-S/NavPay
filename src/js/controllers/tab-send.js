@@ -62,9 +62,9 @@ angular
 
                if (Array.isArray(res.Answer)) {
                  for (var i = 0; i < res.Answer.length; i++ ) {
-                   const oaAddr = res.Answer[i].data
+                   var oaAddr = res.Answer[i].data
                    if(oaAddr.includes('oa1:nav')) {
-                     const address = oaAddr.substring(oaAddr.indexOf('recipient_address=') + 18, oaAddr.indexOf(';'))
+                     var address = oaAddr.substring(oaAddr.indexOf('recipient_address=') + 18, oaAddr.indexOf(';'))
                      return cb(address, isEmail)
                    }
                  }
