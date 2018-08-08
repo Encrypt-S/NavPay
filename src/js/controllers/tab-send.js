@@ -22,7 +22,8 @@ angular
     $window,
     externalLinkService,
     bitcore,
-    navTechService
+    navTechService,
+    $http
   ) {
     var originalList;
     var CONTACTS_SHOW_LIMIT;
@@ -38,6 +39,43 @@ angular
     $scope.privateToggleOn = false;
     $scope.navTechError = false;
     $scope.navTechLoading = false;
+    $scope.address = ''
+    $scope.oaMsg = ''
+
+    function openAliasResolve(data, cb) {
+      var regex = /.+@.+\..+/
+      var match = regex.exec(data)
+      var isEmail = false
+
+      if (match) {
+        isEmail = true
+        var url = data.replace('@', '.');
+        var randomPadding = Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2);
+
+
+        $http.get('https://dns.google.com/resolve?name=' + url + '&type=16&cd=0&edns_client_subnet=0.0.0.0/0&random_padding='+ randomPadding)
+             .success(function (res, status) {
+
+               if(res.Status !== 0) {
+                 return cb(data, isEmail)
+               }
+
+               if (Array.isArray(res.Answer)) {
+                 for (var i = 0; i < res.Answer.length; i++ ) {
+                   const oaAddr = res.Answer[i].data
+                   if(oaAddr.includes('oa1:nav')) {
+                     const address = oaAddr.substring(oaAddr.indexOf('recipient_address=') + 18, oaAddr.indexOf(';'))
+                     return cb(address, isEmail)
+                   }
+                 }
+               }
+
+               return cb(data)
+             })
+      } else {
+        return cb(data, isEmail)
+      }
+    }
 
     $scope.sweepBtnDisabled = function() {
       var isDisabled = true;
@@ -164,9 +202,9 @@ angular
     };
 
     var isValidTransaction = function() {
-      console.log('isValidTransaction', $scope.formData.search, $scope.privatePayment )
+      var data = $scope.address || $scope.formData.search // use the address or use whatever the user typed
       return incomingData.redir(
-        $scope.formData.search,
+        data,
         $scope.privatePayment,
         true
       );
@@ -179,8 +217,6 @@ angular
     $scope.openScanner = function() {
       var isWindowsPhoneApp = platformInfo.isCordova && platformInfo.isWP;
       var privatePayment = $scope.privatePayment || false;
-
-      console.log('openScanner', privatePayment)
 
       if (!isWindowsPhoneApp) {
         $state.go('tabs.scan', { returnRoute: 'tabs.send', privatePayment: privatePayment });
@@ -280,15 +316,41 @@ angular
       }
     };
 
-    $scope.nextClicked = function(search) {
+    $scope.nextClicked = function() {
+      var data = $scope.address || $scope.formData.search // use the address or use whatever the user typed
       var privatePayment = $scope.privatePayment || false;
-      if (incomingData.redir(search, privatePayment, false)) {
+      if (incomingData.redir(data, privatePayment, false)) {
+        $scope.address = ''
+        $scope.oaMsg = ''
         return;
-      } else if (search) {
+      } else if (data) {
         $scope.nextDisabled = true;
         return;
       }
     };
+
+    $scope.checkOpenAlias = function(search) {
+      $scope.address = ''
+      $scope.oaMsg = ''
+
+      openAliasResolve(search, function(result, isEmail) {
+        // Found an address
+        if (isEmail && search !== result) {
+          $scope.address = result;
+          $scope.oaMsg = '(' + result +')';
+          return $scope.findContact(result)
+        }
+
+        // Didn't find an address
+        if (isEmail && search === result) {
+          $scope.oaMsg = '(OpenAlias Address Not Found)';
+          return $scope.findContact(search)
+        }
+
+        // Wasn't an email, search normally
+        return $scope.findContact(search)
+      })
+    }
 
     $scope.findContact = function(search) {
       var privatePayment = $scope.privatePayment || false;
@@ -371,8 +433,10 @@ angular
 
     $scope.$on('$ionicView.beforeEnter', function(event, data) {
       $scope.checkingBalance = true;
+      $scope.oaMsg = '';
+      $scope.address = '';
       $scope.formData = {
-        search: null
+        search: '',
       };
 
       originalList = [];
@@ -395,7 +459,6 @@ angular
           $scope.formData.search = data.stateParams.address;
           $scope.privatePayment = data.stateParams.privatePayment || false;
           $scope.privateToggleOn = data.stateParams.privatePayment || false;
-           console.log('$ionicView.enter - $scope.privatePayment ', $scope.privatePayment )
         }
         $timeout(function() {
           $scope.searchFocus = true;

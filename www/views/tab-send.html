@@ -40,9 +40,13 @@
             <img class="svg" src="img/icon-bitcoin-symbol.svg">
           </i>
           <div class="item-icon-right">
+            <!-- <span
+              style="position: absolute; font-size: 14px; padding-left: 30px; pointer-events: none; font-family: 'Roboto', sans-serif; visibility: hidden;"
+            >{{formData.search}}<span style="visibility: visible; color: darkgrey; padding-left: 25px;">{{oaMsg}}</span></span> -->
             <input type="text" class="search-input" id="tab-send-address" placeholder="{{'Search or enter NavCoin address' | translate}}"
-              ng-model="formData.search" ng-change="findContact(formData.search)" ng-model-onblur ng-focus="searchInFocus()"
-              ng-blur="searchBlurred()">
+              ng-model="formData.search" ng-change="checkOpenAlias(formData.search)" ng-model-onblur ng-focus="searchInFocus()"
+              ng-blur="searchBlurred()" ng-model-options="{ debounce: 150 }"
+            >
             <i class="icon icon-svg qr abs-v-center separator-left" on-tap="openScanner()">
               <img src="img/scan-ico.svg">
             </i>
@@ -73,7 +77,7 @@
           <p class="navTechSuccessText" ng-class="{'showNavTechSuccess': navTechAddressSuccess}" translate>NavTech Server successfully added</p>
         </div>
         <div class="send-next-button">
-          <button ng-disabled="nextDisabled" class="button button-standard button-primary" ng-class="{disable: nextDisabled}" ng-click="nextClicked(formData.search)">
+          <button ng-disabled="nextDisabled" class="button button-standard button-primary" ng-class="{disable: nextDisabled}" ng-click="nextClicked()">
             <span class="button-label" translate>Next</span>
           </button>
         </div>
