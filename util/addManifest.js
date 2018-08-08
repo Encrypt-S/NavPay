@@ -8,7 +8,7 @@
  */
 
 var fs = require('fs');
-const replace = require('replace-in-file');
+var replace = require('replace-in-file');
 
 try {
   fs.renameSync('./dist/www/off.cache.manifest', './dist/www/cache.manifest')
@@ -18,7 +18,7 @@ try {
 
 try {
   // We add a new random code to the manifest so its changed
-  const changes = replace.sync({
+  var changes = replace.sync({
     files: './dist/www/cache.manifest',
     from: /(# Start Version -).+(- EndV)/g,
     to: '# Start Version - ' + Date.now() + ' - EndV',
