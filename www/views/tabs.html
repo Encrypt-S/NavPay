@@ -1,4 +1,4 @@
-<ion-tabs class="tabs-icon-top tabs-color-active-positive ion-tabs-transparent {{$root.hideTabs}}">
+<ion-tabs class="tabs-icon-top tabs-color-active-positive ion-tabs-transparent {{$root.hideTabs}} {{isIphonePWA ? 'iPhonePWA' : ''}}">
 
   <ion-tab title="{{'Home'|translate}}" icon-off="ico-home" icon-on="ico-home-selected" ui-sref="tabs.home">
     <ion-nav-view name="tab-home"></ion-nav-view>

@@ -70,12 +70,14 @@
             </strong>
             &nbsp;
             <span>
-              {{status.spendableBalanceAlternative}} {{status.alternativeIsoCode}}
+             {{status.spendableBalanceAlternative}} {{status.alternativeIsoCode}}
             </span>
           </button>
         </div>
-
       </div>
+      <span class="amount__refresh {{updatingStatus ? 'amount__refresh-rotate' : ''}}" ng-click="onRefresh()">
+        ↻
+      </span>
       <div ng-if="updatingStatus" class="amount__updating">
         <div class="size-36">
           <strong>...</strong>
@@ -89,7 +91,6 @@
 
   <ion-content ng-style="{'margin-top': contentMargin}" ng-class="{collapsible: amountIsCollapsible}">
     <ion-refresher
-      ng-if="isAndroid"
       pulling-icon="ion-ios-refresh"
       spinner="ios-small"
       on-refresh="onRefresh()">
@@ -154,13 +155,17 @@
       </div>
     </div> <!-- oh -->
 
-    <a class="wallet-not-backed-up-warning" ng-if="wallet.needsBackup" ui-sref="tabs.wallet.backupWarning({from: 'tabs.wallet'})" translate>
+    <a class="wallet-not-backed-up-warning" ng-if="wallet.needsBackup" ui-sref="tabs.wallet.backupWarning({walletId: wallet.id, from: 'tabs.wallet'})" translate>
       Wallet not backed up
     </a>
 
+    <span class="wallet-not-backed-up-warning" ng-if="wallet.needsEncryption" translate>
+      Wallet not encrypted. Set spending password to encrypt.
+    </span>
 
-    <a class="wallet-not-backed-up-warning" ng-if="lowUtxosWarning" ui-sref="tabs.wallet.addresses({walletId:wallet.id,from: 'tabs.wallet'})" translate>
-      Spending this balance will need significant Nav Coin network fees
+
+    <a class="wallet-not-backed-up-warning" ng-if="lowUtxosWarning" ui-sref="tabs.wallet.addresses({walletId:wallet.id, from: 'tabs.wallet'})" translate>
+      Spending this balance will need significant NavCoin network fees
     </a>
 
 

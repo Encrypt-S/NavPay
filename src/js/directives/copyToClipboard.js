@@ -8,6 +8,7 @@ angular.module('copayApp.directives')
         copyToClipboard: '=copyToClipboard'
       },
       link: function(scope, elem, attrs, ctrl) {
+        console.log('ran copy to clipboard')
         var isCordova = platformInfo.isCordova;
         var isChromeApp = platformInfo.isChromeApp;
         var isNW = platformInfo.isNW;
@@ -26,6 +27,8 @@ angular.module('copayApp.directives')
             nodeWebkitService.writeToClipboard(data);
           } else if (clipboard.supported) {
             clipboard.copyText(data);
+          } else if (navigator.clipboard) {
+            navigator.clipboard.writeText(data)
           } else {
             // No supported
             return;

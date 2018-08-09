@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=4.0.2
+Name=NavPay
+Comment=NavCoin Thin Client
+Exec=NavPay
+Icon=icon-256.png
+Terminal=false
+Categories=Finance
+X-Ubuntu-Touch=true
+X-Ubuntu-StageHint=SideStage

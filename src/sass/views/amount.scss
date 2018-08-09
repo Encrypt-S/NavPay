@@ -15,6 +15,17 @@
   .icon-amazon {
     background-image: url("../img/icon-amazon.svg");
   }
+  .bitcoin-balance {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .arrow {
+    cursor: pointer;
+    margin-right: 15px;
+    font-size: 25px;
+  }
+
   @media(max-width: 480px) {
     .bitcoin-address {
       .icon {
@@ -46,25 +57,25 @@
     top: 10px;
   }
   .amount-pane-recipient {
-    position: absolute;
-    top: 95px;
-    bottom: 0;
+    display: flex;
+    height: 100%;
     width: 100%;
     background-color: #fff;
     padding: 0 16px;
 
     .amount-bar {
-      padding: 24px 0;
+      display: none;
+      margin-top: 70px;
       font-size: 18px;
-      @media(max-height: 480px) {
-        padding: 0px;
+      @media(max-height: 790px) {
+        margin-top: 0px;
       }
-      @media(max-width: 320px) {
-        padding: 0px;
+      @media(max-width: 320px), (max-height: 630px) {
+        display: none;
       }
       .title {
         float: left;
-        padding-top: 10px;
+        padding: 10px 0;
         color: $v-dark-gray;
         font-weight: bold;
         @media(max-height: 480px) {
@@ -78,11 +89,8 @@
     .amount {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       flex-grow: 1;
-      position: absolute;
-      bottom: 254px;
-      top: 66px;
       .light {
         color: $v-light-gray;
       }
@@ -91,7 +99,7 @@
       }
       @media(max-width: 320px) {
         bottom: 276px;
-        top: 60px;
+        top: 30px;
         & > div {
           display: inline-block;
         }
@@ -110,6 +118,7 @@
     padding: 0 16px;
 
     .amount-bar {
+      display: none;
       padding: 24px 0;
       font-size: 18px;
       .title {
@@ -129,11 +138,8 @@
     .amount {
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       flex-grow: 1;
-      position: absolute;
-      bottom: 254px;
-      top: 66px;
       .light {
         color: $v-light-gray;
       }
@@ -141,6 +147,7 @@
   }
   .amount {
     &__editable {
+      padding-top: 15px;
       &--minimize {
         font-size: 22px;
       }
@@ -202,7 +209,7 @@
     &__result-equiv {
       color: $v-mid-gray;
       font-size: 1.2em;
-      margin-top: 2rem;
+      margin-top: 10px;
       @media(max-height: 480px) {
         margin-top: 0;
         font-size: 16px;
@@ -225,6 +232,12 @@
 
     .col {
       line-height: 45px;
+    }
+
+    @media(max-height: 600px) {
+      .col {
+        line-height: 30px !important;
+      }
     }
 
     .operator {
@@ -263,4 +276,5 @@
 
     }
   }
-}
+
+  }

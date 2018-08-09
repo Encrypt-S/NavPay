@@ -5,27 +5,25 @@
   <ion-content>
     <div ng-if="isSweeping">
       <div class="send-header-wrapper card">
-        <div class="item item-heading send-heading"><span translate>Private Key</span></div>
+        <div class="item item-heading send-heading">
+          <span translate>Private Key</span>
+        </div>
         <div class="item input search-wrapper" ng-class="{'focus': searchFocus}">
-          <i class="icon icon-svg abs-v-center"><img class="svg" src="img/icon-bitcoin-symbol.svg"></i>
+          <i class="icon icon-svg abs-v-center">
+            <img class="svg" src="img/icon-bitcoin-symbol.svg">
+          </i>
           <div class="item-icon-right">
-            <input  ng-model="formData.search"
-                    ng-change="findContact(formData.search)"
-                    ng-model-onblur ng-focus="searchInFocus()"
-                    ng-blur="searchBlurred()"
-                    placeholder="{{'Enter a Nav Coin Private Key to sweep with' | translate}}"
-                    type="text"
-                    class="search-input"
-                    id="tab-sweep-address"  >
-            <i class="icon icon-svg qr abs-v-center separator-left" on-tap="openScanner()"><img src="img/scan-ico.svg"></i>
+            <input ng-model="formData.search" ng-change="findContact(formData.search)" ng-model-onblur ng-focus="searchInFocus()" ng-blur="searchBlurred()"
+              placeholder="{{'Enter a NavCoin Private Key to sweep with' | translate}}" type="text" class="search-input" id="tab-sweep-address">
+            <i class="icon icon-svg qr abs-v-center separator-left" on-tap="openScanner()">
+              <img src="img/scan-ico.svg">
+            </i>
           </div>
         </div>
         <div class="send-next-button">
 
-          <button ng-disabled="sweepBtnDisabled()"
-                  ng-class="{disable: sweepBtnDisabled()}"
-                  ng-click="sweepAddressClickHandler(formData.search)"
-                  class="button button-standard button-primary" >
+          <button ng-disabled="sweepBtnDisabled()" ng-class="{disable: sweepBtnDisabled()}" ng-click="sweepAddressClickHandler(formData.search)"
+            class="button button-standard button-primary">
             <span class="button-label" translate>Sweep Address</span>
           </button>
         </div>
@@ -34,22 +32,52 @@
 
     <div ng-if="hasFunds && !isSweeping">
       <div class="send-header-wrapper card">
-        <div class="item item-heading send-heading"><span translate>Recipient</span></div>
-        <div class="item input search-wrapper" ng-class="{'focus': searchFocus}">
-          <i class="icon icon-svg abs-v-center"><img class="svg" src="img/icon-bitcoin-symbol.svg"></i>
+        <div class="item item-heading send-heading">
+          <span translate>Recipient</span>
+        </div>
+        <div class="item input search-wrapper">
+          <i class="icon icon-svg abs-v-center">
+            <img class="svg" src="img/icon-bitcoin-symbol.svg">
+          </i>
           <div class="item-icon-right">
-            <input type="text" class="search-input" id="tab-send-address" placeholder="{{'Search or enter Nav Coin address' | translate}}" ng-model="formData.search" ng-change="findContact(formData.search)" ng-model-onblur ng-focus="searchInFocus()" ng-blur="searchBlurred()">
-            <i class="icon icon-svg qr abs-v-center separator-left" on-tap="openScanner()"><img src="img/scan-ico.svg"></i>
+            <!-- <span
+              style="position: absolute; font-size: 14px; padding-left: 30px; pointer-events: none; font-family: 'Roboto', sans-serif; visibility: hidden;"
+            >{{formData.search}}<span style="visibility: visible; color: darkgrey; padding-left: 25px;">{{oaMsg}}</span></span> -->
+            <input type="text" class="search-input" id="tab-send-address" placeholder="{{'Search or enter NavCoin address' | translate}}"
+              ng-model="formData.search" ng-change="checkOpenAlias(formData.search)" ng-model-onblur ng-focus="searchInFocus()"
+              ng-blur="searchBlurred()" ng-model-options="{ debounce: 150 }"
+            >
+            <i class="icon icon-svg qr abs-v-center separator-left" on-tap="openScanner()">
+              <img src="img/scan-ico.svg">
+            </i>
           </div>
         </div>
         <div class="send-private-toggle">
-          <ion-toggle ng-model="formData.privatePayment" toggle-class="toggle-balanced">
+          <ion-toggle ng-click="togglePrivatePayment()" toggle-class="toggle-balanced">
             <span class="toggle-label" translate>Private Payment</span>
           </ion-toggle>
         </div>
+        <div ng-show="showAddNavTech" class="addNavTechIPContainer">
+          <div ng-hide="navTechAddressSuccess">
+            <p translate>No NavTech servers found. Please add a NavTech server to make private payments.</p>
+            <p>See
+              <a href="#" ng-click="viewNavTechServers()">navhub.org/navtech-servers</a> for more details.</p>
+            <div class="item input search-wrapper">
+              <i class="icon ion-ios-cloud-upload-outline abs-v-center navTechIcon" ng-class="{'ion-load-c navTechLoading': navTechLoading}"></i>
+              <div class="item-icon-right">
+                <input type="text" class="search-input" placeholder="{{'Please enter a NavTech URL. e.g. https://SomeNavTechServer.com:3000' | translate}}"
+                  ng-model="formData.navTechAddress">
+                <button class="button button-input button-primary" ng-click="saveNavTechAddress(formData.navTechAddress)">
+                  <span class="button-label" translate>Save</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <p class="navTechErrorText" ng-show="navTechError" translate>Invalid server</p>
+          <p class="navTechSuccessText" ng-class="{'showNavTechSuccess': navTechAddressSuccess}" translate>NavTech Server successfully added</p>
+        </div>
         <div class="send-next-button">
-          <button ng-disabled="nextDisabled" class="button button-standard button-primary"
-          ng-class="{disable: nextDisabled}" ng-click="nextClicked(formData.search)">
+          <button ng-disabled="nextDisabled" class="button button-standard button-primary" ng-class="{disable: nextDisabled}" ng-click="nextClicked()">
             <span class="button-label" translate>Next</span>
           </button>
         </div>
@@ -57,23 +85,47 @@
     </div>
 
     <div ng-if="!checkingBalance && !isSweeping && (!hasFunds || !hasWallets)">
-      <div class="list card sendTip">
-        <div class="item item-icon-right item-heading"></div>
-        <div>
-          <i class="icon zero-state-icon">
-            <img src="img/tab-icons/ico-send-selected.svg"/>
-          </i>
-        </div>
-        <div class="title" translate>
-          Start sending Nav Coin
-        </div>
-        <div class="subtitle">
-          <span ng-show="hasWallets" translate>To get started, buy Nav Coin or share your address. You can receive Nav Coin from any wallet or service.</span>
-          <span ng-show="!hasWallets" translate>To get started, you'll need to create a Nav Coin wallet and get some Nav Coin.</span>
+      <div ng-if="isIOSNativeApp">
+        <div class="list card sendTip">
+          <div class="title" translate>
+            Purchase NavCoin
+          </div>
+          <div class="subtitle">
+            <div ng-show="wallets[0]" translate>To get started, you'll need to create a NavCoin wallet and get some NavCoin.</div>
+          </div>
           <div class="padding">
-            <a class="button button-standard button-primary" ng-show="hasWallets" ng-click="openBuyLink()" translate>Buy Nav Coin</a>
-            <button class="button button-standard button-primary" ng-click="createWallet()" ng-show="!hasWallets" translate>Create Nav Coin wallet</button>
-            <button class="button button-standard button-secondary" ui-sref="tabs.receive" ng-show="hasWallets" translate>Show Nav Coin address</button>
+            <button class="button button-standard button-primary" ng-click="createWallet()" ng-show="!hasWallets" translate>Create NavCoin wallet</button>
+            <button class="button button-standard button-secondary" ui-sref="tabs.receive" ng-show="hasWallets" translate>Show NavCoin address</button>
+          </div>
+        </div>
+      </div>
+      <div ng-if="!isIOSNativeApp">
+        <div class="list card sendTip" id="home-changelly">
+          <div class="title" translate>
+            Get NavCoin
+          </div>
+          <div class="subtitle">
+            <div ng-show="wallets[0]" translate>To get started, you can buy NavCoin through our exchange partner Changelly.</div>
+            <div ng-show="!wallets[0]" translate>To get started, you'll need to create a NavCoin wallet and get some NavCoin.</div>
+            <div ng-show="!isMobile" class="padding">
+              <a class="button button-standard button-primary" ng-show="wallets[0]" ng-click="openBuyLink()" translate>Buy NAV</a>
+            </div>
+            <div ng-show="isAndroid || isMobile">
+              <div class="padding">
+                <div ng-show="isIOS">
+                  <a class="button button-standard button-primary" ng-show="wallets[0]" ng-click="openChangellyWeb()" translate>Buy NAV</a>
+                </div>
+                <div ng-show="isAndroid">
+                  <div translate class="text-bold">Buy NavCoin with:</div>
+                  <div>
+                    <a class="button button-standard button-primary" ng-show="wallets[0]" ng-click="openChangellyWeb()" translate>Credit Card</a>
+                    <a class="button button-standard button-primary" ng-show="wallets[0]" ng-click="openBuyLink()" translate>Cryptocurrency</a>
+                  </div>
+                </div>
+                <button class="button button-standard button-primary" ng-click="createWallet()" ng-show="!hasWallets" translate>Create NavCoin wallet</button>
+                <button class="button button-standard button-secondary" ui-sref="tabs.receive" ng-show="hasWallets" translate>Show NavCoin address</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -87,7 +139,8 @@
         </a>
       </div>
       <div class="list">
-        <a class="item item-icon-left item-icon-right" ng-repeat="item in list" ng-if="!item.isWallet && item.recipientType != 'wallet'" ng-click="goToAmount(item)">
+        <a class="item item-icon-left item-icon-right" ng-repeat="item in list" ng-if="!item.isWallet && item.recipientType != 'wallet'"
+          ng-click="goToAmount(item)">
           <i class="icon big-icon-svg">
             <img src="img/contact-placeholder.svg" class="bg" ng-if="isChromeApp">
             <gravatar class="send-gravatar" name="{{item.name}}" width="30" email="{{item.email}}" ng-if="!isChromeApp"></gravatar>
@@ -106,9 +159,11 @@
         <span translate>Transfer to Wallet</span>
       </div>
       <div class="list">
-        <a class="item item-icon-left item-icon-right" ng-repeat="item in list" ng-if="hasWallets && item.recipientType == 'wallet'" ng-click="goToAmount(item)">
+        <a class="item item-icon-left item-icon-right" ng-repeat="item in list" ng-if="hasWallets && item.recipientType == 'wallet'"
+          ng-click="goToAmount(item)">
           <i class="icon big-icon-svg" ng-if="item.recipientType == 'wallet'">
-            <img src="img/icon-wallet.svg" ng-class="{'wallet-background-color-default': !item.color}" ng-style="{'background-color': item.color}" class="bg"/>
+            <img src="img/icon-wallet.svg" ng-class="{'wallet-background-color-default': !item.color}" ng-style="{'background-color': item.color}"
+              class="bg" />
           </i>
           {{item.name}}
           <i class="icon bp-arrow-right"></i>

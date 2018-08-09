@@ -8,12 +8,12 @@
 # show up in a few places.
 # All the other settings can be tweaked by editing the !defines at the top of this script
 !define APPNAME "NavPay"
-!define COMPANYNAME "NavCoin"
+!define COMPANYNAME "Encrypt-S"
 !define DESCRIPTION "Windows installer for the NavPay multiwallet"
 # These three must be integers
-!define VERSIONMAJOR 1
-!define VERSIONMINOR 0
-!define VERSIONBUILD 5
+!define VERSIONMAJOR 4
+!define VERSIONMINOR 1
+!define VERSIONBUILD 0
 # These will be displayed by the "Click here for support information" link in "Add/Remove Programs"
 # It is possible to use "mailto:" links in here to open the email client
 !define HELPURL "http://www.navcoin.org" # "Support Information" link

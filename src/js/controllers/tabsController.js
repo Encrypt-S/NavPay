@@ -2,6 +2,8 @@
 
 angular.module('copayApp.controllers').controller('tabsController', function($rootScope, $log, $scope, $state, $stateParams, $timeout, platformInfo, incomingData, lodash, popupService, gettextCatalog, scannerService) {
 
+  $scope.isIphonePWA = platformInfo.isSafari && platformInfo.isPWA
+
   $scope.goSend = function() {
     $state.go('tabs.send', { address: undefined });
     return;

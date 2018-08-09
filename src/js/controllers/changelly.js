@@ -5,6 +5,7 @@ angular.module('copayApp.controllers').controller('changellyController',
     ongoingProcess, externalLinkService, latestReleaseService, profileService, walletService, configService, $log, platformInfo, storageService,
     txpModalService, appConfigService, startupService, addressbookService, feedbackService, bwcError, nextStepsService, buyAndSellService,
     homeIntegrationsService, bitpayCardService, pushNotificationsService, timeService) {
+
     var wallet;
     var listeners = [];
     var notifications = [];
@@ -15,6 +16,7 @@ angular.module('copayApp.controllers').controller('changellyController',
     $scope.homeTip = $stateParams.fromOnboarding;
     $scope.isCordova = platformInfo.isCordova;
     $scope.isAndroid = platformInfo.isAndroid;
+    $scope.isIOS = platformInfo.isIOS;
     $scope.isWindowsPhoneApp = platformInfo.isCordova && platformInfo.isWP;
     $scope.isNW = platformInfo.isNW;
     $scope.showRateCard = {};
@@ -72,6 +74,20 @@ angular.module('copayApp.controllers').controller('changellyController',
           }
         });
       });
+    };
+
+    var updateTxps = function() {
+      profileService.getTxps({
+        limit: 3
+      }, function(err, txps, n) {
+        if (err) $log.error(err);
+        $scope.txps = txps;
+        $scope.txpsN = n;
+        $timeout(function() {
+          $ionicScrollDelegate.resize();
+          $scope.$apply();
+        }, 10);
+      })
     };
 
     var updateWallet = function(wallet) {
@@ -158,8 +174,23 @@ angular.module('copayApp.controllers').controller('changellyController',
       return wallet;
     }
 
+    $scope.openExternalLink = function(url) {
+      var optIn = true;
+      var title = null;
+      var message = gettextCatalog.getString('You will now be redirected to Changelly.com to complete your purchase');
+      var okText = gettextCatalog.getString('Okay');
+      var cancelText = gettextCatalog.getString('Go Back');
+      externalLinkService.open(url, optIn, title, message, okText, cancelText);
+    };
+
     $scope.onWalletSelect = function(wallet) {
       $scope.wallet = wallet;
       $scope.setAddress();
+    };
+
+    $scope.showWalletSelector = function() {
+      if ($scope.singleWallet) return;
+      $scope.walletSelectorTitle = gettextCatalog.getString('Select a wallet');
+      $scope.showWallets = true;
     };
   });

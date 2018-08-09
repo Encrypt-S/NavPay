@@ -148,7 +148,9 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
       $timeout(function() {
         walletService.startScan($scope.wallet, function() {
           $scope.updateAll();
-          $scope.$apply();
+          $timeout(function() {
+            $scope.$apply();
+          });
         });
       });
     });
@@ -184,7 +186,9 @@ angular.module('copayApp.controllers').controller('walletDetailsController', fun
         }
         $scope.completeTxHistory = txHistory;
         $scope.showHistory();
-        $scope.$apply();
+        $timeout(function() {
+          $scope.$apply();
+        });
         return cb();
       });
     });

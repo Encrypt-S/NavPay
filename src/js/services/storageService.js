@@ -219,12 +219,28 @@ angular.module('copayApp.services')
       storage.set('homeTip', val, cb);
     };
 
+    root.getBuyNavTipAccepted = function(cb) {
+      storage.get('buyNavTip', cb);
+    };
+
+    root.setBuyNavTipAccepted = function(val, cb) {
+      storage.set('buyNavTip', val, cb);
+    };
+
     root.setHideBalanceFlag = function(walletId, val, cb) {
       storage.set('hideBalance-' + walletId, val, cb);
     };
 
     root.getHideBalanceFlag = function(walletId, cb) {
       storage.get('hideBalance-' + walletId, cb);
+    };
+
+    root.getNavTechServers = function(cb) {
+      storage.get('navTechServers', cb);
+    };
+
+    root.setNavTechServers = function(val, cb) {
+      storage.set('navTechServers', val, cb);
     };
 
     //for compatibility

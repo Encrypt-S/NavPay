@@ -44,7 +44,7 @@
       </a>
       <div ng-show="wallet.canSign()">
         <ion-toggle ng-model="encryptEnabled.value" toggle-class="toggle-balanced" ng-change="encryptChange()" ng-disabled="wallet.needsBackup">
-          <span ng-class="{'disabled': wallet.needsBackup}" class="toggle-label" translate>Request Spending Password</span>
+          <span ng-class="{'disabled': wallet.needsBackup}" class="toggle-label" translate>Set Spending Password</span>
         </ion-toggle>
         <div class="comment">
           <span translate>

@@ -39,6 +39,8 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
     // USE NATIVE SCROLLING
     $ionicConfigProvider.scrolling.jsScrolling(false);
 
+    // $compileProvider.debugInfoEnabled(true);
+    // $logProvider.debugEnabled(false);
     $logProvider.debugEnabled(true);
     $provide.decorator('$log', ['$delegate', 'platformInfo',
       function($delegate, platformInfo) {
@@ -105,6 +107,21 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
        *
        */
 
+      .state('offline', {
+        url: '/offline',
+        controller: 'offlineController',
+        templateUrl: 'views/offline.html'
+      })
+
+      .state('downloadApp', {
+        url: '/download',
+        templateUrl: 'views/downloadApp.html',
+        controller: 'downloadAppController',
+        params: {
+          fromSettings: false
+        }
+      })
+
       .state('unsupported', {
         url: '/unsupported',
         templateUrl: 'views/unsupported.html'
@@ -144,7 +161,7 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
           'tab-home@tabs': {
             controller: 'changellyController',
             templateUrl: 'views/changelly.html'
-           }
+           },
          }
        })
        .state('tabs.changelly-send', {
@@ -156,6 +173,15 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
            }
          }
        })
+      .state('tabs.changelly-settings', {
+      url: '/changelly',
+      views: {
+        'tab-settings@tabs': {
+          controller: 'changellyController',
+          templateUrl: 'views/changelly.html'
+        }
+      }
+    })
       /*
        *
        * Wallet
@@ -249,6 +275,7 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
         templateUrl: 'views/tabs.html'
       })
       .state('tabs.home', {
+        cache: false,
         url: '/home/:fromOnboarding',
         views: {
           'tab-home': {
@@ -267,12 +294,17 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
         }
       })
       .state('tabs.scan', {
-        url: '/scan/:returnRoute',
+        cache: false,
+        url: '/scan/',
         views: {
           'tab-scan': {
             controller: 'tabScanController',
             templateUrl: 'views/tab-scan.html',
-          }
+          },
+        },
+        params: {
+          returnRoute: null,
+          privatePayment: null,
         }
       })
       .state('scanner', {
@@ -293,6 +325,7 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
         },
         params: {
           address: null,
+          privatePayment: null,
         }
       })
       .state('tabs.settings', {
@@ -453,6 +486,15 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
           'tab-settings@tabs': {
             controller: 'preferencesAltCurrencyController',
             templateUrl: 'views/preferencesAltCurrency.html'
+          }
+        }
+      })
+      .state('tabs.navTechServers', {
+        url: '/navTechServers',
+        views: {
+          'tab-settings@tabs': {
+            controller: 'preferencesNavTechController',
+            templateUrl: 'views/preferencesNavTech.html'
           }
         }
       })
@@ -1273,27 +1315,32 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
           profileService.storeProfileIfDirty();
           $log.debug('Profile loaded ... Starting UX.');
           scannerService.gentleInitialize();
-          // Reload tab-home if necessary (from root path: starting)
-          $state.go('starting', {}, {
-            'reload': true,
-            'notify': $state.current.name == 'starting' ? false : true
-          }).then(function() {
-            $ionicHistory.nextViewOptions({
-              disableAnimate: true,
-              historyRoot: true
-            });
-            $state.transitionTo('tabs.home').then(function() {
+          $ionicHistory.nextViewOptions({
+            disableAnimate: true,
+            historyRoot: true
+          });
+          if (navigator.onLine === false) {
+            $log.debug('We are now offline. Changing to route "offline"')
+            $state.transitionTo('offline').then(function() {
               // Clear history
               $ionicHistory.clearHistory();
             });
-            applicationService.appLockModal('check');
-          });
-        };
-        // After everything have been loaded
-        $timeout(function() {
-          emailService.init(); // Update email subscription if necessary
-          openURLService.init();
-        }, 1000);
+          } else {
+            if ($state.current.name !== 'tabs.home') {
+              $state.transitionTo('tabs.home').then(function() {
+                // Clear history
+                $ionicHistory.clearHistory();
+              });
+            }
+          }
+
+          applicationService.appLockModal('check');
+          // After everything have been loaded
+          $timeout(function() {
+            emailService.init(); // Update email subscription if necessary
+            openURLService.init();
+          }, 1000);
+        }
       });
     });
 
@@ -1312,6 +1359,27 @@ angular.module('copayApp').config(function(historicLogProvider, $provide, $logPr
     }
 
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+      $log.debug('Route change from:', fromState.name || '-', ' to:', toState.name);
+
+      switch (fromState.name) {
+        case 'tabs.scan':
+          scannerService.deactivate();
+          break;
+          default:
+          // do nothing
+      }
+
+
+      // console.log('$stateChangeStart', event, toState, toParams, fromState, fromParams)
+
+      if (toState.name !== 'offline' && navigator.onLine === false) {
+        event.preventDefault()
+        $log.debug('We are now offline. navigator.onLine:', navigator.onLine, 'Changing to route "offline"')
+        $state.transitionTo('offline').then(function() {
+          // Clear history
+          $ionicHistory.clearHistory();
+        });
+      }
       $log.debug('Route change from:', fromState.name || '-', ' to:', toState.name);
       $log.debug('            toParams:' + JSON.stringify(toParams || {}));
       $log.debug('            fromParams:' + JSON.stringify(fromParams || {}));

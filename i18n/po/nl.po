@@ -156,12 +156,12 @@ msgid "All Addresses"
 msgstr "Alle Adressen"
 
 #: www/views/modals/wallet-balance.html:18
-msgid "All of your Nav Coin wallet balance may not be available for immediate spending."
-msgstr "Mogelijk is niet al uw Nav Coin saldo beschikbaar voor onmiddelijke uitgave."
+msgid "All of your NavCoin wallet balance may not be available for immediate spending."
+msgstr "Mogelijk is niet al uw NavCoin saldo beschikbaar voor onmiddelijke uitgave."
 
 #: www/views/tab-receive.html:33
-msgid "All signing devices must be added to this multisig wallet before Nav Coin addresses can be created."
-msgstr "Alle signerende apparaten dienen te worden toegevoegd aan deze multisig portefeuille alvorens Nav Coin adressen aangemaakt kunnen worden."
+msgid "All signing devices must be added to this multisig wallet before NavCoin addresses can be created."
+msgstr "Alle signerende apparaten dienen te worden toegevoegd aan deze multisig portefeuille alvorens NavCoin adressen aangemaakt kunnen worden."
 
 #: www/views/tab-scan.html:21
 msgid "Allow Camera Access"
@@ -200,16 +200,16 @@ msgid "An update to this app is available. For your security, please update to t
 msgstr "Er is een update voor deze app beschikbaar. Update voor uw veiligheid naar de meest recente versie van de app."
 
 #: www/views/backupWarning.html:14
-msgid "Anyone with your backup phrase can access or spend your Nav Coin."
-msgstr "Eenieder met uw herstel-zin kan toegang verschaffen tot uw Nav Coin en deze uitgeven."
+msgid "Anyone with your backup phrase can access or spend your NavCoin."
+msgstr "Eenieder met uw herstel-zin kan toegang verschaffen tot uw NavCoin en deze uitgeven."
 
 #: www/views/backupWarning.html:10
 msgid "Are you being watched?"
 msgstr "Wordt er met u meegekeken?"
 
 #: src/js/controllers/preferencesExternal.js:15
-msgid "Are you being watched? Anyone with your recovery phrase can access or spend your Nav Coin."
-msgstr "Wordt er met u meegekeken? Eenieder met uw herstel-zin kan toegang verschaffen tot uw Nav Coin en deze uitgeven."
+msgid "Are you being watched? Anyone with your recovery phrase can access or spend your NavCoin."
+msgstr "Wordt er met u meegekeken? Eenieder met uw herstel-zin kan toegang verschaffen tot uw NavCoin en deze uitgeven."
 
 #: src/js/controllers/copayers.js:42
 msgid "Are you sure you want to cancel and delete this wallet?"
@@ -306,37 +306,37 @@ msgid "NavPay Visa&reg; Cards"
 msgstr "NavPay Visa&reg; kaarten"
 
 #: www/views/addressbook.add.html:38
-msgid "Nav Coin Address"
-msgstr "Nav Coin adres"
+msgid "NavCoin Address"
+msgstr "NavCoin adres"
 
 #: www/views/preferencesFee.html:4
 #: www/views/tab-settings.html:85
-msgid "Nav Coin Network Fee Policy"
-msgstr "Nav Coin netwerk-transactiekosten beleid"
+msgid "NavCoin Network Fee Policy"
+msgstr "NavCoin netwerk-transactiekosten beleid"
 
 #: www/views/paymentUri.html:10
-msgid "Nav Coin URI is NOT valid!"
-msgstr "Nav Coin verzoek(URI) is niet geldig!"
+msgid "NavCoin URI is NOT valid!"
+msgstr "NavCoin verzoek(URI) is niet geldig!"
 
 #: www/views/tab-settings.html:63
-msgid "Nav Coin Unit"
-msgstr "Nav Coin eenheid"
+msgid "NavCoin Unit"
+msgstr "NavCoin eenheid"
 
 #: www/views/onboarding/tour.html:26
-msgid "Nav Coin is a currency."
-msgstr "Nav Coin is een valuta."
+msgid "NavCoin is a currency."
+msgstr "NavCoin is een valuta."
 
 #: www/views/onboarding/disclaimer.html:15
-msgid "Nav Coin is different &ndash; it cannot be safely held with a bank or web service."
-msgstr "Nav Coin is anders &ndash; het kan niet veilig worden bewaard door een bank of web dienst."
+msgid "NavCoin is different &ndash; it cannot be safely held with a bank or web service."
+msgstr "NavCoin is anders &ndash; het kan niet veilig worden bewaard door een bank of web dienst."
 
 #: www/views/onboarding/tour.html:13
-msgid "Nav Coin is secure,<br>digital money."
-msgstr "Nav Coin is een veilige <br>digitale valuta."
+msgid "NavCoin is secure,<br>digital money."
+msgstr "NavCoin is een veilige <br>digitale valuta."
 
 #: www/views/preferencesFee.html:11
-msgid "Nav Coin transactions include a fee collected by miners on the network."
-msgstr "Nav Coin transacties bevatten transactiekosten voor de miners op het netwerk."
+msgid "NavCoin transactions include a fee collected by miners on the network."
+msgstr "NavCoin transacties bevatten transactiekosten voor de miners op het netwerk."
 
 #: www/views/modals/txp-details.html:36
 msgid "Broadcast Payment"
@@ -356,16 +356,16 @@ msgid "Browser unsupported"
 msgstr "Browser niet ondersteund"
 
 #: www/views/includes/buyAndSellCard.html:4
-msgid "Buy &amp; Sell Nav Coin"
-msgstr "Koop &amp; verkoop Nav Coin"
+msgid "Buy &amp; Sell NavCoin"
+msgstr "Koop &amp; verkoop NavCoin"
 
 #: www/views/tab-send.html:31
-msgid "Buy Nav Coin"
-msgstr "Koop Nav Coin"
+msgid "Buy NavCoin"
+msgstr "Koop NavCoin"
 
 #: src/js/services/onGoingProcess.js:40
-msgid "Buying Nav Coin..."
-msgstr "Nav Coin aan het kopen..."
+msgid "Buying NavCoin..."
+msgstr "NavCoin aan het kopen..."
 
 #: src/js/services/onGoingProcess.js:12
 msgid "Calculating fee"
@@ -477,8 +477,8 @@ msgid "Confirming"
 msgstr "Bevestigen"
 
 #: www/views/bitpayCardIntro.html:37
-msgid "Connect my Nav Coin Card"
-msgstr "Verbinding maken met mijn Nav Coin kaart"
+msgid "Connect my NavCoin Card"
+msgstr "Verbinding maken met mijn NavCoin kaart"
 
 #: src/js/services/onGoingProcess.js:13
 msgid "Connecting to Coinbase..."
@@ -658,8 +658,8 @@ msgstr "Cre�er een gedeelde portefeuille"
 #: www/views/onboarding/tour.html:46
 #: www/views/tab-home.html:76
 #: www/views/tab-send.html:32
-msgid "Create Nav Coin wallet"
-msgstr "Cre�er een Nav Coin portefeuille"
+msgid "Create NavCoin wallet"
+msgstr "Cre�er een NavCoin portefeuille"
 
 #: www/views/tab-create-personal.html:107
 msgid "Create new wallet"
@@ -759,8 +759,8 @@ msgid "Download"
 msgstr "Download"
 
 #: www/views/addresses.html:23
-msgid "Each Nav Coin wallet can generate billions of addresses from your 12-word backup. A new address is automatically generated and shown each time you receive a payment."
-msgstr "Elk Nav Coin adres can miljarden adressen genereren door middel van uw 12-woorden back-up. Een nieuw adres wordt automatisch gegenereerd en getoond als u een betaling ontvangt.
+msgid "Each NavCoin wallet can generate billions of addresses from your 12-word backup. A new address is automatically generated and shown each time you receive a payment."
+msgstr "Elk NavCoin adres can miljarden adressen genereren door middel van uw 12-woorden back-up. Een nieuw adres wordt automatisch gegenereerd en getoond als u een betaling ontvangt.
 
 #: src/js/services/feeService.js:11
 msgid "Economy"
@@ -1180,12 +1180,12 @@ msgid "I understand"
 msgstr "Ik begrijp het"
 
 #: www/views/onboarding/disclaimer.html:21
-msgid "I understand that if this app is moved to another device or deleted, my Nav Coin can only be recovered with the backup phrase."
-msgstr "Ik begrijp dat als deze app naar een ander apparaat wordt overgezet of verwijderd wordt, dat ik mijn Nav Coin alleen kan terugkrijgen met de herstel-zin."
+msgid "I understand that if this app is moved to another device or deleted, my NavCoin can only be recovered with the backup phrase."
+msgstr "Ik begrijp dat als deze app naar een ander apparaat wordt overgezet of verwijderd wordt, dat ik mijn NavCoin alleen kan terugkrijgen met de herstel-zin."
 
 #: www/views/onboarding/disclaimer.html:18
 msgid "I understand that my funds are held securely on this device, not by a company."
-msgstr "Ik begrijp dat mijn Nav Coin veilig op dit apparaat worden opgeslagen, niet bij een extern bedrijf."
+msgstr "Ik begrijp dat mijn NavCoin veilig op dit apparaat worden opgeslagen, niet bij een extern bedrijf."
 
 #: www/views/backup.html:29
 msgid "I've written it down"
@@ -1205,7 +1205,7 @@ msgstr "Indien ingeschakeld, zullen portefeuilles ook onbevestigd saldo proberen
 
 #: src/js/controllers/onboarding/backupRequest.js:18
 msgid "If this device is replaced or this app is deleted, neither you nor NavPay can recover your funds without a backup."
-msgstr "Als dit apparaat wordt vervangen of deze app verwijderd, kan noch u noch NavPay uw Nav Coin terugkrijgen zonder een back-up."
+msgstr "Als dit apparaat wordt vervangen of deze app verwijderd, kan noch u noch NavPay uw NavCoin terugkrijgen zonder een back-up."
 
 #: www/views/feedback/complete.html:23
 msgid "If you have additional feedback, please let us know by tapping the \"Send feedback\" option in the Settings tab."
@@ -1315,12 +1315,12 @@ msgid "Is this email address correct?"
 msgstr "Klopt dit e-mailadres?"
 
 #: www/views/addresses.html:29
-msgid "It's a good idea to avoid reusing addresses - this both protects your privacy and keeps your Nav Coin secure against hypothetical attacks by quantum computers."
-msgstr "Wij raden af om adressen te hergebruiken � dit beschermd uw privacy en houdt uw Nav Coin veilig in het hypotetische geval van een aanval met een Quantum computer."
+msgid "It's a good idea to avoid reusing addresses - this both protects your privacy and keeps your NavCoin secure against hypothetical attacks by quantum computers."
+msgstr "Wij raden af om adressen te hergebruiken � dit beschermd uw privacy en houdt uw NavCoin veilig in het hypotetische geval van een aanval met een Quantum computer."
 
 #: src/js/controllers/backup.js:76
 msgid "It's important that you write your backup phrase down correctly. If something happens to your wallet, you'll need this backup to recover your money. Please review your backup and try again."
-msgstr "Het is belangrijk om uw herstel-zin correct op te schrijven. Indien er iets gebeurd met uw portefeuille heeft u deze back-up nodig om uw Nav Coin te herstellen. Controleer uw back-up en probeer het nogmaals."
+msgstr "Het is belangrijk om uw herstel-zin correct op te schrijven. Indien er iets gebeurd met uw portefeuille heeft u deze back-up nodig om uw NavCoin te herstellen. Controleer uw back-up en probeer het nogmaals."
 
 #: www/views/join.html:18
 msgid "John"
@@ -1458,7 +1458,7 @@ msgstr "Verplaatst"
 
 #: src/js/controllers/tx-details.js:113
 msgid "Moved Funds"
-msgstr "Nav Coin verplaatst"
+msgstr "NavCoin verplaatst"
 
 #: www/views/includes/confirm-tx.html:13
 #: www/views/modals/txp-details.html:57
@@ -1509,8 +1509,8 @@ msgid "No Wallet"
 msgstr "Geen portefeuille"
 
 #: www/views/onboarding/backupRequest.html:5
-msgid "No backup, no Nav Coin."
-msgstr "Geen back-up, geen Nav Coin."
+msgid "No backup, no NavCoin."
+msgstr "Geen back-up, geen NavCoin."
 
 #: www/views/addressbook.html:19
 msgid "No contacts yet"
@@ -1582,8 +1582,8 @@ msgid "Note"
 msgstr "Notitie"
 
 #: www/views/modals/wallets.html:25
-msgid "Notice: only 1-1 (single signature) wallets can be used for sell Nav Coin"
-msgstr "Let op: slechts 1-1 (enkele ondertekening) portefeuilles kunnen worden gebruikt voor het verkopen van Nav Coin"
+msgid "Notice: only 1-1 (single signature) wallets can be used for sell NavCoin"
+msgstr "Let op: slechts 1-1 (enkele ondertekening) portefeuilles kunnen worden gebruikt voor het verkopen van NavCoin"
 
 #: www/views/preferencesNotifications.html:3
 #: www/views/tab-settings.html:46
@@ -1690,8 +1690,8 @@ msgid "Paste the backup plain text code"
 msgstr "Plak de back-up tekst code"
 
 #: www/views/bitpayCardIntro.html:28
-msgid "Pay 0% fees to turn Nav Coin into dollars."
-msgstr "Betaal 0% transactiekosten om Nav Coin om te zetten in dollars."
+msgid "Pay 0% fees to turn NavCoin into dollars."
+msgstr "Betaal 0% transactiekosten om NavCoin om te zetten in dollars."
 
 #: www/views/modals/paypro.html:18
 msgid "Pay To"
@@ -1996,7 +1996,7 @@ msgid "Request Specific amount"
 msgstr "Vraag specifiek bedrag"
 
 #: www/views/preferences.html:47
-msgid "Request Spending Password"
+msgid "Set Spending Password"
 msgstr "Vraag bestedingwachtwoord"
 
 #: www/views/tab-create-shared.html:42
@@ -2061,8 +2061,8 @@ msgid "Search Transactions"
 msgstr "Zoek een transactie"
 
 #: www/views/tab-send.html:11
-msgid "Search or enter Nav Coin address"
-msgstr "Zoek of voer een Nav Coin adres in"
+msgid "Search or enter NavCoin address"
+msgstr "Zoek of voer een NavCoin adres in"
 
 #: www/views/modals/search.html:16
 msgid "Search transactions"
@@ -2089,8 +2089,8 @@ msgid "Self-signed Certificate"
 msgstr "Self-gesigneerd certificaat"
 
 #: src/js/services/onGoingProcess.js:41
-msgid "Selling Nav Coin..."
-msgstr "Nav Coin verkopen..."
+msgid "Selling NavCoin..."
+msgstr "NavCoin verkopen..."
 
 #: www/views/feedback/send.html:13
 #: www/views/feedback/send.html:43
@@ -2113,8 +2113,8 @@ msgid "Send addresses by email"
 msgstr "Verzend adres per e-mail"
 
 #: www/views/includes/confirm-tx.html:3
-msgid "Send Nav Coin"
-msgstr "Nav Coin verzenden"
+msgid "Send NavCoin"
+msgstr "NavCoin verzenden"
 
 #: www/views/preferencesLogs.html:13
 #: www/views/tab-export-file.html:82
@@ -2243,8 +2243,8 @@ msgid "Show advanced options"
 msgstr "Toon geavanceerde instellingen"
 
 #: www/views/tab-send.html:33
-msgid "Show Nav Coin address"
-msgstr "Toon Nav Coin adres"
+msgid "Show NavCoin address"
+msgstr "Toon NavCoin adres"
 
 #: www/views/tab-send.html:55
 msgid "Show more"
@@ -2260,7 +2260,7 @@ msgstr "Transactie aan het ondertekenen"
 
 #: www/views/onboarding/backupRequest.html:6
 msgid "Since only you control your money, you�ll need to save your backup phrase in case this app is deleted."
-msgstr "Omdat al u controle heeft over uw Nav Coin, zal u een back-up moeten maken voor het geval u de app verwijderd."
+msgstr "Omdat al u controle heeft over uw NavCoin, zal u een back-up moeten maken voor het geval u de app verwijderd."
 
 #: www/views/tab-create-personal.html:98
 #: www/views/tab-create-shared.html:128
@@ -2294,8 +2294,8 @@ msgid "Spending Password needed"
 msgstr "Betalingswachtwoord benodigd"
 
 #: www/views/tab-send.html:24
-msgid "Start sending Nav Coin"
-msgstr "Start met het versturen van Nav Coin"
+msgid "Start sending NavCoin"
+msgstr "Start met het versturen van NavCoin"
 
 #: src/js/routes.js:118
 msgid "Starting..."
@@ -2326,8 +2326,8 @@ msgid "THIS ACTION CANNOT BE REVERSED"
 msgstr "DEZE ACTIE KAN NIET WORDEN TERUGGEDRAAID"
 
 #: www/views/onboarding/welcome.html:5
-msgid "Take control of your money,<br>get started with Nav Coin."
-msgstr "Neem de controle over uw geld,<br>start met Nav Coin."
+msgid "Take control of your money,<br>get started with NavCoin."
+msgstr "Neem de controle over uw geld,<br>start met NavCoin."
 
 #: www/views/walletDetails.html:140
 #: www/views/walletDetails.html:60
@@ -2375,16 +2375,16 @@ msgid "The Ledger Chrome application is not installed"
 msgstr "De Ledger Chrome applicatie is niet ge�nstalleerd"
 
 #: www/views/modals/wallet-balance.html:55
-msgid "The amount of Nav Coin immediately spendable from this wallet."
-msgstr "De hoeveelheid Nav Coin direct beschikbaar voor besteding vanuit deze portefeuille."
+msgid "The amount of NavCoin immediately spendable from this wallet."
+msgstr "De hoeveelheid NavCoin direct beschikbaar voor besteding vanuit deze portefeuille."
 
 #: www/views/modals/wallet-balance.html:93
-msgid "The amount of Nav Coin stored in this wallet that is allocated as inputs to your pending transaction proposals. The amount is determined using unspent transaction outputs associated with this wallet and may be more than the actual amounts associated with your pending transaction proposals."
-msgstr " De hoeveelheid Nav Coin opgeslagen in deze portefeuille die is toegewezen als invoer voor uw wachtende betalingsvoorstellen. De hoeveelheid is bepaald door te kijken naar ongebruikte transactie uitvoer geassocieerd met deze portefeuille en kan meer zijn dan de daadwerkelijke hoeveelheid geassocieerd met de wachtende betalingsvoorstellen."
+msgid "The amount of NavCoin stored in this wallet that is allocated as inputs to your pending transaction proposals. The amount is determined using unspent transaction outputs associated with this wallet and may be more than the actual amounts associated with your pending transaction proposals."
+msgstr " De hoeveelheid NavCoin opgeslagen in deze portefeuille die is toegewezen als invoer voor uw wachtende betalingsvoorstellen. De hoeveelheid is bepaald door te kijken naar ongebruikte transactie uitvoer geassocieerd met deze portefeuille en kan meer zijn dan de daadwerkelijke hoeveelheid geassocieerd met de wachtende betalingsvoorstellen."
 
 #: www/views/modals/wallet-balance.html:74
-msgid "The amount of Nav Coin stored in this wallet with less than 1 blockchain confirmation."
-msgstr "De hoeveelheid Nav Coin opgeslagen in deze portefeuille met minder dan 1 blockchain bevestiging."
+msgid "The amount of NavCoin stored in this wallet with less than 1 blockchain confirmation."
+msgstr "De hoeveelheid NavCoin opgeslagen in deze portefeuille met minder dan 1 blockchain bevestiging."
 
 #: www/views/tab-import-phrase.html:5
 msgid "The derivation path"
@@ -2438,8 +2438,8 @@ msgid "The spend proposal is not pending"
 msgstr "Het bestedingsvoorstel is niet in behandeling"
 
 #: www/views/modals/wallet-balance.html:36
-msgid "The total amount of Nav Coin stored in this wallet."
-msgstr "De totale hoeveelheid Nav Coin opgeslagen in deze portefeuille."
+msgid "The total amount of NavCoin stored in this wallet."
+msgstr "De totale hoeveelheid NavCoin opgeslagen in deze portefeuille."
 
 #: www/views/preferencesHistory.html:27
 msgid "The transaction history and every new incoming transaction are cached in the app. This feature clean this up and synchronizes again from the server"
@@ -2473,18 +2473,18 @@ msgid "This app is fantastic!"
 msgstr "Deze app is fantastisch!"
 
 #: www/views/onboarding/tour.html:42
-msgid "This app stores your Nav Coin with cutting-edge security."
-msgstr " Deze app bewaart uw Nav Coin met de nieuwste beveiliging."
+msgid "This app stores your NavCoin with cutting-edge security."
+msgstr " Deze app bewaart uw NavCoin met de nieuwste beveiliging."
 
 #: src/js/controllers/confirm.js:471
-msgid "This Nav Coin payment request has expired."
-msgstr "Deze Nav Coin betalingsaanvraag is verstreken."
+msgid "This NavCoin payment request has expired."
+msgstr "Deze NavCoin betalingsaanvraag is verstreken."
 
 #: www/views/join.html:108
 #: www/views/tab-create-personal.html:79
 #: www/views/tab-create-shared.html:109
 msgid "This password cannot be recovered. If the password is lost, there is no way you could recover your funds."
-msgstr " Dit wachtwoord kan niet worden achterhaald. Als het wachtwoord verloren gaat is er geen mogelijkheid om uw Nav Coin terug te krijgen."
+msgstr " Dit wachtwoord kan niet worden achterhaald. Als het wachtwoord verloren gaat is er geen mogelijkheid om uw NavCoin terug te krijgen."
 
 #: www/views/backup.html:24
 msgid "This recovery phrase was created with a password. To recover this wallet both the recovery phrase and password are needed."
@@ -2496,8 +2496,8 @@ msgstr " Deze transactie zou lang kunnen wachten op een bevestiging of kan worde
 
 #: www/views/walletDetails.html:116
 #: www/views/walletDetails.html:35
-msgid "This wallet is not registered at the given Nav Coin Wallet Service (BWS). You can recreate it from the local information."
-msgstr " Deze portefeuille is niet geregistreerd bij de opgegeven Nav Coin Wallet Service (NWS). U kunt deze opnieuw aanmaken vanuit de lokale informatie."
+msgid "This wallet is not registered at the given NavCoin Wallet Service (BWS). You can recreate it from the local information."
+msgstr " Deze portefeuille is niet geregistreerd bij de opgegeven NavCoin Wallet Service (NWS). U kunt deze opnieuw aanmaken vanuit de lokale informatie."
 
 #: www/views/modals/txp-details.html:137
 #: www/views/tx-details.html:106
@@ -2514,12 +2514,12 @@ msgid "To"
 msgstr "Naar"
 
 #: www/views/tab-send.html:28
-msgid "To get started, buy Nav Coin or share your address. You can receive Nav Coin from any wallet or service."
-msgstr "Om aan de slag te gaan, koop Nav Coin of deel uw adres. U kunt Nav Coin ontvangen van elke portefeuille of dienst."
+msgid "To get started, Buy NavCoin or share your address. You can receive NavCoin from any wallet or service."
+msgstr "Om aan de slag te gaan, koop NavCoin of deel uw adres. U kunt NavCoin ontvangen van elke portefeuille of dienst."
 
 #: www/views/tab-send.html:29
-msgid "To get started, you'll need to create a Nav Coin wallet and get some Nav Coin."
-msgstr " Om aan de slag te gaan zult u een Nav Coin portefeuille moeten aanmaken en wat Nav Coin moeten verkrijgen.."
+msgid "To get started, you'll need to create a NavCoin wallet and get some NavCoin."
+msgstr " Om aan de slag te gaan zult u een NavCoin portefeuille moeten aanmaken en wat NavCoin moeten verkrijgen.."
 
 #: www/views/modals/wallet-balance.html:23
 msgid "Total"
@@ -2573,8 +2573,8 @@ msgid "Try again in {{expires}}"
 msgstr "Probeer opnieuw over {{expires}}"
 
 #: www/views/bitpayCardIntro.html:18
-msgid "Turn Nav Coin into dollars, swipe anywhere Visa<sup>&reg;</sup> is accepted."
-msgstr "Zet Nav Coin om in dollars, betaal overal waar Visa<sup>&reg;</sup> wordt geaccepteerd."
+msgid "Turn NavCoin into dollars, swipe anywhere Visa<sup>&reg;</sup> is accepted."
+msgstr "Zet NavCoin om in dollars, betaal overal waar Visa<sup>&reg;</sup> wordt geaccepteerd."
 
 #: www/views/tab-import-phrase.html:17
 msgid "Type the Recovery Phrase (usually 12 words)"
@@ -2920,16 +2920,16 @@ msgid "You can make contributions by signing up on our Crowdin community transla
 msgstr "U kunt een bijdrage leveren door u aan te melden bij onze Crowdin gemeenschap vertalings website. Wij kijken er naar uit om van u te horen!"
 
 #: www/views/tab-scan.html:16
-msgid "You can scan Nav Coin addresses, payment requests, paper wallets, and more."
-msgstr "U kunt Nav Coin adressen scannen, betalingsverzoeken, papieren portefeuilles, en meer."
+msgid "You can scan NavCoin addresses, payment requests, paper wallets, and more."
+msgstr "U kunt NavCoin adressen scannen, betalingsverzoeken, papieren portefeuilles, en meer."
 
 #: src/js/controllers/preferencesAbout.js:14
 msgid "You can see the latest developments and contribute to this open source app by visiting our project on GitHub."
 msgstr "U kunt de laatste ontwikkelingen volgen en bijdragen aan deze open source app door onze project pagina te bezoeken op GitHub."
 
 #: www/views/onboarding/tour.html:14
-msgid "You can spend Nav Coin at websites and stores worldwide."
-msgstr "U kunt wereldwijd bij websites en winkels met Nav Coin betalen."
+msgid "You can spend NavCoin at websites and stores worldwide."
+msgstr "U kunt wereldwijd bij websites en winkels met NavCoin betalen."
 
 #: www/views/backup.html:12
 msgid "You can still export it from Advanced &gt; Export."
@@ -2940,20 +2940,19 @@ msgid "You can trade it for other currencies like US Dollars, Euros, or Pounds."
 msgstr "kunt het inwisselen voor valuta's zoals de Amerikaanse Dollar, de Euro, of Ponden."
 
 #: www/views/onboarding/tour.html:41
-msgid "You control your Nav Coin."
-msgstr "U heeft de controle over uw Nav Coins."
+msgid "You control your NavCoin."
+msgstr "U heeft de controle over uw NavCoins."
 
 #: www/views/preferencesNotifications.html:28
 msgid "You'll receive email notifications about payments sent and received from your wallets."
 msgstr "U ontvangt e-mail meldingen over verzonden en ontvangen betalingen van uw portefeuille."
 
 #: www/views/includes/confirmBackupPopup.html:6
-msgid "Your Nav Coin wallet is backed up!"
-msgstr " Er is een back-up gemaakt van uw Nav Coin portefeuille!"
+msgid "Your NavCoin wallet is backed up!"
+msgstr " Er is een back-up gemaakt van uw NavCoin portefeuille!"
 
-#: www/views/tab-home.html:35
-msgid "Your Nav Coin wallet is ready!"
-msgstr "Uw Nav Coin portefeuille is gereed!"
+msgid "Your NavCoin wallet is ready!"
+msgstr "Uw NavCoin portefeuille is gereed!"
 
 #: www/views/feedback/send.html:42
 msgid "Your ideas, feedback, or comments"
@@ -3035,8 +3034,8 @@ msgid "to send"
 msgstr "verzenden"
 
 #: www/views/preferencesBwsUrl.html:21
-msgid "{{appName}} depends on Nav Coin Wallet Service (NWS) for blockchain information, networking and Copayer synchronization. The default configuration points to https://nws.navpay.com (NavPay's public BWS instance)."
-msgstr "{{appName}} is afhankelijk van Nav Coin Wallet Service (NWS) voor blockchain informatie, netwerk verbinding en Copayer synchronisatie. De standaard instelling wijst naar https://nws.navpay.com (NavPay's openbare NWS instance)."
+msgid "{{appName}} depends on NavCoin Wallet Service (NWS) for blockchain information, networking and Copayer synchronization. The default configuration points to https://nws.navpay.com (NavPay's public BWS instance)."
+msgstr "{{appName}} is afhankelijk van NavCoin Wallet Service (NWS) voor blockchain informatie, netwerk verbinding en Copayer synchronisatie. De standaard instelling wijst naar https://nws.navpay.com (NavPay's openbare NWS instance)."
 
 #: src/js/controllers/lockSetup.js:98
 msgid "{{appName}} startup is locked by PIN. Are you sure you want to disable it?"
@@ -3047,8 +3046,8 @@ msgid "{{feeRateStr}} of the transaction"
 msgstr "{{feeRateStr}} van de transactie"
 
 #: src/js/controllers/confirm.js:210
-msgid "{{fee}} will be deducted for Nav Coin networking fees."
-msgstr "{{fee}} wordt in mindering gebracht als Nav Coin transactiekosten."
+msgid "{{fee}} will be deducted for NavCoin networking fees."
+msgstr "{{fee}} wordt in mindering gebracht als NavCoin transactiekosten."
 
 #: www/views/walletDetails.html:210
 msgid "{{updatingTxHistoryProgress}} transactions downloaded"
@@ -3087,12 +3086,11 @@ msgid "Private Payment"
 msgstr "Anonieme betaling"
 
 #: tab-home.html:18
-msgid "Purchase Nav Coin"
-msgstr "Koop Nav Coin "
+msgid "Purchase NavCoin"
+msgstr "Koop NavCoin "
 
-#: tab-home.html:21
-msgid "To get started, you can buy Nav Coin through our exchange partner Changelly."
-msgstr "Om te starten kunt u Nav Coin kopen via onze beurspartner Changelly"
+msgid "To get started, you can buy NavCoin through our exchange partner Changelly."
+msgstr "Om te starten kunt u NavCoin kopen via onze wissel partner Changelly."
 
 #: changelly.html:16
 msgid "Loading Changelly Exchange..."
@@ -3101,3 +3099,93 @@ msgstr "Changelly beurs laden..."
 #: tab-send.html:24
 msgid "Next"
 msgstr "Volgende"
+
+msgid "NavTech / Private Payment Servers"
+msgstr "NavTech / Privé Betaalservers"
+
+msgid "Encryption required"
+msgstr "Versleuteling verplicht"
+
+msgid "Backup required"
+msgstr "Back-up verplicht"
+
+msgid "Copy to clipboard"
+msgstr "Kopieer naar klembord"
+
+msgid "Show QR Code"
+msgstr "Laat de QR Code zien"
+
+msgid "Anyone with your backup phrase can access or spend your NavCoin."
+msgstr "Iedereen met uw back-up zin kan toegang krijgen tot uw NavCoin of ze uitgeven."
+
+msgid "Buy NAV"
+msgstr "Koop NAV"
+
+msgid "Wallet not encrypted. Set spending password to encrypt."
+msgstr "Portemonnee niet versleuteld. Stel een wachtwoord in voor de versleuteling."
+
+msgid "Please enter a password to encrypt your wallet"
+msgstr "Stel een wachtwoord in voor de versleuteling."
+
+msgid "This password can never be recovered or reset!"
+msgstr "Dit wachtwoord kan nooit hersteld worden of gereset!"
+
+msgid "Are you sure?"
+msgstr "Weet u het zeker?"
+
+msgid "Your wallet keys will be stored in plain text and you will be vulnerable to having you coins stolen. We highly recommend pressing no and choosing a password."
+msgstr "Uw portemonnee sleutels zullen opgeslagen worden als platte tekst en hierdoor bestaat de kans dat uw munten worden gestolen. We raden het ten zeerste aan om op nee te drukken en een wachtwoord te kiezen"
+
+msgid "Create password"
+msgstr "Creëer wachtwoord"
+
+msgid "No password"
+msgstr "Geen wachtwoord"
+
+msgid "NavCoin is different &ndash; it cannot be safely held with a bank or web service."
+msgstr "NavCoin is anders &ndash; en kan niet veilig worden opgeslagen bij een bank of webservice."
+
+msgid "No NavTech servers found. Please add a NavTech server to make private payments."
+msgstr "Geen NavTech servers gevonden. Voeg een NavTech server toe om privébetalingen te doen."
+
+msgid "Invalid server"
+msgstr "Ongeldige server"
+
+msgid "NavTech Server successfully added"
+msgstr "NavTech servers succesvol toegevoegd."
+
+msgid "Please enter a NavTech URL. e.g. https://SomeNavTechServer.com:3000"
+msgstr "Voer een NavTech URL in bijv. https://SomeNavTechServer.com:3000"
+
+msgid "Add a NavTech server to create private payments."
+msgstr "Voeg een NavTech server toe om privébetalingen te creëren."
+
+msgid "No NavTech servers found. Please add a server to make private payments"
+msgstr "Geen NavTech servers gevonden. Voeg een server toe om privébetalingen te doen."
+
+msgid "Invalid NavTech Server"
+msgstr "Ongeldige NavTech Server"
+
+msgid "Add"
+msgstr "Toevoegen"
+
+msgid "You have disallowed camera use. It must be enabled to scan QR codes."
+msgstr "U heeft camera gebruik niet toegestaan. Deze moet ingeschakeld zijn om QR-codes te scannen."
+
+msgid "Please see the NavCoin guide for more information."
+msgstr "Zie de NavCoin gids voor meer informatie."
+
+msgid "Purchase NavCoin"
+msgstr "Koop NavCoin"
+
+msgid "Buy NavCoin with:"
+msgstr "Om te starten dient u een NavCoin portemonnee aan te maken en wat NavCoin hieraan toe te voegen."
+
+msgid "Credit Card"
+msgstr "Koop NavCoin met:"
+
+msgid "Cryptocurrency"
+msgstr "Creditcard"
+
+msgid "Generate new address from wallet: <span class="wallet-name">{{wallet.name || wallet.id}}</span>"
+msgstr "Genereer een nieuw adres uit de portemonnee: <span class="wallet-name">{{wallet.name || wallet.id}}</span>"

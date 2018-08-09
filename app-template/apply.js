@@ -9,9 +9,9 @@ var templates = {
   'index.html': 'www/',
   'config-template.xml': '/',
   'ionic.config.json': '/',
-  '.desktop': 'webkitbuilds/',
-  'setup-win.iss': 'webkitbuilds/',
-  'build-macos.sh': 'webkitbuilds/',
+  '.desktop': '/desktop-build-configs',
+  'setup-win.iss': '/desktop-build-configs',
+  'build-macos.sh': '/desktop-build-configs',
   'manifest.json': 'chrome-app/',
   //  'bower.json': '/',
 };

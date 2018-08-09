@@ -21,6 +21,11 @@
           <span class="backup-phrase-content-word-readonly" ng-repeat="word in mnemonicWords track by $index"><span style="white-space:nowrap">{{word}}</span><span ng-show="useIdeograms">&#x3000;</span> </span>
         </div>
       </div>
+      <div>
+        <button copy-to-clipboard="copyRecoveryPhrase()" translate>Copy to clipboard</button>
+        <button ng-click="generateQrCode()" translate>Show QR Code</button>
+        <div ng-include="'views/tab-export-qrCode.html'" ng-if="formData.supported"></div>
+      </div>
       <div class="password-required" ng-show="mnemonicHasPassphrase" translate>
         This recovery phrase was created with a password. To recover this wallet both the recovery phrase and password are needed.
       </div>

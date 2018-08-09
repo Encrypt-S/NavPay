@@ -35,17 +35,16 @@ angular.module('copayApp.services')
       isoCode: 'zh',
       useIdeograms: true,
     }, {
+      name: '中文（繁體)',
+      isoCode: 'zh-TW',
+      useIdeograms: true,
+    }, {
       name: 'Pусский',
       isoCode: 'ru',
     }, {
       name: 'Português',
       isoCode: 'pt',
     }];
-
-    // }, {
-    //   name: 'Český',
-    //   isoCode: 'cs',
-    // }
 
     root._detect = function(cb) {
       var userLang, androidLang;
@@ -62,7 +61,9 @@ angular.module('copayApp.services')
       } else {
         // Auto-detect browser language
         userLang = navigator.userLanguage || navigator.language;
+        if (userLang.indexOf('zh') === -1) {
         userLang = userLang ? (userLang.split('-', 1)[0] || 'en') : 'en';
+        }
         // Set only available languages
         userLang = root.isAvailableLanguage(userLang);
         return cb(userLang);

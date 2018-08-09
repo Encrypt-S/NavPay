@@ -5,6 +5,7 @@ angular.module('copayApp.controllers').controller('backupController',
     $scope.wallet = profileService.getWallet($stateParams.walletId);
     $scope.viewTitle = $scope.wallet.name || $scope.wallet.credentials.walletName;
     $scope.n = $scope.wallet.n;
+    $scope.formData = {};
     var keys;
 
     $scope.credentialsEncrypted = $scope.wallet.isPrivKeyEncrypted();
@@ -33,6 +34,7 @@ angular.module('copayApp.controllers').controller('backupController',
       var words = keys.mnemonic;
       $scope.data = {};
 
+      $scope.mnemonicPassphere = words;
       $scope.mnemonicWords = words.split(/[\u3000\s]+/);
       $scope.shuffledMnemonicWords = shuffledWords($scope.mnemonicWords);
       $scope.mnemonicHasPassphrase = $scope.wallet.mnemonicHasPassphrase();
@@ -98,9 +100,10 @@ angular.module('copayApp.controllers').controller('backupController',
     };
 
     $scope.copyRecoveryPhrase = function() {
-      if ($scope.wallet.network == 'livenet') return null;
-      else if (!$scope.wallet.credentials.mnemonic) return null;
-      else return $scope.wallet.credentials.mnemonic;
+      console.log('copyRecoveryPhrase', $scope.mnemonicWords)
+      console.log('copyRecoveryPhrase', $scope.mnemonicPassphere)
+      console.log('copyRecoveryPhrase', $scope)
+      return $scope.mnemonicPassphere
     };
 
     var confirm = function(cb) {
@@ -192,6 +195,44 @@ angular.module('copayApp.controllers').controller('backupController',
         $scope.selectComplete = true;
       else
         $scope.selectComplete = false;
+    };
+
+    function getPassword(cb) {
+      if ($scope.password) return cb(null, $scope.password);
+
+      walletService.prepare($scope.wallet, function(err, password) {
+        if (err) return cb(err);
+        $scope.password = password;
+        return cb(null, password);
+      });
+    };
+
+    $scope.generateQrCode = function() {
+
+      getPassword(function(err, password) {
+        if (err) {
+          popupService.showAlert(gettextCatalog.getString('Error'), err);
+          return;
+        }
+
+        walletService.getEncodedWalletInfo($scope.wallet, password, function(err, code) {
+          if (err) {
+            popupService.showAlert(gettextCatalog.getString('Error'), err);
+            return;
+          }
+
+          if (!code)
+            $scope.formData.supported = true
+          else {
+            $scope.formData.supported = true
+            $scope.formData.exportWalletInfo = code;
+          }
+
+          $timeout(function() {
+            $scope.$apply();
+          });
+        });
+      });
     };
 
     $scope.$on("$ionicView.enter", function(event, data) {

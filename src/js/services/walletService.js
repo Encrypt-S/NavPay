@@ -2,8 +2,8 @@
 
 angular.module('copayApp.services').factory('walletService', function($log, $timeout, lodash, trezor, ledger, intelTEE, storageService, configService, rateService, uxLanguage, $filter, gettextCatalog, bwcError, $ionicPopup, fingerprintService, ongoingProcess, gettext, $rootScope, txFormatService, $ionicModal, $state, bwcService, bitcore, popupService) {
 
-  // Ratio low amount warning (fee/amount) in incoming TX 
-  var LOW_AMOUNT_RATIO = 0.15; 
+  // Ratio low amount warning (fee/amount) in incoming TX
+  var LOW_AMOUNT_RATIO = 0.15;
 
   // Ratio of "many utxos" warning in total balance (fee/amount)
   var TOTAL_LOW_WARNING_RATIO = .3;
@@ -922,7 +922,7 @@ angular.module('copayApp.services').factory('walletService', function($log, $tim
   };
 
 
-  // Approx utxo amount, from which the uxto is economically redeemable  
+  // Approx utxo amount, from which the uxto is economically redeemable
   root.getMinFee = function(wallet, feeLevels, nbOutputs) {
     var lowLevelRate = (lodash.find(feeLevels[wallet.network], {
       level: 'normal',
@@ -933,7 +933,7 @@ angular.module('copayApp.services').factory('walletService', function($log, $tim
   };
 
 
-  // Approx utxo amount, from which the uxto is economically redeemable  
+  // Approx utxo amount, from which the uxto is economically redeemable
   root.getLowAmount = function(wallet, feeLevels, nbOutputs) {
     var minFee = root.getMinFee(wallet,feeLevels, nbOutputs);
     return parseInt( minFee / LOW_AMOUNT_RATIO);

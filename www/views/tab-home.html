@@ -1,27 +1,40 @@
 <ion-view id="tab-home" show-tabs>
   <ion-nav-bar class="bar-royal">
-    <ion-nav-title><img class="tab-home__logo" src="img/app/logo-simple.svg"></ion-nav-title>
+    <ion-nav-title>
+      <img class="tab-home__logo" src="img/app/logo-simple.svg">
+    </ion-nav-title>
   </ion-nav-bar>
 
   <ion-content>
-    <ion-refresher
-     ng-if="isAndroid"
-     pulling-icon="ion-ios-refresh"
-     spinner="ios-small"
-     on-refresh="onRefresh()">
-   </ion-refresher>
+    <ion-refresher pulling-icon="ion-ios-refresh" spinner="ios-small" on-refresh="onRefresh()">
+    </ion-refresher>
 
     <!-- <div class="ng-hide" ng-show="showRateCard.value" ng-include="'views/feedback/rateCard.html'"></div> -->
-    <div>
-      <div class="list card homeTip" id="home-changelly">
+    <div ng-if="!isIOSNativeApp">
+      <div class="list card homeTip" id="home-changelly" ng-if="buyNavTip">
+        <div class="item item-icon-right item-heading">
+          <a ng-click="hideBuyNavTip()">
+            <i class="icon ion-ios-close-empty close-home-tip"></i>
+          </a>
+        </div>
         <div class="title" translate>
-          Purchase Nav Coin
+          Purchase NavCoin
         </div>
         <div class="subtitle">
-          <span ng-show="wallets[0]" translate>To get started, you can buy Nav Coin through our exchange partner Changelly.</span>
-          <span ng-show="!wallets[0]" translate>To get started, you'll need to create a Nav Coin wallet and get some Nav Coin.</span>
-          <div class="padding">
-            <a class="button button-standard button-primary" ng-show="wallets[0]" ng-click="openChangelly()" translate>Buy Nav Coin</a>
+          <div ng-show="wallets[0]" translate>To get started, you can buy NavCoin through our exchange partner Changelly.</div>
+          <div ng-show="!wallets[0]" translate>To get started, you'll need to create a NavCoin wallet and get some NavCoin.</div>
+          <div ng-hide="isAndroid || isIOS" class="padding">
+            <a class="button button-standard button-primary" ng-show="wallets[0]" ng-click="openBuyLink()" translate>Buy NAV</a>
+          </div>
+          <div ng-show="isIOS" class="padding">
+            <a class="button button-standard button-primary" ng-show="wallets[0]" ng-click="openChangellyWeb()" translate>Buy NAV</a>
+          </div>
+          <div ng-show="isAndroid">
+            <div translate class="padding text-bold">Buy NavCoin with:</div>
+            <div class="padding">
+              <a class="button button-standard button-primary" ng-show="wallets[0]" ng-click="openChangellyWeb()" translate>Credit Card</a>
+              <a class="button button-standard button-primary" ng-show="wallets[0]" ng-click="openBuyLink()" translate>Cryptocurrency</a>
+            </div>
           </div>
         </div>
       </div>
@@ -29,15 +42,17 @@
 
     <div class="list card homeTip" ng-if="homeTip">
       <div class="item item-icon-right item-heading">
-        <a ng-click="hideHomeTip()"><i class="icon ion-ios-close-empty close-home-tip"></i></a>
+        <a ng-click="hideHomeTip()">
+          <i class="icon ion-ios-close-empty close-home-tip"></i>
+        </a>
       </div>
       <div>
         <i class="icon big-icon-svg">
-          <img src="img/check-white.svg" class="bg green"/>
+          <img src="img/check-white.svg" class="bg green" />
         </i>
       </div>
       <div class="title" translate>
-        Your Nav Coin wallet is ready!
+        Your NavCoin wallet is ready!
       </div>
       <div class="subtitle" translate>
         On this screen you can see all your wallets, accounts, and assets.
@@ -70,40 +85,56 @@
     <div class="list card">
       <div class="item item-icon-right item-heading">
         <span translate>Wallets</span>
-        <a ui-sref="tabs.add" ng-if="wallets[0]"><i class="icon ion-ios-plus-empty list-add-button"></i></a>
+        <a ui-sref="tabs.add" ng-if="wallets[0]">
+          <i class="icon ion-ios-plus-empty list-add-button"></i>
+        </a>
       </div>
       <div>
-        <a ng-if="!wallets[0]" ui-sref="tabs.add" class="item item-icon-left item-big-icon-left item-icon-right next-step">
-         <i class="icon big-icon-svg">
-           <img src="img/icon-wallet.svg" class="bg wallet icon-create-wallet"/>
-         </i>
-          <span translate>Create Nav Coin wallet</span>
+        <span ng-if="loadingWallets" class="item item-icon-left item-big-icon-left item-icon-right next-step">
+          <i class="icon big-icon-svg">
+            <img src="img/icon-wallet.svg" class="bg wallet icon-loading-wallet" />
+          </i>
+          <span translate>Loading wallets...</span>
+          <i class="icon bp-arrow-right"></i>
+        </span>
+        <a ng-if="!wallets[0] && !loadingWallets" ui-sref="tabs.add" class="item item-icon-left item-big-icon-left item-icon-right next-step">
+          <i class="icon big-icon-svg">
+            <img src="img/icon-wallet.svg" class="bg wallet icon-create-wallet" />
+          </i>
+          <span translate>Create NavCoin wallet</span>
           <i class="icon bp-arrow-right"></i>
         </a>
-        <a ng-repeat="wallet in wallets track by $index"
-           class="item item-sub item-icon-left item-big-icon-left item-icon-right wallet"
-           ng-click="openWallet(wallet)">
+        <a ng-repeat="wallet in wallets track by $index" class="item item-sub item-icon-left item-big-icon-left item-icon-right wallet"
+          ng-click="openWallet(wallet)">
           <i class="icon big-icon-svg">
-            <img src="img/icon-wallet.svg" ng-class="{'wallet-background-color-default': !wallet.color}" ng-style="{'background-color': wallet.color}" class="bg wallet"/>
+            <img src="img/icon-wallet.svg" ng-class="{'wallet-background-color-default': !wallet.color}" ng-style="{'background-color': wallet.color}"
+              class="bg wallet" />
           </i>
           <span>
             {{wallet.name || wallet.id}}
           </span>
           <p>
-          <span ng-if="!wallet.isComplete()" class="assertive" translate>
-            Incomplete
-          </span>
-          <span ng-if="wallet.isComplete()">
-            <span ng-if="!wallet.balanceHidden"> {{wallet.status.totalBalanceStr ? wallet.status.totalBalanceStr : ( wallet.cachedBalance ? wallet.cachedBalance   + (wallet.cachedBalanceUpdatedOn ? ' &middot; ' + ( wallet.cachedBalanceUpdatedOn  * 1000 | amTimeAgo) : '') : ''  ) }} </span>
-
-            <span ng-if="wallet.balanceHidden" translate>[Balance Hidden]</span>
-            <span class="tab-home__wallet__multisig-number" ng-if="wallet.n > 1">
-              {{wallet.m}}-of-{{wallet.n}}
+            <span ng-if="!wallet.isComplete()" class="assertive" translate>
+              Incomplete
             </span>
-            <i ng-if="!wallet.balanceHidden && (wallet.status.totalBalanceSat != wallet.status.spendableAmount)" class="tab-home__wallet__status-icon ion-ios-timer-outline"></i>
-            <span class="assertive" ng-if="wallet.error">{{wallet.error}}</span>
-          </span>
-          &nbsp;
+            <span ng-if="wallet.isComplete()">
+              <span ng-if="!wallet.balanceHidden"> {{wallet.status.totalBalanceStr ? wallet.status.totalBalanceStr : ( wallet.cachedBalance ? wallet.cachedBalance
+                + (wallet.cachedBalanceUpdatedOn ? ' &middot; ' + ( wallet.cachedBalanceUpdatedOn * 1000 | amTimeAgo) : '')
+                : '' ) }} </span>
+
+              <span ng-if="wallet.balanceHidden" translate>[Balance Hidden]</span>
+              <span class="tab-home__wallet__multisig-number" ng-if="wallet.n > 1">
+                {{wallet.m}}-of-{{wallet.n}}
+              </span>
+              <i ng-if="!wallet.balanceHidden && (wallet.status.totalBalanceSat != wallet.status.spendableAmount)" class="tab-home__wallet__status-icon ion-ios-timer-outline"></i>
+              <span class="assertive" ng-if="wallet.error">{{wallet.error}}</span>
+            </span>
+            <span class="right text-light assertive" ng-show="wallet.isComplete() && wallet.needsBackup">
+              {{'Backup required' | translate}} &nbsp; &nbsp;
+            </span>
+            <span class="right text-light assertive" ng-show="wallet.isComplete() && wallet.needsEncryption">
+              {{'Encryption required' | translate}} &nbsp; &nbsp;
+            </span>
           </p>
           <i class="icon bp-arrow-right"></i>
         </a>

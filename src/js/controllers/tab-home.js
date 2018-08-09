@@ -1,46 +1,43 @@
 'use strict';
 
+var TAB_HOME_LISTENERS = [];
+
+
 angular.module('copayApp.controllers').controller('tabHomeController',
   function($rootScope, $timeout, $scope, $state, $stateParams, $ionicModal, $ionicScrollDelegate, $window, gettextCatalog, lodash, popupService, ongoingProcess, externalLinkService, latestReleaseService, profileService, walletService, configService, $log, platformInfo, storageService, txpModalService, appConfigService, startupService, addressbookService, feedbackService, bwcError, nextStepsService, buyAndSellService, homeIntegrationsService, bitpayCardService, pushNotificationsService, timeService) {
     var wallet;
-    var listeners = [];
     var notifications = [];
     $scope.externalServices = {};
     $scope.openTxpModal = txpModalService.open;
     $scope.version = $window.version;
     $scope.name = appConfigService.nameCase;
     $scope.homeTip = $stateParams.fromOnboarding;
+    $scope.buyNavTip = false;
     $scope.isCordova = platformInfo.isCordova;
     $scope.isAndroid = platformInfo.isAndroid;
+    $scope.isMobile = platformInfo.isMobile;
+    $scope.isIOS = platformInfo.isIOS;
+    $scope.isIOSNativeApp = platformInfo.isCordova && platformInfo.isIOS
     $scope.isWindowsPhoneApp = platformInfo.isCordova && platformInfo.isWP;
     $scope.isNW = platformInfo.isNW;
     $scope.showRateCard = {};
-
-    $scope.$on("$ionicView.afterEnter", function() {
-      startupService.ready();
-    });
+    $scope.loadingWallets = true;
 
     $scope.$on("$ionicView.beforeEnter", function(event, data) {
+      if(navigator.onLine === false) {
+        // We shouldn't reach here. But just encase.
+        $state.go('offline');
+      }
+
       if (!$scope.homeTip) {
         storageService.getHomeTipAccepted(function(error, value) {
           $scope.homeTip = (value == 'accepted') ? false : true;
         });
       }
 
-      // if ($scope.isNW) {
-      //   latestReleaseService.checkLatestRelease(function(err, newRelease) {
-      //     if (err) {
-      //       $log.warn(err);
-      //       return;
-      //     }
-      //     if (newRelease) {
-      //       $scope.newRelease = true;
-      //       $scope.updateText = gettextCatalog.getString('There is a new version of {{appName}} available', {
-      //         appName: $scope.name
-      //       });
-      //     }
-      //   });
-      // }
+      storageService.getBuyNavTipAccepted(function(error, value) {
+        $scope.buyNavTip = (value == 'accepted') ? false : true;
+      });
 
       storageService.getFeedbackInfo(function(error, info) {
 
@@ -88,20 +85,29 @@ angular.module('copayApp.controllers').controller('tabHomeController',
         $scope.addressbook = ab || {};
       });
 
-      listeners = [
-        $rootScope.$on('bwsEvent', function(e, walletId, type, n) {
-          var wallet = profileService.getWallet(walletId);
-          updateWallet(wallet);
-          if ($scope.recentTransactionsEnabled) getNotifications();
-
-        }),
-        $rootScope.$on('Local/TxAction', function(e, walletId) {
-          $log.debug('Got action for wallet ' + walletId);
-          var wallet = profileService.getWallet(walletId);
-          updateWallet(wallet);
-          if ($scope.recentTransactionsEnabled) getNotifications();
-        })
-      ];
+      // Because on leave view is broken (Ionic: will not fix). We set this globally
+      // To make sure we dont keep re-binding the listeners
+      if (TAB_HOME_LISTENERS.length === 0) {
+        TAB_HOME_LISTENERS = [
+          $rootScope.$on('profileBound', function(e, walletId, type, n) {
+            updateAllWallets();
+            $scope.loadingWallets = false;
+            if ($scope.recentTransactionsEnabled) getNotifications();
+          }),
+          $rootScope.$on('bwsEvent', function(e, walletId, type, n) {
+            var wallet = profileService.getWallet(walletId);
+            updateWallet(wallet);
+            // If we just got a notification, we don't need to look for notifications again
+            // if ($scope.recentTransactionsEnabled) getNotifications();
+          }),
+          $rootScope.$on('Local/TxAction', function(e, walletId) {
+            $log.debug('Got action for wallet ' + walletId);
+            var wallet = profileService.getWallet(walletId);
+            updateWallet(wallet);
+            if ($scope.recentTransactionsEnabled) getNotifications();
+          })
+        ];
+      }
 
 
       $scope.buyAndSellItems = buyAndSellService.getLinked();
@@ -128,13 +134,32 @@ angular.module('copayApp.controllers').controller('tabHomeController',
           $scope.$apply();
         }, 10);
       });
+
+      $timeout(function() {
+        // If  haven't loaded wallets in 2.5s. Show create wallet.
+        // Handles issues when no wallets exist and you are navigating the app
+        $scope.loadingWallets = false;
+      }, 2500);
+
+      $timeout(function() {
+        $rootScope.$apply();
+      }, 10);
     });
 
-    $scope.$on("$ionicView.leave", function(event, data) {
-      lodash.each(listeners, function(x) {
-        x();
-      });
+    $scope.$on("$ionicView.afterEnter", function() {
+      startupService.ready();
     });
+
+    // $scope.$on("$ionicView.leave", function(event, data) {
+      // This never runs. So.... we made listenrs into TAB_HOME_LISTENERS
+      // and remove them in the routes.js
+
+      // lodash.each(listeners, function(x) {
+      //   console.log('tab-home - ionic on leave')
+      //   x();
+      // });
+    // });
+
 
     $scope.createdWithinPastDay = function(time) {
       return timeService.withinPastDay(time);
@@ -179,9 +204,9 @@ angular.module('copayApp.controllers').controller('tabHomeController',
       }
     };
 
-    $scope.openChangelly = function() {
+    $scope.openBuyLink = function() {
       $state.go('tabs.changelly');
-    }
+    };
 
     $scope.openWallet = function(wallet) {
       if (!wallet.isComplete()) {
@@ -236,6 +261,10 @@ angular.module('copayApp.controllers').controller('tabHomeController',
           }
         });
       });
+      $scope.loadingWallets = false;
+      $timeout(function() {
+        $rootScope.$apply();
+      }, 10);
     };
 
     var updateWallet = function(wallet) {
@@ -276,11 +305,30 @@ angular.module('copayApp.controllers').controller('tabHomeController',
       });
     };
 
+    $scope.hideBuyNavTip = function() {
+      storageService.setBuyNavTipAccepted('accepted', function() {
+        $scope.buyNavTip = false;
+        $timeout(function() {
+          $scope.$apply();
+        })
+      });
+    };
+
 
     $scope.onRefresh = function() {
       $timeout(function() {
         $scope.$broadcast('scroll.refreshComplete');
       }, 300);
       updateAllWallets();
+    };
+
+    $scope.openChangellyWeb = function() {
+      var url = 'https://changelly.com/exchange/USD/NAV/100';
+      var optIn = true;
+      var title = null;
+      var message = gettextCatalog.getString('Visit Changelly.com');
+      var okText = gettextCatalog.getString('Open Website');
+      var cancelText = gettextCatalog.getString('Go Back');
+      externalLinkService.open(url, optIn, title, message, okText, cancelText);
     };
   });

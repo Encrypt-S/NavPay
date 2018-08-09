@@ -65,7 +65,7 @@
   margin-bottom: 20px;
 }
 
-#tab-changelly{
+#tab-changelly {
   @extend .deflash-blue;
 
   .icon-create-wallet {
@@ -253,21 +253,9 @@
   .address {
     background: #fff;
     overflow: auto;
-    height: 100%;
     &-info {
-      // padding-top: 22vh;
-      // padding-bottom: 17vh;
       padding-top: 20px;
       padding-bottom: 15px;
-      // @media(max-height: 800px) {
-      //   padding-top: 17vh;
-      // }
-      // @media(max-height: 700px) {
-      //   padding-top: 14vh;
-      // }
-      // @media(max-height: 600px) {
-      //   padding-top: 7vh;
-      // }
       text-align: center;
       .address-label {
         margin-top: 5%;
@@ -289,9 +277,21 @@
       }
     }
   }
+  .mobile-only {
+    background: #fff;
+    text-align: center;
+    .text {
+      margin: 5px 0;
+      font-size: 12px;
+    }
+    .link {
+      margin-bottom: 5px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+
   .backup {
-    position: absolute;
-    top: 0;
     width: 100%;
     cursor: pointer;
     background-color: $wallet-backup-warning-color;
@@ -308,4 +308,9 @@
     width: 100%;
   }
 
+  .wallet-name {
+    color: $nav-purple;
+    font-weight: bold;
+    font-size: 110%;
+  }
 }

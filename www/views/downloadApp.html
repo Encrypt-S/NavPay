@@ -1,0 +1,28 @@
+<ion-view id="onboard-welcome" class="onboarding">
+  <ion-content ng-controller="downloadAppController" scroll="false">
+    <div style="display: flex; flex-direction: column; height: 100%;">
+      <div style="display: flex; width: 100%;">
+        <button onclick="history.back()" style="align-self: flex-start;" class="button back-button buttons button-clear header-item">
+          <i class="icon icon ion-ios-arrow-thin-left"></i>
+          <span class="back-text" style="transform: translate3d(0px, 0px, 0px);"></span>
+        </button>
+        <div class="onboarding-topic" style="width: 100%; text-align: center; margin-left: -20px; margin-top: 10px;" translate>Download NavPay</div>
+      </div>
+      <div class="onboarding-illustration-app"></div>
+      <p ng-show="fromSettings">Note: You will need to re-enter your wallet seed phrase to access your wallet on the app version.</p>
+      <div class="cta-buttons">
+        <div class="onboarding-tldr" translate style="display: flex; align-items: center; flex-direction: column;">
+          <span>Step 1: Tap</span>
+          <img style="display: inline-block; height: 35px; padding-top: 5px;" src='img/app/ios-action-icon.svg'/>
+          <br />
+          <span>Step 2: Select</span>
+          <img style="display: inline-block; height: 40px; padding-top: 5px;" src='img/app/ios-add-to-homescreen-icon.png'/>
+          <span style="font-size: 0.8em; opacity: 0.8;">Add to</span>
+          <span style="font-size: 0.8em; opacity: 0.8;">Home Screen</span>
+          <div style="display: inline-block; height: 30px"></div>
+        </div>
+      </div>
+      <img style="position: absolute; bottom: 10px; left: calc(50vw - 8px); height: 30px;" src='img/app/navpay-down-arrow.svg'/>
+    </div>
+  </ion-content>
+</ion-view>

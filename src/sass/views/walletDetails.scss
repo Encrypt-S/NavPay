@@ -1,3 +1,8 @@
+@keyframes spinLoader {
+  from {transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+}
+
 .wallet-details {
   &__tx-amount {
     font-size: 16px;
@@ -189,6 +194,24 @@
     &__updating {
       z-index: 999;
       margin-top: -2.1rem;
+    }
+
+    &__refresh {
+      z-index: 999;
+      color: white;
+      position: absolute;
+      bottom: 0;
+      text-align: center;
+      font-size: 25px;
+      margin-bottom: 5px;
+      margin-left: -10px;
+      transform: rotate(90deg)
+    }
+
+    &__refresh-rotate {
+      animation-name: spin;
+      animation-duration: 500ms;
+      animation-iteration-count: infinite;
     }
 
     &-alternative {

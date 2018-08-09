@@ -170,11 +170,11 @@ msgid "All Addresses"
 msgstr "全アドレス"
 
 #: www/views/modals/wallet-balance.html:18
-msgid "All of your Nav Coin wallet balance may not be available for immediate spending."
+msgid "All of your NavCoin wallet balance may not be available for immediate spending."
 msgstr "ナブコインのウォレットの残高の内、即座に送れないナブコインが含まれている可能性があります。"
 
 #: www/views/tab-receive.html:25
-msgid "All signing devices must be added to this multisig wallet before Nav Coin addresses can be created."
+msgid "All signing devices must be added to this multisig wallet before NavCoin addresses can be created."
 msgstr "この共有ウォレットの必要参加者の人数が集まるまではナブコインアドレスを発行することができません。"
 
 #: www/views/tab-scan.html:21
@@ -218,11 +218,11 @@ msgid "An update to this app is available. For your security, please update to t
 msgstr "このアプリのアップデートがあります。セキュリティーを保持するために最新版にアップデートして下さい。"
 
 #: www/views/backupWarning.html:14
-msgid "Anyone with your backup phrase can access or spend your Nav Coin."
+msgid "Anyone with your backup phrase can access or spend your NavCoin."
 msgstr "復元フレーズを知る者はあなたのナブコインが勝手に送れてしまいます。"
 
 #: www/views/addresses.html:94
-msgid "Approximate Nav Coin network fee to transfer wallet's balance (with normal priority)"
+msgid "Approximate NavCoin network fee to transfer wallet's balance (with normal priority)"
 msgstr "ウォレットの残高を送るために推測される必要なナブコインネットワーク手数料(優先度：普通)"
 
 #: www/views/backupWarning.html:10
@@ -230,7 +230,7 @@ msgid "Are you being watched?"
 msgstr "見られていませんか？"
 
 #: src/js/controllers/preferencesExternal.js:15
-msgid "Are you being watched? Anyone with your recovery phrase can access or spend your Nav Coin."
+msgid "Are you being watched? Anyone with your recovery phrase can access or spend your NavCoin."
 msgstr "見られていますか？ 復元フレーズを知る者はあなたのナブコインが勝手に送れてしまいます。"
 
 #: src/js/controllers/copayers.js:56
@@ -339,37 +339,37 @@ msgid "NavPay Visa&reg; Cards"
 msgstr "NavPayのVISA&reg; カード"
 
 #: www/views/addressbook.add.html:38
-msgid "Nav Coin Address"
+msgid "NavCoin Address"
 msgstr "ナブコインアドレス"
 
 #: www/views/modals/chooseFeeLevel.html:4
 #: www/views/preferencesFee.html:4
 #: www/views/tab-settings.html:85
-msgid "Nav Coin Network Fee Policy"
+msgid "NavCoin Network Fee Policy"
 msgstr "ナブコインネットワークの手数料設定"
 
 #: www/views/paymentUri.html:10
-msgid "Nav Coin URI is NOT valid!"
-msgstr "Nav Coin URI が無効です！"
+msgid "NavCoin URI is NOT valid!"
+msgstr "NavCoin URI が無効です！"
 
 #: www/views/tab-settings.html:63
-msgid "Nav Coin Unit"
-msgstr "Nav Coin 単位"
+msgid "NavCoin Unit"
+msgstr "NavCoin 単位"
 
 #: www/views/onboarding/tour.html:31
-msgid "Nav Coin is a currency."
+msgid "NavCoin is a currency."
 msgstr "ナブコインは通貨の一つ"
 
 #: www/views/onboarding/disclaimer.html:15
-msgid "Nav Coin is different &ndash; it cannot be safely held with a bank or web service."
+msgid "NavCoin is different &ndash; it cannot be safely held with a bank or web service."
 msgstr "ナブコインは違う &ndash; 銀行やウェブのサービスに安全に預けることはできません。"
 
 #: www/views/onboarding/tour.html:18
-msgid "Nav Coin is secure,<br>digital money."
+msgid "NavCoin is secure,<br>digital money."
 msgstr "ナブコインは世界で<br>最も安全な仮想通貨。"
 
 #: www/views/preferencesFee.html:11
-msgid "Nav Coin transactions include a fee collected by miners on the network."
+msgid "NavCoin transactions include a fee collected by miners on the network."
 msgstr "ナブコインの取引はネットワークの安全を守る「採掘者」と呼ばれる者達に送る手数料が含まれます。"
 
 #: www/views/modals/txp-details.html:36
@@ -390,15 +390,15 @@ msgid "Browser unsupported"
 msgstr "ブラウザ未対応"
 
 #: www/views/includes/buyAndSellCard.html:4
-msgid "Buy &amp; Sell Nav Coin"
+msgid "Buy &amp; Sell NavCoin"
 msgstr "ナブコインの購入&amp;売却"
 
 #: www/views/tab-send.html:35
-msgid "Buy Nav Coin"
+msgid "Buy NavCoin"
 msgstr "ナブコインを購入"
 
 #: src/js/services/onGoingProcess.js:40
-msgid "Buying Nav Coin..."
+msgid "Buying NavCoin..."
 msgstr "ナブコインを購入中..."
 
 #: src/js/services/onGoingProcess.js:12
@@ -712,7 +712,7 @@ msgstr "共有ウォレットを作成"
 #: www/views/onboarding/tour.html:51
 #: www/views/tab-home.html:77
 #: www/views/tab-send.html:36
-msgid "Create Nav Coin wallet"
+msgid "Create NavCoin wallet"
 msgstr "ナブコインウォレット作成"
 
 #: www/views/tab-create-personal.html:129
@@ -818,7 +818,7 @@ msgid "Download"
 msgstr "ダウンロード"
 
 #: www/views/addresses.html:19
-msgid "Each Nav Coin wallet can generate billions of addresses from your 12-word backup. A new address is automatically generated and shown each time you receive a payment."
+msgid "Each NavCoin wallet can generate billions of addresses from your 12-word backup. A new address is automatically generated and shown each time you receive a payment."
 msgstr "12個の単語から無限大のアドレスを生成することができ、それをナブコインウォレットと呼びます。送金を受け取る度に新しいアドレスを生成して受取画面でお見せします。"
 
 #: src/js/services/feeService.js:13
@@ -1273,7 +1273,7 @@ msgid "I understand"
 msgstr "承知しました"
 
 #: www/views/onboarding/disclaimer.html:21
-msgid "I understand that if this app is moved to another device or deleted, my Nav Coin can only be recovered with the backup phrase."
+msgid "I understand that if this app is moved to another device or deleted, my NavCoin can only be recovered with the backup phrase."
 msgstr "このアプリが別の端末に移動されたり、削除されたりした場合に、含まれたナブコインが復元フレーズからのみ復元ができることを理解しています。"
 
 #: www/views/onboarding/disclaimer.html:18
@@ -1416,7 +1416,7 @@ msgid "Is this email address correct?"
 msgstr "このメールアドレスで宜しいですか？"
 
 #: www/views/addresses.html:25
-msgid "It's a good idea to avoid reusing addresses - this both protects your privacy and keeps your Nav Coins secure against hypothetical attacks by quantum computers."
+msgid "It's a good idea to avoid reusing addresses - this both protects your privacy and keeps your NavCoins secure against hypothetical attacks by quantum computers."
 msgstr "アドレスの再利用は避けましょう。これはプライバシーを守ることももちろんのこと、将来的にあり得るかもしれない量子コンピューターからの、ある攻撃からナブコインを守ることもできます。"
 
 #: src/js/controllers/backup.js:76
@@ -1612,7 +1612,7 @@ msgid "No Wallet"
 msgstr "ウォレットが無いよ…(´・ω・`)"
 
 #: www/views/onboarding/backupRequest.html:5
-msgid "No backup, no Nav Coin."
+msgid "No backup, no NavCoin."
 msgstr "バックアップは非常に重要です！"
 
 #: www/views/addressbook.html:19
@@ -1689,7 +1689,7 @@ msgid "Note"
 msgstr "メモ"
 
 #: www/views/modals/wallets.html:25
-msgid "Notice: only 1-1 (single signature) wallets can be used for sell Nav Coin"
+msgid "Notice: only 1-1 (single signature) wallets can be used for sell NavCoin"
 msgstr "注意： ナブコインの売却は 1-of-1 (単一署名) のウォレットからしか行えません。"
 
 #: www/views/preferencesNotifications.html:3
@@ -1804,7 +1804,7 @@ msgid "Paste the backup plain text code"
 msgstr "バックアップの文字をここに貼り付けて下さい"
 
 #: www/views/bitpayCardIntro.html:28
-msgid "Pay 0% fees to turn Nav Coin into dollars."
+msgid "Pay 0% fees to turn NavCoin into dollars."
 msgstr "0% 手数料でナブコインを米ドルに替える"
 
 #: www/views/modals/paypro.html:18
@@ -2110,7 +2110,7 @@ msgid "Request Specific amount"
 msgstr "指定金額を要求"
 
 #: www/views/preferences.html:47
-msgid "Request Spending Password"
+msgid "Set Spending Password"
 msgstr "送金時のパスワード入力"
 
 #: www/views/tab-create-shared.html:42
@@ -2175,7 +2175,7 @@ msgid "Search Transactions"
 msgstr "取引を検索"
 
 #: www/views/tab-send.html:13
-msgid "Search or enter Nav Coin address"
+msgid "Search or enter NavCoin address"
 msgstr "連絡先検索かNav Coinアドレスを指定"
 
 #: www/views/modals/search.html:16
@@ -2204,7 +2204,7 @@ msgid "Self-signed Certificate"
 msgstr "自己署名証明書"
 
 #: src/js/services/onGoingProcess.js:41
-msgid "Selling Nav Coin..."
+msgid "Selling NavCoin..."
 msgstr "ナブコインを売却中..."
 
 #: www/views/feedback/send.html:13
@@ -2346,7 +2346,7 @@ msgid "Show advanced options"
 msgstr "詳細設定を表示"
 
 #: www/views/tab-send.html:37
-msgid "Show Nav Coin address"
+msgid "Show NavCoin address"
 msgstr "ナブコインアドレスを表示"
 
 #: www/views/tab-send.html:59
@@ -2397,11 +2397,11 @@ msgid "Spending Password needed"
 msgstr "パスワードが必要"
 
 #: www/views/walletDetails.html:162
-msgid "Spending this balance will need significant Nav Coin network fees"
+msgid "Spending this balance will need significant NavCoin network fees"
 msgstr "この入力の組み合わせを送金するために膨大なナブコインネットワーク手数料を必要とします"
 
 #: www/views/tab-send.html:28
-msgid "Start sending Nav Coin"
+msgid "Start sending NavCoin"
 msgstr "ナブコインの送金を始めましょう"
 
 #: src/js/routes.js:118
@@ -2437,7 +2437,7 @@ msgid "THIS ACTION CANNOT BE REVERSED"
 msgstr "＊＊＊注意＊＊＊ このアクションを元に戻すことはできません！！！"
 
 #: www/views/onboarding/welcome.html:5
-msgid "Take control of your money,<br>get started with Nav Coin."
+msgid "Take control of your money,<br>get started with NavCoin."
 msgstr "お金のコントロールを取り戻そう、<br>ナブコインをはじめよう"
 
 #: www/views/walletDetails.html:140
@@ -2486,15 +2486,15 @@ msgid "The Ledger Chrome application is not installed"
 msgstr "Ledgerのクロームアプリがインストールされていません。"
 
 #: www/views/modals/wallet-balance.html:55
-msgid "The amount of Nav Coin immediately spendable from this wallet."
+msgid "The amount of NavCoin immediately spendable from this wallet."
 msgstr "このウォレットからすぐに送金できる額"
 
 #: www/views/modals/wallet-balance.html:93
-msgid "The amount of Nav Coin stored in this wallet that is allocated as inputs to your pending transaction proposals. The amount is determined using unspent transaction outputs associated with this wallet and may be more than the actual amounts associated with your pending transaction proposals."
+msgid "The amount of NavCoin stored in this wallet that is allocated as inputs to your pending transaction proposals. The amount is determined using unspent transaction outputs associated with this wallet and may be more than the actual amounts associated with your pending transaction proposals."
 msgstr "現在協議中の送金の提案によってロックされてしまっている金額です。この金額は未使用出力の割り当てられた合計額になりますので、必ずしも送金提案の送金額だけがロックされるというものではありません。"
 
 #: www/views/modals/wallet-balance.html:74
-msgid "The amount of Nav Coin stored in this wallet with less than 1 blockchain confirmation."
+msgid "The amount of NavCoin stored in this wallet with less than 1 blockchain confirmation."
 msgstr "このウォレットの1承認未満の残高。"
 
 #: www/views/tab-import-phrase.html:5
@@ -2551,7 +2551,7 @@ msgid "The spend proposal is not pending"
 msgstr "送金の提案が協議中ではありません。"
 
 #: www/views/modals/wallet-balance.html:36
-msgid "The total amount of Nav Coin stored in this wallet."
+msgid "The total amount of NavCoin stored in this wallet."
 msgstr "このウォレットのナブコインの総残高"
 
 #: www/views/preferencesHistory.html:27
@@ -2586,11 +2586,11 @@ msgid "This app is fantastic!"
 msgstr "このアプリは素晴らしいです!"
 
 #: www/views/onboarding/tour.html:47
-msgid "This app stores your Nav Coin with cutting-edge security."
+msgid "This app stores your NavCoin with cutting-edge security."
 msgstr "このアプリは、最先端のセキュリティであなたのナブコインをお守りします。"
 
 #: src/js/controllers/confirm.js:464
-msgid "This Nav Coin payment request has expired."
+msgid "This NavCoin payment request has expired."
 msgstr "ナブコインペイメントの請求期限が切れています。"
 
 #: www/views/join.html:130
@@ -2604,7 +2604,7 @@ msgid "This recovery phrase was created with a password. To recover this wallet 
 msgstr "この復元フレーズにパスワードがかかっています。このウォレットを復元するためには、復元フレーズに加え、パスワードも必要です。"
 
 #: www/views/tx-details.html:93
-msgid "This transaction amount is too small compared to current Nav Coin network fees. Spending these funds will need a Nav Coin network fee cost comparable to the funds itself."
+msgid "This transaction amount is too small compared to current NavCoin network fees. Spending these funds will need a NavCoin network fee cost comparable to the funds itself."
 msgstr "この取引の金額はナブコインネットワーク手数料より低いです。送金額より大きい手数料を払ってしまうことになります。"
 
 #: www/views/tx-details.html:89
@@ -2631,11 +2631,11 @@ msgid "To"
 msgstr "宛先"
 
 #: www/views/tab-send.html:32
-msgid "To get started, buy Nav Coin or share your address. You can receive Nav Coin from any wallet or service."
+msgid "To get started, Buy NavCoin or share your address. You can receive NavCoin from any wallet or service."
 msgstr "はじめるには、ナブコインを購入したり、アドレスを他の人に共有したりしましょう。どのナブコインウォレットやサービスから受け取れます。"
 
 #: www/views/tab-send.html:33
-msgid "To get started, you'll need to create a Nav Coin wallet and get some Nav Coin."
+msgid "To get started, you'll need to create a NavCoin wallet and get some NavCoin."
 msgstr "はじめに、ナブコインウォレットを作成し、ナブコインを入手する必要があります。"
 
 #: src/js/services/bitpayAccountService.js:73
@@ -2719,7 +2719,7 @@ msgid "Try again in {{expires}}"
 msgstr "{{expires}} 経過後にもう一度試してください。"
 
 #: www/views/bitpayCardIntro.html:18
-msgid "Turn Nav Coin into dollars, swipe anywhere Visa<sup>&reg;</sup> is accepted."
+msgid "Turn NavCoin into dollars, swipe anywhere Visa<sup>&reg;</sup> is accepted."
 msgstr "瞬時にナブコインを米ドルに変換！Visa<sup>&reg;</sup>カード利用可能店舗ならどこでも！"
 
 #: www/views/tab-import-phrase.html:17
@@ -3076,7 +3076,7 @@ msgid "You can make contributions by signing up on our Crowdin community transla
 msgstr "Crowdinのサイトにて翻訳者登録をして、今すぐに投稿をいただけます。お待ちしております。"
 
 #: www/views/tab-scan.html:16
-msgid "You can scan Nav Coin addresses, payment requests, paper wallets, and more."
+msgid "You can scan NavCoin addresses, payment requests, paper wallets, and more."
 msgstr "ナブコインアドレス、支払い請求、ペーパーウォレットなどをスキャンできます。"
 
 #: src/js/controllers/preferencesAbout.js:14
@@ -3084,7 +3084,7 @@ msgid "You can see the latest developments and contribute to this open source ap
 msgstr "GitHubのページにて最近の開発動向を見たり、改善案のソースコードの貢献したりすることができます。"
 
 #: www/views/onboarding/tour.html:19
-msgid "You can spend Nav Coin at stores and websites worldwide."
+msgid "You can spend NavCoin at stores and websites worldwide."
 msgstr "世界中のECサイトや店舗でナブコインを使って支払いができます。"
 
 #: www/views/backup.html:12
@@ -3096,7 +3096,7 @@ msgid "You can trade it for other currencies like US Dollars, Euros, or Pounds."
 msgstr "米ドル、ユーロ、ポンドなど他の通貨との取引ができます。"
 
 #: www/views/onboarding/tour.html:46
-msgid "You control your Nav Coin."
+msgid "You control your NavCoin."
 msgstr "ナブコインの自己管理"
 
 #: www/views/modals/bitpay-card-confirmation.html:5
@@ -3112,11 +3112,10 @@ msgid "Your NavPay Card is ready. Add funds to your card to start using it at st
 msgstr "NavPayカードの準備が整いました。入金して全世界のお店やATMでご利用下さい。"
 
 #: www/views/includes/confirmBackupPopup.html:6
-msgid "Your Nav Coin wallet is backed up!"
+msgid "Your NavCoin wallet is backed up!"
 msgstr "ナブコインウォレットがバックアップされました!"
 
-#: www/views/tab-home.html:36
-msgid "Your Nav Coin wallet is ready!"
+msgid "Your NavCoin wallet is ready!"
 msgstr "ナブコインウォレットが完成しました!"
 
 #: www/views/feedback/send.html:42
@@ -3192,7 +3191,7 @@ msgid "{{appName}} depends on Bitcore Wallet Service (BWS) for blockchain inform
 msgstr "{{appName}}はブロックチェーンの情報を取得したり参加者を同期させたりするためにBitcore Wallet Service (BWS)に依存します。初期値としてNavPay社が提供する https://bws.bitpay.com (NavPay公式のBWSサーバー)を設定していますが、独自で運用してウォレットをそちらに接続しても構いません。"
 
 #: src/js/controllers/confirm.js:354
-msgid "{{fee}} will be deducted for Nav Coin networking fees."
+msgid "{{fee}} will be deducted for NavCoin networking fees."
 msgstr "{{fee}} のナブコインネットワーク手数料が差し引かれます。"
 
 #: www/views/confirm.html:87
@@ -3237,12 +3236,11 @@ msgid "Private Payment"
 msgstr "非公開（匿名）な支払い"
 
 #: tab-home.html:18
-msgid "Purchase Nav Coin"
+msgid "Purchase NavCoin"
 msgstr "Nav Coinを購入する"
 
-#: tab-home.html:21
-msgid "To get started, you can buy Nav Coin through our exchange partner Changelly."
-msgstr "まずはじめに、協力している交換所のChangelly(チェンジリー）からNav Coinを購入します。"
+msgid "To get started, you can buy NavCoin through our exchange partner Changelly."
+msgstr "はじめに、パートナーのChangelly交換所からNavCoinを購入することができます。"
 
 #: changelly.html:16
 msgid "Loading Changelly Exchange..."
@@ -3251,3 +3249,93 @@ msgstr "Changelly Exchange(チェンジリー交換所）から読み込み中"
 #: tab-send.html:24
 msgid "Next"
 msgstr "次へ"
+
+msgid "NavTech / Private Payment Servers"
+msgstr "NavTech/プライベートペイメントサーバー"
+
+msgid "Encryption required"
+msgstr "暗号化が必要です"
+
+msgid "Backup required"
+msgstr "バックアップが必要です"
+
+msgid "Copy to clipboard"
+msgstr "クリップボードにコピー"
+
+msgid "Show QR Code"
+msgstr "QRコードを表示する"
+
+msgid "Anyone with your backup phrase can access or spend your NavCoin."
+msgstr "あなたのバックアップフレーズを持っている人なら誰でもあなたのNavCoinにアクセスすることができます。"
+
+msgid "Buy NAV"
+msgstr "NAVを購入"
+
+msgid "Wallet not encrypted. Set spending password to encrypt."
+msgstr "ウォレットの暗号化されていません。暗号化するには、送金時のパスワードをセットします。"
+
+msgid "Please enter a password to encrypt your wallet"
+msgstr "ウォレットを暗号化するためのパスワードを入力してください"
+
+msgid "This password can never be recovered or reset!"
+msgstr "このパスワードはリカバリーやリセットはできなくなります！"
+
+msgid "Are you sure?"
+msgstr "本当に大丈夫ですか？"
+
+msgid "Your wallet keys will be stored in plain text and you will be vulnerable to having you coins stolen. We highly recommend pressing no and choosing a password."
+msgstr "あなたのウォレットの鍵は簡単なので、このまま保存すると盗難にあいやすくなります。いいえを押してパスワードを変更することを強くお勧めします。"
+
+msgid "Create password"
+msgstr "パスワードの作成"
+
+msgid "No password"
+msgstr "パスワードなし"
+
+msgid "NavCoin is different &ndash; it cannot be safely held with a bank or web service."
+msgstr "NavCoinは異なっています。 銀行やウェブサービスで安全に保持することはできません。"
+
+msgid "No NavTech servers found. Please add a NavTech server to make private payments."
+msgstr "NavTechサーバーが見つかりませんでした。プライベートペイメントを行うにはNavTechサーバーを追加してください。"
+
+msgid "Invalid server"
+msgstr "無効なサーバーです"
+
+msgid "NavTech Server successfully added"
+msgstr "NavTech Serverが正常に追加されました"
+
+msgid "Please enter a NavTech URL. e.g. https://SomeNavTechServer.com:3000"
+msgstr "NavTechのURLを入力してください。例えばhttps://SomeNavTechServer.com:3000"
+
+msgid "Add a NavTech server to create private payments."
+msgstr "プライベートペイメントを作成するNavTechサーバーを追加します。"
+
+msgid "No NavTech servers found. Please add a server to make private payments"
+msgstr "NavTechサーバーが見つかりませんでした。プライベートな支払いを行うためにはサーバーを追加してください"
+
+msgid "Invalid NavTech Server"
+msgstr "無効なNavTechサーバーです"
+
+msgid "Add"
+msgstr "追加する"
+
+msgid "You have disallowed camera use. It must be enabled to scan QR codes."
+msgstr "あなたはカメラの使用を許可していません。 QRコードをスキャンするには有効にする必要があります。"
+
+msgid "Please see the NavCoin guide for more information."
+msgstr "詳細については、NavCoinガイドを参照してください。"
+
+msgid "Purchase NavCoin"
+msgstr "NavCoinを購入する"
+
+msgid "Buy NavCoin with:"
+msgstr "NavCoinを購入する"
+
+msgid "Credit Card"
+msgstr "クレジットカード"
+
+msgid "Cryptocurrency"
+msgstr "仮想通貨"
+
+msgid "Generate new address from wallet: <span class="wallet-name">{{wallet.name || wallet.id}}</span>"
+msgstr "このウォレットから新しいアドレスを生成する : <span class="wallet-name">{{wallet.name || wallet.id}}</span>"

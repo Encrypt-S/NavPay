@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('tabSettingsController', function($rootScope, $timeout, $scope, appConfigService, $ionicModal, $log, lodash, uxLanguage, platformInfo, profileService, feeService, configService, externalLinkService, bitpayAccountService, bitpayCardService, storageService, glideraService, gettextCatalog, buyAndSellService) {
+angular.module('copayApp.controllers').controller('tabSettingsController', function($rootScope, $state, $timeout, $scope, appConfigService, $ionicModal, $log, lodash, uxLanguage, platformInfo, profileService, feeService, configService, externalLinkService, bitpayAccountService, bitpayCardService, storageService, glideraService, gettextCatalog, buyAndSellService, navTechService) {
+  $scope.isIOS = platformInfo.isIOS;
 
   var updateConfig = function() {
     $scope.currentLanguageName = uxLanguage.getCurrentLanguageName();
@@ -8,6 +9,7 @@ angular.module('copayApp.controllers').controller('tabSettingsController', funct
     $scope.currentFeeLevel = feeService.getCurrentFeeLevel();
     $scope.wallets = profileService.getWallets();
     $scope.buyAndSellServices = buyAndSellService.getLinked();
+    $scope.navTechServers = []
 
     configService.whenAvailable(function(config) {
       $scope.unitName = config.wallet.settings.unitName;
@@ -65,6 +67,29 @@ angular.module('copayApp.controllers').controller('tabSettingsController', funct
 
   $scope.$on("$ionicView.enter", function(event, data) {
     updateConfig();
+    navTechService.getNavTechServers(function(err, servers) {
+      if (servers && servers.length > 0) {
+        $scope.navTechServers = servers;
+      }
+    })
   });
+
+  $scope.openDownloadPage = function() {
+    $state.go('downloadApp', { fromSettings: true });
+  };
+
+  $scope.shouldShowAppDownload = function () {
+    return platformInfo.isSafari && platformInfo.iOSPWASupport && !platformInfo.isPWA
+  }
+
+  $scope.openChangellyWeb = function() {
+    var url = 'https://changelly.com/exchange/USD/NAV/100';
+    var optIn = true;
+    var title = null;
+    var message = gettextCatalog.getString('Visit Changelly.com');
+    var okText = gettextCatalog.getString('Open Website');
+    var cancelText = gettextCatalog.getString('Go Back');
+    externalLinkService.open(url, optIn, title, message, okText, cancelText);
+  };
 
 });

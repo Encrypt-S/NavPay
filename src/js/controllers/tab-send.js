@@ -1,309 +1,496 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('tabSendController', function($scope, $rootScope, $log, $timeout,
-  $ionicScrollDelegate, addressbookService, profileService, lodash, $state, walletService, incomingData, popupService,
-   platformInfo, bwcError, gettextCatalog, scannerService, $window, externalLinkService, bitcore) {
+angular
+  .module('copayApp.controllers')
+  .controller('tabSendController', function(
+    $scope,
+    $rootScope,
+    $log,
+    $timeout,
+    $ionicScrollDelegate,
+    addressbookService,
+    profileService,
+    lodash,
+    $state,
+    walletService,
+    incomingData,
+    popupService,
+    platformInfo,
+    bwcError,
+    gettextCatalog,
+    scannerService,
+    $window,
+    externalLinkService,
+    bitcore,
+    navTechService,
+    $http
+  ) {
+    var originalList;
+    var CONTACTS_SHOW_LIMIT;
+    var currentContactsPage;
+    $scope.isSweeping = false;
+    $scope.isChromeApp = platformInfo.isChromeApp;
+    $scope.isIOS = platformInfo.isIOS;
+    $scope.isCordova = platformInfo.isCordova;
+    $scope.isAndroid = platformInfo.isAndroid;
+    $scope.isMobile = platformInfo.isMobile;
+    $scope.isIOSNativeApp = platformInfo.isCordova && platformInfo.isIOS;
+    $scope.privatePayment = false;
+    $scope.privateToggleOn = false;
+    $scope.navTechError = false;
+    $scope.navTechLoading = false;
+    $scope.address = ''
+    $scope.oaMsg = ''
 
-  var originalList;
-  var CONTACTS_SHOW_LIMIT;
-  var currentContactsPage;
-  $scope.isSweeping = false;
-  $scope.isChromeApp = platformInfo.isChromeApp;
+    function openAliasResolve(data, cb) {
+      var regex = /.+@.+\..+/
+      var match = regex.exec(data)
+      var isEmail = false
+
+      if (match) {
+        isEmail = true
+        var url = data.replace('@', '.');
+        var randomPadding = Math.random().toString(36).substr(2) + Math.random().toString(36).substr(2);
 
 
-  $scope.sweepBtnDisabled = function() {
-    var isDisabled = true;
+        $http.get('https://dns.google.com/resolve?name=' + url + '&type=16&cd=0&edns_client_subnet=0.0.0.0/0&random_padding='+ randomPadding)
+             .success(function (res, status) {
 
-    if ($scope.checkPrivateKey($scope.formData.search)) {
-      isDisabled = false;
-    }
-    return isDisabled;
-  };
+               if(res.Status !== 0) {
+                 return cb(data, isEmail)
+               }
 
+               if (Array.isArray(res.Answer)) {
+                 for (var i = 0; i < res.Answer.length; i++ ) {
+                   var oaAddr = res.Answer[i].data
+                   if(oaAddr.includes('oa1:nav')) {
+                     var address = oaAddr.substring(oaAddr.indexOf('recipient_address=') + 18, oaAddr.indexOf(';'))
+                     return cb(address, isEmail)
+                   }
+                 }
+               }
 
-  var hasWallets = function() {
-    $scope.wallets = profileService.getWallets({
-      onlyComplete: true
-    });
-    $scope.hasWallets = lodash.isEmpty($scope.wallets) ? false : true;
-  };
-
-  // THIS is ONLY to show the 'buy bitcoins' message
-  // does not has any other function.
-
-  var updateHasFunds = function() {
-    $scope.nextDisabled = true;
-
-    if ($rootScope.everHasFunds) {
-      $scope.hasFunds = true;
-      return;
-    }
-
-    $scope.hasFunds = false;
-    var index = 0;
-    lodash.each($scope.wallets, function(w) {
-      walletService.getStatus(w, {}, function(err, status) {
-
-        ++index;
-        if (err && !status) {
-          $log.error(err);
-          // error updating the wallet. Probably a network error, do not show
-          // the 'buy bitcoins' message.
-
-          $scope.hasFunds = true;
-        } else if (status.availableBalanceSat > 0) {
-          $scope.hasFunds = true;
-          $rootScope.everHasFunds = true;
-        }
-
-        if (index == $scope.wallets.length) {
-          $scope.checkingBalance = false;
-          $timeout(function() {
-            $scope.$apply();
-          });
-        }
-      });
-    });
-  };
-
-  var updateWalletsList = function() {
-
-    var networkResult = lodash.countBy($scope.wallets, 'network');
-
-    $scope.showTransferCard = $scope.hasWallets && (networkResult.livenet > 1 || networkResult.testnet > 1);
-
-    if ($scope.showTransferCard) {
-      var walletsToTransfer = $scope.wallets;
-      if (!(networkResult.livenet > 1)) {
-        walletsToTransfer = lodash.filter(walletsToTransfer, function(item) {
-          return item.network == 'testnet';
-        });
+               return cb(data)
+             })
+      } else {
+        return cb(data, isEmail)
       }
-      if (!(networkResult.testnet > 1)) {
-        walletsToTransfer = lodash.filter(walletsToTransfer, function(item) {
-          return item.network == 'livenet';
-        });
+    }
+
+    $scope.sweepBtnDisabled = function() {
+      var isDisabled = true;
+
+      if ($scope.checkPrivateKey($scope.formData.search)) {
+        isDisabled = false;
       }
-      var walletList = [];
-      lodash.each(walletsToTransfer, function(v) {
-        walletList.push({
-          color: v.color,
-          name: v.name,
-          recipientType: 'wallet',
-          getAddress: function(cb) {
-            walletService.getAddress(v, false, cb);
-          },
-        });
-      });
-      originalList = originalList.concat(walletList);
-    }
-  }
-
-  var updateContactsList = function(cb) {
-    addressbookService.list(function(err, ab) {
-      if (err) $log.error(err);
-
-      $scope.hasContacts = lodash.isEmpty(ab) ? false : true;
-      if (!$scope.hasContacts) return cb();
-
-      var completeContacts = [];
-      lodash.each(ab, function(v, k) {
-        completeContacts.push({
-          name: lodash.isObject(v) ? v.name : v,
-          address: k,
-          email: lodash.isObject(v) ? v.email : null,
-          recipientType: 'contact',
-          getAddress: function(cb) {
-            return cb(null, k);
-          },
-        });
-      });
-      var contacts = completeContacts.slice(0, (currentContactsPage + 1) * CONTACTS_SHOW_LIMIT);
-      $scope.contactsShowMore = completeContacts.length > contacts.length;
-      originalList = originalList.concat(contacts);
-      return cb();
-    });
-  };
-
-  var updateList = function() {
-    $scope.list = lodash.clone(originalList);
-    $timeout(function() {
-      $ionicScrollDelegate.resize();
-      $scope.$apply();
-    }, 10);
-  };
-
-  $scope.openBuyLink = function() {
-    $state.go('tabs.changelly-send');
-  };
-
-  $scope.openScanner = function() {
-    var isWindowsPhoneApp = platformInfo.isCordova && platformInfo.isWP;
-
-    if (!isWindowsPhoneApp) {
-      $state.go('tabs.scan', { returnRoute: 'tabs.send' });
-      return;
-    }
-
-    scannerService.useOldScanner(function(err, contents) {
-      if (err) {
-        popupService.showAlert(gettextCatalog.getString('Error'), err);
-        return;
-      }
-      incomingData.redir(contents);
-    });
-  };
-
-  $scope.showMore = function() {
-    currentContactsPage++;
-    updateWalletsList();
-  };
-
-  $scope.searchInFocus = function() {
-    $scope.searchFocus = true;
-  };
-
-  $scope.searchBlurred = function() {
-    if ($scope.formData.search == null || $scope.formData.search.length == 0) {
-      $scope.searchFocus = false;
-    }
-    var privatePayment = $scope.formData.privatePayment || false;
-    if (incomingData.redir($scope.formData.search, privatePayment, true)) {
-      $scope.nextDisabled = false;
-      return;
-    } else {
-      $scope.nextDisabled = true;
-      return;
-    }
-  };
-
-  $scope.nextClicked = function(search) {
-    var privatePayment = $scope.formData.privatePayment || false;
-    if (incomingData.redir(search, privatePayment, false)) {
-      return;
-    } else if (search) {
-      $scope.nextDisabled = true;
-      return;
-    }
-  }
-
-  $scope.findContact = function(search) {
-    var privatePayment = $scope.formData.privatePayment || false;
-    if (incomingData.redir(search, privatePayment, true)) {
-      $scope.nextDisabled = false;
-      return;
-    } else if (search) {
-      $scope.nextDisabled = true;
-      return;
-    }
-
-    if (!search || search.length < 2) {
-      $scope.list = originalList;
-      $timeout(function() {
-        $scope.$apply();
-      });
-      return;
-    }
-    var result = lodash.filter(originalList, function(item) {
-      var val = item.name;
-      return lodash.includes(val.toLowerCase(), search.toLowerCase());
-    });
-
-    $scope.list = result;
-  };
-
-  $scope.goToAmount = function(item) {
-    console.log('goToAmount');
-    $timeout(function() {
-      item.getAddress(function(err, addr) {
-        if (err || !addr) {
-          //Error is already formated
-          return popupService.showAlert(err);
-        }
-        $log.debug('Got toAddress:' + addr + ' | ' + item.name);
-        return $state.transitionTo('tabs.send.amount', {
-          recipientType: item.recipientType,
-          toAddress: addr,
-          toName: item.name,
-          toEmail: item.email,
-          toColor: item.color
-        })
-      });
-    });
-  };
-
-  // This could probably be enhanced refactoring the routes abstract states
-  $scope.createWallet = function() {
-    $state.go('tabs.home').then(function() {
-      $state.go('tabs.add.create-personal');
-    });
-  };
-
-  $scope.buyBitcoin = function() {
-    $state.go('tabs.home').then(function() {
-      $state.go('tabs.buyandsell');
-    });
-  };
-
-  $scope.sweepAddressClickHandler = function(privateKey) {
-    console.log('privateKey', privateKey);
-
-    $state.go('tabs.home').then(function() {
-      $timeout(function() {
-        $state.transitionTo('tabs.home.paperWallet', {
-          privateKey: privateKey
-        });
-        }, 50);
-    });
-  };
-
-
-  $scope.checkPrivateKey = function(privateKey) {
-    try {
-      new bitcore.PrivateKey(privateKey, 'livenet');
-    } catch (err) {
-      return false;
-    }
-    return true;
-  }
-
-  $scope.$on("$ionicView.beforeEnter", function(event, data) {
-
-    $scope.checkingBalance = true;
-    $scope.formData = {
-      search: null
+      return isDisabled;
     };
 
-    originalList = [];
-    CONTACTS_SHOW_LIMIT = 10;
-    currentContactsPage = 0;
-    hasWallets();
-  });
-
-  $scope.$on("$ionicView.enter", function(event, data) {
-    if (!$scope.hasWallets) {
-      $scope.checkingBalance = false;
-      return;
-    }
-    updateHasFunds();
-
-    if (data.stateParams.address) {
-      if (data.stateParams.address === 'sweep') {
-        $scope.isSweeping = true;
-      } else {
-        $scope.formData.search = data.stateParams.address;
-      }
-      $timeout(function() {
-        $scope.searchFocus = true;
-        var element = $window.document.getElementById('tab-send-address');
-        if(element) element.focus();
-        $scope.searchBlurred();
+    var hasWallets = function() {
+      $scope.wallets = profileService.getWallets({
+        onlyComplete: true
       });
+      $scope.hasWallets = lodash.isEmpty($scope.wallets) ? false : true;
+    };
+
+    // THIS is ONLY to show the 'buy bitcoins' message
+    // does not has any other function.
+
+    var updateHasFunds = function() {
+      $scope.nextDisabled = true;
+
+      if ($rootScope.everHasFunds) {
+        $scope.hasFunds = true;
+        return;
+      }
+
+      $scope.hasFunds = false;
+      var index = 0;
+      lodash.each($scope.wallets, function(w) {
+        walletService.getStatus(w, {}, function(err, status) {
+          ++index;
+          if (err && !status) {
+            $log.error(err);
+            // error updating the wallet. Probably a network error, do not show
+            // the 'buy bitcoins' message.
+
+            $scope.hasFunds = true;
+          } else if (status.availableBalanceSat > 0) {
+            $scope.hasFunds = true;
+            $rootScope.everHasFunds = true;
+          }
+
+          if (index == $scope.wallets.length) {
+            $scope.checkingBalance = false;
+            $timeout(function() {
+              $scope.safeApply();
+            });
+          }
+        });
+      });
+    };
+
+    var updateWalletsList = function() {
+      var networkResult = lodash.countBy($scope.wallets, 'network');
+
+      $scope.showTransferCard =
+        $scope.hasWallets &&
+        (networkResult.livenet > 1 || networkResult.testnet > 1);
+
+      if ($scope.showTransferCard) {
+        var walletsToTransfer = $scope.wallets;
+        if (!(networkResult.livenet > 1)) {
+          walletsToTransfer = lodash.filter(walletsToTransfer, function(item) {
+            return item.network == 'testnet';
+          });
+        }
+        if (!(networkResult.testnet > 1)) {
+          walletsToTransfer = lodash.filter(walletsToTransfer, function(item) {
+            return item.network == 'livenet';
+          });
+        }
+        var walletList = [];
+        lodash.each(walletsToTransfer, function(v) {
+          walletList.push({
+            color: v.color,
+            name: v.name,
+            recipientType: 'wallet',
+            getAddress: function(cb) {
+              walletService.getAddress(v, false, cb);
+            }
+          });
+        });
+        originalList = originalList.concat(walletList);
+      }
+    };
+
+    var updateContactsList = function(cb) {
+      addressbookService.list(function(err, ab) {
+        if (err) $log.error(err);
+
+        $scope.hasContacts = lodash.isEmpty(ab) ? false : true;
+        if (!$scope.hasContacts) return cb();
+
+        var completeContacts = [];
+        lodash.each(ab, function(v, k) {
+          completeContacts.push({
+            name: lodash.isObject(v) ? v.name : v,
+            address: k,
+            email: lodash.isObject(v) ? v.email : null,
+            recipientType: 'contact',
+            getAddress: function(cb) {
+              return cb(null, k);
+            }
+          });
+        });
+        var contacts = completeContacts.slice(
+          0,
+          (currentContactsPage + 1) * CONTACTS_SHOW_LIMIT
+        );
+        $scope.contactsShowMore = completeContacts.length > contacts.length;
+        originalList = originalList.concat(contacts);
+        return cb();
+      });
+    };
+
+    var updateList = function() {
+      $scope.list = lodash.clone(originalList);
+      $timeout(function() {
+        $ionicScrollDelegate.resize();
+        $scope.$apply();
+      }, 10);
+    };
+
+    var isValidTransaction = function() {
+      var data = $scope.address || $scope.formData.search // use the address or use whatever the user typed
+      return incomingData.redir(
+        data,
+        $scope.privatePayment,
+        true
+      );
+    };
+
+    $scope.openBuyLink = function() {
+      $state.go('tabs.changelly-send');
+    };
+
+    $scope.openScanner = function() {
+      var isWindowsPhoneApp = platformInfo.isCordova && platformInfo.isWP;
+      var privatePayment = $scope.privatePayment || false;
+
+      if (!isWindowsPhoneApp) {
+        $state.go('tabs.scan', { returnRoute: 'tabs.send', privatePayment: privatePayment });
+        return;
+      }
+
+      scannerService.useOldScanner(function(err, contents) {
+        if (err) {
+          popupService.showAlert(gettextCatalog.getString('Error'), err);
+          return;
+        }
+        incomingData.redir(contents, privatePayment);
+      });
+    };
+
+    $scope.showMore = function() {
+      currentContactsPage++;
+      updateWalletsList();
+    };
+
+    $scope.searchInFocus = function() {
+      $scope.searchFocus = true;
+    };
+
+    $scope.togglePrivatePayment = function() {
+      $scope.privateToggleOn = !$scope.privateToggleOn;
+
+      // If toggle is now off
+      if (!$scope.privateToggleOn) {
+        $scope.showAddNavTech = false;
+        $scope.nextDisabled = true;
+        $scope.privatePayment = false;
+
+        // Check if they they have a valid transaciotn
+        // if so let them press next
+        if (isValidTransaction()) {
+          $scope.nextDisabled = false;
+        }
+        $scope.safeApply();
+      }
+
+      // if toggle is now on
+      if ($scope.privateToggleOn) {
+        navTechService.getNavTechServers(function(error, servers) {
+          $log.debug('NavTech Servers Found:', servers);
+          if (error) {
+            return $log.error(error);
+          }
+
+          if (!servers || servers.length === 0) {
+            $scope.nextDisabled = true;
+            $scope.showAddNavTech = true;
+            $scope.safeApply();
+          } else {
+            // Aleady have servers. Just let them do private payment
+            $scope.privatePayment = true;
+          }
+        });
+      }
+    };
+
+    $scope.saveNavTechAddress = function(address) {
+      $scope.navTechLoading = true;
+
+      navTechService.addNode(address, function(error, result) {
+        $scope.navTechLoading = false;
+
+        if (error) {
+          $scope.navTechError = true;
+          $scope.safeApply();
+          return $log.error(error);
+        }
+
+        $scope.navTechError = false;
+        $scope.navTechAddressSuccess = true;
+        $scope.privatePayment = true;
+        if (isValidTransaction()) {
+          $scope.nextDisabled = false;
+        }
+        $scope.safeApply();
+      });
+    };
+
+    $scope.searchBlurred = function() {
+      if (
+        $scope.formData.search == null ||
+        $scope.formData.search.length == 0
+      ) {
+        $scope.searchFocus = false;
+      }
+      if (isValidTransaction()) {
+        $scope.nextDisabled = false;
+        return;
+      } else {
+        $scope.nextDisabled = true;
+        return;
+      }
+    };
+
+    $scope.nextClicked = function() {
+      var data = $scope.address || $scope.formData.search // use the address or use whatever the user typed
+      var privatePayment = $scope.privatePayment || false;
+      if (incomingData.redir(data, privatePayment, false)) {
+        $scope.address = ''
+        $scope.oaMsg = ''
+        return;
+      } else if (data) {
+        $scope.nextDisabled = true;
+        return;
+      }
+    };
+
+    $scope.checkOpenAlias = function(search) {
+      $scope.address = ''
+      $scope.oaMsg = ''
+
+      openAliasResolve(search, function(result, isEmail) {
+        // Found an address
+        if (isEmail && search !== result) {
+          $scope.address = result;
+          $scope.oaMsg = '(' + result +')';
+          return $scope.findContact(result)
+        }
+
+        // Didn't find an address
+        if (isEmail && search === result) {
+          $scope.oaMsg = '(OpenAlias Address Not Found)';
+          return $scope.findContact(search)
+        }
+
+        // Wasn't an email, search normally
+        return $scope.findContact(search)
+      })
     }
 
-    updateWalletsList();
-    updateContactsList(function() {
-      updateList();
+    $scope.findContact = function(search) {
+      var privatePayment = $scope.privatePayment || false;
+      if (incomingData.redir(search, privatePayment, true)) {
+        $scope.nextDisabled = false;
+        return;
+      } else if (search) {
+        $scope.nextDisabled = true;
+        return;
+      }
+
+      if (!search || search.length < 2) {
+        $scope.list = originalList;
+        $timeout(function() {
+          $scope.$apply();
+        });
+        return;
+      }
+      var result = lodash.filter(originalList, function(item) {
+        var val = item.name;
+        return lodash.includes(val.toLowerCase(), search.toLowerCase());
+      });
+
+      $scope.list = result;
+    };
+
+    $scope.goToAmount = function(item) {
+      $log.debug('goToAmount');
+      $timeout(function() {
+        item.getAddress(function(err, addr) {
+          if (err || !addr) {
+            //Error is already formated
+            return popupService.showAlert(err);
+          }
+          $log.debug('Got toAddress:' + addr + ' | ' + item.name);
+          return $state.transitionTo('tabs.send.amount', {
+            recipientType: item.recipientType,
+            toAddress: addr,
+            toName: item.name,
+            toEmail: item.email,
+            toColor: item.color
+          });
+        });
+      });
+    };
+
+    // This could probably be enhanced refactoring the routes abstract states
+    $scope.createWallet = function() {
+      $state.go('tabs.home').then(function() {
+        $state.go('tabs.add.create-personal');
+      });
+    };
+
+    $scope.buyBitcoin = function() {
+      $state.go('tabs.home').then(function() {
+        $state.go('tabs.buyandsell');
+      });
+    };
+
+    $scope.sweepAddressClickHandler = function(privateKey) {
+      $log.debug('privateKey', privateKey);
+
+      $state.go('tabs.home').then(function() {
+        $timeout(function() {
+          $state.transitionTo('tabs.home.paperWallet', {
+            privateKey: privateKey
+          });
+        }, 50);
+      });
+    };
+
+    $scope.checkPrivateKey = function(privateKey) {
+      try {
+        new bitcore.PrivateKey(privateKey, 'livenet');
+      } catch (err) {
+        return false;
+      }
+      return true;
+    };
+
+    $scope.$on('$ionicView.beforeEnter', function(event, data) {
+      $scope.checkingBalance = true;
+      $scope.oaMsg = '';
+      $scope.address = '';
+      $scope.formData = {
+        search: '',
+      };
+
+      originalList = [];
+      CONTACTS_SHOW_LIMIT = 10;
+      currentContactsPage = 0;
+      hasWallets();
     });
+
+    $scope.$on('$ionicView.enter', function(event, data) {
+      if (!$scope.hasWallets) {
+        $scope.checkingBalance = false;
+        return;
+      }
+      updateHasFunds();
+
+      if (data.stateParams.address) {
+        if (data.stateParams.address === 'sweep') {
+          $scope.isSweeping = true;
+        } else {
+          $scope.formData.search = data.stateParams.address;
+          $scope.privatePayment = data.stateParams.privatePayment || false;
+          $scope.privateToggleOn = data.stateParams.privatePayment || false;
+        }
+        $timeout(function() {
+          $scope.searchFocus = true;
+          var element = $window.document.getElementById('tab-send-address');
+          if (element) element.focus();
+          $scope.searchBlurred();
+        });
+      }
+
+      updateWalletsList();
+      updateContactsList(function() {
+        updateList();
+      });
+    });
+
+    $scope.viewNavTechServers = function() {
+      var url = 'https://navhub.org/navtech-servers/';
+      var optIn = true;
+      var title = null;
+      var message = gettextCatalog.getString('Visit navhub.com/navtech-servers/');
+      var okText = gettextCatalog.getString('Open Website');
+      var cancelText = gettextCatalog.getString('Go Back');
+      externalLinkService.open(url, optIn, title, message, okText, cancelText);
+    };
+
+    $scope.openChangellyWeb = function() {
+      var url = 'https://changelly.com/';
+      var optIn = true;
+      var title = null;
+      var message = gettextCatalog.getString('Visit Changelly.com');
+      var okText = gettextCatalog.getString('Open Website');
+      var cancelText = gettextCatalog.getString('Go Back');
+      externalLinkService.open(url, optIn, title, message, okText, cancelText);
+    };
   });
-});

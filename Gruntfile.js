@@ -3,6 +3,7 @@
 module.exports = function(grunt) {
 
   require('load-grunt-tasks')(grunt);
+  grunt.loadNpmTasks('grunt-asset-hash');
 
   // Project Configuration
   grunt.initConfig({
@@ -14,14 +15,20 @@ module.exports = function(grunt) {
       externalServices: {
         command: 'node ./util/buildExternalServices.js'
       },
+      addManifest: {
+        command: 'node ./util/addManifest.js'
+      },
       clean: {
         command: 'rm -Rf bower_components node_modules'
+      },
+      removeDist: {
+        command: 'rm -Rf dist'
       },
       cordovaclean: {
         command: 'make -C cordova clean'
       },
       macos: {
-        command: 'sh webkitbuilds/build-macos.sh sign'
+        command: 'sh desktop-build-configs/build-macos.sh sign'
       },
       coveralls: {
         command: 'cat  coverage/report-lcov/lcov.info |./node_modules/coveralls/bin/coveralls.js'
@@ -57,17 +64,17 @@ module.exports = function(grunt) {
         command: 'cd cordova/project && cordova build android --release',
       },
       androidsign: {
-        command: 'rm -f cordova/project/platforms/android/build/outputs/apk/android-release-signed-aligned.apk; jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ../cordova-keys/navpay.keystore -signedjar cordova/project/platforms/android/build/outputs/apk/android-release-signed.apk  cordova/project/platforms/android/build/outputs/apk/android-release-unsigned.apk copay_play && ../android-sdk-macosx/build-tools/21.1.1/zipalign -v 4 cordova/project/platforms/android/build/outputs/apk/android-release-signed.apk cordova/project/platforms/android/build/outputs/apk/android-release-signed-aligned.apk ',
+        command: 'rm -f cordova/project/platforms/android/build/outputs/apk/android-release-signed-aligned.apk; jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ../cordova-keys/navpay.keystore -signedjar cordova/project/platforms/android/build/outputs/apk/android-release-signed.apk  cordova/project/platforms/android/build/outputs/apk/android-release-unsigned.apk copay_play && ~/Library/Android/sdk/build-tools/27.0.2/zipalign -v 4 cordova/project/platforms/android/build/outputs/apk/android-release-signed.apk cordova/project/platforms/android/build/outputs/apk/android-release-signed-aligned.apk',
         stdin: true,
       },
       desktopsign: {
-        cmd: 'gpg -u 3F3B5403 --output webkitbuilds/<%= pkg.title %>-linux.zip.sig --detach-sig webkitbuilds/<%= pkg.title %>-linux.zip ; gpg -u 3F3B5403 --output webkitbuilds/<%= pkg.title %>.exe.sig --detach-sig webkitbuilds/<%= pkg.title %>.exe'
+        cmd: 'gpg -u B2477504775F724B --output webkitbuilds/<%= pkg.title %>-linux.zip.sig --detach-sig webkitbuilds/<%= pkg.title %>-linux.zip ; gpg -u B2477504775F724B --output webkitbuilds/<%= pkg.title %>.exe.sig --detach-sig webkitbuilds/<%= pkg.title %>.exe'
       },
       desktopverify: {
         cmd: 'gpg --verify webkitbuilds/<%= pkg.title %>-linux.zip.sig webkitbuilds/<%= pkg.title %>-linux.zip; gpg --verify webkitbuilds/<%= pkg.title %>.exe.sig webkitbuilds/<%= pkg.title %>.exe'
       },
       osxsign: {
-        cmd: 'gpg -u 3F3B5403 --output webkitbuilds/<%= pkg.title %>.dmg.sig --detach-sig webkitbuilds/<%= pkg.title %>.dmg'
+        cmd: 'gpg -u B2477504775F724B --output webkitbuilds/<%= pkg.title %>.dmg.sig --detach-sig webkitbuilds/<%= pkg.title %>.dmg'
       },
     },
     watch: {
@@ -170,8 +177,8 @@ module.exports = function(grunt) {
       },
       prod: {
         files: {
-          'www/js/app.js': ['www/js/app.js'],
-          'www/lib/angular-components.js': ['www/lib/angular-components.js']
+          'dist/www/js/app.js': ['dist/www/js/app.js'],
+          'dist/www/lib/angular-components.js': ['dist/www/lib/angular-components.js'],
         }
       }
     },
@@ -220,7 +227,8 @@ module.exports = function(grunt) {
           flatten: true,
           filter: 'isFile'
         }],
-      }
+      },
+      dist: {expand: true, src: ['www/**'], dest: 'dist/'},
     },
     nwjs: {
       options: {
@@ -259,11 +267,31 @@ module.exports = function(grunt) {
           'angular-bitauth/angular-bitauth.js': ['angular-bitauth/index.js']
         },
       }
-    }
+    },
+    asset_hash: {
+      options: {
+        preserveSourceMaps: false,  // Set to true when assets should share the same location as their source map.
+        assetMap: false,
+        hashLength: 8,             // Number of hex characters in the hash folder. (0 means no hashing is done).
+        algorithm: 'md5',           // Crypto algorithm used to hash the contents.
+        srcBasePath: 'dist/www/',            // The directory prefix to be stripped from the asset map src paths.
+        destBasePath: 'dist/www/',           // The directory prefix to be stripped from the asset map dest paths.
+        hashType: 'file',         // Defaults to `/$HASH/filename.ext`, but `'file'` will output `filename.$HASH.ext`.
+        references: ['dist/www/index.html', 'dist/www/cache.manifest']              // Files to replace references in (eg. a CSS file where `image.png` should become `image.$HASH.png`)
+      },
+      your_target: {
+        files: [
+          { src:  ['dist/www/**/*.js', 'dist/www/**/*.css'],  // A collection of assets to be hashed.
+            dest: 'dist/www/'          // A folder to contained the hashed assets. Cannot be a file.
+          }
+        ]
+      },
+    },
   });
 
   grunt.registerTask('default', ['nggettext_compile', 'exec:appConfig', 'exec:externalServices', 'browserify', 'sass', 'concat', 'copy:ionic_fonts', 'copy:ionic_js']);
-  grunt.registerTask('prod', ['default', 'uglify']);
+  grunt.registerTask('prod', ['default', 'exec:removeDist', 'copy:dist', 'uglify', 'exec:addManifest', 'asset_hash']);
+  grunt.registerTask('beta', ['default', 'exec:removeDist', 'copy:dist', 'exec:addManifest', 'asset_hash']);
   grunt.registerTask('translate', ['nggettext_extract']);
   grunt.registerTask('desktop', ['prod', 'nwjs', 'copy:linux', 'compress:linux']);
   grunt.registerTask('osx', ['prod', 'nwjs', 'exec:macos', 'exec:osxsign']);

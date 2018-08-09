@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('copayApp.controllers').controller('createController',
-  function($scope, $rootScope, $timeout, $log, lodash, $state, $ionicScrollDelegate, $ionicHistory, profileService, configService, gettextCatalog, ledger, trezor, intelTEE, derivationPathHelper, ongoingProcess, walletService, storageService, popupService, appConfigService, pushNotificationsService) {
+  function ($scope, $rootScope, $timeout, $log, lodash, $state, $ionicScrollDelegate, $ionicHistory, profileService, configService, gettextCatalog, ledger, trezor, intelTEE, derivationPathHelper, ongoingProcess, walletService, storageService, popupService, appConfigService, pushNotificationsService) {
 
     /* For compressed keys, m*73 + n*34 <= 496 */
     var COPAYER_PAIR_LIMITS = {
@@ -19,7 +19,7 @@ angular.module('copayApp.controllers').controller('createController',
       12: 1,
     };
 
-    $scope.$on("$ionicView.beforeEnter", function(event, data) {
+    $scope.$on("$ionicView.beforeEnter", function (event, data) {
       $scope.formData = {};
       var defaults = configService.getDefaults();
       var tc = $state.current.name == 'tabs.add.create-personal' ? 1 : defaults.wallet.totalCopayers;
@@ -29,41 +29,17 @@ angular.module('copayApp.controllers').controller('createController',
       $scope.formData.derivationPath = derivationPathHelper.default;
       $scope.setTotalCopayers(tc);
       updateRCSelect(tc);
-      resetPasswordFields();
     });
 
-    $scope.showAdvChange = function() {
+    $scope.showAdvChange = function () {
       $scope.showAdv = !$scope.showAdv;
-      $scope.encrypt = null;
       $scope.resizeView();
     };
 
-    $scope.checkPassword = function(pw1, pw2) {
-      if (pw1 && pw1.length > 0) {
-        if (pw2 && pw2.length > 0) {
-          if (pw1 == pw2) $scope.result = 'correct';
-          else {
-            $scope.formData.passwordSaved = null;
-            $scope.result = 'incorrect';
-          }
-        } else
-          $scope.result = null;
-      } else
-        $scope.result = null;
-    };
-
-    $scope.resizeView = function() {
-      $timeout(function() {
+    $scope.resizeView = function () {
+      $timeout(function () {
         $ionicScrollDelegate.resize();
       }, 10);
-      resetPasswordFields();
-    };
-
-    function resetPasswordFields() {
-      $scope.formData.passphrase = $scope.formData.createPassphrase = $scope.formData.passwordSaved = $scope.formData.repeatPassword = $scope.result = null;
-      $timeout(function() {
-        $scope.$apply();
-      });
     };
 
     function updateRCSelect(n) {
@@ -120,13 +96,13 @@ angular.module('copayApp.controllers').controller('createController',
       $scope.seedOptions = seedOptions;
     };
 
-    $scope.setTotalCopayers = function(tc) {
+    $scope.setTotalCopayers = function (tc) {
       $scope.formData.totalCopayers = tc;
       updateRCSelect(tc);
       updateSeedSourceSelect(tc);
     };
 
-    $scope.create = function() {
+    $scope.create = function () {
 
       var opts = {
         name: $scope.formData.walletName,
@@ -198,7 +174,7 @@ angular.module('copayApp.controllers').controller('createController',
             return;
         }
 
-        src.getInfoForNewWallet(opts.n > 1, account, opts.networkName, function(err, lopts) {
+        src.getInfoForNewWallet(opts.n > 1, account, opts.networkName, function (err, lopts) {
           ongoingProcess.set('connecting ' + $scope.formData.seedSource.id, false);
           if (err) {
             popupService.showAlert(gettextCatalog.getString('Error'), err);
@@ -214,8 +190,8 @@ angular.module('copayApp.controllers').controller('createController',
 
     function _create(opts) {
       ongoingProcess.set('creatingWallet', true);
-      $timeout(function() {
-        profileService.createWallet(opts, function(err, client) {
+      $timeout(function () {
+        profileService.createWallet(opts, function (err, client) {
           ongoingProcess.set('creatingWallet', false);
           if (err) {
             $log.warn(err);
@@ -237,12 +213,14 @@ angular.module('copayApp.controllers').controller('createController',
               disableAnimate: true
             });
             $state.go('tabs.home');
-            $timeout(function() {
+            $timeout(function () {
               $state.transitionTo('tabs.copayers', {
                 walletId: client.credentials.walletId
               });
             }, 100);
-          } else $state.go('tabs.home');
+          } else {
+            $state.go('onboarding.backupRequest', { walletId: client.credentials.walletId });
+          }
         });
       }, 300);
     }

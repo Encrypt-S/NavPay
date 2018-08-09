@@ -1,26 +1,24 @@
 'use strict';
 
 angular.module('copayApp.controllers').controller('joinController',
-  function($scope, $rootScope, $timeout, $state, $ionicHistory, $ionicScrollDelegate, profileService, configService, storageService, applicationService, gettextCatalog, lodash, ledger, trezor, intelTEE, derivationPathHelper, ongoingProcess, walletService, $log, $stateParams, popupService, appConfigService) {
-
-    console.log('navigator', navigator);
+  function ($scope, $rootScope, $timeout, $state, $ionicHistory, $ionicScrollDelegate, profileService, configService, storageService, applicationService, gettextCatalog, lodash, ledger, trezor, intelTEE, derivationPathHelper, ongoingProcess, walletService, $log, $stateParams, popupService, appConfigService) {
 
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
-    console.log('navigator.getUserMedia', navigator.getUserMedia);
-
-    $scope.$on("$ionicView.beforeEnter", function(event, data) {
+    $scope.$on("$ionicView.beforeEnter", function (event, data) {
       var defaults = configService.getDefaults();
+      var config = configService.getSync();
       $scope.formData = {};
       $scope.formData.bwsurl = defaults.bws.url;
       $scope.formData.derivationPath = derivationPathHelper.default;
       $scope.formData.account = 1;
       $scope.formData.secret = null;
+      $scope.formData.coin = data.stateParams.coin;
       resetPasswordFields();
       updateSeedSourceSelect();
     });
 
-    $scope.showAdvChange = function() {
+    $scope.showAdvChange = function () {
       $scope.showAdv = !$scope.showAdv;
       $scope.encrypt = null;
       $scope.resizeView();

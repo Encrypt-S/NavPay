@@ -1,14 +1,13 @@
 'use strict';
 
-angular.module('copayApp.directives')
-  .directive('clickToAccept', function() {
+angular.module('copayApp.directives').directive('clickToAccept', function() {
     return {
       restrict: 'E',
       templateUrl: 'views/includes/clickToAccept.html',
       transclude: true,
       scope: {
         sendStatus: '=clickSendStatus',
-        isDisabled: '=isDisabled',
+      isDisabled: '=isDisabled'
       },
       link: function(scope, element, attrs) {
         scope.$watch('sendStatus', function() {

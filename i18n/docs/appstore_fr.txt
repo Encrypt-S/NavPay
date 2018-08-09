@@ -1,20 +1,20 @@
-Sécurisez vos nav coins selon vos conditions avec un portefeuille open source et multi-signatures par NavPay. 
+Sécurisez vos NavCoins selon vos conditions avec un portefeuille open source et multi-signatures par NavPay. 
 Les utilisateurs de Navpay peuvent détenir leurs fonds de manière individuelle, ou partager leurs finances de manière sécurisée avec les autres utilisateurs en utilisant des portefeuilles multi-signatures, ce qui empêche les paiements non autorisés en exigeant des approbations multiples. Voici quelques exemples d'utilisation que vous pouvez avoir avec Navpay et avec d'autres utilisateurs :
 
 • Économiser pour des vacances ou partager des frais avec des amis. 
 • Suivre des dépenses et remboursements familiaux.
 • Gérer des fonds et des dépenses pour une entreprise, un club ou une organisation.
 
-Nous avons développé les fonctionnalités suivantes dans cette version de Navpay pour un portefeuille Nav Coin qui ne fait pas de compromis sur la sécurité ou sur l'accessibilité :
+Nous avons développé les fonctionnalités suivantes dans cette version de Navpay pour un portefeuille NavCoin qui ne fait pas de compromis sur la sécurité ou sur l'accessibilité :
 
 • Création et gestion de portefeuilles multiples. 
 • Sécurité de multi-signatures intuitive pour les portefeuilles personnels ou partagés.
 • Demande de paiement facile pour les portefeuilles partagés et pour les paiements de groupe.
 • Génération d'adresse déterministe hiérarchique (HD) et sauvegardes de portefeuilles. 
 • Sécurité basée sur l'appareil : toutes les clés privées sont stockées localement, pas dans le cloud.
-• Prise en charge des portefeuilles Nav Coin testnet.
+• Prise en charge des portefeuilles NavCoin testnet.
 • Accès synchrone sur toutes les principales plateformes mobiles et de bureau.
-• Prise en charge de Payment protocol (BIP70-BIP73) : demandes de paiement facilement identifiables et paiements nav coins sécurisés et vérifiables.
+• Prise en charge de Payment protocol (BIP70-BIP73) : demandes de paiement facilement identifiables et paiements NavCoins sécurisés et vérifiables.
 • Prise en charge de plus de 150 devises et dénomination d'unité en NAV ou en bits.
 • Notifications e-mail pour les paiements et les transferts.
 • Nom de portefeuille et couleurs de fond personnalisables.

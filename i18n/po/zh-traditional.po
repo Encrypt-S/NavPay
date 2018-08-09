@@ -1,0 +1,3365 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: navpay\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Crowdin-Project: navpay\n"
+"X-Crowdin-Language: zh-TW\n"
+"X-Crowdin-File: template.pot\n"
+"Last-Translator: cmgustavo83\n"
+"Language-Team: Chinese Traditional\n"
+"Language: zh-TW\n"
+"PO-Revision-Date: 2018-04-22 15:28-0500\n"
+"POT-Creation-Date: \n"
+"MIME-Version: 1.0\n"
+
+#: www/views/modals/paypro.html:34
+msgid "(Trusted)"
+msgstr "(信任的）"
+
+#: www/views/includes/txp.html:23 www/views/includes/walletHistory.html:64
+msgid "(possible double spend)"
+msgstr "（重複支出）"
+
+#: www/views/modals/txp-details.html:161
+msgid ""
+"* A payment proposal can be deleted if 1) you are the creator, and no other "
+"copayer has signed, or 2) 24 hours have passed since the proposal was "
+"created."
+msgstr ""
+"* 支出提議可被刪除的情況 1) 你是發起人且無其他共同支出人的簽名，2) 已經經過24"
+"小時。"
+
+#: www/views/tx-details.html:84
+msgid "- {{btx.feeRateStr}} of the transaction"
+msgstr "佔交易的 - {{btx.feeRateStr}}"
+
+#: www/views/modals/txp-details.html:104
+msgid "- {{tx.feeRateStr}} of the transaction"
+msgstr "佔交易的 - {{tx.feeRateStr}}"
+
+#: www/views/feedback/rateApp.html:7
+msgid ""
+"5-star ratings help us get {{appName}} into more hands, and more users means "
+"more resources can be committed to the app!"
+msgstr ""
+"5星評價幫助{{appName}} 被更多人使用，而更多的使用著代表更多資源來幫助此應用!"
+
+#: src/js/controllers/feedback/send.js:27 www/views/feedback/complete.html:21
+msgid "A member of the team will review your feedback as soon as possible."
+msgstr "團隊的成員將會儘快審查你反饋的意見。"
+
+#: src/js/controllers/confirm.js:347
+msgid ""
+"A total of {{amountAboveMaxSizeStr}} were excluded. The maximum size allowed "
+"for a transaction was exceeded."
+msgstr "共有 {{amountAboveMaxSizeStr}} 被排除在交易外。超出最大交易許可量。"
+
+#: src/js/controllers/confirm.js:341
+msgid ""
+"A total of {{amountBelowFeeStr}} were excluded. These funds come from UTXOs "
+"smaller than the network fee provided."
+msgstr ""
+"共有 {{amountBelowFeeStr}} 被排除在交易外。此數目來自於小於最小網路交易費的 "
+"UTXOs。"
+
+#: src/js/controllers/preferencesAbout.js:6 www/views/tab-settings.html:156
+msgid "About"
+msgstr "關於"
+
+#: src/js/controllers/modals/txpDetails.js:52
+#: src/js/controllers/tx-details.js:60
+msgid "Accepted"
+msgstr "已接受"
+
+#: www/views/preferencesInformation.html:66
+msgid "Account"
+msgstr "帳戶"
+
+#: www/views/join.html:69 www/views/tab-create-personal.html:43
+#: www/views/tab-create-shared.html:72 www/views/tab-import-hardware.html:19
+msgid "Account Number"
+msgstr "帳號"
+
+#: www/views/preferencesBitpayServices.html:23
+msgid "Accounts"
+msgstr "帳戶"
+
+#: www/views/bitpayCard.html:56
+msgid "Activity"
+msgstr "活動"
+
+#: src/js/services/bitpayAccountService.js:83
+msgid "Add Account"
+msgstr "新增帳戶"
+
+#: src/js/services/bitpayAccountService.js:69
+msgid "Add NavPay Account?"
+msgstr "是否新增 NavPay 帳戶？"
+
+#: www/views/addressbook.add.html:4 www/views/addressbook.html:22
+msgid "Add Contact"
+msgstr "新增聯絡人"
+
+#: www/views/bitpayCard.html:28
+msgid "Add Funds"
+msgstr "新增資金"
+
+#: www/views/confirm.html:96
+msgid "Add Memo"
+msgstr "新增備註"
+
+#: www/views/join.html:84 www/views/tab-create-personal.html:57
+#: www/views/tab-create-shared.html:86
+msgid "Add a password"
+msgstr "新增密碼"
+
+#: www/views/includes/accountSelector.html:27
+msgid "Add account"
+msgstr "新增帳戶"
+
+#: www/views/join.html:87 www/views/tab-create-personal.html:60
+#: www/views/tab-create-shared.html:89
+msgid "Add an optional password to secure the recovery phrase"
+msgstr "新增選擇性的密碼以保護備份短語"
+
+#: src/js/controllers/confirm.js:370
+msgid "Add description"
+msgstr "新增描述"
+
+#: www/views/topup.html:6
+msgid "Add funds"
+msgstr "新增資金"
+
+#: src/js/services/bitpayAccountService.js:78
+msgid "Add this NavPay account ({{email}})?"
+msgstr "新增此 NavPay 帳戶 ({{email}})?"
+
+#: www/views/add.html:3
+msgid "Add wallet"
+msgstr "新增錢包"
+
+#: www/views/addressbook.view.html:26 www/views/customAmount.html:28
+#: www/views/modals/paypro.html:24 www/views/paymentUri.html:15
+msgid "Address"
+msgstr "地址"
+
+#: www/views/addressbook.html:6 www/views/tab-settings.html:13
+msgid "Address Book"
+msgstr "地址簿"
+
+#: www/views/preferencesInformation.html:35
+msgid "Address Type"
+msgstr "地址類型"
+
+#: www/views/addresses.html:64
+msgid "Addresses With Balance"
+msgstr "地址與餘額"
+
+#: www/views/tab-settings.html:149
+msgid "Advanced"
+msgstr "進階"
+
+#: www/views/advancedSettings.html:3
+msgid "Advanced Settings"
+msgstr "進階設定"
+
+#: www/views/bitpayCard.html:62
+msgid "All"
+msgstr "全選"
+
+#: www/views/allAddresses.html:3
+msgid "All Addresses"
+msgstr "所有地址"
+
+#: www/views/modals/wallet-balance.html:18
+msgid ""
+"All of your NavCoin wallet balance may not be available for immediate "
+"spending."
+msgstr "你所有的 NavCoin 錢包餘額將無法立即用於交易。"
+
+#: www/views/tab-receive.html:25
+msgid ""
+"All signing devices must be added to this multisig wallet before NavCoin "
+"addresses can be created."
+msgstr "所有簽名裝置加入此共同錢包後，才可創建此 NavCoin 地址。"
+
+#: www/views/tab-scan.html:21
+msgid "Allow Camera Access"
+msgstr "給予使用相機權限"
+
+#: www/views/onboarding/notifications.html:7
+msgid "Allow notifications"
+msgstr "給予通知權限"
+
+#: www/views/onboarding/disclaimer.html:14
+msgid "Almost done! Let's review."
+msgstr "差不多完成了！讓我們回顧一下。"
+
+#: www/views/preferencesAltCurrency.html:4 www/views/tab-settings.html:74
+msgid "Alternative Currency"
+msgstr "替代貨幣"
+
+#: www/views/amount.html:44 www/views/customAmount.html:34
+#: www/views/includes/output.html:7 www/views/paymentUri.html:16
+msgid "Amount"
+msgstr "金額"
+
+#: src/js/services/bwcError.js:110
+msgid "Amount below minimum allowed"
+msgstr "金額低於最低允許值"
+
+#: src/js/controllers/confirm.js:188
+msgid "Amount too big"
+msgstr "金額過大"
+
+#: www/views/includes/walletHistory.html:31
+msgid "Amount too low to spend"
+msgstr "金額過低，無法使用"
+
+#: src/js/controllers/tab-home.js:147
+msgid ""
+"An update to this app is available. For your security, please update to the "
+"latest version."
+msgstr "有一個可用的更新。為了你的安全，請更新到最新版本。"
+
+#: www/views/backupWarning.html:14
+msgid "Anyone with your backup phrase can access or spend your NavCoin."
+msgstr "任何擁有你備份短語的使用者將可以使用你的 NavCoin。"
+
+#: www/views/addresses.html:94
+msgid ""
+"Approximate NavCoin network fee to transfer wallet's balance (with normal "
+"priority)"
+msgstr "轉出錢包餘額的網路交易手續費估計值(中度優先權)"
+
+#: www/views/backupWarning.html:10
+msgid "Are you being watched?"
+msgstr "有人在看著你嗎？"
+
+#: src/js/controllers/preferencesExternal.js:15
+msgid ""
+"Are you being watched? Anyone with your recovery phrase can access or spend "
+"your NavCoin."
+msgstr "有人在看著你嗎？任何擁有你備份短語的使用者將可以使用你的 NavCoin。"
+
+#: src/js/controllers/copayers.js:56
+msgid "Are you sure you want to cancel and delete this wallet?"
+msgstr "確定取消以及刪除此錢包?"
+
+#: src/js/controllers/addressbookView.js:24
+msgid "Are you sure you want to delete this contact?"
+msgstr "確定刪除此合約?"
+
+#: src/js/controllers/preferencesDelete.js:26
+msgid "Are you sure you want to delete this wallet?"
+msgstr "確定刪除此錢包？"
+
+#: src/js/controllers/modals/txpDetails.js:144
+msgid "Are you sure you want to reject this transaction?"
+msgstr "確定拒絕這筆交易?"
+
+#: src/js/controllers/modals/txpDetails.js:161
+msgid "Are you sure you want to remove this transaction?"
+msgstr "確定移除這筆交易?"
+
+#: src/js/controllers/onboarding/backupRequest.js:23
+msgid "Are you sure you want to skip it?"
+msgstr "你確定你要略過?"
+
+#: www/views/modals/bitpay-card-confirmation.html:4
+msgid "Are you sure you would like to log out of your NavPay Card account?"
+msgstr "確定登出你的 NavPay 卡帳戶?"
+
+#: src/js/controllers/preferencesBitpayCard.js:7
+#: src/js/controllers/preferencesBitpayServices.js:20
+msgid ""
+"Are you sure you would like to remove your NavPay Card ({{lastFourDigits}}) "
+"from this device?"
+msgstr "你確定你要刪除你在此裝置上的 NavPay 卡 ({{lastFourDigits}})?"
+
+#: www/views/includes/walletInfo.html:5
+msgid "Auditable"
+msgstr "可審核"
+
+#: www/views/modals/wallet-balance.html:42
+msgid "Available"
+msgstr "可用"
+
+#: www/views/includes/available-balance.html:3
+msgid "Available Balance"
+msgstr "可用餘額"
+
+#: www/views/modals/chooseFeeLevel.html:14 www/views/preferencesFee.html:15
+msgid "Average confirmation time"
+msgstr "平均確認時間"
+
+#: www/views/join.html:140 www/views/tab-create-personal.html:111
+#: www/views/tab-create-shared.html:140 www/views/tab-import-phrase.html:48
+msgid "BIP32 path for address derivation"
+msgstr "地址衍生的 BIP32 路徑"
+
+#: www/views/preferences.html:39
+msgid "Backup"
+msgstr "備份"
+
+#: www/views/includes/backupNeededPopup.html:7
+msgid "Backup Needed"
+msgstr "需要備份"
+
+#: src/js/controllers/lockSetup.js:87
+msgid "Backup all livenet wallets before using this function"
+msgstr "使用此功能前請備份所有網路錢包"
+
+#: www/views/preferences.html:41 www/views/tab-settings.html:120
+msgid "Backup needed"
+msgstr "需要備份"
+
+#: www/views/includes/backupNeededPopup.html:9
+msgid "Backup now"
+msgstr "立即備份"
+
+#: www/views/onboarding/backupRequest.html:11 www/views/tab-export-file.html:89
+msgid "Backup wallet"
+msgstr "備份錢包"
+
+#: src/js/controllers/lockSetup.js:84
+msgid "Backup your wallet before using this function"
+msgstr "在使用此功能前請先備份錢包"
+
+#: src/js/services/profileService.js:430
+msgid "Bad wallet invitation"
+msgstr "無效的錢包邀請"
+
+#: www/views/preferencesInformation.html:96
+msgid "Balance By Address"
+msgstr "地址餘額"
+
+#: www/views/includes/confirmBackupPopup.html:7
+msgid ""
+"Be sure to store your recovery phrase in a secure place. If this app is "
+"deleted, your money cannot be recovered without it."
+msgstr ""
+"請務必將你的恢復短語存放在一個安全的地方。如果此程式被刪除，你的資金沒有它將"
+"不能被恢復。"
+
+#: www/views/preferencesBitpayServices.html:9
+msgid "NavPay Visa&reg; Cards"
+msgstr "NavPay Visa&reg; 卡"
+
+#: www/views/addressbook.add.html:38
+msgid "NavCoin Address"
+msgstr "NavCoin 地址"
+
+#: www/views/modals/chooseFeeLevel.html:4 www/views/preferencesFee.html:4
+#: www/views/tab-settings.html:85
+msgid "NavCoin Network Fee Policy"
+msgstr "NavCoin 網路手續費政策"
+
+#: www/views/paymentUri.html:10
+msgid "NavCoin URI is NOT valid!"
+msgstr "NavCoin URI 無效!"
+
+#: www/views/tab-settings.html:63
+msgid "NavCoin Unit"
+msgstr "NavCoin 單位"
+
+#: www/views/onboarding/tour.html:31
+msgid "NavCoin is a currency."
+msgstr "NavCoin 是一種貨幣。。"
+
+#: www/views/onboarding/disclaimer.html:15
+msgid ""
+"NavCoin is different &ndash; it cannot be safely held with a bank or web "
+"service."
+msgstr "NavCoin 是較為不同的 &ndash 無法安全地由銀行或是網路服務保管。"
+
+#: www/views/onboarding/tour.html:18
+msgid "NavCoin is secure,<br>digital money."
+msgstr "NavCoin 是安全的 <br>數位貨幣。"
+
+#: www/views/preferencesFee.html:11
+msgid "NavCoin transactions include a fee collected by miners on the network."
+msgstr "NavCoin 交易包括了網路上礦工的費用。"
+
+#: www/views/modals/txp-details.html:36
+msgid "Broadcast Payment"
+msgstr "廣播交易"
+
+#: src/js/controllers/modals/txpDetails.js:54
+#: src/js/controllers/tx-details.js:62
+msgid "Broadcasted"
+msgstr "已廣播"
+
+#: src/js/services/onGoingProcess.js:11
+msgid "Broadcasting transaction"
+msgstr "正在廣播交易"
+
+#: www/views/unsupported.html:6
+msgid "Browser unsupported"
+msgstr "不支援的瀏覽器"
+
+#: www/views/includes/buyAndSellCard.html:4
+msgid "Buy &amp; Sell NavCoin"
+msgstr "買進 &amp; 賣出 NavCoin"
+
+#: www/views/tab-send.html:35
+msgid "Buy NavCoin"
+msgstr "購買 NavCoin"
+
+#: src/js/services/onGoingProcess.js:40
+msgid "Buying NavCoin..."
+msgstr "正在購買 NavCoin..."
+
+#: src/js/services/onGoingProcess.js:12
+msgid "Calculating fee"
+msgstr "正在計算費用"
+
+#: src/js/controllers/confirm.js:491 src/js/controllers/topup.js:277
+#: src/js/services/popupService.js:60 www/views/addressbook.add.html:10
+#: www/views/feedback/send.html:5 www/views/includes/note.html:6
+#: www/views/modals/bitpay-card-confirmation.html:8
+#: www/views/modals/confirmation.html:13
+msgid "Cancel"
+msgstr "取消"
+
+#: www/views/copayers.html:37
+msgid "Cancel invitation"
+msgstr "取消邀請"
+
+#: src/js/controllers/onboarding/tour.js:52
+msgid "Cannot Create Wallet"
+msgstr "無法創建錢包"
+
+#: src/js/services/profileService.js:426
+msgid "Cannot join the same wallet more that once"
+msgstr "無法重複加入相同的錢包"
+
+#: www/views/includes/bitpayCardsCard.html:4
+msgid "Cards"
+msgstr "卡"
+
+#: www/views/modals/paypro.html:30
+msgid "Certified by"
+msgstr "認證者"
+
+#: www/views/preferencesExternal.html:19
+msgid "Check installation and retry."
+msgstr "檢查安裝和重新嘗試。"
+
+#: www/views/tab-import-file.html:4
+msgid "Choose a backup file from your computer"
+msgstr "從電腦中選擇一個備份檔"
+
+#: www/views/modals/wallets.html:9
+msgid "Choose your destination wallet"
+msgstr "選擇目的地錢包"
+
+#: www/views/modals/wallets.html:10
+msgid "Choose your source wallet"
+msgstr "選擇來源錢包"
+
+#: www/views/backup.html:54
+msgid "Clear"
+msgstr "清除"
+
+#: www/views/preferencesHistory.html:24
+msgid "Clear cache"
+msgstr "清除快取"
+
+#: src/js/controllers/modals/txpDetails.js:33
+msgid "Click"
+msgstr "點擊"
+
+#: www/views/customAmount.html:4 www/views/modals/paypro.html:4
+#: www/views/modals/search.html:3 www/views/modals/wallet-balance.html:3
+#: www/views/modals/wallets.html:5
+msgid "Close"
+msgstr "關閉"
+
+#: www/views/preferences.html:22
+msgid "Color"
+msgstr "顏色"
+
+#: www/views/preferencesAbout.html:21
+msgid "Commit hash"
+msgstr "提交 Hash"
+
+#: www/views/preferences.html:53
+msgid "Complete the backup process to use this option"
+msgstr "完成備份後再使用此功能"
+
+#: www/views/bitpayCard.html:93
+msgid "Completed"
+msgstr "完成"
+
+#: src/js/controllers/confirm.js:490 src/js/controllers/copayers.js:55
+#: src/js/controllers/topup.js:275 www/views/backup.html:53
+#: www/views/backup.html:72 www/views/confirm.html:4
+#: www/views/onboarding/collectEmail.html:32
+msgid "Confirm"
+msgstr "確認"
+
+#: www/views/modals/terms.html:26 www/views/onboarding/disclaimer.html:44
+msgid "Confirm &amp; Finish"
+msgstr "確認 &amp; 完成"
+
+#: www/views/modals/pin.html:10
+msgid "Confirm your PIN"
+msgstr "確認你的PIN碼"
+
+#: src/js/services/walletService.js:1034
+msgid "Confirm your new spending password"
+msgstr "確認你新的支出密碼"
+
+#: www/views/tx-details.html:98
+msgid "Confirmations"
+msgstr "確認數"
+
+#: www/views/bitpayCard.html:68 www/views/modals/wallet-balance.html:61
+msgid "Confirming"
+msgstr "確認中"
+
+#: www/views/bitpayCardIntro.html:37
+msgid "Connect my NavPay Card"
+msgstr "連接我 NavPay 卡"
+
+#: src/js/services/onGoingProcess.js:13
+msgid "Connecting to Coinbase..."
+msgstr "正在連線到 Coinbase..."
+
+#: src/js/services/onGoingProcess.js:14
+msgid "Connecting to Glidera..."
+msgstr "正在連線到 Glidera..."
+
+#: src/js/services/bwcError.js:53
+msgid "Connection reset by peer"
+msgstr "連線被對方重置"
+
+#: www/views/tab-send.html:45
+msgid "Contacts"
+msgstr "聯繫人"
+
+#: www/views/onboarding/notifications.html:9
+msgid "Continue"
+msgstr "繼續"
+
+#: www/views/preferencesLanguage.html:26
+msgid "Contribute Translations"
+msgstr "參與翻譯"
+
+#: src/js/services/bwcError.js:62
+msgid "Copayer already in this wallet"
+msgstr "共同支出人已在此錢包"
+
+#: src/js/services/bwcError.js:77
+msgid "Copayer already voted on this spend proposal"
+msgstr "共同支出人已表決此支出提議"
+
+#: src/js/services/bwcError.js:107
+msgid "Copayer data mismatch"
+msgstr "共同支出人的資料不符"
+
+#: www/views/includes/walletActivity.html:2
+msgid "Copayer joined"
+msgstr "共同支出人已加入"
+
+#: www/views/preferencesInformation.html:88
+msgid "Copayer {{$index}}"
+msgstr "共同支出人 {{$index}}"
+
+#: src/js/controllers/copayers.js:79 src/js/controllers/export.js:193
+#: www/views/includes/copyToClipboard.html:4
+msgid "Copied to clipboard"
+msgstr "已複製到剪貼簿"
+
+#: www/views/tab-export-file.html:94
+msgid "Copy this text as it is to a safe place (notepad or email)"
+msgstr "將此文本複製到一個安全的地方（記事本或電子郵件）"
+
+#: www/views/preferencesLogs.html:10 www/views/tab-export-file.html:78
+msgid "Copy to clipboard"
+msgstr "複製到剪貼簿"
+
+#: www/views/tab-import-phrase.html:2
+msgid "Could not access the wallet at the server. Please check:"
+msgstr "無法取用伺服器上的錢包，請檢查:"
+
+#: src/js/services/profileService.js:493
+msgid "Could not access wallet"
+msgstr "無法使用錢包"
+
+#: src/js/controllers/confirm.js:182
+msgid "Could not add message to imported wallet without shared encrypting key"
+msgstr "若無共享的加密密鑰將無法將訊息添加到匯入的錢包"
+
+#: src/js/controllers/modals/txpDetails.js:189
+msgid "Could not broadcast payment"
+msgstr "無法廣播交易"
+
+#: src/js/services/bwcError.js:41
+msgid "Could not build transaction"
+msgstr "無法建立交易"
+
+#: src/js/services/walletService.js:857
+msgid "Could not create address"
+msgstr "無法建立地址"
+
+#: src/js/controllers/topup.js:86
+msgid "Could not create the invoice"
+msgstr "無法建立發票"
+
+#: src/js/controllers/topup.js:136
+msgid "Could not create transaction"
+msgstr "無法建立交易"
+
+#: src/js/services/profileService.js:342
+msgid "Could not create using the specified extended private key"
+msgstr "無法使用所選的擴容私鑰來創建"
+
+#: src/js/services/profileService.js:353
+msgid "Could not create using the specified extended public key"
+msgstr "無法使用所選的擴容公鑰來創建"
+
+#: src/js/services/profileService.js:335
+msgid "Could not create: Invalid wallet recovery phrase"
+msgstr "無法建立 ︰ 無效的錢包恢復短語"
+
+#: src/js/controllers/import.js:99
+msgid "Could not decrypt file, check your password"
+msgstr "無法解密文件，請檢查密碼"
+
+#: src/js/controllers/modals/txpDetails.js:171
+msgid "Could not delete payment proposal"
+msgstr "無法刪除支出提議"
+
+#: src/js/services/feeService.js:68
+msgid "Could not get dynamic fee"
+msgstr "無法取得動態費用"
+
+#: src/js/services/feeService.js:38
+msgid "Could not get dynamic fee for level: {{feeLevel}}"
+msgstr "無法取得此層的動態費用︰ {{feeLevel}}"
+
+#: src/js/controllers/topup.js:94
+msgid "Could not get the invoice"
+msgstr "無法取得發票"
+
+#: src/js/controllers/bitpayCard.js:69
+msgid "Could not get transactions"
+msgstr "無法取得交易"
+
+#: src/js/services/profileService.js:595 src/js/services/profileService.js:629
+#: src/js/services/profileService.js:652
+msgid "Could not import"
+msgstr "無法匯入"
+
+#: src/js/services/profileService.js:564
+msgid "Could not import. Check input file and spending password"
+msgstr "無法匯入。請檢查輸入檔以及支出密碼"
+
+#: src/js/services/profileService.js:439
+msgid "Could not join wallet"
+msgstr "無法加入錢包"
+
+#: src/js/controllers/modals/txpDetails.js:151
+msgid "Could not reject payment"
+msgstr "無法拒絕支付"
+
+#: src/js/controllers/preferencesBitpayServices.js:33
+msgid "Could not remove account"
+msgstr "無法刪除帳戶"
+
+#: src/js/controllers/preferencesBitpayCard.js:20
+#: src/js/controllers/preferencesBitpayServices.js:50
+msgid "Could not remove card"
+msgstr "無法刪除卡"
+
+#: src/js/services/walletService.js:776
+msgid "Could not save preferences on the server"
+msgstr "無法在伺服器上保存使用偏好"
+
+#: src/js/controllers/modals/txpDetails.js:137
+msgid "Could not send payment"
+msgstr "無法發送支付"
+
+#: src/js/controllers/topup.js:289
+msgid "Could not send transaction"
+msgstr "無法發送交易"
+
+#: www/views/walletDetails.html:199
+msgid "Could not update transaction history"
+msgstr "無法更新交易歷史紀錄"
+
+#: src/js/controllers/addresses.js:34 src/js/controllers/addresses.js:42
+#: src/js/controllers/copayers.js:30 src/js/controllers/walletDetails.js:78
+msgid "Could not update wallet"
+msgstr "無法更新錢包"
+
+#: www/views/tab-create-personal.html:3
+msgid "Create Personal Wallet"
+msgstr "建立個人錢包"
+
+#: www/views/tab-create-shared.html:3
+msgid "Create Shared Wallet"
+msgstr "建立共享錢包"
+
+#: www/views/onboarding/tour.html:51 www/views/tab-home.html:77
+#: www/views/tab-send.html:36
+msgid "Create NavCoin wallet"
+msgstr "建立 NavCoin 钱包"
+
+#: www/views/tab-create-personal.html:129
+msgid "Create new wallet"
+msgstr "建立新錢包"
+
+#: www/views/add.html:22
+msgid "Create shared wallet"
+msgstr "建立共享錢包"
+
+#: www/views/tab-create-shared.html:158
+msgid ""
+"Create {{formData.requiredCopayers}}-of-{{formData.totalCopayers}} wallet"
+msgstr "建立 {{formData.requiredCopayers}} 的{{formData.totalCopayers}} 錢包"
+
+#: www/views/modals/txp-details.html:83 www/views/tx-details.html:62
+msgid "Created by"
+msgstr "創建者"
+
+#: src/js/services/onGoingProcess.js:18
+msgid "Creating Wallet..."
+msgstr "正在建立錢包..."
+
+#: src/js/services/onGoingProcess.js:17
+msgid "Creating transaction"
+msgstr "正在建立交易"
+
+#: www/views/modals/chooseFeeLevel.html:19 www/views/preferencesFee.html:20
+msgid "Current fee rate for this policy"
+msgstr "此政策當下的費用"
+
+#: www/views/customAmount.html:9
+msgid "Custom Amount"
+msgstr "自訂金額"
+
+#: www/views/modals/txp-details.html:89 www/views/tx-details.html:68
+msgid "Date"
+msgstr "日期"
+
+#: www/views/preferencesDeleteWallet.html:21
+msgid "Delete"
+msgstr "刪除"
+
+#: www/views/modals/txp-details.html:166
+msgid "Delete Payment Proposal"
+msgstr "刪除支出提議"
+
+#: www/views/preferencesAdvanced.html:33
+#: www/views/preferencesDeleteWallet.html:3
+msgid "Delete Wallet"
+msgstr "刪除錢包"
+
+#: www/views/copayers.html:60
+msgid "Delete it and create a new one"
+msgstr "刪除並建立新的"
+
+#: src/js/services/onGoingProcess.js:19
+msgid "Deleting Wallet..."
+msgstr "刪除錢包中..."
+
+#: src/js/services/onGoingProcess.js:28
+msgid "Deleting payment proposal"
+msgstr "刪除支出提議中"
+
+#: www/views/join.html:138 www/views/tab-create-personal.html:109
+#: www/views/tab-create-shared.html:138 www/views/tab-import-phrase.html:46
+msgid "Derivation Path"
+msgstr "衍生路徑"
+
+#: www/views/preferencesInformation.html:41
+msgid "Derivation Strategy"
+msgstr "衍生策略"
+
+#: www/views/topup.html:45
+msgid "Details"
+msgstr "更多資訊"
+
+#: src/js/controllers/lockSetup.js:9 src/js/controllers/tab-settings.js:60
+msgid "Disabled"
+msgstr "未啟用的"
+
+#: www/views/includes/backupNeededPopup.html:10
+#: www/views/onboarding/backupRequest.html:12
+msgid "Do it later"
+msgstr "以後再做"
+
+#: www/views/tab-export-file.html:29
+msgid "Do not include private key"
+msgstr "不包括私鑰"
+
+#: www/views/preferencesLanguage.html:21
+msgid ""
+"Don't see your language on Crowdin? Contact the Owner on Crowdin! We'd love "
+"to support your language."
+msgstr ""
+"在 Crowdin 找不到你的語言？請聯繫 Crowdin 的所有者！我們很樂意支援你的語言。"
+
+#: www/views/tab-export-file.html:59 www/views/tab-home.html:22
+msgid "Download"
+msgstr "下載"
+
+#: www/views/addresses.html:19
+msgid ""
+"Each NavCoin wallet can generate billions of addresses from your 12-word "
+"backup. A new address is automatically generated and shown each time you "
+"receive a payment."
+msgstr ""
+"每個 NavCoin 錢包可以從你的12字備份產生億萬個地址。新的地址在你收到款項時會自"
+"動產生和顯示。"
+
+#: src/js/services/feeService.js:13
+msgid "Economy"
+msgstr "經濟"
+
+#: www/views/onboarding/collectEmail.html:27
+msgid "Edit"
+msgstr "編輯"
+
+#: www/views/addressbook.add.html:29 www/views/addressbook.view.html:22
+msgid "Email"
+msgstr "電子郵件"
+
+#: www/views/preferencesNotifications.html:36
+msgid "Email Address"
+msgstr "電子郵件地址"
+
+#: src/js/services/bwcError.js:122
+msgid "Empty addresses limit reached. New addresses cannot be generated."
+msgstr "空的地址的數目已達上限，無法產生新的地址。"
+
+#: www/views/tab-scan.html:19
+msgid "Enable camera access in your device settings to get started."
+msgstr "開始使用，請先在你裝置的設定選項裡授權使用相機。"
+
+#: www/views/preferencesNotifications.html:23
+msgid "Enable email notifications"
+msgstr "啟用電子郵件通知"
+
+#: www/views/preferencesNotifications.html:12
+msgid "Enable push notifications"
+msgstr "啟用通知"
+
+#: www/views/tab-scan.html:18
+msgid "Enable the camera to get started."
+msgstr "要開始使用前請先啟用相機。"
+
+#: www/views/amount.html:4
+msgid "Enter Amount"
+msgstr "輸入金額"
+
+#: src/js/services/walletService.js:1048 src/js/services/walletService.js:1063
+msgid "Enter Spending Password"
+msgstr "出入支出密碼"
+
+#: src/js/services/bitpayAccountService.js:110
+msgid "Enter Two Factor for your NavPay account"
+msgstr "輸入你的 NavPay 雙重認證"
+
+#: src/js/services/walletService.js:1030
+msgid "Enter new spending password"
+msgstr "輸入新的支出密碼"
+
+#: www/views/join.html:76 www/views/tab-create-personal.html:49
+#: www/views/tab-create-shared.html:78
+msgid "Enter the recovery phrase (BIP39)"
+msgstr "輸入恢復短語 (BIP39)"
+
+#: www/views/onboarding/collectEmail.html:13
+msgid "Enter your email"
+msgstr "輸入你的電子信箱"
+
+#: www/views/backup.html:62
+msgid "Enter your password"
+msgstr "出入你的密碼"
+
+#. Trying to import a malformed wallet export QR code
+#: src/js/controllers/activity.js:45 src/js/controllers/addressbookAdd.js:30
+#: src/js/controllers/addressbookView.js:29 src/js/controllers/addresses.js:130
+#: src/js/controllers/addresses.js:131 src/js/controllers/bitpayCard.js:69
+#: src/js/controllers/bitpayCardIntro.js:40
+#: src/js/controllers/bitpayCardIntro.js:81 src/js/controllers/confirm.js:271
+#: src/js/controllers/copayers.js:67 src/js/controllers/create.js:155
+#: src/js/controllers/create.js:168 src/js/controllers/create.js:175
+#: src/js/controllers/create.js:197 src/js/controllers/create.js:204
+#: src/js/controllers/create.js:222 src/js/controllers/export.js:109
+#: src/js/controllers/export.js:115 src/js/controllers/export.js:126
+#: src/js/controllers/export.js:154 src/js/controllers/export.js:160
+#: src/js/controllers/export.js:171 src/js/controllers/export.js:47
+#: src/js/controllers/export.js:53 src/js/controllers/feedback/send.js:23
+#: src/js/controllers/import.js:104 src/js/controllers/import.js:116
+#: src/js/controllers/import.js:134 src/js/controllers/import.js:185
+#: src/js/controllers/import.js:213 src/js/controllers/import.js:222
+#: src/js/controllers/import.js:237 src/js/controllers/import.js:249
+#: src/js/controllers/import.js:260 src/js/controllers/import.js:270
+#: src/js/controllers/import.js:294 src/js/controllers/import.js:307
+#: src/js/controllers/import.js:317 src/js/controllers/import.js:327
+#: src/js/controllers/import.js:351 src/js/controllers/import.js:364
+#: src/js/controllers/import.js:70 src/js/controllers/import.js:83
+#: src/js/controllers/join.js:121 src/js/controllers/join.js:135
+#: src/js/controllers/join.js:142 src/js/controllers/join.js:165
+#: src/js/controllers/join.js:173 src/js/controllers/join.js:191
+#: src/js/controllers/modals/txpDetails.js:130
+#: src/js/controllers/paperWallet.js:47
+#: src/js/controllers/preferencesBitpayCard.js:20
+#: src/js/controllers/preferencesBitpayServices.js:33
+#: src/js/controllers/preferencesBitpayServices.js:50
+#: src/js/controllers/preferencesDelete.js:37
+#: src/js/controllers/preferencesExternal.js:20
+#: src/js/controllers/tab-home.js:174 src/js/controllers/tab-send.js:132
+#: src/js/controllers/tabsController.js:36
+#: src/js/controllers/tabsController.js:7 src/js/controllers/topup.js:15
+#: src/js/controllers/topup.js:26 src/js/controllers/tx-details.js:100
+#: src/js/services/incomingData.js:98
+msgid "Error"
+msgstr "錯誤"
+
+#: src/js/controllers/confirm.js:443
+msgid "Error at confirm"
+msgstr "在確認時出錯"
+
+#: src/js/services/profileService.js:396
+msgid "Error creating wallet"
+msgstr "建立錢包時出現錯誤"
+
+#: src/js/controllers/confirm.js:261
+msgid "Error getting SendMax information"
+msgstr "取得支出最大金額時出錯"
+
+#: src/js/controllers/topup.js:108
+msgid "Error in Payment Protocol"
+msgstr "付費程序出錯"
+
+#: src/js/controllers/bitpayCardIntro.js:14
+msgid "Error pairing NavPay Account"
+msgstr "配對 NavCoin 帳戶時出錯"
+
+#: src/js/controllers/paperWallet.js:41
+msgid "Error scanning funds:"
+msgstr "掃描資金出錯:"
+
+#: src/js/controllers/paperWallet.js:91
+msgid "Error sweeping wallet:"
+msgstr "清理錢包出錯:"
+
+#: src/js/controllers/bitpayCardIntro.js:20
+msgid "Error updating Debit Cards"
+msgstr "更新現金卡時出錯"
+
+#: src/js/services/bwcError.js:143
+msgid "Exceeded daily limit of $500 per user"
+msgstr "超出了每人每日最高500美元的限制"
+
+#: src/js/controllers/confirm.js:407 www/views/confirm.html:27
+#: www/views/modals/txp-details.html:121
+msgid "Expired"
+msgstr "已過期"
+
+#: www/views/modals/paypro.html:54 www/views/modals/txp-details.html:127
+msgid "Expires"
+msgstr "到期"
+
+#: www/views/preferencesAdvanced.html:21
+msgid "Export Wallet"
+msgstr "匯出錢包"
+
+#: www/views/preferencesHistory.html:11 www/views/preferencesHistory.html:14
+msgid "Export to file"
+msgstr "匯出到檔案"
+
+#: www/views/export.html:3
+msgid "Export wallet"
+msgstr "匯出錢包"
+
+#: src/js/services/walletService.js:1175 www/views/tab-export-qrCode.html:9
+msgid "Exporting via QR not supported for this wallet"
+msgstr "此錢包不支援通過QR碼匯出"
+
+#: www/views/preferencesInformation.html:83
+msgid "Extended Public Keys"
+msgstr "擴容公鑰"
+
+#: src/js/services/onGoingProcess.js:20
+msgid "Extracting Wallet Information..."
+msgstr "正在取得錢包資訊..."
+
+#: src/js/controllers/export.js:115 src/js/controllers/export.js:126
+#: src/js/controllers/export.js:160 src/js/controllers/export.js:171
+#: www/views/tab-export-file.html:4
+msgid "Failed to export"
+msgstr "匯出失敗"
+
+#: www/views/tab-create-personal.html:14 www/views/tab-create-shared.html:14
+msgid "Family vacation funds"
+msgstr "家庭度假資金"
+
+#: www/views/tx-details.html:81
+msgid "Fee"
+msgstr "費用"
+
+#: www/views/confirm.html:81 www/views/modals/txp-details.html:101
+msgid "Fee:"
+msgstr "費用:"
+
+#: src/js/controllers/feedback/send.js:23
+msgid "Feedback could not be submitted. Please try again later."
+msgstr "無法提交反饋，請稍後再試。"
+
+#: src/js/services/onGoingProcess.js:42
+msgid "Fetching NavPay Account..."
+msgstr "取得 NavPay 帳號中..."
+
+#: src/js/services/onGoingProcess.js:21
+msgid "Fetching Payment Information"
+msgstr "取得付款資訊中"
+
+#: www/views/export.html:14 www/views/import.html:16
+msgid "File/Text"
+msgstr "檔案/文本"
+
+#: src/js/services/fingerprintService.js:43
+#: src/js/services/fingerprintService.js:48
+msgid "Finger Scan Failed"
+msgstr "指紋掃描失敗"
+
+#: src/js/controllers/feedback/send.js:34 www/views/feedback/complete.html:7
+msgid "Finish"
+msgstr "完成"
+
+#: www/views/tab-create-personal.html:121 www/views/tab-create-shared.html:150
+msgid "For audit purposes"
+msgstr "供審計使用"
+
+#: www/views/confirm.html:65 www/views/modals/txp-details.html:74
+#: www/views/topup.html:34 www/views/tx-details.html:52
+msgid "From"
+msgstr "來自"
+
+#: src/js/controllers/bitpayCardIntro.js:71
+msgid "From NavPay account"
+msgstr "從 NavPay 帳戶"
+
+#: www/views/tab-import-phrase.html:54
+msgid "From Hardware Wallet"
+msgstr "從硬體錢包"
+
+#: www/views/tab-export-qrCode.html:5
+msgid ""
+"From the destination device, go to Add wallet &gt; Import wallet and scan "
+"this QR code"
+msgstr "在目標裝置上，到新增錢包 &gt; 匯入錢包及掃瞄此QR碼"
+
+#: src/js/services/bwcError.js:74
+msgid "Funds are locked by pending spend proposals"
+msgstr "資金被未決的支出提議鎖住"
+
+#: www/views/paperWallet.html:16
+msgid "Funds found:"
+msgstr "找回資金:"
+
+#: www/views/topup.html:49
+msgid "Funds to be added"
+msgstr "加入的資金"
+
+#: www/views/paperWallet.html:53
+msgid "Funds transferred"
+msgstr "轉移的資金"
+
+#: www/views/topup.html:103
+msgid "Funds were added to debit card"
+msgstr "資金已加入到現金卡"
+
+#: www/views/paperWallet.html:22
+msgid "Funds will be transferred to"
+msgstr "資金將被轉移到"
+
+#: www/views/tab-receive.html:51
+msgid "Generate new address"
+msgstr "產生新的地址"
+
+#: src/js/services/onGoingProcess.js:22
+msgid "Generating .csv file..."
+msgstr "正在產生 .cvs 檔案..."
+
+#: src/js/services/onGoingProcess.js:37
+msgid "Generating new address..."
+msgstr "正在產生新的地址..."
+
+#: www/views/bitpayCardIntro.html:23
+msgid ""
+"Get local cash anywhere you go, from any Visa<sup>&reg;</sup> compatible "
+"ATM. ATM bank fees may apply."
+msgstr ""
+"不論去哪都可從任何 Visa<sup>®</sup> 支援的的提款機得到當地現金。 ATM 或許有银"
+"行费用。"
+
+#: www/views/onboarding/collectEmail.html:15
+msgid "Get news and updates from NavPay"
+msgstr "從 NavPay 獲得新聞和更新"
+
+#: www/views/bitpayCard.html:49 www/views/onboarding/welcome.html:8
+msgid "Get started"
+msgstr "馬上開始"
+
+#: www/views/addressbook.html:20
+msgid "Get started by adding your first one."
+msgstr "從新增一個新的開始。"
+
+#: src/js/services/onGoingProcess.js:23
+msgid "Getting fee levels..."
+msgstr "正在取得收費水平..."
+
+#: src/js/controllers/bitpayCard.js:181 src/js/controllers/bitpayCard.js:191
+#: src/js/controllers/onboarding/terms.js:23
+#: src/js/controllers/preferencesAbout.js:16
+#: src/js/controllers/preferencesLanguage.js:14
+#: src/js/controllers/tab-home.js:149 src/js/controllers/tab-settings.js:48
+#: src/js/controllers/tx-details.js:174
+msgid "Go Back"
+msgstr "返回"
+
+#: src/js/controllers/onboarding/backupRequest.js:20
+#: src/js/controllers/onboarding/backupRequest.js:26
+#: src/js/services/bitpayAccountService.js:84
+msgid "Go back"
+msgstr "返回"
+
+#: www/views/backupWarning.html:15 www/views/includes/confirmBackupPopup.html:8
+#: www/views/onboarding/tour.html:23
+msgid "Got it"
+msgstr "收到"
+
+#: www/views/preferencesInformation.html:47
+#: www/views/preferencesInformation.html:53
+msgid "Hardware Wallet"
+msgstr "硬體錢包"
+
+#: www/views/preferencesExternal.html:18
+msgid "Hardware not connected."
+msgstr "並未連接到硬體。"
+
+#: www/views/import.html:20
+msgid "Hardware wallet"
+msgstr "硬體錢包"
+
+#: www/views/tab-settings.html:20
+msgid "Help & Support"
+msgstr "幫助與支援"
+
+#: src/js/controllers/bitpayCard.js:179 src/js/controllers/tab-settings.js:46
+msgid "Help and support information is available at the website."
+msgstr "在網站上可獲取幫助與支援的資訊。"
+
+#: www/views/addresses.html:25
+msgid "Hide"
+msgstr "隱藏"
+
+#: www/views/preferences.html:32
+msgid "Hide Balance"
+msgstr "隱藏餘額"
+
+#: www/views/advancedSettings.html:29
+msgid "Hide Next Steps Card"
+msgstr "隱藏下一步步驟卡"
+
+#: www/views/join.html:46 www/views/tab-create-personal.html:26
+#: www/views/tab-create-shared.html:55 www/views/tab-export-file.html:25
+#: www/views/tab-import-file.html:28 www/views/tab-import-hardware.html:31
+#: www/views/tab-import-phrase.html:33
+msgid "Hide advanced options"
+msgstr "隱藏進階選項"
+
+#: www/views/tabs.html:3
+msgid "Home"
+msgstr "首頁"
+
+#: src/js/controllers/feedback/send.js:61
+#: src/js/controllers/feedback/send.js:65
+#: src/js/controllers/feedback/send.js:69
+msgid "How could we improve your experience?"
+msgstr "我們可以如何改善你的體驗?"
+
+#: www/views/feedback/rateCard.html:3
+msgid "How do you like {{appName}}?"
+msgstr "你多喜歡 {{appName}}?"
+
+#: src/js/controllers/feedback/rateCard.js:29
+msgid "I don't like it"
+msgstr "我不喜歡"
+
+#: www/views/onboarding/disclaimer.html:43
+msgid ""
+"I have read, understood, and agree to the <a ng-click=\"openTerms()\" "
+"translate=\"\">Terms of Use</a>."
+msgstr ""
+"我已經閱讀、理解並同意 <a ng-click=\"openTerms()\"translate=\"\"> 使用條款</"
+"a>。"
+
+#: www/views/modals/terms.html:22
+msgid "I have read, understood, and agree with the Terms of use."
+msgstr "我已經閱讀、理解並同意本使用條款。"
+
+#: www/views/join.html:134 www/views/tab-create-personal.html:105
+#: www/views/tab-create-shared.html:134
+msgid "I have written it down"
+msgstr "我已經把它寫下來了"
+
+#: src/js/controllers/feedback/rateCard.js:35
+msgid "I like the app"
+msgstr "我喜歡這個應用程式"
+
+#: src/js/controllers/feedback/rateCard.js:26
+msgid "I think this app is terrible."
+msgstr "我覺得這個應用程式爛死了。"
+
+#: src/js/controllers/onboarding/backupRequest.js:19
+#: www/views/includes/screenshotWarningModal.html:9
+msgid "I understand"
+msgstr "我了解了"
+
+#: www/views/onboarding/disclaimer.html:21
+msgid ""
+"I understand that if this app is moved to another device or deleted, my "
+"NavCoin can only be recovered with the backup phrase."
+msgstr ""
+"我明白當此應用程式被移到其他裝置或是被刪除時，我的 NavCoin 將只能通過恢復短語"
+"來重新取得。"
+
+#: www/views/onboarding/disclaimer.html:18
+msgid ""
+"I understand that my funds are held securely on this device, not by a "
+"company."
+msgstr "我明白我的資金是安全地存放於此裝置，而非存放於任何企業。"
+
+#: www/views/backup.html:29
+msgid "I've written it down"
+msgstr "我已經把它寫下來了"
+
+#: www/views/preferences.html:50
+msgid ""
+"If enabled, all sensitive information (private key and recovery phrase) and "
+"actions (spending and exporting) associated with this wallet will be "
+"protected."
+msgstr ""
+"如果啟用此選項，所有與此錢包有關聯的資訊(私鑰和恢復短語)和活動紀錄(支出以及匯"
+"出)都將會被保護。"
+
+#: www/views/advancedSettings.html:22
+msgid ""
+"If enabled, the Recent Transactions card - a list of transactions occuring "
+"across all wallets - will appear in the Home tab."
+msgstr "如果啟用此選項，最近交易卡-一個所有錢包的交易清單-將會出現在首頁。"
+
+#: www/views/advancedSettings.html:13
+msgid ""
+"If enabled, wallets will also try to spend unconfirmed funds. This option "
+"may cause transaction delays."
+msgstr ""
+"如果啟用此選項，錢包會嘗試使用尚未確認的資金。此選項可能會導致交易延遲。"
+
+#: src/js/controllers/onboarding/backupRequest.js:18
+msgid ""
+"If this device is replaced or this app is deleted, neither you nor NavPay "
+"can recover your funds without a backup."
+msgstr ""
+"如果此裝置被取代或是此應用程式被刪除且沒有備份，你和 NavPay 都無法恢復你的資"
+"金。"
+
+#: www/views/feedback/complete.html:23
+msgid ""
+"If you have additional feedback, please let us know by tapping the \"Send "
+"feedback\" option in the Settings tab."
+msgstr "如果你有其他的意見，請擊點在設定頁面中的\"發送意見回饋\"來讓我們知道。"
+
+#: www/views/includes/screenshotWarningModal.html:8
+msgid ""
+"If you take a screenshot, your backup may be viewed by other apps. You can "
+"make a safe backup with physical paper and a pen."
+msgstr ""
+"如果你使用螢幕截圖，你的備份可能會被其他應用程式取得。使用紙筆可以安全地備"
+"份。"
+
+#: www/views/tab-import-hardware.html:42 www/views/tab-import-phrase.html:77
+msgid "Import"
+msgstr "匯入"
+
+#: www/views/import.html:3
+msgid "Import Wallet"
+msgstr "匯入錢包"
+
+#: www/views/tab-import-file.html:39
+msgid "Import backup"
+msgstr "匯入備份"
+
+#: www/views/add.html:38
+msgid "Import wallet"
+msgstr "匯入錢包"
+
+#: src/js/services/onGoingProcess.js:24
+msgid "Importing Wallet..."
+msgstr "正在匯入錢包中..."
+
+#: www/views/backup.html:65
+msgid "In order to verify your wallet backup, please type your password."
+msgstr "為了驗證你的錢包備份，請輸入你的密碼。"
+
+#: www/views/includes/walletItem.html:11
+#: www/views/includes/walletSelector.html:18 www/views/tab-home.html:90
+#: www/views/tab-settings.html:117
+msgid "Incomplete"
+msgstr "不完整"
+
+#: www/views/tab-receive.html:22
+msgid "Incomplete wallet"
+msgstr "不完整的錢包"
+
+#: www/views/modals/pin.html:12
+msgid "Incorrect PIN, try again."
+msgstr "不正確的PIN碼，請重新嘗試。"
+
+#. Trying to import a malformed wallet export QR code
+#: src/js/controllers/import.js:70
+msgid "Incorrect code format"
+msgstr "代碼格式不正確"
+
+#: src/js/services/bwcError.js:113
+msgid "Incorrect network address"
+msgstr "網路地址不正確"
+
+#: src/js/services/bwcError.js:44
+msgid "Insufficient funds"
+msgstr "資金不足"
+
+#: src/js/controllers/topup.js:159 src/js/controllers/topup.js:171
+#: src/js/services/bwcError.js:71
+msgid "Insufficient funds for fee"
+msgstr "資金不足以付費"
+
+#: www/views/includes/walletHistory.html:49
+msgid "Invalid"
+msgstr "無效"
+
+#: src/js/controllers/topup.js:109
+msgid "Invalid URL"
+msgstr "無效的連結"
+
+#: src/js/controllers/create.js:175 src/js/controllers/import.js:327
+#: src/js/controllers/join.js:142
+msgid "Invalid account number"
+msgstr "無效的帳戶號碼"
+
+#: src/js/services/bwcError.js:119
+msgid "Invalid address"
+msgstr "無效的地址"
+
+#: src/js/controllers/tabsController.js:7
+msgid "Invalid data"
+msgstr "無效的數據"
+
+#: src/js/controllers/create.js:155 src/js/controllers/import.js:249
+#: src/js/controllers/join.js:121
+msgid "Invalid derivation path"
+msgstr "無效的衍生路徑"
+
+#: src/js/controllers/copayers.js:90
+msgid "Invitation to share a {{appName}} Wallet"
+msgstr "邀請分享 {{appName}} 錢包"
+
+#: www/views/topup.html:56
+msgid "Invoice Fee"
+msgstr "發票費用"
+
+#: src/js/controllers/feedback/send.js:79
+msgid "Is there anything we could do better?"
+msgstr "有什麼我們可以做得更好的嗎?"
+
+#: www/views/backup.html:47
+msgid "Is this correct?"
+msgstr "這是正確的嗎?"
+
+#: www/views/onboarding/collectEmail.html:22
+msgid "Is this email address correct?"
+msgstr "這是正確的電子信箱地址嗎?"
+
+#: www/views/addresses.html:25
+msgid ""
+"It's a good idea to avoid reusing addresses - this both protects your "
+"privacy and keeps your NavCoins secure against hypothetical attacks by "
+"quantum computers."
+msgstr ""
+"避免地址的重複使用是一個不錯的做法 — 這既能保護你的隱私又能保護你的 NavCoin "
+"不受到量子計算機的攻擊。"
+
+#: src/js/controllers/backup.js:76
+msgid ""
+"It's important that you write your backup phrase down correctly. If "
+"something happens to your wallet, you'll need this backup to recover your "
+"money. Please review your backup and try again."
+msgstr ""
+"將你的備份短語正確地寫下來是非常重要的。如果你的錢包發生了任何事，你會需要使"
+"用備份短語來重新取得你的資金。請檢查你的備份並再試一次。"
+
+#: www/views/join.html:148
+msgid "Join"
+msgstr "加入"
+
+#: src/js/controllers/copayers.js:85
+msgid ""
+"Join my {{appName}} Wallet. Here is the invitation code: {{secret}} You can "
+"download {{appName}} for your phone or desktop at {{appUrl}}"
+msgstr ""
+"加入我的 {{appName}} 的錢包。邀請碼為︰ {{secret}} 你可以為你的電話或電腦在 "
+"{{appUrl}} 下載 {{appName}}"
+
+#: www/views/add.html:30 www/views/join.html:5
+msgid "Join shared wallet"
+msgstr "加入共享錢包"
+
+#: src/js/services/onGoingProcess.js:25
+msgid "Joining Wallet..."
+msgstr "正在加入錢包中..."
+
+#: www/views/onboarding/tour.html:22
+msgid "Just scan the code to pay."
+msgstr "只需掃描代碼來付費。"
+
+#: src/js/services/bwcError.js:116
+msgid "Key already associated with an existing wallet"
+msgstr "此鑰已與存在的錢包相連"
+
+#: www/views/preferencesLanguage.html:4 www/views/tab-settings.html:53
+msgid "Language"
+msgstr "語言"
+
+#: www/views/bitpayCard.html:61
+msgid "Last Month"
+msgstr "上個月"
+
+#: www/views/backup.html:36
+msgid "Let's verify your backup phrase."
+msgstr "讓我們來檢查一下你的備份短語。"
+
+#: www/views/addresses.html:45 www/views/allAddresses.html:14
+msgid "Loading addresses..."
+msgstr "正在讀取地址..."
+
+#: src/js/services/onGoingProcess.js:35
+msgid "Loading transaction info..."
+msgstr "正在讀取交易資訊..."
+
+#: www/views/tab-settings.html:95
+msgid "Lock App"
+msgstr "鎖定應用程式"
+
+#: src/js/controllers/lockSetup.js:23
+msgid "Lock by Fingerprint"
+msgstr "使用指紋來上鎖"
+
+#: src/js/controllers/lockSetup.js:14
+msgid "Lock by PIN"
+msgstr "使用PIN碼來上鎖"
+
+#: www/views/modals/wallet-balance.html:80
+msgid "Locked"
+msgstr "已上鎖"
+
+#: src/js/services/bwcError.js:86
+msgid "Locktime in effect. Please wait to create a new spend proposal"
+msgstr "仍在鎖定時間內。請稍等已建立新的支出提議"
+
+#: src/js/services/bwcError.js:89
+msgid "Locktime in effect. Please wait to remove this spend proposal"
+msgstr "仍在鎖定時間內。請稍等以刪除支出提議"
+
+#: www/views/modals/bitpay-card-confirmation.html:14
+msgid "Log out"
+msgstr "登出"
+
+#: www/views/addresses.html:87
+msgid "Low amount inputs"
+msgstr "低輸入金額"
+
+#: www/views/includes/walletHistory.html:27
+msgid "Low fees"
+msgstr "低費率"
+
+#: www/views/paymentUri.html:13
+msgid "Make a payment to"
+msgstr "支付給"
+
+#: www/views/onboarding/tour.html:38
+msgid "Makes sense"
+msgstr "有道理"
+
+#: src/js/controllers/modals/search.js:61
+msgid "Matches:"
+msgstr "配對："
+
+#: www/views/includes/copayers.html:4 www/views/preferencesInformation.html:79
+msgid "Me"
+msgstr "我"
+
+#: src/js/controllers/feedback/rateCard.js:32
+msgid "Meh - it's alright"
+msgstr "哈 - 沒關係"
+
+#: src/js/controllers/tx-details.js:146 www/views/modals/paypro.html:48
+#: www/views/modals/txp-details.html:95 www/views/tx-details.html:74
+msgid "Memo"
+msgstr "便簽"
+
+#: www/views/modals/txp-details.html:133
+msgid "Merchant Message"
+msgstr "商人訊息"
+
+#: www/views/paymentUri.html:17
+msgid "Message"
+msgstr "訊息"
+
+#: src/js/services/bwcError.js:134
+msgid "Missing parameter"
+msgstr "找不到參數"
+
+#: src/js/services/bwcError.js:32
+msgid "Missing private keys to sign"
+msgstr "找不到需要簽名的私鑰"
+
+#: www/views/preferences.html:65 www/views/preferencesAdvanced.html:3
+msgid "More Options"
+msgstr "更多選項"
+
+#: www/views/includes/walletHistory.html:47 www/views/tx-details.html:19
+msgid "Moved"
+msgstr "已移動"
+
+#: src/js/controllers/tx-details.js:112
+msgid "Moved Funds"
+msgstr "已轉移資金"
+
+#: www/views/modals/txp-details.html:57
+msgid "Multiple recipients"
+msgstr "複數接收人"
+
+#: www/views/tab-import-phrase.html:8
+msgid ""
+"NOTE: To import a wallet from a 3rd party software, please go to Add Wallet "
+"&gt; Create Wallet, and specify the Recovery Phrase there."
+msgstr ""
+"注意︰從第三方軟體匯入錢包時，請到加入錢包 &gt; 新增錢包後輸入恢復短語。"
+
+#: www/views/addressbook.add.html:21 www/views/addressbook.view.html:18
+#: www/views/preferences.html:15 www/views/preferencesAlias.html:17
+msgid "Name"
+msgstr "名稱"
+
+#: www/views/paymentUri.html:18
+msgid "Network"
+msgstr "網路"
+
+#: www/views/topup.html:63
+msgid "Network Fee"
+msgstr "網路費用"
+
+#: src/js/services/bwcError.js:47
+msgid "Network error"
+msgstr "網路錯誤"
+
+#: www/views/includes/walletActivity.html:43
+msgid "New Proposal"
+msgstr "新提議"
+
+#: src/js/controllers/addresses.js:131
+msgid "New address could not be generated. Please try again."
+msgstr "無法產生新的地址，請再試一次。"
+
+#: www/views/add.html:14
+msgid "New personal wallet"
+msgstr "新的個人錢包"
+
+#: www/views/includes/nextSteps.html:3
+msgid "Next steps"
+msgstr "接下來的步驟"
+
+#: www/views/tab-receive.html:16
+msgid "No Wallet"
+msgstr "無錢包"
+
+#: www/views/onboarding/backupRequest.html:5
+msgid "No backup, no NavCoin."
+msgstr "沒備份，沒 NavCoin。"
+
+#: www/views/addressbook.html:19
+msgid "No contacts yet"
+msgstr "仍無聯絡人"
+
+#: www/views/preferencesExternal.html:12
+msgid "No hardware information available."
+msgstr "無硬體資訊。"
+
+#: www/views/tab-import-hardware.html:3
+msgid "No hardware wallets supported on this device"
+msgstr "此裝置不支援硬體錢包"
+
+#: www/views/proposals.html:25
+msgid "No pending proposals"
+msgstr "無未決的提議"
+
+#: www/views/activity.html:25
+msgid "No recent transactions"
+msgstr "無最近的交易"
+
+#: src/js/controllers/topup.js:41
+msgid "No signing proposal: No private key"
+msgstr "無法簽署提議: 無私鑰"
+
+#: www/views/walletDetails.html:193
+msgid "No transactions yet"
+msgstr "尚無交易紀錄"
+
+#: src/js/controllers/preferencesDelete.js:15
+msgid "No wallet found"
+msgstr "找不到錢包"
+
+#: src/js/controllers/preferencesDelete.js:8
+msgid "No wallet selected"
+msgstr "尚未選擇錢包"
+
+#: src/js/controllers/topup.js:255
+msgid "No wallets available"
+msgstr "無可用的錢包"
+
+#: www/views/paperWallet.html:47
+msgid "No wallets available to receive funds"
+msgstr "無可接收資金的錢包"
+
+#: src/js/services/feeService.js:12
+msgid "Normal"
+msgstr "正常"
+
+#: src/js/services/bwcError.js:80
+msgid "Not authorized"
+msgstr "未授權的"
+
+#: src/js/controllers/confirm.js:271
+msgid "Not enough funds for fee"
+msgstr "資金不足繳費"
+
+#: www/views/onboarding/tour.html:50
+msgid "Not even NavPay can access it."
+msgstr "甚至 NavPay 也無法取得。"
+
+#: src/js/controllers/paperWallet.js:47
+msgid "Not funds found"
+msgstr "找不到資金"
+
+#: www/views/feedback/rateApp.html:3 www/views/onboarding/notifications.html:8
+msgid "Not now"
+msgstr "不要現在"
+
+#: www/views/includes/output.html:15
+msgid "Note"
+msgstr "備註"
+
+#: www/views/modals/wallets.html:25
+msgid ""
+"Notice: only 1-1 (single signature) wallets can be used for sell NavCoin"
+msgstr "注意: 只有 1-1 （單一簽署） 錢包可以用於賣 NavCoin"
+
+#: www/views/preferencesNotifications.html:3 www/views/tab-settings.html:46
+msgid "Notifications"
+msgstr "通知"
+
+#: www/views/onboarding/collectEmail.html:9
+msgid "Notifications by email"
+msgstr "通過電子郵件接收通知"
+
+#: www/views/tx-details.html:116
+msgid "Notify me if confirmed"
+msgstr "確認後通知我"
+
+#: www/views/includes/backupNeededPopup.html:8
+msgid ""
+"Now is a good time to backup your wallet. If this device is lost, it is "
+"impossible to access your funds without a backup."
+msgstr ""
+"現在是個備份你錢包的好時機。如果遺失此裝置，沒有備份的話是不可能取得你的資金"
+"的。"
+
+#: www/views/backupWarning.html:11
+msgid ""
+"Now is a perfect time to assess your surroundings. Nearby windows? Hidden "
+"cameras? Shoulder-spies?"
+msgstr "現在是個看看周遭的好時機。附近的窗戶?隱藏的攝影機?身後的間諜?"
+
+#: src/js/controllers/topup.js:276 src/js/services/popupService.js:16
+#: src/js/services/popupService.js:59
+msgid "OK"
+msgstr "OK"
+
+#: www/views/modals/tx-status.html:12 www/views/modals/tx-status.html:24
+#: www/views/modals/tx-status.html:36 www/views/modals/tx-status.html:46
+msgid "OKAY"
+msgstr "OKAY"
+
+#: www/views/modals/terms.html:15
+msgid "Official English Disclaimer"
+msgstr "官方英文免責聲明"
+
+#: src/js/controllers/feedback/send.js:64
+msgid "Oh no!"
+msgstr "糟糕!"
+
+#: www/views/tab-home.html:39
+msgid "On this screen you can see all your wallets, accounts, and assets."
+msgstr "此畫面上你可以看到你所有的錢包、帳號和資產。"
+
+#: src/js/controllers/bitpayCard.js:180 src/js/controllers/tab-settings.js:47
+msgid "Open"
+msgstr "打開"
+
+#: src/js/controllers/preferencesLanguage.js:13
+msgid "Open Crowdin"
+msgstr "開啟 Crowdin"
+
+#: src/js/controllers/preferencesAbout.js:15
+msgid "Open GitHub"
+msgstr "開啟 GitHub"
+
+#: src/js/controllers/preferencesAbout.js:13
+msgid "Open GitHub Project"
+msgstr "開啟 GitHub 項目"
+
+#: src/js/controllers/bitpayCard.js:190 src/js/controllers/tx-details.js:173
+msgid "Open Insight"
+msgstr "開啟 Insight"
+
+#: www/views/tab-scan.html:22
+msgid "Open Settings"
+msgstr "開啟設定"
+
+#: src/js/controllers/preferencesLanguage.js:11
+msgid "Open Translation Community"
+msgstr "開啟翻譯社群"
+
+#: src/js/controllers/onboarding/terms.js:22
+msgid "Open Website"
+msgstr "開啟網站"
+
+#: www/views/tab-receive.html:27
+msgid "Open wallet"
+msgstr "開啟錢包"
+
+#: www/views/bitpayCardIntro.html:34
+msgid "Order the NavPay Card"
+msgstr "訂購 NavPay 卡"
+
+#: www/views/join.html:102 www/views/join.html:93
+#: www/views/tab-create-personal.html:67 www/views/tab-create-personal.html:75
+#: www/views/tab-create-shared.html:104 www/views/tab-create-shared.html:96
+#: www/views/tab-import-file.html:18 www/views/tab-import-phrase.html:38
+msgid "Password"
+msgstr "密碼"
+
+#: src/js/controllers/import.js:83
+msgid "Password required. Make sure to enter your password in advanced options"
+msgstr "需要密碼。請務必在進階選項中輸入你的密碼"
+
+#: www/views/join.html:33
+msgid "Paste invitation here"
+msgstr "在此貼上邀請"
+
+#: www/views/tab-import-file.html:13
+msgid "Paste the backup plain text code"
+msgstr "貼上備份的文字碼"
+
+#: www/views/bitpayCardIntro.html:28
+msgid "Pay 0% fees to turn NavCoin into dollars."
+msgstr "以0%的手續費把 NavCoin 換成美元。"
+
+#: www/views/modals/paypro.html:18
+msgid "Pay To"
+msgstr "支付給"
+
+#: www/views/modals/tx-status.html:33
+msgid "Payment Accepted"
+msgstr "已接受付款"
+
+#: www/views/confirm.html:25
+msgid "Payment Expires:"
+msgstr "付款有效日期:"
+
+#: www/views/modals/txp-details.html:6
+msgid "Payment Proposal"
+msgstr "支出提議"
+
+#: www/views/modals/tx-status.html:21
+msgid "Payment Proposal Created"
+msgstr "已建立支出提議"
+
+#: www/views/tab-home.html:46
+msgid "Payment Proposals"
+msgstr "支出提議"
+
+#: src/js/services/payproService.js:32
+msgid "Payment Protocol Invalid"
+msgstr "支出提議無效"
+
+#: src/js/services/payproService.js:18
+msgid "Payment Protocol not supported on Chrome App"
+msgstr "Chrome 應用程式不支援支付協議"
+
+#: www/views/includes/walletActivity.html:20
+msgid "Payment Received"
+msgstr "收到付款"
+
+#: www/views/modals/tx-status.html:43 www/views/modals/txp-details.html:43
+msgid "Payment Rejected"
+msgstr "支付被拒絕"
+
+#: www/views/confirm.html:126 www/views/includes/walletActivity.html:11
+#: www/views/modals/txp-details.html:188 www/views/modals/txp-details.html:42
+msgid "Payment Sent"
+msgstr "支付已發送"
+
+#: www/views/modals/txp-details.html:32
+msgid "Payment accepted, but not yet broadcasted"
+msgstr "支付已被接受，但尚未被廣播"
+
+#: www/views/modals/txp-details.html:40
+msgid ""
+"Payment accepted. It will be broadcasted by Glidera. In case there is a "
+"problem, it can be deleted 6 hours after it was created."
+msgstr ""
+"支付已被接受。它將由 Glidera 廣播。如果出現問題，它可以在創建後的6個小時內被"
+"刪除。"
+
+#: www/views/modals/txp-details.html:109
+msgid "Payment details"
+msgstr "支付明細"
+
+#: www/views/modals/paypro.html:6
+msgid "Payment request"
+msgstr "支付請求"
+
+#: www/views/proposals.html:5
+msgid "Pending Proposals"
+msgstr "未決的提議"
+
+#: www/views/preferencesDeleteWallet.html:13
+msgid "Permanently delete this wallet."
+msgstr "永久刪除這個錢包。"
+
+#: src/js/services/profileService.js:388
+msgid "Personal Wallet"
+msgstr "個人錢包"
+
+#: www/views/backup.html:18
+msgid "Please carefully write down this phrase."
+msgstr "請仔細地寫下此短語。"
+
+#: www/views/tab-scan.html:20
+msgid "Please connect a camera to get started."
+msgstr "請連接相機以開始。"
+
+#: src/js/controllers/import.js:260
+msgid "Please enter the recovery phrase"
+msgstr "請輸入恢復短語"
+
+#: src/js/controllers/create.js:168 src/js/controllers/join.js:135
+msgid "Please enter the wallet recovery phrase"
+msgstr "請出入錢包恢復短語"
+
+#: www/views/modals/pin.html:9
+msgid "Please enter your PIN"
+msgstr "請輸入PIN碼"
+
+#: www/views/backup.html:46
+msgid "Please tap each word in the correct order."
+msgstr "請按照正確的順序點擊各個單字。"
+
+#: src/js/services/bwcError.js:101
+msgid "Please upgrade Navpay to perform this action"
+msgstr "請升级你的 Navpay 以執行此操作"
+
+#: src/js/controllers/import.js:222
+msgid "Please, select your backup file"
+msgstr "請選擇你的備份檔案"
+
+#: www/views/bitpayCard.html:81
+msgid "Pre-Auth Holds"
+msgstr "認證前保留"
+
+#: www/views/tab-settings.html:40
+msgid "Preferences"
+msgstr "使用偏好"
+
+#: src/js/services/onGoingProcess.js:38
+msgid "Preparing addresses..."
+msgstr "正在準備地址..."
+
+#: src/js/controllers/export.js:198
+msgid "Preparing backup..."
+msgstr "正在准备备份..."
+
+#: src/js/routes.js:1196
+msgid "Press again to exit"
+msgstr "再按一次以離開"
+
+#: src/js/services/feeService.js:11
+msgid "Priority"
+msgstr "優先"
+
+#: src/js/controllers/paperWallet.js:137
+msgid "Private key encrypted. Enter password"
+msgstr "私鑰已加密。請輸入密碼"
+
+#: src/js/services/bwcError.js:35
+msgid "Private key is encrypted, cannot sign"
+msgstr "私鑰已加密，無法簽名"
+
+#: www/views/includes/walletActivity.html:51
+msgid "Proposal Accepted"
+msgstr "提議已被接受"
+
+#: src/js/controllers/modals/txpDetails.js:51
+#: src/js/controllers/tx-details.js:59 www/views/confirm.html:127
+msgid "Proposal Created"
+msgstr "提議已被建立"
+
+#: www/views/includes/walletActivity.html:27
+msgid "Proposal Deleted"
+msgstr "提議已被刪除"
+
+#: www/views/includes/walletActivity.html:35
+msgid "Proposal Rejected"
+msgstr "被拒絕的提議"
+
+#: www/views/walletDetails.html:178
+msgid "Proposals"
+msgstr "提議"
+
+#: www/views/onboarding/notifications.html:3
+msgid "Push Notifications"
+msgstr "推式通知"
+
+#: www/views/preferencesNotifications.html:17
+msgid ""
+"Push notifications for {{appName}} are currently disabled. Enable them in "
+"the Settings app."
+msgstr "{{appName}} 的推式通知目前未被啟用。在設定應用程式裡啟用。"
+
+#: www/views/export.html:17
+msgid "QR Code"
+msgstr "QR 碼"
+
+#: www/views/onboarding/disclaimer.html:13
+msgid "Quick review!"
+msgstr "快速檢查!"
+
+#: src/js/controllers/create.js:79 src/js/controllers/join.js:65
+msgid "Random"
+msgstr "隨機"
+
+#: www/views/feedback/rateApp.html:14
+msgid "Rate on the app store"
+msgstr "在應用程式商店評分"
+
+#: www/views/addresses.html:52
+msgid "Read less"
+msgstr "讀少一點"
+
+#: www/views/addresses.html:51
+msgid "Read more"
+msgstr "閱讀更多"
+
+#: www/views/tab-receive.html:3 www/views/tabs.html:7
+msgid "Receive"
+msgstr "接收"
+
+#: www/views/includes/walletHistory.html:24 www/views/tx-details.html:18
+msgid "Received"
+msgstr "已接收"
+
+#: src/js/controllers/tx-details.js:111
+msgid "Received Funds"
+msgstr "收到的資金"
+
+#: www/views/includes/walletHistory.html:57 www/views/tx-details.html:24
+msgid "Receiving"
+msgstr "接收中"
+
+#: www/views/bitpayCard.html:60 www/views/includes/walletHistory.html:3
+msgid "Recent"
+msgstr "最近"
+
+#: www/views/advancedSettings.html:20
+msgid "Recent Transaction Card"
+msgstr "最近交易卡"
+
+#: www/views/activity.html:4 www/views/tab-home.html:58
+msgid "Recent Transactions"
+msgstr "最近的交易"
+
+#: www/views/amount.html:18 www/views/tab-send.html:9
+msgid "Recipient"
+msgstr "接收人"
+
+#: www/views/modals/txp-details.html:62
+msgid "Recipients"
+msgstr "接收人"
+
+#: www/views/import.html:12
+msgid "Recovery phrase"
+msgstr "恢復短語"
+
+#: www/views/walletDetails.html:117 www/views/walletDetails.html:36
+msgid "Recreate"
+msgstr "重新創建"
+
+#: src/js/services/onGoingProcess.js:26
+msgid "Recreating Wallet..."
+msgstr "重新建立錢包中..."
+
+#: src/js/controllers/modals/txpDetails.js:53
+#: src/js/controllers/tx-details.js:61
+msgid "Rejected"
+msgstr "已拒絕的"
+
+#: src/js/services/onGoingProcess.js:27
+msgid "Rejecting payment proposal"
+msgstr "拒絕支出提案中"
+
+#: www/views/preferencesAbout.html:9
+msgid "Release information"
+msgstr "發布消息"
+
+#: www/views/addressbook.view.html:36
+msgid "Remove"
+msgstr "刪除"
+
+#: src/js/controllers/preferencesBitpayServices.js:7
+msgid "Remove NavPay Account?"
+msgstr "刪除 NavPay 帳戶嗎?"
+
+#: src/js/controllers/preferencesBitpayServices.js:19
+msgid "Remove NavPay Card?"
+msgstr "刪除 NavPay 卡嗎？"
+
+#: src/js/controllers/preferencesBitpayServices.js:8
+msgid ""
+"Removing your NavPay account will remove all associated NavPay account data "
+"from this device. Are you sure you would like to remove your NavPay Account "
+"({{email}}) from this device?"
+msgstr ""
+"刪除 NavPay 帳戶會移除所此裝置上所有與 NavPay 有關的資訊。你確定你要在此裝置"
+"上移除你的 NavPay 帳戶 ({{email}}) 嗎?"
+
+#: www/views/join.html:113 www/views/join.html:121
+#: www/views/tab-create-personal.html:84 www/views/tab-create-personal.html:92
+#: www/views/tab-create-shared.html:113 www/views/tab-create-shared.html:121
+#: www/views/tab-export-file.html:17
+msgid "Repeat password"
+msgstr "重複輸入密碼"
+
+#: www/views/tab-export-file.html:16
+msgid "Repeat the password"
+msgstr "重複輸入密碼"
+
+#: www/views/preferences.html:60
+msgid "Request Fingerprint"
+msgstr "請求指紋"
+
+#: www/views/tab-receive.html:45
+msgid "Request Specific amount"
+msgstr "請求定額"
+
+#: www/views/preferences.html:47
+msgid "Set Spending Password"
+msgstr "設定支出密碼"
+
+#: www/views/tab-create-shared.html:42
+msgid "Required number of signatures"
+msgstr "所需的簽名數目"
+
+#: www/views/onboarding/welcome.html:9
+msgid "Restore from backup"
+msgstr "從備份中還原"
+
+#: src/js/services/onGoingProcess.js:29
+msgid "Retrieving inputs information"
+msgstr "正在接收輸入資訊"
+
+#: src/js/controllers/onboarding/tour.js:56
+msgid "Retry"
+msgstr "重試"
+
+#: www/views/tab-scan.html:23
+msgid "Retry Camera"
+msgstr "重試相機"
+
+#: www/views/addressbook.add.html:56 www/views/includes/note.html:9
+#: www/views/preferencesAlias.html:21 www/views/preferencesBwsUrl.html:25
+#: www/views/preferencesNotifications.html:40
+msgid "Save"
+msgstr "儲存"
+
+#: www/views/tab-scan.html:3 www/views/tabs.html:11
+msgid "Scan"
+msgstr "掃描"
+
+#: www/views/tab-scan.html:15
+msgid "Scan QR Codes"
+msgstr "掃描QR碼"
+
+#: www/views/addresses.html:31
+msgid "Scan addresses for funds"
+msgstr "掃描地址以取得資金"
+
+#: www/views/modals/fingerprintCheck.html:11
+msgid "Scan again"
+msgstr "再掃描一次"
+
+#: src/js/services/fingerprintService.js:56
+msgid "Scan your fingerprint please"
+msgstr "請掃描你的指紋"
+
+#: src/js/services/onGoingProcess.js:30
+msgid "Scanning Wallet funds..."
+msgstr "正在掃描錢包的資金中..."
+
+#: www/views/includes/screenshotWarningModal.html:7
+msgid "Screenshots are not secure"
+msgstr "螢幕截圖是不安全的"
+
+#: www/views/modals/search.html:6
+msgid "Search Transactions"
+msgstr "搜尋交易"
+
+#: www/views/tab-send.html:13
+msgid "Search or enter NavCoin address"
+msgstr "搜尋或輸入 NavCoin 地址"
+
+#: www/views/modals/search.html:16
+msgid "Search transactions"
+msgstr "搜尋交易"
+
+#: www/views/preferencesAltCurrency.html:14
+msgid "Search your currency"
+msgstr "搜尋你的貨幣"
+
+#: www/views/preferences.html:35
+msgid "Security"
+msgstr "安全性"
+
+#: www/views/tab-import-file.html:7
+msgid "Select a backup file"
+msgstr "選擇備份檔案"
+
+#: src/js/controllers/tab-receive.js:133 www/views/paymentUri.html:30
+msgid "Select a wallet"
+msgstr "選擇錢包"
+
+#: www/views/modals/paypro.html:38
+msgid "Self-signed Certificate"
+msgstr "自我簽署的認證"
+
+#: src/js/services/onGoingProcess.js:41
+msgid "Selling NavCoin..."
+msgstr "賣出 NavCoin 中..."
+
+#: www/views/feedback/send.html:13 www/views/feedback/send.html:43
+#: www/views/tab-send.html:3 www/views/tabs.html:15
+msgid "Send"
+msgstr "發送"
+
+#: www/views/feedback/send.html:3 www/views/tab-settings.html:29
+msgid "Send Feedback"
+msgstr "發送意見反饋"
+
+#: www/views/addressbook.view.html:31
+msgid "Send Money"
+msgstr "送款"
+
+#: www/views/allAddresses.html:19
+msgid "Send addresses by email"
+msgstr "通過電子郵件發送地址"
+
+#: www/views/preferencesLogs.html:13 www/views/tab-export-file.html:82
+msgid "Send by email"
+msgstr "通過電子郵件發送"
+
+#: src/js/controllers/confirm.js:148
+msgid "Send from"
+msgstr "發送方"
+
+#: www/views/includes/itemSelector.html:8
+msgid "Send max amount"
+msgstr "發送最大數量"
+
+#: www/views/feedback/rateApp.html:17
+msgid "Send us feedback instead"
+msgstr "而是向我們發送意見回饋"
+
+#: www/views/confirm.html:15 www/views/includes/txp.html:12
+#: www/views/modals/txp-details.html:19 www/views/tx-details.html:23
+msgid "Sending"
+msgstr "正在發送"
+
+#: src/js/services/onGoingProcess.js:39
+msgid "Sending 2FA code..."
+msgstr "正在發送 2FA 代碼..."
+
+#: src/js/services/onGoingProcess.js:36
+msgid "Sending feedback..."
+msgstr "正在發送意見回饋..."
+
+#: www/views/confirm.html:16
+msgid "Sending maximum amount"
+msgstr "正在發送最大數量"
+
+#: src/js/services/onGoingProcess.js:31
+msgid "Sending transaction"
+msgstr "正在發送交易"
+
+#: src/js/controllers/confirm.js:486
+msgid "Sending {{amountStr}} from your {{name}} wallet"
+msgstr "從你的 {{name}} 錢包發送 {{amountStr}}"
+
+#: www/views/includes/walletHistory.html:42 www/views/modals/tx-status.html:9
+#: www/views/topup.html:100 www/views/tx-details.html:17
+msgid "Sent"
+msgstr "已發送"
+
+#: src/js/controllers/tx-details.js:110
+msgid "Sent Funds"
+msgstr "已發送的資金"
+
+#: src/js/services/bwcError.js:38
+msgid "Server response could not be verified"
+msgstr "無法驗證的伺服器回應"
+
+#: www/views/includes/homeIntegrations.html:3
+msgid "Services"
+msgstr "服務"
+
+#: www/views/preferencesLogs.html:3
+msgid "Session Log"
+msgstr "運行紀錄"
+
+#: www/views/preferencesAbout.html:35
+msgid "Session log"
+msgstr "運行紀錄"
+
+#: www/views/tab-export-file.html:10
+msgid "Set up a password"
+msgstr "設定密碼"
+
+#: www/views/tab-settings.html:3 www/views/tabs.html:19
+msgid "Settings"
+msgstr "設定"
+
+#: www/views/feedback/complete.html:17 www/views/feedback/complete.html:26
+msgid "Share the love by inviting your friends."
+msgstr "邀請你的朋友來分享這份愛。"
+
+#: www/views/copayers.html:21
+msgid "Share this invitation with your copayers"
+msgstr "將此邀請分享給你的共同支出人"
+
+#: src/js/controllers/feedback/complete.js:5 www/views/tab-settings.html:36
+msgid "Share {{appName}}"
+msgstr "分享 {{appName}}"
+
+#: www/views/tab-import-hardware.html:24
+msgid "Shared Wallet"
+msgstr "共享的錢包"
+
+#: www/views/preferencesExternal.html:34
+msgid "Show Recovery Phrase"
+msgstr "顯示恢復短語"
+
+#: www/views/tab-receive.html:34
+msgid "Show address"
+msgstr "顯示地址"
+
+#: www/views/join.html:45 www/views/tab-create-personal.html:25
+#: www/views/tab-create-shared.html:54 www/views/tab-export-file.html:24
+#: www/views/tab-import-file.html:27 www/views/tab-import-hardware.html:30
+#: www/views/tab-import-phrase.html:32
+msgid "Show advanced options"
+msgstr "顯示進階選項"
+
+#: www/views/tab-send.html:37
+msgid "Show NavCoin address"
+msgstr "顯示 NavCoin 地址"
+
+#: www/views/tab-send.html:59
+msgid "Show more"
+msgstr "顯示更多"
+
+#: src/js/services/bwcError.js:104
+msgid "Signatures rejected by server"
+msgstr "簽名被伺服器拒絕"
+
+#: src/js/services/onGoingProcess.js:32
+msgid "Signing transaction"
+msgstr "簽署交易中"
+
+#: www/views/onboarding/backupRequest.html:6
+msgid ""
+"Since only you control your money, you’ll need to save your backup phrase in "
+"case this app is deleted."
+msgstr "因為只有你在控制你的錢，你必須保存你的備份短語以防此應用程式被刪除。"
+
+#: www/views/tab-create-personal.html:120 www/views/tab-create-shared.html:149
+msgid "Single Address Wallet"
+msgstr "單一地址錢包"
+
+#: www/views/onboarding/collectEmail.html:40 www/views/onboarding/tour.html:11
+msgid "Skip"
+msgstr "跳過"
+
+#: src/js/controllers/modals/txpDetails.js:33
+msgid "Slide"
+msgstr "滑動"
+
+#: src/js/controllers/create.js:83 src/js/controllers/join.js:68
+msgid "Specify Recovery Phrase..."
+msgstr "指定恢復短語..."
+
+#: src/js/services/bwcError.js:92
+msgid "Spend proposal is not accepted"
+msgstr "支出提議不被接受"
+
+#: src/js/services/bwcError.js:95
+msgid "Spend proposal not found"
+msgstr "找不到支出提議"
+
+#: src/js/services/bwcError.js:137
+msgid "Spending Password needed"
+msgstr "需要支出密碼"
+
+#: www/views/walletDetails.html:162
+msgid "Spending this balance will need significant NavCoin network fees"
+msgstr "花費此額度將會需要可觀的 NavCoin 網路手續費"
+
+#: www/views/tab-send.html:28
+msgid "Start sending NavCoin"
+msgstr "開始發送 NavCoin"
+
+#: src/js/routes.js:118
+msgid "Starting..."
+msgstr "正在啟動..."
+
+#: www/views/lockSetup.html:3
+msgid "Startup Lock"
+msgstr "開啟應用時上鎖"
+
+#: www/views/topup.html:101
+msgid "Success"
+msgstr "成功"
+
+#: src/js/services/feeService.js:14
+msgid "Super Economy"
+msgstr "超級經濟"
+
+#: www/views/paperWallet.html:7
+msgid "Sweep"
+msgstr "掃描"
+
+#: www/views/paperWallet.html:3
+msgid "Sweep paper wallet"
+msgstr "掃描紙錢包"
+
+#: src/js/services/onGoingProcess.js:33
+msgid "Sweeping Wallet..."
+msgstr "正在掃瞄錢包..."
+
+#: www/views/preferencesDeleteWallet.html:16
+msgid "THIS ACTION CANNOT BE REVERSED"
+msgstr "此操作無法被復原"
+
+#: www/views/onboarding/welcome.html:5
+msgid "Take control of your money,<br>get started with NavCoin."
+msgstr "要掌控你自己的錢，<br>就使用 NavCoin。"
+
+#: www/views/walletDetails.html:140 www/views/walletDetails.html:60
+msgid "Tap and hold to show"
+msgstr "點擊並長按以顯示"
+
+#: www/views/walletDetails.html:112 www/views/walletDetails.html:31
+msgid "Tap to retry"
+msgstr "點擊以重試"
+
+#: www/views/termsOfUse.html:3
+msgid "Terms Of Use"
+msgstr "使用條款"
+
+#: www/views/modals/terms.html:3 www/views/onboarding/disclaimer.html:29
+#: www/views/onboarding/disclaimer.html:43 www/views/preferencesAbout.html:30
+msgid "Terms of Use"
+msgstr "使用條款"
+
+#: www/views/tab-create-personal.html:116 www/views/tab-import-phrase.html:65
+msgid "Testnet"
+msgstr "測試網路"
+
+#: src/js/controllers/feedback/send.js:27
+#: src/js/controllers/feedback/send.js:76 www/views/feedback/complete.html:20
+#: www/views/feedback/rateApp.html:4
+msgid "Thank you!"
+msgstr "谢谢！"
+
+#: src/js/controllers/feedback/send.js:72
+msgid "Thanks!"
+msgstr "谢啦 ！"
+
+#: src/js/controllers/feedback/send.js:73
+msgid ""
+"That's exciting to hear. We'd love to earn that fifth star from you – how "
+"could we improve your experience?"
+msgstr ""
+"真是個令人興奮的消息。我們相當希望可以得到第五顆星 — 請問我們該如何提升你的體"
+"驗？"
+
+#: src/js/services/ledger.js:152
+msgid "The Ledger Chrome application is not installed"
+msgstr "尚未安裝 Ledger Chrome 應用程式"
+
+#: www/views/modals/wallet-balance.html:55
+msgid "The amount of NavCoin immediately spendable from this wallet."
+msgstr "此錢包可被立即使用的 NavCoin 金额。"
+
+#: www/views/modals/wallet-balance.html:93
+msgid ""
+"The amount of NavCoin stored in this wallet that is allocated as inputs to "
+"your pending transaction proposals. The amount is determined using unspent "
+"transaction outputs associated with this wallet and may be more than the "
+"actual amounts associated with your pending transaction proposals."
+msgstr ""
+"儲存在你錢包中的 NavCoin 已被收集來預備用於未決的支出提議。收集的金額取決於此"
+"錢包的 UTXOs 面額且可能大於你未決支出提議的額度。"
+
+#: www/views/modals/wallet-balance.html:74
+msgid ""
+"The amount of NavCoin stored in this wallet with less than 1 blockchain "
+"confirmation."
+msgstr "儲存於此錢包中小於一次區塊鍊確認的 NavCoin 數量。"
+
+#: www/views/tab-import-phrase.html:5
+msgid "The derivation path"
+msgstr "衍生路徑"
+
+#: www/views/onboarding/tour.html:37
+msgid "The exchange rate changes with the market."
+msgstr "兌換比率會隨市場變化。"
+
+#: www/views/preferencesFee.html:12
+msgid ""
+"The higher the fee, the greater the incentive a miner has to include that "
+"transaction in a block. Current fees are determined based on network load "
+"and the selected policy."
+msgstr ""
+"越高的費用， 對礦工來說把交易納入區塊的激勵金更高。目前的費用取決玉網路載量以"
+"其選擇的政策。"
+
+#: www/views/addresses.html:51
+msgid ""
+"The maximum number of consecutive unused addresses (20) has been reached. "
+"When one of your unused addresses receives a payment, a new address will be "
+"generated and shown in your Receive tab."
+msgstr ""
+"已達連續未被使用的地址 (20) 的上限。當未被使用的地址收到款項時，一個新的地址"
+"將會被產生且顯示於接收頁面。"
+
+#: src/js/controllers/onboarding/terms.js:21
+msgid ""
+"The official English Terms of Service are available on the NavPay website."
+msgstr "官方的英語服務條款可於 NavPay 網站上取得。"
+
+#: www/views/tab-import-phrase.html:4
+msgid "The password of the recovery phrase (if set)"
+msgstr "恢復短語的密碼 (如果有設置的話)"
+
+#: src/js/services/walletService.js:1140
+msgid ""
+"The payment was created but could not be completed. Please try again from "
+"home screen"
+msgstr "支付已經被建立但無法完成。請從首頁再試一次"
+
+#: www/views/modals/txp-details.html:26
+msgid "The payment was removed by creator"
+msgstr "支付已由創建者移除"
+
+#: www/views/join.html:88 www/views/tab-create-personal.html:61
+#: www/views/tab-create-shared.html:90 www/views/tab-import-phrase.html:40
+msgid "The recovery phrase could require a password to be imported"
+msgstr "恢復短語可能需要密碼才能被匯入"
+
+#: src/js/services/bwcError.js:56
+msgid "The request could not be understood by the server"
+msgstr "伺服器無法理解的請求"
+
+#: www/views/addresses.html:52
+msgid ""
+"The restore process will stop when 20 addresses are generated in a row which "
+"contain no funds. To safely generate more addresses, make a payment to one "
+"of the unused addresses which has already been generated."
+msgstr ""
+"還原過程將在連續20個不含資金的地址被生成後停止。付款到其中一個不含資金的地址"
+"以安全地生成更多的地址。"
+
+#: src/js/services/bwcError.js:98
+msgid "The spend proposal is not pending"
+msgstr "支出提議並非表決中"
+
+#: www/views/modals/wallet-balance.html:36
+msgid "The total amount of NavCoin stored in this wallet."
+msgstr "儲存在此錢包中的 NavCoin 總量。"
+
+#: www/views/preferencesHistory.html:27
+msgid ""
+"The transaction history and every new incoming transaction are cached in the "
+"app. This feature clean this up and synchronizes again from the server"
+msgstr ""
+"交易歷史紀錄以及新的交易都儲存於此應用程式的快取記憶中。此功能將清除紀錄以及"
+"重新與伺服器同步"
+
+#: www/views/tab-import-phrase.html:6
+msgid "The wallet service URL"
+msgstr "錢包服務連結"
+
+#: www/views/paymentUri.html:23
+msgid "There are no wallets to make this payment"
+msgstr "不存在錢包來進行此支付"
+
+#: src/js/controllers/tab-home.js:38
+msgid "There is a new version of {{appName}} available"
+msgstr "有可用的新版本的 {{appName}}"
+
+#: src/js/controllers/import.js:213 src/js/controllers/import.js:237
+#: src/js/controllers/import.js:317
+msgid "There is an error in the form"
+msgstr "表格中有錯誤"
+
+#: src/js/controllers/feedback/send.js:61
+#: src/js/controllers/feedback/send.js:65
+msgid "There's obviously something we're doing wrong."
+msgstr "顯然我們有沒做好的地方。"
+
+#: src/js/controllers/feedback/rateCard.js:38
+msgid "This app is fantastic!"
+msgstr "這個應用程式實在是太棒了!"
+
+#: www/views/onboarding/tour.html:47
+msgid "This app stores your NavCoin with cutting-edge security."
+msgstr "此應用程式將你的 NavCoin 使用尖端的安全規格保管。"
+
+#: src/js/controllers/confirm.js:464
+msgid "This NavCoin payment request has expired."
+msgstr "此 NavCoin 付款請求已過期。"
+
+#: www/views/join.html:130 www/views/tab-create-personal.html:101
+#: www/views/tab-create-shared.html:130
+msgid ""
+"This password cannot be recovered. If the password is lost, there is no way "
+"you could recover your funds."
+msgstr "此密碼將無法被找回。如果密碼遺失，你將完全無法找回你的資金。"
+
+#: www/views/backup.html:24
+msgid ""
+"This recovery phrase was created with a password. To recover this wallet "
+"both the recovery phrase and password are needed."
+msgstr ""
+"此恢復短語是與一個密碼一同被建立。要恢復錢包時，恢復短語以及密碼缺一不可。"
+
+#: www/views/tx-details.html:93
+msgid ""
+"This transaction amount is too small compared to current NavCoin network "
+"fees. Spending these funds will need a NavCoin network fee cost comparable "
+"to the funds itself."
+msgstr ""
+"此交易金額對於目前 NavCoin 網路來說過小。花費此額度會在 NavCoin 網路上產生與"
+"此額度相當的手續費。"
+
+#: www/views/tx-details.html:89
+msgid ""
+"This transaction could take a long time to confirm or could be dropped due "
+"to the low fees set by the sender"
+msgstr "此交易可能會因為較低的手續費而需要花較長時間，甚至被取消"
+
+#: www/views/walletDetails.html:116 www/views/walletDetails.html:35
+msgid ""
+"This wallet is not registered at the given Bitcore Wallet Service (BWS). You "
+"can recreate it from the local information."
+msgstr ""
+"此錢包並非在指定的比特幣服務註冊 (BWS) 。你可以使用本地信息來重新創建它。"
+
+#: www/views/modals/txp-details.html:138 www/views/tx-details.html:119
+msgid "Timeline"
+msgstr "時間軸"
+
+#: www/views/confirm.html:31 www/views/includes/output.html:2
+#: www/views/modals/txp-details.html:111 www/views/modals/txp-details.html:53
+#: www/views/tx-details.html:41 www/views/tx-details.html:53
+msgid "To"
+msgstr "發送到"
+
+#: www/views/tab-send.html:32
+msgid ""
+"To get started, Buy NavCoin or share your address. You can receive NavCoin "
+"from any wallet or service."
+msgstr ""
+"若要開始，請買NavCoin或共享你的地址。你可以從任何錢包或服務接收 NavCoin。"
+
+#: www/views/tab-send.html:33
+msgid ""
+"To get started, you'll need to create a NavCoin wallet and get some NavCoin."
+msgstr "若要開始，你將需要創建一個 NavCoin 的錢包並取得一些 NavCoin。"
+
+#: src/js/services/bitpayAccountService.js:73
+msgid "To {{reason}} you must first add your NavPay account - {{email}}"
+msgstr "你必須先新增你的 NavPay 帳戶 {{email}} 才能 {{reason}}"
+
+#: src/js/services/onGoingProcess.js:48
+msgid "Top up in progress..."
+msgstr ""
+
+#: src/js/controllers/topup.js:198
+msgid "Top up {{amountStr}} to debit card ({{cardLastNumber}})"
+msgstr ""
+
+#: www/views/modals/wallet-balance.html:23 www/views/topup.html:70
+msgid "Total"
+msgstr "總計"
+
+#: www/views/walletDetails.html:185
+msgid "Total Locked Balance"
+msgstr "鎖定的總額"
+
+#: www/views/tab-create-shared.html:33
+msgid "Total number of copayers"
+msgstr "共同支出人的數目"
+
+#: www/views/addresses.html:81
+msgid "Total wallet inputs"
+msgstr "輸入錢包總量"
+
+#: src/js/services/fingerprintService.js:63
+#: src/js/services/fingerprintService.js:68
+msgid "Touch ID Failed"
+msgstr "觸碰式 ID 失敗"
+
+#: src/js/controllers/tx-details.js:10
+msgid "Transaction"
+msgstr "交易"
+
+#: www/views/preferencesAdvanced.html:29 www/views/preferencesHistory.html:3
+msgid "Transaction History"
+msgstr "交易歷史紀錄"
+
+#: src/js/services/bwcError.js:83
+msgid "Transaction already broadcasted"
+msgstr "交易已被廣播"
+
+#: www/views/confirm.html:128
+msgid "Transaction created"
+msgstr "創建的交易紀錄"
+
+#: src/js/controllers/topup.js:271
+msgid "Transaction has not been created"
+msgstr "交易並未被創建"
+
+#: www/views/topup.html:104
+msgid "Transaction initiated"
+msgstr "交易開始"
+
+#: src/js/controllers/tx-details.js:100
+msgid "Transaction not available at this time"
+msgstr "此時無法進行交易"
+
+#: src/js/controllers/activity.js:45 src/js/controllers/tab-home.js:174
+msgid "Transaction not found"
+msgstr "找不到交易"
+
+#: src/js/controllers/paperWallet.js:110
+msgid "Transfer to"
+msgstr "轉帳至"
+
+#: www/views/tab-send.html:67
+msgid "Transfer to Wallet"
+msgstr "轉帳至錢包"
+
+#: www/views/modals/pin.html:13
+msgid "Try again in {{expires}}"
+msgstr "{{expires}} 後再試一次"
+
+#: www/views/bitpayCardIntro.html:18
+msgid ""
+"Turn NavCoin into dollars, swipe anywhere Visa<sup>&reg;</sup> is accepted."
+msgstr "在接受 Visa<sup>®</sup> 的任何地方刷卡以把 NavCoin 換成美元。"
+
+#: www/views/tab-import-phrase.html:17
+msgid "Type the Recovery Phrase (usually 12 words)"
+msgstr "輸入恢復短語 (通常為12個字)"
+
+#: src/js/controllers/backup.js:75
+msgid "Uh oh..."
+msgstr "糟了..."
+
+#: www/views/tx-details.html:100
+msgid "Unconfirmed"
+msgstr "未確認"
+
+#: www/views/preferencesUnit.html:4
+msgid "Unit"
+msgstr "單位"
+
+#: www/views/walletDetails.html:179
+msgid "Unsent transactions"
+msgstr "未發送的交易"
+
+#: www/views/addresses.html:39
+msgid "Unused Addresses"
+msgstr "未使用的地址"
+
+#: www/views/addresses.html:50
+msgid "Unused Addresses Limit"
+msgstr "未被使用的地址上限"
+
+#: src/js/controllers/tab-home.js:146
+msgid "Update Available"
+msgstr "可用的更新"
+
+#: www/views/proposals.html:15
+msgid "Updating pending proposals. Please stand by"
+msgstr "更新未決的提議中。請稍待"
+
+#: www/views/walletDetails.html:211
+msgid "Updating transaction history. Please stand by."
+msgstr "更新交易歷史紀錄中。请稍待。"
+
+#: www/views/activity.html:14
+msgid "Updating... Please stand by"
+msgstr "更新中… 請稍待"
+
+#: src/js/services/feeService.js:10
+msgid "Urgent"
+msgstr "緊急"
+
+#: www/views/advancedSettings.html:11
+msgid "Use Unconfirmed Funds"
+msgstr "使用尚未確認的資金"
+
+#: src/js/services/onGoingProcess.js:34
+msgid "Validating recovery phrase..."
+msgstr "正在驗證恢復短語..."
+
+#: www/views/modals/fingerprintCheck.html:4
+msgid "Verify your identity"
+msgstr "驗證你的身分"
+
+#: www/views/preferencesAbout.html:14 www/views/preferencesExternal.html:25
+msgid "Version"
+msgstr "版本"
+
+#: www/views/tab-export-file.html:69
+msgid "View"
+msgstr "查看"
+
+#: www/views/addresses.html:34
+msgid "View All Addresses"
+msgstr "查看所有地址"
+
+#: src/js/controllers/onboarding/terms.js:20
+msgid "View Terms of Service"
+msgstr "查看使用條款"
+
+#: src/js/controllers/bitpayCard.js:189 src/js/controllers/tx-details.js:172
+msgid "View Transaction on Insight"
+msgstr "在 Insight 中查看歷史交易紀錄"
+
+#: src/js/controllers/tab-home.js:148
+msgid "View Update"
+msgstr "查看更新"
+
+#: www/views/tx-details.html:145
+msgid "View on blockchain"
+msgstr "在區塊鍊上查看"
+
+#: www/views/walletDetails.html:171
+msgid ""
+"WARNING: Key derivation is not working on this device/wallet. Actions cannot "
+"be performed on this wallet."
+msgstr "警告︰此裝置/錢包無法進行鑰匙衍生。無法在此錢包上進行操作。"
+
+#: www/views/tab-export-file.html:45
+msgid ""
+"WARNING: Not including the private key allows to check the wallet balance, "
+"transaction history, and create spend proposals from the export. However, "
+"does not allow to approve (sign) proposals, so <b>funds will not be "
+"accessible from the export</b>."
+msgstr ""
+"警告︰不包括私鑰的匯出檔仍可以查看錢包餘額、交易歷史紀錄以及創建新的支出提"
+"議，但無法批准（簽名）提議，因此 <b>資金在匯出檔中將無法被使用</b>。"
+
+#: www/views/tab-export-file.html:36
+msgid ""
+"WARNING: The private key of this wallet is not available. The export allows "
+"to check the wallet balance, transaction history, and create spend proposals "
+"from the export. However, does not allow to approve (sign) proposals, so "
+"<b>funds will not be accessible from the export</b>."
+msgstr ""
+"警告︰此錢包沒有可用的私鑰。匯出檔可以查看錢包餘額、交易歷史紀錄以及創建新的"
+"支出提議，但無法批准（簽名）提議，因此 <b>資金在匯出檔中將無法被使用</b>。"
+
+#: www/views/modals/paypro.html:42
+msgid "WARNING: UNTRUSTED CERTIFICATE"
+msgstr "警告︰不受信任的認證"
+
+#: src/js/services/onGoingProcess.js:15
+msgid "Waiting for Ledger..."
+msgstr "正在等待 Ledger..."
+
+#: src/js/services/onGoingProcess.js:16
+msgid "Waiting for Trezor..."
+msgstr "正在等待 Trezor..."
+
+#: www/views/copayers.html:49
+msgid "Waiting for copayers"
+msgstr "正在等在共同支出人"
+
+#: www/views/copayers.html:54
+msgid "Waiting..."
+msgstr "等待中..."
+
+#: www/views/addresses.html:3 www/views/preferencesAdvanced.html:17
+msgid "Wallet Addresses"
+msgstr "錢包地址"
+
+#: www/views/preferencesColor.html:4
+msgid "Wallet Color"
+msgstr "錢包顏色"
+
+#: www/views/preferencesInformation.html:23
+msgid "Wallet Configuration (m-n)"
+msgstr "錢包配置 (m-n)"
+
+#: www/views/onboarding/collectEmail.html:5
+msgid "Wallet Created"
+msgstr "創建的錢包"
+
+#: www/views/preferencesInformation.html:17
+msgid "Wallet Id"
+msgstr "錢包ID"
+
+#: www/views/preferencesAdvanced.html:13
+#: www/views/preferencesInformation.html:3
+msgid "Wallet Information"
+msgstr "錢包訊息"
+
+#: www/views/addresses.html:76
+msgid "Wallet Inputs"
+msgstr "錢包輸入"
+
+#: www/views/join.html:26
+msgid "Wallet Invitation"
+msgstr "錢包邀請"
+
+#: www/views/join.html:57 www/views/tab-create-personal.html:36
+#: www/views/tab-create-shared.html:65
+msgid "Wallet Key"
+msgstr "錢包鑰匙"
+
+#: www/views/preferencesAlias.html:4
+msgid "Wallet Name"
+msgstr "錢包名稱"
+
+#: www/views/preferencesInformation.html:11
+msgid "Wallet Name (at creation)"
+msgstr "錢包名稱（在創建時）"
+
+#: www/views/preferencesInformation.html:29
+msgid "Wallet Network"
+msgstr "錢包網路"
+
+#: www/views/join.html:74 www/views/tab-create-personal.html:48
+#: www/views/tab-create-shared.html:77
+msgid "Wallet Recovery Phrase"
+msgstr "錢包恢復短語"
+
+#: src/js/services/bwcError.js:26
+msgid "Wallet Recovery Phrase is invalid"
+msgstr "錢包恢復短語無效"
+
+#: www/views/preferencesAdvanced.html:25 www/views/tab-import-phrase.html:70
+msgid "Wallet Service URL"
+msgstr "錢包服務連結"
+
+#: www/views/preferences.html:4
+msgid "Wallet Settings"
+msgstr "錢包設定"
+
+#: www/views/tab-import-hardware.html:11 www/views/tab-import-phrase.html:58
+msgid "Wallet Type"
+msgstr "錢包種類"
+
+#: src/js/services/bwcError.js:59
+msgid "Wallet already exists"
+msgstr "錢包已存在"
+
+#: src/js/services/profileService.js:498
+msgid "Wallet already in Navpay"
+msgstr "錢包已經在 Navpay"
+
+#: www/views/includes/walletActivity.html:6
+msgid "Wallet created"
+msgstr "創建的錢包"
+
+#: www/views/copayers.html:59
+msgid "Wallet incomplete and broken"
+msgstr "不完整且已損壞的錢包"
+
+#: src/js/services/bwcError.js:65
+msgid "Wallet is full"
+msgstr "錢包已滿"
+
+#: src/js/services/bwcError.js:125
+msgid "Wallet is locked"
+msgstr "錢包已被鎖住"
+
+#: src/js/services/bwcError.js:128
+msgid "Wallet is not complete"
+msgstr "不完整的錢包"
+
+#: www/views/tab-create-personal.html:12 www/views/tab-create-shared.html:12
+msgid "Wallet name"
+msgstr "錢包名稱"
+
+#: src/js/services/bwcError.js:131
+msgid "Wallet needs backup"
+msgstr "錢包需要備份"
+
+#: www/views/tab-receive.html:59 www/views/walletDetails.html:157
+msgid "Wallet not backed up"
+msgstr "錢包尚未備份"
+
+#: src/js/services/bwcError.js:68
+msgid "Wallet not found"
+msgstr "找不到錢包"
+
+#: src/js/controllers/tab-home.js:220
+msgid "Wallet not registered"
+msgstr "未註冊的錢包"
+
+#: src/js/services/bwcError.js:29
+msgid ""
+"Wallet not registered at the wallet service. Recreate it from \"Create Wallet"
+"\" using \"Advanced Options\" to set your recovery phrase"
+msgstr ""
+"錢包並未於錢包服務中注册。使用“新增錢包\"的\"進階選項\"設定你的恢復短語以重新"
+"創建錢包"
+
+#: www/views/backup.html:11
+msgid "Wallet recovery phrase not available."
+msgstr "無法取得錢包的恢復短語。"
+
+#: src/js/services/bwcError.js:50
+msgid "Wallet service not found"
+msgstr "找不到錢包服務"
+
+#: www/views/tab-home.html:69
+msgid "Wallets"
+msgstr "錢包"
+
+#: www/views/tab-settings.html:102
+msgid "Wallets & Integrations"
+msgstr "錢包 & 集成"
+
+#: src/js/controllers/addressbookView.js:23
+#: src/js/controllers/modals/txpDetails.js:143
+#: src/js/controllers/modals/txpDetails.js:160
+#: src/js/controllers/preferencesDelete.js:25
+#: src/js/controllers/preferencesExternal.js:14
+#: www/views/preferencesDeleteWallet.html:11
+msgid "Warning!"
+msgstr "警告!"
+
+#: www/views/modals/txp-details.html:47
+msgid "Warning: this transaction has unconfirmed inputs"
+msgstr "警告︰此交易有尚未被確認的輸入"
+
+#: src/js/controllers/onboarding/backupRequest.js:17
+msgid "Watch out!"
+msgstr "小心 ！"
+
+#: src/js/controllers/feedback/send.js:69
+msgid "We'd love to do better."
+msgstr "我們很希望能做得更好。"
+
+#: www/views/backup.html:28
+msgid "We'll confirm on the next screen."
+msgstr "我們會在下一頁來做確認。"
+
+#: src/js/controllers/feedback/send.js:77
+msgid "We're always looking for ways to improve {{appName}}."
+msgstr "我們一直都會找辦法改進 {{appName}}。"
+
+#: src/js/controllers/feedback/send.js:83
+msgid ""
+"We're always looking for ways to improve {{appName}}. How could we improve "
+"your experience?"
+msgstr "我們一直都會找辦法改進 {{appName}}。我們可以如何提升你的體驗?"
+
+#: www/views/preferencesLanguage.html:16
+msgid ""
+"We’re always looking for translation contributions! You can make corrections "
+"or help to make this app available in your native language by joining our "
+"community on Crowdin."
+msgstr ""
+"我們一直在尋找翻譯貢獻！你可以藉由在 Crowdin 上加入我們的社群以提出更正或幫助"
+"使這個應用程式在你的母語中可被使用 。"
+
+#: www/views/preferencesAlias.html:11
+msgid "What do you call this wallet?"
+msgstr "你如何叫這個錢包?"
+
+#: www/views/preferencesAlias.html:12
+msgid ""
+"When this wallet was created, it was called &ldquo;{{walletName}}&rdquo;. "
+"You can change the name displayed on this device below."
+msgstr ""
+"這錢包被創建時被稱為\"{{walletName}}\"。在下方你可以更改在此裝置上的顯示名"
+"稱。"
+
+#: www/views/onboarding/collectEmail.html:10
+msgid "Where would you like to receive email notifications about payments?"
+msgstr "你在哪些電子郵件地址希望收到支付通知?"
+
+#: www/views/addresses.html:19
+msgid "Why?"
+msgstr "為什麼?"
+
+#: www/views/feedback/rateApp.html:10
+msgid "Would you be willing to rate {{appName}} in the app store?"
+msgstr "你願意在應用程式商店中給 {{appName}} 評分嗎?"
+
+#: www/views/onboarding/notifications.html:4
+msgid "Would you like to receive push notifications about payments?"
+msgstr "你想收到有關支付的推式通知嗎?"
+
+#: src/js/controllers/import.js:270
+msgid "Wrong number of recovery words:"
+msgstr "恢復短語字數不對:"
+
+#: src/js/services/bwcError.js:140
+msgid "Wrong spending password"
+msgstr "支出密碼錯誤"
+
+#: www/views/modals/confirmation.html:7
+msgid "Yes"
+msgstr "是"
+
+#: src/js/controllers/onboarding/backupRequest.js:25
+msgid "Yes, skip"
+msgstr "是的跳過"
+
+#: src/js/controllers/onboarding/backupRequest.js:24
+msgid "You can create a backup later from your wallet settings."
+msgstr "你可以稍後在錢包的設定中建立備份。"
+
+#: src/js/controllers/preferencesLanguage.js:12
+msgid ""
+"You can make contributions by signing up on our Crowdin community "
+"translation website. We’re looking forward to hearing from you!"
+msgstr "你可以透過登入 Crowdin 社群翻譯網站來作出貢獻。我們希望能遇到你！"
+
+#: www/views/tab-scan.html:16
+msgid ""
+"You can scan NavCoin addresses, payment requests, paper wallets, and more."
+msgstr "你可以掃描 NavCoin 地址、付款請求、紙錢包以及其他更多。"
+
+#: src/js/controllers/preferencesAbout.js:14
+msgid ""
+"You can see the latest developments and contribute to this open source app "
+"by visiting our project on GitHub."
+msgstr ""
+"你可以透過 GitHub 網站查看此開源計畫的最新研發進度或是貢獻你的一份心力。"
+
+#: www/views/onboarding/tour.html:19
+msgid "You can spend NavCoin at stores and websites worldwide."
+msgstr "你可以在全世界的網站以及商店使用 NavCoin。"
+
+#: www/views/backup.html:12
+msgid "You can still export it from Advanced &gt; Export."
+msgstr "你仍然可以在進階選項中 &gt; 匯出 來匯出。"
+
+#: www/views/onboarding/tour.html:32
+msgid ""
+"You can trade it for other currencies like US Dollars, Euros, or Pounds."
+msgstr "你可以兌換其他貨幣如美元、歐元或英鎊。"
+
+#: www/views/onboarding/tour.html:46
+msgid "You control your NavCoin."
+msgstr "你控制你自己的 NavCoin。"
+
+#: www/views/modals/bitpay-card-confirmation.html:5
+msgid "You will need to log back for fill in your NavPay Card."
+msgstr ""
+
+#: www/views/preferencesNotifications.html:28
+msgid ""
+"You'll receive email notifications about payments sent and received from "
+"your wallets."
+msgstr "你會在錢包發送或接收款項時收到電子郵件通知。"
+
+#: www/views/bitpayCard.html:50
+msgid ""
+"Your NavPay Card is ready. Add funds to your card to start using it at "
+"stores and ATMs worldwide."
+msgstr ""
+"你的 NavPay 卡已經準備好了。匯入資金後就可以在全世界的商店以及 ATM 使用。"
+
+#: www/views/includes/confirmBackupPopup.html:6
+msgid "Your NavCoin wallet is backed up!"
+msgstr "你的 NavCoin 錢包已完成備份 ！"
+
+msgid "Your NavCoin wallet is ready!"
+msgstr "你的 NavCoin 錢包已經準備好了 ！"
+
+#: www/views/feedback/send.html:42
+msgid "Your ideas, feedback, or comments"
+msgstr "你的想法、意見或評論"
+
+#: www/views/tab-create-shared.html:22
+msgid "Your name"
+msgstr "你的名字"
+
+#: www/views/join.html:16
+msgid "Your nickname"
+msgstr "你的暱稱"
+
+#: www/views/tab-export-file.html:11 www/views/tab-import-file.html:20
+msgid "Your password"
+msgstr "你的密碼"
+
+#: www/views/onboarding/backupRequest.html:10
+msgid "Your wallet is never saved to cloud storage or standard device backups."
+msgstr "你的錢包永遠不會被儲存在雲端或是裝置備份中。"
+
+#: src/js/services/walletService.js:1031
+msgid ""
+"Your wallet key will be encrypted. The Spending Password cannot be "
+"recovered. Be sure to write it down."
+msgstr "你的錢包鑰匙即將被加密。支付密碼將無法被重新取得。請務必它寫下來。"
+
+#: www/views/includes/walletSelector.html:23 www/views/paperWallet.html:35
+#: www/views/tab-home.html:96 www/views/tab-receive.html:74
+#: www/views/walletDetails.html:139 www/views/walletDetails.html:59
+msgid "[Balance Hidden]"
+msgstr "[餘額已隱藏]"
+
+#: src/js/controllers/bitpayCardIntro.js:11
+msgid "add your NavPay Visa card(s)"
+msgstr "添加你的 NavPay Visa 卡"
+
+#: www/views/includes/available-balance.html:8
+msgid "locked by pending payments"
+msgstr "被未決支付鎖定"
+
+#: src/js/services/profileService.js:389
+msgid "me"
+msgstr "我"
+
+#: www/views/addressbook.add.html:32
+msgid "name@example.com"
+msgstr "name@example.com"
+
+#: www/views/preferencesHistory.html:15
+msgid "preparing..."
+msgstr "準備中..."
+
+#: src/js/controllers/confirm.js:325 src/js/controllers/modals/txpDetails.js:42
+msgid "to accept"
+msgstr "接受"
+
+#: src/js/controllers/confirm.js:323
+msgid "to pay"
+msgstr "付款"
+
+#: src/js/controllers/confirm.js:327 src/js/controllers/modals/txpDetails.js:40
+msgid "to send"
+msgstr "發送"
+
+#: www/views/preferencesBwsUrl.html:21
+msgid ""
+"{{appName}} depends on Bitcore Wallet Service (BWS) for blockchain "
+"information, networking and Copayer synchronization. The default "
+"configuration points to https://bws.bitpay.com (NavPay's public BWS "
+"instance)."
+msgstr ""
+"{{appName}} 透過比特幣錢包服務 (BWS) 來獲得區塊練、網際網路和共同支出人同步數"
+"據。預設配置使用 https://bws.bitpay.com (NavPay 的公共 BWS 行程)。"
+
+#: src/js/controllers/confirm.js:354
+msgid "{{fee}} will be deducted for NavCoin networking fees."
+msgstr "將會收取 {{fee}} 作為 NavCoin 網路費用。"
+
+#: www/views/confirm.html:87
+msgid "{{tx.txp[wallet.id].feeRatePerStr}}  of the sending amount"
+msgstr "交易總量的 {{tx.txp[wallet.id].feeRatePerStr}}"
+
+#: www/views/walletDetails.html:212
+msgid "{{updatingTxHistoryProgress}} transactions downloaded"
+msgstr "{{updatingTxHistoryProgress}} 已被下載"
+
+#: www/views/copayers.html:47 www/views/includes/walletInfo.html:12
+msgid "{{wallet.m}}-of-{{wallet.n}}"
+msgstr "{{wallet.m}}-of-{{wallet.n}}"
+
+#: changelly.html:19
+msgid "Can't load Changelly widget"
+msgstr "無法讀取 Changelly 磚"
+
+#: tab-scan.html:26
+msgid "Attempting to load the camera, please wait."
+msgstr "正嘗試讀取相機。 请稍等。"
+
+#: tab-scan.html:27
+msgid ""
+"Your camera may be disabled or you may have no camera connected. In either "
+"case the scan function will not work."
+msgstr "相機可能未被啟用或是尚未連接。在這種情況下將無法使用掃描功能。"
+
+#: onGoingProcess.js:49
+msgid "Calculating Transaction Fees"
+msgstr "計算交易手續費中"
+
+#: onGoingProcess.js:50
+msgid "Finding NavTech Server"
+msgstr "正在尋找 NavTech 伺服器"
+
+#: confirmPrivate.html:15 tab-send.html:19
+msgid "Private Payment"
+msgstr "匿名付款"
+
+#: tab-home.html:18
+msgid "Purchase NavCoin"
+msgstr "購買 NavCoin"
+
+#: tab-home.html:21
+msgid ""
+"To get started, you can Buy NavCoin through our exchange partner Changelly."
+msgstr "開始使用時，你可以在交易所夥伴 Changelly 購買 NavCoin。"
+
+#: changelly.html:16
+msgid "Loading Changelly Exchange..."
+msgstr "正在讀取 Changelly 交易所..."
+
+#: tab-send.html:24
+msgid "Next"
+msgstr "下一步"
+
+msgid "NavTech / Private Payment Servers"
+msgstr "NavTech / 匿名交易伺服器"
+
+msgid "Encryption required"
+msgstr "需要加密"
+
+msgid "Backup required"
+msgstr "需要備份"
+
+msgid "Show QR Code"
+msgstr "顯示 QR 碼"
+
+msgid "Buy NAV"
+msgstr "購買 NAV"
+
+msgid "Wallet not encrypted. Set spending password to encrypt."
+msgstr "錢包未加密，請設定支出密碼以加密。"
+
+msgid "Please enter a password to encrypt your wallet"
+msgstr "請輸入密碼以加密錢包"
+
+msgid "This password can never be recovered or reset!"
+msgstr "此密碼將無法被重新取得或是重新設定!"
+
+msgid "Are you sure?"
+msgstr "你確定?"
+
+msgid ""
+"Your wallet keys will be stored in plain text and you will be vulnerable to "
+"having you coins stolen. We highly recommend pressing no and choosing a "
+"password."
+msgstr ""
+"你的錢包密碼將會以基本文字的方式儲存且你將較易於遭竊。我們強烈建議你選擇否且"
+"設定密碼。"
+
+msgid "Create password"
+msgstr "設定密碼"
+
+msgid "No password"
+msgstr "無密碼"
+
+msgid ""
+"No NavTech servers found. Please add a NavTech server to make private "
+"payments."
+msgstr "找不到 NavTech 伺服器。請新增 NavTech 伺服器後才能使用匿名交易。"
+
+msgid "Invalid server"
+msgstr "無效的伺服器"
+
+msgid "NavTech Server successfully added"
+msgstr "成功新增 NavTech 伺服器"
+
+msgid "Please enter a NavTech URL. e.g. https://SomeNavTechServer.com:3000"
+msgstr "請輸入 NavTech 連結。如: https://SomeNavTechServer.com:3000"
+
+msgid "Add a NavTech server to create private payments."
+msgstr "新增 NavTech 伺服器以使用匿名付費。"
+
+msgid "No NavTech servers found. Please add a server to make private payments"
+msgstr "找不到 NavTech 伺服器，請新增伺服器後再使用匿名付費"
+
+msgid "Invalid NavTech Server"
+msgstr "無效的 NavTech 伺服器"
+
+msgid "Add"
+msgstr "新增"
+
+msgid "You have disallowed camera use. It must be enabled to scan QR codes."
+msgstr "你並未授權使用相機，需授權後才能掃描QR碼。"
+
+msgid "Please see the NavCoin guide for more information."
+msgstr "請參照 NavCoin 用戶指南以獲得更多資訊。"
+
+msgid ""
+"To get started, you can buy NavCoin through our exchange partner Changelly."
+msgstr "開始使用時，你可以在交易所夥伴 Changelly 購買 NavCoin。"
+
+msgid "Buy NavCoin with:"
+msgstr "購買 Nav 使用:"
+
+msgid "Credit Card"
+msgstr "信用卡"
+
+msgid "Cryptocurrency"
+msgstr "加密貨幣"
+
+msgid ""
+"Generate new address from wallet: <span class=\"wallet-name\">{{wallet.name "
+"|| wallet.id}}</span>"
+msgstr ""
+"從此錢包產生新的地址 : <span class=\"wallet-name\">{{wallet.name || wallet."
+"id}}</span>"

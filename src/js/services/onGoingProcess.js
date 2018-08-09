@@ -6,6 +6,7 @@ angular.module('copayApp.services').factory('ongoingProcess', function($log, $ti
   var isWindowsPhoneApp = platformInfo.isCordova && platformInfo.isWP;
 
   var ongoingProcess = {};
+  var pausedOngoingProcess = {};
 
   var processNames = {
     'broadcastingTx': gettext('Broadcasting transaction'),
@@ -37,8 +38,8 @@ angular.module('copayApp.services').factory('ongoingProcess', function($log, $ti
     'generatingNewAddress': gettext('Generating new address...'),
     'sendingByEmail': gettext('Preparing addresses...'),
     'sending2faCode': gettext('Sending 2FA code...'),
-    'buyingBitcoin': gettext('Buying Nav Coin...'),
-    'sellingBitcoin': gettext('Selling Nav Coin...'),
+    'buyingBitcoin': gettext('Buying NavCoin...'),
+    'sellingBitcoin': gettext('Selling NavCoin...'),
     'fetchingBitPayAccount': gettext('Fetching BitPay Account...'),
     'updatingGiftCards': 'Updating Gift Cards...',
     'updatingGiftCard': 'Updating Gift Card...',
@@ -63,6 +64,18 @@ angular.module('copayApp.services').factory('ongoingProcess', function($log, $ti
   root.get = function(processName) {
     return ongoingProcess[processName];
   };
+
+  root.pause = function() {
+    pausedOngoingProcess = ongoingProcess;
+    root.clear();
+  }
+
+  root.resume = function() {
+    lodash.forEach(pausedOngoingProcess, function(v, k) {
+      root.set(k, v);
+    });
+    pausedOngoingProcess = {};
+  }
 
   root.set = function(processName, isOn, customHandler) {
     $log.debug('ongoingProcess', processName, isOn);

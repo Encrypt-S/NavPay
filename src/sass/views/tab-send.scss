@@ -180,4 +180,49 @@
     }
   }
   .scroll{height: 100%;}
+
+  .navTechSuccessText {
+    color: #ffffff;
+    text-align: center;
+    margin: 10px 0 10px 0;
+    transition: all 1s;
+  }
+
+  .showNavTechSuccess {
+    color: $v-success-color;
+  }
+
+  .addNavTechIPContainer {
+    margin-bottom: 10px;
+  }
+
+  .navTechIcon {
+    font-size: 30px;
+    margin-left: -5px;
+  }
+
+  .navTechErrorText {
+    color: red;
+    text-align: center;
+  }
+
+  .navTechInput {
+    width: calc(100% - 35px)
+  }
+
+  .navTechLoading {
+    animation: spin 1000ms infinite linear;
+    top: 20%;
+  }
+
+  @keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg);
+    }
+  }
 }

@@ -1,18 +1,18 @@
-Sichere nav coins zu eigenen Bedingungen, mit einem quelloffenen Gemeinschaftswallet (elektronische Brieftasche mit Mehrfachunterschriften) von NavPay. 
+Sichere NavCoins zu eigenen Bedingungen, mit einem quelloffenen Gemeinschaftswallet (elektronische Brieftasche mit Mehrfachunterschriften) von NavPay. 
 Navpay Nutzer können ihre Beträge individuell speichern oder ihre Finanzen mit anderen Nutzern in Gemeinschaftswallets teilen, die je nach Einstellung mehrere Bestätigungen (elektronische Unterschriften) benötigen und so nichtautorisierte Zahlungen verhindern. Ein paar Einsatzmöglichkeiten, wie ein solches Wallet mit anderen Copayern genutzt werden kann:
 
 Ansparen von Beträgen für Urlaub oder gemeinsame Anschaffungen (z.B. mit Freunden) 
 Überwachung von Ausgaben und Einkünften der Familie.
 Organisation der Ausgaben in Firmen, Vereinen oder Organisationen.
 
-Folgende Funktionen wurden in diese Version von Navpay eingebaut um ein Nav Coin Wallet anzubieten, das keine Kompromisse in Sicherheit oder Zugänglichkeit eingeht:
+Folgende Funktionen wurden in diese Version von Navpay eingebaut um ein NavCoin Wallet anzubieten, das keine Kompromisse in Sicherheit oder Zugänglichkeit eingeht:
 
 Anlage und Verwaltung von mehreren Wallets innerhalb der Anwendung 
 Intiutive mehrfachunterschriften Sicherheit für persönliche und geteilete Wallets
 Einfache Ausgabenvorschläge für geteilte Walltes und Gruppenzahlungen
 Hierarchische deterministische(HD) Adresserzeugung und Sicherung der Wallets 
 Gerätebasierte Sicherheit: Alle privaten Schlüssel werden auf dem Gerät und nicht in der Cloud gespreichert
-Unterstützung von Nav Coin Testnet Wallets
+Unterstützung von NavCoin Testnet Wallets
 Gleichzeitiger Zugriff über alle wichtigen mobilen Systeme und Desktop-Plattformen
 Zahlungsprotokoll (BIP70-BIP73) Unterstützung: Leicht identifizierbare Zahlungsanforderungen und nachvollziehbare sichere nav coinzahlungen.
 Unterstützung von 150+ verschiedenen Währungen und Stückelung in NAV oder bits

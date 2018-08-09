@@ -1,6 +1,8 @@
 'use strict';
 
-angular.module('copayApp.controllers').controller('amountController', function($scope, $filter, $timeout, $ionicScrollDelegate, $ionicHistory, gettextCatalog, platformInfo, lodash, configService, rateService, $stateParams, $window, $state, $log, txFormatService, ongoingProcess, popupService, bwcError, payproService, profileService, bitcore, amazonService, nodeWebkitService) {
+angular.module('copayApp.controllers').controller('amountController', function($scope, $filter, $timeout, $ionicScrollDelegate, $ionicHistory, gettextCatalog,
+  platformInfo, lodash, configService, rateService, $stateParams, $window, $state, $log, txFormatService, ongoingProcess, popupService, bwcError, payproService,
+  profileService, bitcore, amazonService, nodeWebkitService,walletService) {
   var _id;
   var unitToSatoshi;
   var satToUnit;
@@ -86,6 +88,10 @@ angular.module('copayApp.controllers').controller('amountController', function($
     }
 
     processAmount();
+
+    $scope.wallets = profileService.getWallets().sort(function(a, b){ return a.status.totalBalanceStr - b.status.totalBalanceStr });
+    $scope.visibleWallet = $scope.wallets[0]
+    $scope.visibleWalletIndex = 0
 
     $timeout(function() {
       $ionicScrollDelegate.resize();
@@ -234,7 +240,7 @@ angular.module('copayApp.controllers').controller('amountController', function($
       });
     } else {
       var amount = $scope.showAlternativeAmount ? fromFiat(_amount) : _amount;
-      var confirmState = $scope.privatePayment === 'true' ? 'tabs.send.confirm-private' : 'tabs.send.confirm';
+      var confirmState = $scope.privatePayment === true ? 'tabs.send.confirm-private' : 'tabs.send.confirm';
       $state.transitionTo(confirmState, {
         recipientType: $scope.recipientType,
         toAmount: $scope.useSendMax ? null : (amount * unitToSatoshi).toFixed(0),
@@ -248,4 +254,28 @@ angular.module('copayApp.controllers').controller('amountController', function($
     }
     $scope.useSendMax = null;
   };
+
+  $scope.nextWallet =  function() {
+    if($scope.visibleWalletIndex + 1 === $scope.wallets.length) {
+      // No next wallet, reset
+      $scope.visibleWalletIndex = 0;
+      $scope.visibleWallet = $scope.wallets[0];
+    } else {
+      $scope.visibleWalletIndex++;
+      $scope.visibleWallet = $scope.wallets[$scope.visibleWalletIndex];
+    }
+  }
+
+  $scope.previousWallet =  function() {
+    if($scope.visibleWalletIndex === 0) {
+      // No previous wallet, go to end
+      $scope.visibleWalletIndex = $scope.wallets.length - 1;
+      $scope.visibleWallet = $scope.wallets[$scope.visibleWalletIndex];
+    } else {
+      $scope.visibleWalletIndex--;
+      $scope.visibleWallet = $scope.wallets[$scope.visibleWalletIndex];
+    }
+  }
+
+
 });

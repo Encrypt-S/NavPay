@@ -1,0 +1,44 @@
+<ion-view class="settings" show-tabs>
+  <ion-nav-bar class="bar-royal">
+    <ion-nav-title>
+      {{'NavTech Servers'|translate}}
+    </ion-nav-title>
+    <ion-nav-back-button>
+    </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <div class="list card padding">
+
+      <p class="navTechParagraph" translate>
+        Add a NavTech server to create private payments.
+      </p>
+      <p class="navTechParagraph" translate>
+        See&nbsp;
+        <a href="#" ng-click="viewNavTechServers()">navhub.org/navtech-servers/</a> for more details
+      </p>
+      <div class="addNavTechAddressContainer">
+        <div class="item navTechAddAdress">
+          <div>
+            <i class="icon ion-ios-cloud-upload-outline abs-v-center" ng-class="{'ion-load-c loading': loading}"></i>
+            <input type="text" class="navTechInput" placeholder="{{'Please enter NavTech URL. e.g. https://SomeNavTechServer.com:3000' | translate}}"
+              ng-model="navTechAddress">
+            <button class="button button-input button-primary" ng-click="saveNavTechAddress(navTechAddress)">
+              <span class="button-label" translate>Add</span>
+            </button>
+          </div>
+        </div>
+        <p class="navTechParagraph error" ng-show="navTechAddError" translate>Invalid NavTech Server</p>
+      </div>
+    </div>
+
+    <div class="list card padding">
+      <p class="navTechParagraph" ng-show="navTechServers.length === 0" translate>No NavTech servers found. Please add a server to make private payments</p>
+      <ul ng-show="navTechServers.length > 0">
+        <li ng-repeat="server in navTechServers" class="item item-icon-right">
+          {{server}}
+          <i class="icon ion-close-circled removeAddress" ng-click="removeNavTechAddress(server)"></i>
+        </li>
+      </ul>
+    </div>
+  </ion-content>
+</ion-view>
