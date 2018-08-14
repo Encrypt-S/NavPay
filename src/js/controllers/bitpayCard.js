@@ -183,7 +183,7 @@ angular.module('copayApp.controllers').controller('bitpayCardController', functi
   };
 
   this.viewOnBlockchain = function(transactionId) {
-    var url = 'https://www,navexplorer.com/tx/' + transactionId;
+    var url = 'https://www.navexplorer.com/tx/' + transactionId;
     var optIn = true;
     var title = null;
     var message = gettextCatalog.getString('View Transaction on NavExplorer.com');
