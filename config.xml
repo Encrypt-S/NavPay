@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="400002" id="org.navcoin.navpay" ios-CFBundleVersion="4.0.2" version="4.0.2">
+<widget android-versionCode="400200" id="org.navcoin.navpay" ios-CFBundleVersion="4.2.0" version="4.2.0">
     <name>NavPay</name>
     <description>
       NavCoin Thin Client
