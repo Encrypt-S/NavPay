@@ -11,19 +11,6 @@ angular.module('copayApp.controllers').controller('tabScanController', function(
   $scope.videoScanInterval
   var cameras = []
 
-
-
-  var ret = {
-    isIOS: ionic.Platform.isIOS(),
-  };
-
-  ret.isMobile = ret.isAndroid || ret.isIOS || ret.isWP;
-  ret.isDevel = !ret.isMobile && !ret.isChromeApp && !ret.isNW;
-
-  ret.supportsLedger = ret.isChromeApp;
-  ret.supportsTrezor = ret.isChromeApp || ret.isDevel;
-
-
   // Safari / iOS
 
   var scannerStates = {
