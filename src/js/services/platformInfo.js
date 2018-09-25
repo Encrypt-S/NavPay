@@ -68,7 +68,8 @@ angular.module('copayApp.services').factory('platformInfo', function($window) {
   ret.isSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1
   var iOSVesionExtracted = navigator.userAgent.match(/(iPhone OS )(\d+)_(\d+)_?(\d+)?/) // ['iphone', 'iphone', 'major', 'minor', 'fix'] ['', '', '11', '2', '1']
   ret.iOSVersion = iOSVesionExtracted ? [parseInt(iOSVesionExtracted[2], 10), parseInt(iOSVesionExtracted[3], 10), parseInt(iOSVesionExtracted[4], 10)] : []
-  ret.iOSPWASupport = ret.iOSVersion.length ? ret.iOSVersion[0] >= 11 && ret.iOSVersion[1] >= 3 : false
+  ret.iOSPWASupport = ret.iOSVersion.length ? (ret.iOSVersion[0] >= 11 && ret.iOSVersion[1] >= 3) || (ret.iOSVersion[0] >= 12 ) : false 
+
   ret.isPWA = navigator.standalone || false
 
   // Choose camera types
@@ -107,7 +108,7 @@ angular.module('copayApp.services').factory('platformInfo', function($window) {
 
   // PWA on iOS 10.3 started supporting button click photos
   function checkPhotoSupport() {
-    return ret.iOSVersion.length ? ret.iOSVersion[0] >= 11 && ret.iOSVersion[1] >= 3 : false
+    return ret.iOSVersion.length ? (ret.iOSVersion[0] >= 11 && ret.iOSVersion[1] >= 3) || (ret.iOSVersion[0] >= 12 ) : false 
   }
 
   return ret;
