@@ -11,8 +11,6 @@ angular.module('copayApp.controllers').controller('tabScanController', function(
   $scope.videoScanInterval
   var cameras = []
 
-  // Safari / iOS
-
   var scannerStates = {
     unauthorized: 'unauthorized',
     denied: 'denied',
