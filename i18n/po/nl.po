@@ -26,7 +26,7 @@ msgstr "(mogelijke dubbele besteding)"
 
 #: www/views/modals/txp-details.html:160
 msgid "* A payment proposal can be deleted if 1) you are the creator, and no other copayer has signed, or 2) 24 hours have passed since the proposal was created."
-msgstr "* Een betalingsvoorstel kan verwijderd worden als 1) u de maker bent en geen andere medebetaler heeft het gesigneerd, of 2) 24 uur zijn verstreken sinds het cre�ren van het betalingsverzoek"
+msgstr "* Een betalingsvoorstel kan verwijderd worden als 1) u de maker bent en geen andere medebetaler heeft het gesigneerd, of 2) 24 uur zijn verstreken sinds het creëren van het betalingsverzoek"
 
 #: www/views/feedback/rateApp.html:7
 msgid "5-star ratings help us get {{appName}} into more hands, and more users means more resources can be committed to the app!"
@@ -43,7 +43,7 @@ msgstr "Een totaal van {{amountAboveMaxSizeStr}} is uitgesloten. De maximum toeg
 
 #: src/js/controllers/confirm.js:231
 msgid "A total of {{amountBelowFeeStr}} were excluded. These funds come from UTXOs smaller than the network fee provided."
-msgstr "Een totaal van {{amountBelowFeeStr}} is uitgesloten. Dit bedrag komt van UTXO�s kleiner dan de door het netwerk opgestelde transactiekosten."
+msgstr "Een totaal van {{amountBelowFeeStr}} is uitgesloten. Dit bedrag komt van UTXO's kleiner dan de door het netwerk opgestelde transactiekosten."
 
 #: src/js/controllers/preferencesAbout.js:6
 #: www/views/tab-settings.html:156
@@ -384,7 +384,7 @@ msgstr "Annuleer"
 
 #: src/js/controllers/onboarding/tour.js:52
 msgid "Cannot Create Wallet"
-msgstr "Kan geen portefeuille cre�ren"
+msgstr "Kan geen portefeuille creëren"
 
 #: src/js/services/profileService.js:426
 msgid "Cannot join the same wallet more that once"
@@ -498,6 +498,7 @@ msgstr "Contacten"
 
 #: src/js/controllers/lockSetup.js:101
 #: www/views/onboarding/notifications.html:9
+#: www/views/onboarding/collectEmail.html:9
 msgid "Continue"
 msgstr "Doorgaan"
 
@@ -550,7 +551,7 @@ msgstr "Kon geen toegang tot de portefeuille krijgen"
 
 #: src/js/controllers/confirm.js:404
 msgid "Could not add message to imported wallet without shared encrypting key"
-msgstr "Er kon geen bericht aan de ge�mporteerde portefeuille worden toegevoegd zonder de gedeelde encryptie sleutel"
+msgstr "Er kon geen bericht aan de geïmporteerde portefeuille worden toegevoegd zonder de gedeelde encryptie sleutel"
 
 #: src/js/controllers/modals/txpDetails.js:189
 msgid "Could not broadcast payment"
@@ -562,15 +563,15 @@ msgstr "Kon transactie niet opzetten"
 
 #: src/js/services/walletService.js:836
 msgid "Could not create address"
-msgstr "Kon geen adres cre�ren"
+msgstr "Kon geen adres creëren"
 
 #: src/js/services/profileService.js:342
 msgid "Could not create using the specified extended private key"
-msgstr "Kon niet cre�ren met de gespecificeerde uitgebreide priv�-sleutel"
+msgstr "Kon niet creëren met de gespecificeerde uitgebreide privé-sleutel"
 
 #: src/js/services/profileService.js:353
 msgid "Could not create using the specified extended public key"
-msgstr " Kon niet cre�ren met de gespecificeerde uitgebreide publieke sleutel"
+msgstr " Kon niet creëren met de gespecificeerde uitgebreide publieke sleutel"
 
 #: src/js/services/profileService.js:335
 msgid "Could not create: Invalid wallet recovery phrase"
@@ -649,25 +650,25 @@ msgstr "Kon portefeuilles niet updaten"
 
 #: www/views/tab-create-personal.html:3
 msgid "Create Personal Wallet"
-msgstr "Cre�er een persoonlijke portefeuille"
+msgstr "Creëer een persoonlijke portefeuille"
 
 #: www/views/tab-create-shared.html:3
 msgid "Create Shared Wallet"
-msgstr "Cre�er een gedeelde portefeuille"
+msgstr "Creëer een gedeelde portefeuille"
 
 #: www/views/onboarding/tour.html:46
 #: www/views/tab-home.html:76
 #: www/views/tab-send.html:32
 msgid "Create NavCoin wallet"
-msgstr "Cre�er een NavCoin portefeuille"
+msgstr "Creëer een NavCoin portefeuille"
 
 #: www/views/tab-create-personal.html:107
 msgid "Create new wallet"
-msgstr "Cre�er een nieuwe portefeuille"
+msgstr "Creëer een nieuwe portefeuille"
 
 #: www/views/add.html:22
 msgid "Create shared wallet"
-msgstr "Cre�er een gedeelde portefeuille"
+msgstr "Creëer een gedeelde portefeuille"
 
 #: www/views/tab-create-shared.html:137
 msgid "Create {{formData.requiredCopayers}}-of-{{formData.totalCopayers}} wallet"
@@ -676,15 +677,15 @@ msgstr "{{formData.requiredCopayers}}-van-{{formData.totalCopayers}} portefeuill
 #: www/views/modals/txp-details.html:83
 #: www/views/tx-details.html:62
 msgid "Created by"
-msgstr "Gecre�erd door"
+msgstr "Gecreëerd door"
 
 #: src/js/services/onGoingProcess.js:18
 msgid "Creating Wallet..."
-msgstr "Portefeuille aan het cre�eren..."
+msgstr "Portefeuille aan het creëeren..."
 
 #: src/js/services/onGoingProcess.js:17
 msgid "Creating transaction"
-msgstr "Transactie aan het cre�eren"
+msgstr "Transactie aan het creëeren"
 
 #: www/views/preferencesFee.html:20
 msgid "Current fee rate for this policy"
@@ -714,7 +715,7 @@ msgstr "Verwijder portefeuille"
 
 #: www/views/copayers.html:59
 msgid "Delete it and create a new one"
-msgstr "Verwijder het en cre�er een nieuwe"
+msgstr "Verwijder het en creëer een nieuwe"
 
 #: src/js/services/onGoingProcess.js:19
 msgid "Deleting Wallet..."
@@ -747,7 +748,7 @@ msgstr "Later uitvoeren"
 
 #: www/views/tab-export-file.html:29
 msgid "Do not include private key"
-msgstr "Priv�-sleutel niet toevoegen"
+msgstr "Privé-sleutel niet toevoegen"
 
 #: www/views/preferencesLanguage.html:21
 msgid "Don't see your language on Crowdin? Contact the Owner on Crowdin! We'd love to support your language."
@@ -760,7 +761,7 @@ msgstr "Download"
 
 #: www/views/addresses.html:23
 msgid "Each NavCoin wallet can generate billions of addresses from your 12-word backup. A new address is automatically generated and shown each time you receive a payment."
-msgstr "Elk NavCoin adres can miljarden adressen genereren door middel van uw 12-woorden back-up. Een nieuw adres wordt automatisch gegenereerd en getoond als u een betaling ontvangt.
+msgstr "Elk NavCoin adres can miljarden adressen genereren door middel van uw 12-woorden back-up. Een nieuw adres wordt automatisch gegenereerd en getoond als u een betaling ontvangt."
 
 #: src/js/services/feeService.js:11
 msgid "Economy"
@@ -1024,7 +1025,7 @@ msgstr "Van NavPay account"
 
 #: www/views/tab-export-qrCode.html:5
 msgid "From the destination device, go to Add wallet &gt; Import wallet and scan this QR code"
-msgstr "Vanaf het doel apparaat, ga naar portefeuille toevoegen &gt; Importeer Portefeuille en scan deze QR-code�
+msgstr "Vanaf het doel apparaat, ga naar portefeuille toevoegen &gt; Importeer Portefeuille en scan deze QR-code"
 
 #: src/js/services/bwcError.js:74
 msgid "Funds are locked by pending spend proposals"
@@ -1045,6 +1046,10 @@ msgstr "Het bedrag wordt overgemaakt naar"
 #: src/js/services/onGoingProcess.js:22
 msgid "Generating .csv file..."
 msgstr "Het .csv bestand genereren..."
+
+#: www/views/tab-receive.html
+msgid "Generate new address"
+msgstr "Genereer een nieuw adres"
 
 #: src/js/services/onGoingProcess.js:37
 msgid "Generating new address..."
@@ -1193,15 +1198,15 @@ msgstr "Ik heb het opgeschreven"
 
 #: www/views/preferences.html:50
 msgid "If enabled, all sensitive information (private key and recovery phrase) and actions (spending and exporting) associated with this wallet will be protected."
-msgstr "Indien ingeschakeld, zal alle gevoelige informatie (priv�-sleutel en herstel-zin) en zullen alle acties (transacties en exporteren), geassocieerd met deze portefeuille, worden beschermd."
+msgstr "Indien ingeschakeld, zal alle gevoelige informatie (privé-sleutel en herstel-zin) en zullen alle acties (transacties en exporteren), geassocieerd met deze portefeuille, worden beschermd."
 
 #: www/views/advancedSettings.html:22
 msgid "If enabled, the Recent Transactions card - a list of transactions occuring across all wallets - will appear in the Home tab."
-msgstr "Indien ingeschakeld, zal de Recente Transacties kaart � een lijst van transacties van alle portefeuilles � worden weergegeven in het tabblad Start."
+msgstr "Indien ingeschakeld, zal de Recente Transacties kaart - een lijst van transacties van alle portefeuilles - worden weergegeven in het tabblad Start."
 
 #: www/views/advancedSettings.html:13
 msgid "If enabled, wallets will also try to spend unconfirmed funds. This option may cause transaction delays."
-msgstr "Indien ingeschakeld, zullen portefeuilles ook onbevestigd saldo proberen te besteden. Deze optie kan transactie vertraging veroorzaken.
+msgstr "Indien ingeschakeld, zullen portefeuilles ook onbevestigd saldo proberen te besteden. Deze optie kan transactie vertraging veroorzaken."
 
 #: src/js/controllers/onboarding/backupRequest.js:18
 msgid "If this device is replaced or this app is deleted, neither you nor NavPay can recover your funds without a backup."
@@ -1209,11 +1214,11 @@ msgstr "Als dit apparaat wordt vervangen of deze app verwijderd, kan noch u noch
 
 #: www/views/feedback/complete.html:23
 msgid "If you have additional feedback, please let us know by tapping the \"Send feedback\" option in the Settings tab."
-msgstr "Indien u additionele feedback heeft, laat het ons weten door \�Verstuur feedback\� te selecteren in het Tabblad Instellingen."
+msgstr "Indien u additionele feedback heeft, laat het ons weten door \"Verstuur feedback\" te selecteren in het Tabblad Instellingen."
 
 #: www/views/includes/screenshotWarningModal.html:8
 msgid "If you take a screenshot, your backup may be viewed by other apps. You can make a safe backup with physical paper and a pen."
-msgstr "Als u een schermopname maakt, kan uw back-up worden bekeken door andere apps. U kunt een veilige back-up maken met pen en papier.�
+msgstr "Als u een schermopname maakt, kan uw back-up worden bekeken door andere apps. U kunt een veilige back-up maken met pen en papier."
 
 #: www/views/tab-import-hardware.html:42
 #: www/views/tab-import-phrase.html:61
@@ -1238,7 +1243,7 @@ msgstr "Portefeuille importeren..."
 
 #: www/views/backup.html:65
 msgid "In order to verify your wallet backup, please type your password."
-msgstr "Om uw portefeuille back-up te verifi�ren dient u uw wachtwoord in te voeren."
+msgstr "Om uw portefeuille back-up te verifiëren dient u uw wachtwoord in te voeren."
 
 #: www/views/includes/walletItem.html:11
 #: www/views/includes/walletSelector.html:18
@@ -1316,7 +1321,7 @@ msgstr "Klopt dit e-mailadres?"
 
 #: www/views/addresses.html:29
 msgid "It's a good idea to avoid reusing addresses - this both protects your privacy and keeps your NavCoin secure against hypothetical attacks by quantum computers."
-msgstr "Wij raden af om adressen te hergebruiken � dit beschermd uw privacy en houdt uw NavCoin veilig in het hypotetische geval van een aanval met een Quantum computer."
+msgstr "Wij raden af om adressen te hergebruiken - dit beschermd uw privacy en houdt uw NavCoin veilig in het hypotetische geval van een aanval met een Quantum computer."
 
 #: src/js/controllers/backup.js:76
 msgid "It's important that you write your backup phrase down correctly. If something happens to your wallet, you'll need this backup to recover your money. Please review your backup and try again."
@@ -1443,7 +1448,7 @@ msgstr "Ontbrekende parameter"
 
 #: src/js/services/bwcError.js:32
 msgid "Missing private keys to sign"
-msgstr "Priv� sleutels ontbreken om te signeren"
+msgstr "Privé sleutels ontbreken om te signeren"
 
 #: www/views/preferences.html:65
 #: www/views/preferencesAdvanced.html:3
@@ -1467,7 +1472,7 @@ msgstr "Meerdere ontvangers"
 
 #: www/views/tab-import-phrase.html:8
 msgid "NOTE: To import a wallet from a 3rd party software, please go to Add Wallet &gt; Create Wallet, and specify the Recovery Phrase there."
-msgstr "OPMERKING: Om een portefeuille te importeren vanuit software van een 3e partij, ga naar Portefeuille Toevoegen &gt; Portefeuille Aanmaken, en vul daar de herstel-zin in.
+msgstr "OPMERKING: Om een portefeuille te importeren vanuit software van een 3e partij, ga naar Portefeuille Toevoegen &gt; Portefeuille Aanmaken, en vul daar de herstel-zin in."
 
 #: www/views/addressbook.add.html:21
 #: www/views/addressbook.view.html:18
@@ -1564,9 +1569,9 @@ msgstr "Niet geautoriseerd"
 msgid "Not enough funds for fee"
 msgstr "Onvoldoende saldo voor transactiekosten"
 
-#: www/views/onboarding/tour.html:45
-msgid "Not even NavPay can access it."
-msgstr "Zelfs NavPay heeft geen toegang."
+#: www/views/onboarding/tour.html:66
+msgid "Not even the NavCoin Devs can access&nbsp;it."
+msgstr "Zelfs de NavCoin ontwikkelaars kunnen er niet bij."
 
 #: src/js/controllers/paperWallet.js:47
 msgid "Not funds found"
@@ -1596,7 +1601,7 @@ msgstr "Nu is een geschikt moment om een back-up te maken van uw portefeuille. A
 
 #: www/views/backupWarning.html:11
 msgid "Now is a perfect time to assess your surroundings. Nearby windows? Hidden cameras? Shoulder-spies?"
-msgstr "Het is nu een perfect moment om uw omgeving te checken. Ramen dichtbij? Verborgen camera�s? Kijkt iemand mee?"
+msgstr "Het is nu een perfect moment om uw omgeving te checken. Ramen dichtbij? Verborgen camera's? Kijkt iemand mee?"
 
 #: src/js/services/popupService.js:15
 #: src/js/services/popupService.js:58
@@ -1612,7 +1617,7 @@ msgstr "OK"
 
 #: www/views/modals/terms.html:15
 msgid "Official English Disclaimer"
-msgstr "Offici�le Engelse gebruikersvoorwaarden"
+msgstr "Officiële Engelse gebruikersvoorwaarden"
 
 #: src/js/controllers/feedback/send.js:64
 msgid "Oh no!"
@@ -1620,7 +1625,7 @@ msgstr "Oh nee!"
 
 #: www/views/tab-home.html:38
 msgid "On this screen you can see all your wallets, accounts, and assets."
-msgstr "Op dit scherm ziet u al uw portefeuilles, accounts en activa."
+msgstr "Op dit scherm ziet u al uw portefeuilles, accounts en middelen."
 
 #: www/views/lockedView.html:14
 msgid "One-touch Sign In"
@@ -1711,7 +1716,7 @@ msgstr "Betalingsvoorstel"
 
 #: www/views/modals/tx-status.html:21
 msgid "Payment Proposal Created"
-msgstr "Betalingsvoorstel gecre�rd"
+msgstr "Betalingsvoorstel gecreërd"
 
 #: www/views/tab-home.html:45
 msgid "Payment Proposals"
@@ -1801,7 +1806,7 @@ msgstr "Voer uw PIN in"
 
 #: www/views/lockedView.html:15
 msgid "Please place your fingertip on the scanner to verify your identity"
-msgstr "Plaats uw vinger op de scanner om uw identiteit te verifi�ren"
+msgstr "Plaats uw vinger op de scanner om uw identiteit te verifiëren"
 
 #: www/views/backup.html:46
 msgid "Please tap each word in the correct order."
@@ -1837,11 +1842,11 @@ msgstr "Prioriteit"
 
 #: src/js/controllers/paperWallet.js:142
 msgid "Private key encrypted. Enter password"
-msgstr "Priv� sleutel versleuteld. Voer wachtwoord in"
+msgstr "Privé sleutel versleuteld. Voer wachtwoord in"
 
 #: src/js/services/bwcError.js:35
 msgid "Private key is encrypted, cannot sign"
-msgstr "Priv� sleutel versleuteld, kan niet ondertekenen"
+msgstr "Privé sleutel versleuteld, kan niet ondertekenen"
 
 #: www/views/includes/walletActivity.html:51
 msgid "Proposal Accepted"
@@ -2054,7 +2059,7 @@ msgstr "Portefueille saldo scannen..."
 
 #: www/views/includes/screenshotWarningModal.html:7
 msgid "Screenshots are not secure"
-msgstr "Schermopname zijn niet veilig"
+msgstr "Schermopnames zijn niet veilig"
 
 #: www/views/modals/search.html:6
 msgid "Search Transactions"
@@ -2075,6 +2080,10 @@ msgstr "Zoek uw valuta"
 #: www/views/preferences.html:35
 msgid "Security"
 msgstr "Veiligheid"
+
+#: www/views/preferencesNavTech.html:17
+msgid "See &nbsp;<a href=\"#\" ng-click=\"viewNavTechServers()\">navhub.org/navtech-servers</a> for more details."
+msgstr "Zie <a href=\"#\" ng-click=\"viewNavTechServers()\">navhub.org/navtech-servers</a> voor meer details."
 
 #: www/views/tab-import-file.html:7
 msgid "Select a backup file"
@@ -2259,8 +2268,8 @@ msgid "Signing transaction"
 msgstr "Transactie aan het ondertekenen"
 
 #: www/views/onboarding/backupRequest.html:6
-msgid "Since only you control your money, you�ll need to save your backup phrase in case this app is deleted."
-msgstr "Omdat al u controle heeft over uw NavCoin, zal u een back-up moeten maken voor het geval u de app verwijderd."
+msgid "Since only you control your money, you’ll need to save your backup phrase in case this app is deleted."
+msgstr "Omdat alleen u controle heeft over uw NavCoin, zal u een back-up moeten maken voor het geval u de app verwijderd."
 
 #: www/views/tab-create-personal.html:98
 #: www/views/tab-create-shared.html:128
@@ -2317,6 +2326,10 @@ msgstr "Leegmaken"
 msgid "Sweep paper wallet"
 msgstr "Papieren portefeuille legen"
 
+#: www/views/advancedSettings.html:38
+msgid "Sweep Private Key"
+msgstr "Privé sleutel verwijderen"
+
 #: src/js/services/onGoingProcess.js:33
 msgid "Sweeping Wallet..."
 msgstr "Portefeuille legen..."
@@ -2367,12 +2380,12 @@ msgid "Thanks!"
 msgstr "Dank!"
 
 #: src/js/controllers/feedback/send.js:73
-msgid "That's exciting to hear. We'd love to earn that fifth star from you � how could we improve your experience?"
+msgid "That's exciting to hear. We'd love to earn that fifth star from you - how could we improve your experience?"
 msgstr " Dat is goed om te horen. Wij zouden graag die vijfde ster verdienen - hoe kunnen wij uw ervaring verbeteren?"
 
 #: src/js/services/ledger.js:152
 msgid "The Ledger Chrome application is not installed"
-msgstr "De Ledger Chrome applicatie is niet ge�nstalleerd"
+msgstr "De Ledger Chrome applicatie is niet geïnstalleerd"
 
 #: www/views/modals/wallet-balance.html:55
 msgid "The amount of NavCoin immediately spendable from this wallet."
@@ -2404,7 +2417,7 @@ msgstr " Het maximum aantal opeenvolgende ongebruikte adressen (20) is bereikt. 
 
 #: src/js/controllers/onboarding/terms.js:21
 msgid "The official English Terms of Service are available on the NavPay website."
-msgstr " De offici�le Engelse Servicevoorwaarden zijn beschikbaar op de NavPay website."
+msgstr " De officiële Engelse Servicevoorwaarden zijn beschikbaar op de NavPay website."
 
 #: www/views/tab-import-phrase.html:4
 msgid "The password of the recovery phrase (if set)"
@@ -2668,11 +2681,11 @@ msgstr "WAARSCHUWING: Sleutel derivatie werkt op dit moment niet op dit apparaat
 
 #: www/views/tab-export-file.html:45
 msgid "WARNING: Not including the private key allows to check the wallet balance, transaction history, and create spend proposals from the export. However, does not allow to approve (sign) proposals, so <b>funds will not be accessible from the export</b>."
-msgstr "WAARSCHUWING: De priv� sleutel niet toevoegen maakt het wel mogelijk om het saldo en de transactie historie in te zien, en bestedingsvoorstellen aan te maken vanuit de export. Dit maakt het echter niet mogelijk om bestedingsvoorstellen goed te keuren (ondertekeken), dus <b>saldo is niet toegankelijk vanuit de export</b>."
+msgstr "WAARSCHUWING: De privé sleutel niet toevoegen maakt het wel mogelijk om het saldo en de transactie historie in te zien, en bestedingsvoorstellen aan te maken vanuit de export. Dit maakt het echter niet mogelijk om bestedingsvoorstellen goed te keuren (ondertekeken), dus <b>saldo is niet toegankelijk vanuit de export</b>."
 
 #: www/views/tab-export-file.html:36
 msgid "WARNING: The private key of this wallet is not available. The export allows to check the wallet balance, transaction history, and create spend proposals from the export. However, does not allow to approve (sign) proposals, so <b>funds will not be accessible from the export</b>."
-msgstr "WAARSCHUWING: De priv� sleutel van deze portefeuille is niet beschikbaar. De export maakt het wel mogelijk om het saldo en de transactie historie in te zien, en bestedingsvoorstellen aan te maken. De export maakt het echter niet mogelijk om bestedingsvoorstellen goed te keuren (ondertekeken), dus <b>saldo is niet toegankelijk vanuit de export</b>."
+msgstr "WAARSCHUWING: De privé sleutel van deze portefeuille is niet beschikbaar. De export maakt het wel mogelijk om het saldo en de transactie historie in te zien, en bestedingsvoorstellen aan te maken. De export maakt het echter niet mogelijk om bestedingsvoorstellen goed te keuren (ondertekeken), dus <b>saldo is niet toegankelijk vanuit de export</b>."
 
 #: www/views/modals/paypro.html:42
 msgid "WARNING: UNTRUSTED CERTIFICATE"
@@ -2867,7 +2880,7 @@ msgid "We're always looking for ways to improve {{appName}}. How could we improv
 msgstr " Wij zoeken altijd naar manieren om {{appName}} te verbeteren. Hoe kunnen wij uw ervaring verbeteren?"
 
 #: www/views/preferencesLanguage.html:16
-msgid "We�re always looking for translation contributions! You can make corrections or help to make this app available in your native language by joining our community on Crowdin."
+msgid "We're always looking for translation contributions! You can make corrections or help to make this app available in your native language by joining our community on Crowdin."
 msgstr "Wij zijn altijd op zoek naar hulp met vertalingen! U kunt correcties aanbrengen of helpen deze app beschikbaar te maken in uw eigen taal door deel te nemen aan onze gemeenschap op Crowdin."
 
 #: www/views/preferencesAlias.html:11
@@ -2916,7 +2929,7 @@ msgid "You can create a backup later from your wallet settings."
 msgstr "U kunt later een back-up maken vanuit de portefeuille instellingen."
 
 #: src/js/controllers/preferencesLanguage.js:12
-msgid "You can make contributions by signing up on our Crowdin community translation website. We�re looking forward to hearing from you!"
+msgid "You can make contributions by signing up on our Crowdin community translation website. We're looking forward to hearing from you!"
 msgstr "U kunt een bijdrage leveren door u aan te melden bij onze Crowdin gemeenschap vertalings website. Wij kijken er naar uit om van u te horen!"
 
 #: www/views/tab-scan.html:16
@@ -2928,8 +2941,8 @@ msgid "You can see the latest developments and contribute to this open source ap
 msgstr "U kunt de laatste ontwikkelingen volgen en bijdragen aan deze open source app door onze project pagina te bezoeken op GitHub."
 
 #: www/views/onboarding/tour.html:14
-msgid "You can spend NavCoin at websites and stores worldwide."
-msgstr "U kunt wereldwijd bij websites en winkels met NavCoin betalen."
+msgid "You can spend NavCoin at stores and websites worldwide."
+msgstr "U kunt wereldwijd bij winkels en websites met NavCoin betalen."
 
 #: www/views/backup.html:12
 msgid "You can still export it from Advanced &gt; Export."
@@ -2937,7 +2950,7 @@ msgstr "U kunt deze nog steeds exporteren vanuit Geavanceerd &gt; Exporteren."
 
 #: www/views/onboarding/tour.html:27
 msgid "You can trade it for other currencies like US Dollars, Euros, or Pounds."
-msgstr "kunt het inwisselen voor valuta's zoals de Amerikaanse Dollar, de Euro, of Ponden."
+msgstr "U kunt het inwisselen voor valuta's zoals de Amerikaanse Dollar, de Euro, of Ponden."
 
 #: www/views/onboarding/tour.html:41
 msgid "You control your NavCoin."
@@ -2956,7 +2969,7 @@ msgstr "Uw NavCoin portefeuille is gereed!"
 
 #: www/views/feedback/send.html:42
 msgid "Your ideas, feedback, or comments"
-msgstr "Uw ide�en, feedback of reacties"
+msgstr "Uw ideëen, feedback of reacties"
 
 #: www/views/tab-create-shared.html:22
 msgid "Your name"
@@ -3172,8 +3185,9 @@ msgstr "Toevoegen"
 msgid "You have disallowed camera use. It must be enabled to scan QR codes."
 msgstr "U heeft camera gebruik niet toegestaan. Deze moet ingeschakeld zijn om QR-codes te scannen."
 
-msgid "Please see the NavCoin guide for more information."
-msgstr "Zie de NavCoin gids voor meer informatie."
+#: www/views/tab-receive.html:23
+msgid "Please see the <a href=\"https://info.navcoin.org/knowledge-base/navpay-qr-scanner/\" style=\"color: white;\">NavCoin guide</a> for more information."
+msgstr "Zie de <a href=\"https://info.navcoin.org/knowledge-base/navpay-qr-scanner/\" style=\"color: white;\">NavCoin gids</a> voor meer informatie."
 
 msgid "Purchase NavCoin"
 msgstr "Koop NavCoin"
@@ -3187,5 +3201,5 @@ msgstr "Koop NavCoin met:"
 msgid "Cryptocurrency"
 msgstr "Creditcard"
 
-msgid "Generate new address from wallet: <span class="wallet-name">{{wallet.name || wallet.id}}</span>"
-msgstr "Genereer een nieuw adres uit de portemonnee: <span class="wallet-name">{{wallet.name || wallet.id}}</span>"
+msgid "Generate new address from wallet: <span class=\"wallet-name\">{{wallet.name || wallet.id}}</span>"
+msgstr "Genereer een nieuw adres uit de portemonnee: <span class=\"wallet-name\">{{wallet.name || wallet.id}}</span>"
