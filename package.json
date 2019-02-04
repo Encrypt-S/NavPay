@@ -78,8 +78,8 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-exec": "^1.0.0",
     "grunt-nw-builder": "^2.0.3",
-    "grunt-sass": "^1.2.0",
-    "node-sass": "^4.9.2",
+    "grunt-sass": "^3.0.2",
+    "node-sass": "^4.11.0",
     "shelljs": "^0.3.0"
   },
   "scripts": {
