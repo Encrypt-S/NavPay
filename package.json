@@ -65,7 +65,6 @@
     "cordova-windows": "~5.0.0",
     "coveralls": "^2.11.9",
     "express": "^4.11.2",
-    "fileicon": "^0.2.2",
     "fs": "0.0.2",
     "fs-extra": "^0.30.0",
     "grunt-angular-gettext": "^2.3.11",
@@ -78,8 +77,8 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-exec": "^1.0.0",
     "grunt-nw-builder": "^2.0.3",
-    "grunt-sass": "^1.2.0",
-    "node-sass": "^4.9.2",
+    "grunt-sass": "^1.2.1",
+    "node-sass": "^4.12.0",
     "shelljs": "^0.3.0"
   },
   "scripts": {
@@ -136,6 +135,9 @@
     "tostr": "^0.1.0",
     "trash-cli": "^1.4.0",
     "xcode": "^1.0.0"
+  },
+  "optionalDependencies": {
+    "fileicon": "^0.2.2"
   },
   "cordova": {
     "platforms": [
