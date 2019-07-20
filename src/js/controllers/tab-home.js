@@ -246,7 +246,22 @@ angular.module('copayApp.controllers').controller('tabHomeController',
         walletService.getStatus(wallet, {}, function(err, status) {
           if (err) {
 
-            wallet.error = (err === 'WALLET_NOT_REGISTERED') ? gettextCatalog.getString('Wallet not registered') : bwcError.msg(err);
+            if (err === 'WALLET_NOT_REGISTERED') {
+              walletService.recreate(wallet, function(err) {
+                if (err) return;
+                $timeout(function() {
+                  walletService.startScan(wallet, function() {
+                    $timeout(function() {
+                      $scope.$apply();
+                    });
+                  }, false);
+                });
+              }, false);
+            } else {
+              wallet.error =  bwcError.msg(err);
+            }
+
+            //wallet.error = (err === 'WALLET_NOT_REGISTERED') ? gettextCatalog.getString('Wallet not registered') : bwcError.msg(err);
 
             $log.error(err);
           } else {

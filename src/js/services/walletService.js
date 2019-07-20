@@ -804,29 +804,29 @@ angular.module('copayApp.services').factory('walletService', function($log, $tim
     });
   };
 
-  root.recreate = function(wallet, cb) {
+  root.recreate = function(wallet, cb, showMessage = true) {
     $log.debug('Recreating wallet:', wallet.id);
-    ongoingProcess.set('recreating', true);
+    if (showMessage) ongoingProcess.set('recreating', true);
     wallet.recreateWallet(function(err) {
       wallet.notAuthorized = false;
-      ongoingProcess.set('recreating', false);
+      if (showMessage) ongoingProcess.set('recreating', false);
       return cb(err);
     });
   };
 
-  root.startScan = function(wallet, cb) {
+  root.startScan = function(wallet, cb, showMessage = true) {
     cb = cb || function() {};
 
     $log.debug('Scanning wallet ' + wallet.id);
     if (!wallet.isComplete()) return;
 
     wallet.updating = true;
-    ongoingProcess.set('scanning', true);
+    if (showMessage) ongoingProcess.set('scanning', true);
     wallet.startScan({
       includeCopayerBranches: true,
     }, function(err) {
       wallet.updating = false;
-      ongoingProcess.set('scanning', false);
+      if (showMessage) ongoingProcess.set('scanning', false);
       return cb(err);
     });
   };
