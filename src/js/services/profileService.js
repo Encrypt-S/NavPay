@@ -1,6 +1,6 @@
 'use strict';
 angular.module('copayApp.services')
-  .factory('profileService', function profileServiceFactory($rootScope, $timeout, $filter, $log, $state, sjcl, lodash, storageService, bwcService, configService, gettextCatalog, bwcError, uxLanguage, platformInfo, txFormatService, appConfigService, popupService, ongoingProcess) {
+  .factory('profileService', function profileServiceFactory($rootScope, $timeout, $filter, $log, $state, sjcl, lodash, storageService, bwcService, configService, gettextCatalog, bwcError, uxLanguage, platformInfo, txFormatService, appConfigService, popupService, ongoingProcess, walletService) {
 
 
     var isChromeApp = platformInfo.isChromeApp;
@@ -436,6 +436,8 @@ angular.module('copayApp.services')
 
     // create and store a wallet
     root.createWallet = function(opts, cb) {
+      console.log('root.createWallet')
+
       doCreateWallet(opts, function(err, walletClient, secret) {
         if (err) return cb(err);
 
@@ -711,15 +713,33 @@ angular.module('copayApp.services')
         account: opts.account || 0,
       }, function(err) {
         if (err) {
-          if (err instanceof errors.NOT_AUTHORIZED)
-            return cb(err);
+          if (err instanceof errors.NOT_AUTHORIZED) {
 
-          return bwcError.cb(err, gettextCatalog.getString('Could not import'), cb);
-        }
+            //if not authorized, create the copayer in the backend and scan the wallet for transactions
+            opts.mnemonic = words;
+            opts.name = 'Imported Wallet';
+            opts.m = 1;
+            opts.n = 1;
 
-        addAndBindWalletClient(walletClient, {
-          bwsurl: opts.bwsurl
-        }, cb);
+            root.createWallet(opts, function (err, client) {
+              if (err) return cb(err);
+              var wallet = root.getWallet(client.id)
+              $timeout(function() {
+                walletService.startScan(wallet, function() {
+                  return cb(false, client);
+                });
+              });
+
+            });
+            //return cb(err);
+          } else {
+            return bwcError.cb(err, gettextCatalog.getString('Could not import'), cb);
+          }
+        } else {
+          addAndBindWalletClient(walletClient, {
+            bwsurl: opts.bwsurl
+          }, cb);
+        }        
       });
     };
 

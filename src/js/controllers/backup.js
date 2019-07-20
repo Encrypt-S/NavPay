@@ -100,9 +100,6 @@ angular.module('copayApp.controllers').controller('backupController',
     };
 
     $scope.copyRecoveryPhrase = function() {
-      console.log('copyRecoveryPhrase', $scope.mnemonicWords)
-      console.log('copyRecoveryPhrase', $scope.mnemonicPassphere)
-      console.log('copyRecoveryPhrase', $scope)
       return $scope.mnemonicPassphere
     };
 
