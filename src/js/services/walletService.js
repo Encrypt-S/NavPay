@@ -805,7 +805,7 @@ angular.module('copayApp.services').factory('walletService', function($log, $tim
     });
   };
 
-  root.recreate = function(wallet, cb, showMessage = true) {
+  root.recreate = function(wallet, cb, showMessage) {
     $log.debug('Recreating wallet:', wallet.id);
     if (showMessage) ongoingProcess.set('recreating', true);
     wallet.recreateWallet(function(err) {
@@ -815,7 +815,7 @@ angular.module('copayApp.services').factory('walletService', function($log, $tim
     });
   };
 
-  root.startScan = function(wallet, cb, showMessage = true) {
+  root.startScan = function(wallet, cb, showMessage) {
     cb = cb || function() {};
 
     $log.debug('Scanning wallet ' + wallet.id);
