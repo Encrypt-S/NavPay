@@ -446,6 +446,7 @@ angular.module('copayApp.services').factory('walletService', function($log, $tim
           if (err) {
             $log.warn(bwcError.msg(err, 'Server Error')); //TODO
             if (err instanceof errors.CONNECTION_ERROR || (err.message && err.message.match(/5../))) {
+              bwcService.chooseBackend();
               $log.info('Retrying history download in 5 secs...');
               return $timeout(function() {
                 return getNewTxs(newTxs, skip, next);
@@ -856,6 +857,7 @@ angular.module('copayApp.services').factory('walletService', function($log, $tim
       if (err) {
         var prefix = gettextCatalog.getString('Could not create address');
         if (err instanceof errors.CONNECTION_ERROR || (err.message && err.message.match(/5../))) {
+          bwcService.chooseBackend();
           $log.warn(err);
           return $timeout(function() {
             createAddress(wallet, cb);
