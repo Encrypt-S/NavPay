@@ -11,24 +11,30 @@ bwcModule.provider("bwcService", function() {
     'https://navpay-api.navcoin.org/bws/api',
   ];
 
+  var backendsToTry = JSON.parse(JSON.stringify(backends))
+
   var chosenBackend = false;
 
   chooseBackend();
 
   function chooseBackend() {
-    for(var i=0, l=backends.length; i<l; i++) {
-      if (!chosenBackend) {
-        chosenBackend = testBws(backends[i]);
-      }//if
-    }//for
-  
-    if (!chosenBackend) {
-      chosenBackend = backends[0];
+
+    while (!chosenBackend) {
+      chosenBackend = testBws();
     }
 
   }
 
-  function testBws(backend) {
+  function testBws() {
+
+    if (backendsToTry.length == 0) {
+      return backends[0];
+    }
+
+    var index = Math.floor((Math.random() * (backendsToTry.length+1)))
+
+    var backend = backendsToTry[index]
+
     try {
       var xmlHttp = new XMLHttpRequest();
       xmlHttp.open( "GET", backend + '/v1/status', false ); // false for synchronous request
@@ -38,8 +44,10 @@ bwcModule.provider("bwcService", function() {
        return backend
       }     
     } catch (err) {
+      backendsToTry.splice(index, 1)
       return false
     }
+    backendsToTry.splice(index, 1)
     return false
   }
 
