@@ -78,10 +78,6 @@ angular.module('copayApp.controllers').controller('tabSettingsController', funct
     $state.go('downloadApp', { fromSettings: true });
   };
 
-  $scope.shouldShowAppDownload = function () {
-    return platformInfo.isSafari && platformInfo.iOSPWASupport && !platformInfo.isPWA
-  }
-
   $scope.openChangellyWeb = function() {
     var url = 'https://changelly.com/exchange/USD/NAV/100';
     var optIn = true;
