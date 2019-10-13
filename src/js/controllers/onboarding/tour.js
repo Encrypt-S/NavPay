@@ -102,8 +102,4 @@ angular.module('copayApp.controllers').controller('tourController',
       if ($scope.data.index != 3) $scope.slider.slideNext();
       else $state.go('onboarding.welcome');
     }
-
-    $scope.shouldShowAppDownload = function () {
-      return platformInfo.isSafari && platformInfo.iOSPWASupport && !platformInfo.isPWA
-    }
   });
