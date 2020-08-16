@@ -39,6 +39,9 @@ angular.module('copayApp.services').factory('derivationPathHelper', function(lod
       case "1'":
         ret.networkName = 'testnet';
         break;
+      case "130'":
+        ret.networkName = 'livenet';
+        break;
       default:
         return false;
     };
