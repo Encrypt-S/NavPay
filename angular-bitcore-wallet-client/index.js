@@ -7,8 +7,11 @@ bwcModule.provider("bwcService", function() {
   var provider = {};
 
   var backends = [
-    'https://navpay-api-1.navcoin.org/bws/api',
     'https://navpay-api.navcoin.org/bws/api',
+    'https://navpay-api-1.navcoin.org/bws/api',
+    'https://navpay-api-3.navcoin.org/bws/api',
+    'https://navpay-api-4.navcoin.org/bws/api',
+    'https://navpay-api-5.navcoin.org/bws/api',
   ];
 
   var backendsToTry = JSON.parse(JSON.stringify(backends))
@@ -19,8 +22,10 @@ bwcModule.provider("bwcService", function() {
 
   function chooseBackend() {
 
-    while (!chosenBackend) {
+    var counter = 0
+    while (!chosenBackend && counter < backends.length) {
       chosenBackend = testBws();
+      counter++;
     }
 
   }
@@ -28,10 +33,10 @@ bwcModule.provider("bwcService", function() {
   function testBws() {
 
     if (backendsToTry.length == 0) {
-      return backends[0];
+      return false;
     }
 
-    var index = Math.floor((Math.random() * (backendsToTry.length+1)))
+    var index = Math.floor(Math.random() * Math.floor(backendsToTry.length-1));
 
     var backend = backendsToTry[index]
 
@@ -40,6 +45,12 @@ bwcModule.provider("bwcService", function() {
       xmlHttp.open( "GET", backend + '/v1/status', false ); // false for synchronous request
       xmlHttp.send( null );
       responseJson = JSON.parse(xmlHttp.responseText)
+
+      if (xmlHttp.status !== 200) {
+        backendsToTry.splice(index, 1)
+        return false
+      }
+
       if (responseJson.error === null) {
        return backend
       }     

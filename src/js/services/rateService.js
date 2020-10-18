@@ -46,45 +46,56 @@ RateService.prototype._fetchCurrencies = function() {
   var updateFrequencySeconds = 5 * 60;
   var btcRate
   var rateServiceUrl = 'https://bitpay.com/api/rates';
-  var navRateServiceUrl = 'https://api.coinmarketcap.com/v1/ticker/nav-coin/'
+  var navRateServiceUrl = 'https://api.coingecko.com/api/v3/simple/price'
+  var supportedCurrenciesUrl = 'https://api.coingecko.com/api/v3/simple/supported_vs_currencies'
 
   var retrieve = function() {
-    //log.info('Fetching exchange rates');
-    self.httprequest.get(navRateServiceUrl).success(function(res){
-      btcRate = res[0].price_btc;
-      self.httprequest.get(rateServiceUrl).success(function(res) {
-        self.lodash.each(res, function(currency) {
-          if(currency.name === 'Pound Sterling' && currency.code === 'GBP'){
-            currency.name = 'Great British Pound'
-          }
-          self._rates[currency.code] = parseFloat(currency.rate) * parseFloat(btcRate);
+
+    self.httprequest.get(supportedCurrenciesUrl).success(function(currencies){
+
+      self.httprequest.get(navRateServiceUrl, {
+        params: {
+          ids: 'nav-coin',
+          vs_currencies: currencies.toString()
+        }
+      }).success(function(rates){
+
+        for(var key in rates['nav-coin']) {
+
+          var code = key.toUpperCase()
+
+          self._rates[key.toUpperCase()] = rates['nav-coin'][key];
           self._alternatives.push({
-            name: currency.name,
-            isoCode: currency.code,
-            rate: parseFloat(currency.rate) * parseFloat(btcRate)
+            name: code,
+            isoCode: code,
+            rate: rates['nav-coin'][key]
           });
-        });
+          
+        }//for
+
         self._isAvailable = true;
         self.lodash.each(self._queued, function(callback) {
           setTimeout(callback, 1);
         });
         setTimeout(retrieve, updateFrequencySeconds * 1000);
+
       }).error(function(err) {
-        //log.debug('Error fetching exchange rates', err);
+       console.log('Error fetching exchange rates', err);
         setTimeout(function() {
           backoffSeconds *= 1.5;
           retrieve();
         }, backoffSeconds * 1000);
         return;
-      })}).error(function(err) {
-      //log.debug('Error fetching exchange rates', err);
+      });
+
+    }).error(function(err) {
+      console.log('Error fetching supported', err);
       setTimeout(function() {
         backoffSeconds *= 1.5;
         retrieve();
       }, backoffSeconds * 1000);
       return;
     });
-
   };
 
   retrieve();

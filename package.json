@@ -2,7 +2,7 @@
   "name": "NavPay",
   "description": "A Secure NavCoin Wallet",
   "author": "NavPay",
-  "version": "4.7.0",
+  "version": "5.0.1",
   "keywords": [
     "navcoin",
     "wallet",
@@ -87,6 +87,7 @@
     "deploy:prod": "npm run build:www-release && firebase deploy -P prod",
     "deploy:beta": "npm run build:www-beta && firebase deploy -P beta",
     "start": "npm run build:www && ionic serve --nolivereload --nogulp -s --address 0.0.0.0",
+    "start:live": "npm run build:www && ionic serve --nogulp -s --address 0.0.0.0",
     "start:ios": "npm run build:www && npm run build:ios && npm run open:ios",
     "start:android": "npm run build:www && npm run build:android && npm run run:android",
     "start:windows": "npm run build:www && npm run build:windows",

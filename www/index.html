@@ -21,7 +21,7 @@
   <link rel="apple-touch-startup-image" sizes="1242x2208" href="img/app/launch-screens/1242x2208.png">
   <link rel="apple-touch-startup-image" sizes="1125x2436" href="img/app/launch-screens/1125x2436.png">
   </head>
-<body>
+<body style="background-color: #f2f2f2">
 
   <!-- Workaround to prevent autofill -->
   <div style="display: none;">
@@ -34,6 +34,30 @@
   <ion-nav-view>
     <incoming-data-menu></incoming-data-menu>
   </ion-nav-view>
+
+  <div class="pre-loader">
+    <div class="bar-royal bar bar-header" style="position: unset" align-title="center">
+      <div class="title title-center header-item">
+        <span class="nav-bar-title">
+          <img class="tab-home__logo" style="height: 18px" src="img/app/logo-simple.svg">
+        </span>
+      </div>
+    </div>
+  </div> 
+
+  <div class="list card homeTip" style="margin-top: 15px;">
+    <div class="title" style="font-size: 20px; text-align: center; font-weight: bold; color: #445; margin: 20px 10px;">
+      Connecting to the NavPay Network
+    </div>
+    <div class="subtitle" style="text-align: center; font-size: 1rem; color: #445; font-weight: 300; margin: 20px 3em 1.5em;">
+      Pleae be patient while we find an available server.
+    </div>
+    <div class="padding">
+      <div class="spinner" style="text-align: center;">
+        <img src="img/loading.gif" style="width: 80px;" />
+      </div>
+    </div>
+  </div>
 
   <script src="lib/ionic.bundle.min.js"></script>
   <script src="lib/angular-components.js"></script>

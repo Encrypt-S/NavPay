@@ -204,6 +204,19 @@ angular.module('copayApp.controllers').controller('tabHomeController',
       }
     };
 
+    $scope.reloadPage = function() {
+      console.log('reloadPage')
+      $window.location.reload();
+    };
+
+    $scope.walletError = function(wallets) {
+      var hasError = false
+      for (var i = 0, l = wallets.length; i<l; i++) {
+        if (wallets[i].error) hasError = true
+      }
+      return hasError
+    }
+
     $scope.openBuyLink = function() {
       $state.go('tabs.changelly');
     };
