@@ -7,8 +7,6 @@ bwcModule.provider("bwcService", function() {
   var provider = {};
 
   var backends = [
-    'https://navpay-api.navcoin.org/bws/api',
-    'https://navpay-api-1.navcoin.org/bws/api',
     'https://navpay-api-3.navcoin.org/bws/api',
     'https://navpay-api-4.navcoin.org/bws/api',
     'https://navpay-api-5.navcoin.org/bws/api',
@@ -36,7 +34,7 @@ bwcModule.provider("bwcService", function() {
       return false;
     }
 
-    var index = Math.floor(Math.random() * Math.floor(backendsToTry.length-1));
+    var index = 0;
 
     var backend = backendsToTry[index]
 
@@ -92,8 +90,11 @@ bwcModule.provider("bwcService", function() {
     service.getClient = function(walletData, opts) {
       opts = opts || {};
             
+      var url = chosenBackend
+      if (opts.bwsurl) url = opts.bwsurl
+
       var bwc = new Client({
-        baseUrl: chosenBackend,
+        baseUrl: url,
         verbose: opts.verbose,
         timeout: 100000,
         transports: ['polling'],

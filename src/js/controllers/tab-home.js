@@ -211,9 +211,12 @@ angular.module('copayApp.controllers').controller('tabHomeController',
 
     $scope.walletError = function(wallets) {
       var hasError = false
-      for (var i = 0, l = wallets.length; i<l; i++) {
-        if (wallets[i].error) hasError = true
+      if (wallets) {
+        for (var i = 0, l = wallets.length; i<l; i++) {
+          if (wallets[i].error) hasError = true
+        }
       }
+      
       return hasError
     }
 
@@ -258,6 +261,7 @@ angular.module('copayApp.controllers').controller('tabHomeController',
       lodash.each($scope.wallets, function(wallet) {
         walletService.getStatus(wallet, {}, function(err, status) {
           if (err) {
+            console.log('err', err)
 
             if (err === 'WALLET_NOT_REGISTERED') {
               walletService.recreate(wallet, function(err) {
