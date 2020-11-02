@@ -10,7 +10,7 @@
     </ion-refresher>
 
     <!-- <div class="ng-hide" ng-show="showRateCard.value" ng-include="'views/feedback/rateCard.html'"></div> -->
-    <div ng-if="!isIOSNativeApp">
+    <div ng-if="!isIOSNativeApp && false">
       <div class="list card homeTip" id="home-changelly" ng-if="buyNavTip">
         <div class="item item-icon-right item-heading">
           <a ng-click="hideBuyNavTip()">
@@ -21,7 +21,7 @@
           Purchase NavCoin
         </div>
         <div class="subtitle">
-          <div ng-show="wallets[0]" translate>To get started, you can buy NavCoin through our exchange partner Changelly.</div>
+          <div ng-show="wallets[0]" translate>To get started, you can buy NavCoin through our exchange partner Simple Swap.</div>
           <div ng-show="!wallets[0]" translate>To get started, you'll need to create a NavCoin wallet and get some NavCoin.</div>
           <div ng-hide="isAndroid || isIOS" class="padding">
             <a class="button button-standard button-primary" ng-show="wallets[0]" ng-click="openBuyLink()" translate>Buy NAV</a>
@@ -82,6 +82,18 @@
       </a>
     </div>
 
+    <div class="list card homeTip" ng-if="walletError(wallets)">
+      <div class="title" translate>
+        Network error detected
+      </div>
+      <div class="subtitle" translate>
+        We were unable to connect to the NavPay service, do you want to retry?
+      </div>
+      <div class="padding">
+        <a class="button button-standard button-primary" ng-click="reloadPage()" translate>Retry Connection</a>
+      </div>
+    </div>
+
     <div class="list card">
       <div class="item item-icon-right item-heading">
         <span translate>Wallets</span>
@@ -140,6 +152,7 @@
         </a>
       </div>
     </div>
+
     <div class="ng-hide list card" ng-show="wallets[0] && bitpayCardItems.length>0" ng-include="'views/includes/bitpayCardsCard.html'"></div>
     <div class="ng-hide list card" ng-show="wallets[0] && buyAndSellItems.length>0" ng-include="'views/includes/buyAndSellCard.html'"></div>
     <div class="ng-hide list card" ng-show="homeIntegrations.length>0" ng-include="'views/includes/homeIntegrations.html'"></div>

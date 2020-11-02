@@ -32,7 +32,8 @@
         </div>
 
         <div ng-show="walletNotRegistered">
-          <span class="size-12 db m10" translate>This wallet is not registered at the given Bitcore Wallet Service (BWS). You can recreate it from the local information.</span>
+          <p class="size-12 db m10" translate>This wallet is not registered at the given Bitcore Wallet Service (BWS). You can recreate it from the local information.</p>
+          <p class="size-12 db m10">If this doesn't work, try recreating this wallet from your seed phrase.</p>
           <a class="button button-outline button-light button-small" ng-click='recreate()' translate>Recreate</a>
         </div>
 

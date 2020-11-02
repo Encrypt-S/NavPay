@@ -204,6 +204,22 @@ angular.module('copayApp.controllers').controller('tabHomeController',
       }
     };
 
+    $scope.reloadPage = function() {
+      console.log('reloadPage')
+      $window.location.reload();
+    };
+
+    $scope.walletError = function(wallets) {
+      var hasError = false
+      if (wallets) {
+        for (var i = 0, l = wallets.length; i<l; i++) {
+          if (wallets[i].error) hasError = true
+        }
+      }
+      
+      return hasError
+    }
+
     $scope.openBuyLink = function() {
       $state.go('tabs.changelly');
     };
@@ -245,6 +261,7 @@ angular.module('copayApp.controllers').controller('tabHomeController',
       lodash.each($scope.wallets, function(wallet) {
         walletService.getStatus(wallet, {}, function(err, status) {
           if (err) {
+            console.log('err', err)
 
             if (err === 'WALLET_NOT_REGISTERED') {
               walletService.recreate(wallet, function(err) {

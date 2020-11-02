@@ -14,7 +14,7 @@ angular.module('copayApp.services').factory('configService', function(storageSer
 
     // Bitcore wallet service URL
     bws: {
-      url: 'http://navpay.navcoin.org',
+      url: 'https://navpay-api-3.navcoin.org/bws/api',
     },
 
     download: {

@@ -21,7 +21,7 @@ angular.module('copayApp.controllers').controller('preferencesBwsUrlController',
 
     $scope.save = function() {
 
-      var bws = 'http://95.183.50.44:3232/bws/api'
+      var bws = $scope.bwsurl.value
       $log.info('Using BWS URL Alias to ' + bws);
       $scope.bwsurl.value = bws;
 
